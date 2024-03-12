@@ -22,13 +22,14 @@ description_encodings = compute_description_encodings(model)
 
 label_encodings = compute_label_encodings(model)
 
+num_classes = len(dataset.classes)
 
 print("Evaluating...")
-lang_accuracy_metric = torchmetrics.Accuracy().to(device)
-lang_accuracy_metric_top5 = torchmetrics.Accuracy(top_k=5).to(device)
+lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
+lang_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
 
-clip_accuracy_metric = torchmetrics.Accuracy().to(device)
-clip_accuracy_metric_top5 = torchmetrics.Accuracy(top_k=5).to(device)
+clip_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
+clip_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
 
 for batch_number, batch in enumerate(tqdm(dataloader)):
     images, labels = batch
@@ -71,7 +72,7 @@ for batch_number, batch in enumerate(tqdm(dataloader)):
     
     
 
-print("\n")
+print("\nDataset being tested: ", hparams['dataset'])
 
 accuracy_logs = {}
 accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*lang_accuracy_metric.compute().item()
