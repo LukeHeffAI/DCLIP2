@@ -1,13 +1,15 @@
 import os
 import openai
+from dotenv import load_dotenv
 import json
 
 import itertools
 
 from descriptor_strings import stringtolist
 
-openai.api_key = None #FILL IN YOUR OWN HERE
-
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_prompt(category_name: str):
     # you can replace the examples with whatever you want; these were random and worked, could be improved
@@ -52,7 +54,7 @@ def obtain_descriptors_and_save(filename, class_list):
     
     
     # most efficient way is to partition all prompts into the max size that can be concurrently queried from the OpenAI API
-    responses = [openai.Completion.create(model="text-davinci-003",
+    responses = [openai.Completion.create(model="gpt-4-0125-preview",
                                             prompt=prompt_partition,
                                             temperature=0.,
                                             max_tokens=100,
