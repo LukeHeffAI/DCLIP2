@@ -1,0 +1,56 @@
+{
+    "chainsaw": [
+        "vroom vroom",
+        "rrrrrrrr",
+        "buzz buzz",
+        "whirr whirr",
+        "chop chop"
+    ],
+    "dog": [
+        "woof woof",
+        "bark",
+        "yap yap",
+        "growl",
+        "whine",
+        "howl"
+    ],
+    "rooster": [
+        "cock-a-doodle-doo",
+        "cuckoo-caw",
+        "cluck cluck"
+    ],
+    "rain": [
+        "drip drop",
+        "pitter patter",
+        "splish splash"
+    ],
+    "sneezing": [
+        "achoo",
+        "choo",
+        "ah-choo"
+    ],
+    "crying_baby": [
+        "wah wah",
+        "sob sob",
+        "whimper whimper"
+    ],
+    "clock_tick": [
+        "tick tock",
+        "ticking",
+        "click clack"
+    ],
+    "crackling_fire": [
+        "crackle crackle",
+        "snap snap",
+        "pop pop"
+    ],
+    "helicopter": [
+        "whirr whirr",
+        "chop chop",
+        "thump thump"
+    ],
+    "sea_waves": [
+        "swish swish",
+        "crash",
+        "roar"]
+}
