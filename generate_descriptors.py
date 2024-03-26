@@ -2,6 +2,7 @@ import os
 import openai
 from dotenv import load_dotenv
 import json
+import time
 
 import itertools
 
@@ -36,29 +37,48 @@ A: There are several useful visual features to tell there is a television in a p
 
 Q: What are useful features for distinguishing a {category_name} in a photo?
 A: There are several useful visual features to tell there is a {category_name} in a photo:
--
-"""
+-"""
 
-# generator 
+# generator
 def partition(lst, size):
     for i in range(0, len(lst), size):
         yield list(itertools.islice(lst, i, i + size))
         
 def obtain_descriptors_and_save(filename, class_list):
-    responses = {}
+    responses = []
     descriptors = {}
-    
-    
-    
+
     prompts = [generate_prompt(category.replace('_', ' ')) for category in class_list]
     
-    
-    # most efficient way is to partition all prompts into the max size that can be concurrently queried from the OpenAI API
-    responses = [openai.Completion.create(model="gpt-4-0125-preview",
-                                            prompt=prompt_partition,
-                                            temperature=0.,
-                                            max_tokens=100,
-                                            ) for prompt_partition in partition(prompts, 20)]
+    for prompt_partition in partition(prompts, 20):
+        for attempt in range(4):  # Try up to four times (initial + three retries)
+            try:
+                response = openai.ChatCompletion.create(
+                    model="gpt-4-0125-preview",
+                    messages=[
+                        {
+                        "role": "user",
+                        "content": str(prompt_partition[0])
+                    }
+                    ],
+                    temperature=0,
+                    max_tokens=125,
+                )
+                responses.append(response.choices[0].message.content)
+
+                print(responses[-1])
+                break  # Exit the retry loop if the request was successful
+            except openai.error.RateLimitError:
+                if attempt < 3:  # Don't wait after the last attempt
+                    time.sleep((2 ** attempt) * 3)  # Exponential backoff: 1s, 2s, 4s
+                else:
+                    print(f"Request failed after {attempt + 1} attempts")
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+                break  # Exit retry loop if a non-rate-limit error occurs
+
+        # time.sleep(5)  # Wait for 1 second between different prompt partitions to avoid rate limits
+
     response_texts = [r["text"] for resp in responses for r in resp['choices']]
     descriptors_list = [stringtolist(response_text) for response_text in response_texts]
     descriptors = {cat: descr for cat, descr in zip(class_list, descriptors_list)}
@@ -69,5 +89,8 @@ def obtain_descriptors_and_save(filename, class_list):
     with open(filename, 'w') as fp:
         json.dump(descriptors, fp)
     
+# # Generate a list of all the classes in the CUB dataset from descriptors_cub.json
+# with open('descriptors/descriptors_cub_gpt4.json', 'r') as fp:
+#     descriptors = json.load(fp)
 
-# obtain_descriptors_and_save('example', ["bird", "dog", "cat"])
+# obtain_descriptors_and_save('/home/luke/Documents/GitHub/data/CUB/CUB_200_2011/', list(descriptors.keys())[0:3])
