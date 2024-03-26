@@ -31,10 +31,13 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'cub_post_noise'
 # Options:
 # ['imagenet',
 #  'cub',
+#  'cub_edit',
+#  'cub_exp',
+#  'cub_noise',
 #  'eurosat',
 #  'places365',
 #  'food101',
@@ -90,6 +93,7 @@ FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/'
 PETS_DIR = ''
 DTD_DIR = ''
 PLACES_DIR = ''
+ESC_10_DIR = '/home/luke/Documents/GitHub/ImageBind/ESC-50-master/audio/ESC-10'
 
 
 # PyTorch datasets
@@ -122,6 +126,27 @@ elif hparams['dataset'] == 'cub':
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
+
+elif hparams['dataset'] == 'cub_edit':
+    # load CUB dataset
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None #dataset.classes
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
+
+elif hparams['dataset'] == 'cub_exp':
+    # load CUB dataset
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None #dataset.classes
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_full'
+
+elif hparams['dataset'] == 'cub_post_noise':
+    # load CUB dataset
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None #dataset.classes
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_post_noise'
     
 # I recommend using VISSL https://github.com/facebookresearch/vissl/blob/main/extra_scripts/README.md to download these
     
