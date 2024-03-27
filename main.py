@@ -34,8 +34,8 @@ overall_clip_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_clas
 overall_clip_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
 
 # Initialize dictionaries to track class-wise accuracy
-class_wise_lang_accuracy = {i: torchmetrics.Accuracy(num_classes=1).to(device) for i in range(num_classes)}
-class_wise_clip_accuracy = {i: torchmetrics.Accuracy(num_classes=1).to(device) for i in range(num_classes)}
+class_wise_lang_accuracy = {i: torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device) for i in range(num_classes)}
+class_wise_clip_accuracy = {i: torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device) for i in range(num_classes)}
 
 for batch_number, (images, labels) in enumerate(tqdm(dataloader)):    
     images = images.to(device)
@@ -88,13 +88,18 @@ print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric
 # Print class-wise accuracies
 print("\nClass-wise Description-based Accuracy:")
 for i, acc in class_wise_lang_accuracy.items():
-    print(f"Class {i} (Description-based): {100 * acc.compute().item()}%")
+    class_name = dataset.classes[i]
+    accuracy = 100 * acc.compute().item()
+    print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
 
 print("\nClass-wise CLIP-Standard Accuracy:")
 for i, acc in class_wise_clip_accuracy.items():
-    print(f"Class {i} (CLIP-Standard): {100 * acc.compute().item()}%")
+    class_name = dataset.classes[i]
+    accuracy = 100 * acc.compute().item()
+    print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
 
-print("\nDataset being tested: ", hparams['dataset'])
+
+# print("\nDataset being tested: ", hparams['dataset'])
 
 # accuracy_logs = {}
 # accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*lang_accuracy_metric.compute().item()
