@@ -98,6 +98,25 @@ for i, acc in class_wise_clip_accuracy.items():
     accuracy = 100 * acc.compute().item()
     print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
 
+acc_list = []
+trivial_count = 0
+print("Compare accuracies of description and CLIP-Standard")
+for i, acc_class_wise in class_wise_lang_accuracy.items():
+    for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
+        if i == j:
+            class_name = dataset.classes[i]
+            acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
+            acc_list.append(acc)
+            if acc > 0.001 or acc < -0.001:
+                print(f"Desc. Acc. - CLIP Acc.: {acc:.3f}% - {class_name}")
+            else:
+                trivial_count += 1
+                print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
+print("Trivial count: ", trivial_count)
+
+# for i in range(len(sorted(acc_list))):
+#     print(f"{sorted(acc_list)[i]}")
+# print(sum(acc_list))
 
 # print("\nDataset being tested: ", hparams['dataset'])
 
