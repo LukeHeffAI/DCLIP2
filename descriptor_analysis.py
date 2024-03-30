@@ -17,15 +17,25 @@ def compute_frequencies_is(data):
     for entry in descriptor_list:
         if entry in descriptor_frequencies:
             descriptor_frequencies[entry] += 1
+
     return descriptor_frequencies
 
 def compute_frequencies_contains(data):
     '''
     Compute the frequency of each item in the value list in the data, including when the item is a substring of another item.
     '''
-
-
-
+    class_list = []
+    descriptor_list = []
+    for k, v in data.items():
+        class_list.append(k)
+        descriptor_list.extend(v)
+    descriptor_frequencies = {i: 0 for i in descriptor_list}
+    for descriptor in descriptor_list:
+        for potential_container in descriptor_list:
+            if descriptor in potential_container:
+                descriptor_frequencies[descriptor] += 1
+    
+    return descriptor_frequencies
 
 def load_json(file):
     with open(file) as f:
