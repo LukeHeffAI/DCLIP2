@@ -1,0 +1,62 @@
+{
+    "annual crop land": [
+      "Uniform texture and color throughout the area",
+      "Rectangular fields often in green or yellow tones",
+      "Little to no variation in terrain or elevation",
+      "Visible field boundaries and agricultural rows"
+    ],
+    "forest": [
+      "Dense tree coverage with varying shades of green",
+      "Irregular canopy patterns with little to no visible ground",
+      "Lack of structured patterns or clear lines",
+      "Variations in texture depending on tree types and shadow"
+    ],
+    "brushland or shrubland": [
+      "Areas of non-woody, herbaceous plants",
+      "Bright green colors with some variations in texture",
+      "Often found bordering forests or in open fields",
+      "Less density and uniformity compared to forests"
+    ],
+    "highway or road": [
+      "Long, linear structures with consistent width",
+      "Surfaces appear smoother than surrounding landscapes",
+      "Variation in color from light grey to black",
+      "Adjacent to vehicles or service areas in some images"
+    ],
+    "industrial buildings or commercial buildings": [
+      "Clusters of geometric structures and buildings",
+      "Variety of colors but predominantly grey and metallic",
+      "Large, flat roofs with occasional storage tanks or chimneys",
+      "Sparse or no vegetation, with paved surfaces around buildings"
+    ],
+    "pasture land": [
+      "Less uniform green areas compared to crops",
+      "Occasional irregular patterns of grazing animals",
+      "Frequently adjacent to water bodies or forests",
+      "Visible fences or infrastructure for animal management"
+    ],
+    "permanent crop land": [
+      "Rows of trees or shrubs indicating orchards or vineyards",
+      "More variation in color and texture than annual crops",
+      "Visible spaces between plant rows",
+      "Often located on sloped terrain"
+    ],
+    "residential buildings or homes or apartments": [
+      "Dense areas of small to medium-sized buildings",
+      "Varied roof colors but predominantly red and grey",
+      "Organized street patterns with vegetation in yards",
+      "Swimming pools, parks, or other communal areas visible"
+    ],
+    "river": [
+      "Narrow, winding linear patterns through the terrain",
+      "Color varies from dark blue to brown depending on sediment",
+      "Vegetation often denser along riverbanks",
+      "Possible presence of boats or bridges"
+    ],
+    "lake or sea": [
+      "Large, uniform bodies of water",
+      "Shorelines may have beaches, docks, or vegetation",
+      "Color can range from deep blue to green",
+      "Islands or floating objects may be present"
+    ]
+  }  
