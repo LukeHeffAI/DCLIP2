@@ -2,6 +2,7 @@ import torch
 import json
 import time as t
 import seaborn as sns
+from loading_helpers import load_json
 
 def compute_freq_is(data):
     '''
@@ -39,12 +40,6 @@ def compute_freq_contains(data):
                 descriptor_frequencies[descriptor] += 1
 
     return descriptor_frequencies
-
-def load_json(file):
-    with open(file) as f:
-        data = json.load(f)
-    return data
-
 
 descriptor_file = [
     'descriptors/descriptors_cub.json',
