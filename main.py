@@ -71,7 +71,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
         image_description_similarity[i] = dot_product_matrix
-        image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
+        image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i], aggregation_method='mean')
     cumulative_tensor = torch.stack(image_description_similarity_cumulative,dim=1)
     descr_predictions = cumulative_tensor.argmax(dim=1)
     
