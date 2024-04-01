@@ -75,15 +75,6 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
         if class_mask.any():
             class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
 
-    
-
-
-# Print overall accuracies
-print("\nDataset being tested: ", hparams['dataset'])
-print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
-print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
-print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
-print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
 
 # Print class-wise accuracies
 print("\nClass-wise Description-based Accuracy:")
@@ -118,12 +109,9 @@ print("Trivial count: ", trivial_count)
 #     print(f"{sorted(acc_list)[i]}")
 # print(sum(acc_list))
 
-# print("\nDataset being tested: ", hparams['dataset'])
-
-# accuracy_logs = {}
-# accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*lang_accuracy_metric.compute().item()
-# accuracy_logs["Total Description-based Top-5 Accuracy: "] = 100*lang_accuracy_metric_top5.compute().item()
-
-# accuracy_logs["Total CLIP-Standard Top-1 Accuracy: "] = 100*clip_accuracy_metric.compute().item()
-# accuracy_logs["Total CLIP-Standard Top-5 Accuracy: "] = 100*clip_accuracy_metric_top5.compute().item()
-
+# Print overall accuracies
+print("\nDataset being tested: ", hparams['dataset'])
+print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
+print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
+print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
+print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
