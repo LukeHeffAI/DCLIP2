@@ -200,11 +200,27 @@ label_to_classname = list(gpt_descriptions.keys())
 
 n_classes = len(list(gpt_descriptions.keys()))
 
-def compute_description_encodings(model):
+descriptor_frequencies = load_json('descriptor_freq_analysis/descriptors_freq_cub')
+total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
+total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
+frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
+frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
+
+def compute_description_encodings(model, freq_penalty_config):
     description_encodings = OrderedDict()
+    if freq_penalty_config == "is":
+        freq_penalty_dict = frequency_proportion_is
+    elif freq_penalty_config == "contains":
+        freq_penalty_dict = frequency_proportion_contains
+    else:
+        freq_penalty_dict = None
     for k, v in gpt_descriptions.items():
         tokens = clip.tokenize(v).to(hparams['device'])
         description_encodings[k] = F.normalize(model.encode_text(tokens))
+        if freq_penalty_config:
+            for class_name, freq_penalty in freq_penalty_dict.items():
+                if description_encodings[k] == class_name:
+                    description_encodings[k] = description_encodings[k] * freq_penalty
     return description_encodings
 
 def compute_label_encodings(model):
