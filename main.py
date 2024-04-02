@@ -25,14 +25,6 @@ label_encodings = compute_label_encodings(model)
 # Number of classes
 num_classes = len(dataset.classes)
 
-# TODO: Move this to load.py
-descriptor_frequencies = load_json('descriptor_freq_analysis/descriptors_freq_cub')
-total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
-total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
-frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
-frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
-
-
 # Evaluation metrics for overall and per-class accuracies
 print("Evaluating...")
 overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
