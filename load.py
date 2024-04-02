@@ -206,14 +206,12 @@ total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values(
 frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
 frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
 
-def compute_description_encodings(model, freq_penalty_config):
+def compute_description_encodings(model, freq_penalty_config: str = None):
     description_encodings = OrderedDict()
     if freq_penalty_config == "is":
-        freq_penalty_dict = frequency_proportion_is
+        freq_penalty_dict = frequency_proportion_is.copy()
     elif freq_penalty_config == "contains":
-        freq_penalty_dict = frequency_proportion_contains
-    else:
-        freq_penalty_dict = None
+        freq_penalty_dict = frequency_proportion_contains.copy()
     for k, v in gpt_descriptions.items():
         tokens = clip.tokenize(v).to(hparams['device'])
         description_encodings[k] = F.normalize(model.encode_text(tokens))
