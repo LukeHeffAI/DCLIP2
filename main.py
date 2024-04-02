@@ -32,7 +32,6 @@ total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values(
 frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
 frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
 
-
 # Evaluation metrics for overall and per-class accuracies
 print("Evaluating...")
 overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
@@ -65,6 +64,8 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
         if class_mask.any():
             class_wise_clip_accuracy[i](clip_predictions[class_mask], labels[class_mask])
      
+    frequency_penalty_config = True
+
     # Compute description-based predictions
     image_description_similarity = [None]*n_classes
     image_description_similarity_cumulative = [None]*n_classes
@@ -82,14 +83,6 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
         class_mask = labels == i
         if class_mask.any():
             class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
-
-
-# Print overall accuracies
-print("\nDataset being tested: ", hparams['dataset'])
-print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
-print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
-print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
-print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
 
 # Print class-wise accuracies
 print("\nClass-wise Description-based Accuracy:")
@@ -124,12 +117,15 @@ print("Trivial count: ", trivial_count)
 #     print(f"{sorted(acc_list)[i]}")
 # print(sum(acc_list))
 
-# print("\nDataset being tested: ", hparams['dataset'])
+accuracy_logs = {}
+accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
+accuracy_logs["Total Description-based Top-5 Accuracy: "] = 100*overall_lang_accuracy_metric_top5.compute().item()
+accuracy_logs["Total CLIP-Standard Top-1 Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
+accuracy_logs["Total CLIP-Standard Top-5 Accuracy: "] = 100*overall_clip_accuracy_metric_top5.compute().item()
 
-# accuracy_logs = {}
-# accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*lang_accuracy_metric.compute().item()
-# accuracy_logs["Total Description-based Top-5 Accuracy: "] = 100*lang_accuracy_metric_top5.compute().item()
-
-# accuracy_logs["Total CLIP-Standard Top-1 Accuracy: "] = 100*clip_accuracy_metric.compute().item()
-# accuracy_logs["Total CLIP-Standard Top-5 Accuracy: "] = 100*clip_accuracy_metric_top5.compute().item()
-
+# Print overall accuracies
+print("\nDataset being tested: ", hparams['dataset'])
+print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
+print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
+print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
+print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
