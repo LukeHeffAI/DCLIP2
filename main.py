@@ -25,12 +25,12 @@ label_encodings = compute_label_encodings(model)
 # Number of classes
 num_classes = len(dataset.classes)
 
-# TODO: Move this to load.py
-descriptor_frequencies = load_json('descriptor_freq_analysis/descriptors_freq_cub')
-total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
-total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
-frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
-frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
+# # TODO: Move this to load.py
+# descriptor_frequencies = load_json('descriptor_freq_analysis/descriptors_freq_cub')
+# total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
+# total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
+# frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
+# frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
 
 # Evaluation metrics for overall and per-class accuracies
 print("Evaluating...")
@@ -69,10 +69,25 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     # Compute description-based predictions
     image_description_similarity = [None]*n_classes
     image_description_similarity_cumulative = [None]*n_classes
+
+# In main.py, where image_description_similarity is computed
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
+        
+        # Normalize by frequency if frequency_penalty_config is True
+        if frequency_penalty_config:
+            # Assuming `descriptors_freq` is loaded and available
+            # Adjust the similarity based on frequency
+            for descriptor in gpt_descriptions[k]:
+                freq = descriptors_freq['freq_is'].get(descriptor, 1) # Fallback to 1 if not found
+                # Normalize freq here, if necessary
+                norm_freq = freq / max(descriptors_freq['freq_contains'].values())
+                penalty_index = gpt_descriptions[k].index(descriptor)
+                dot_product_matrix[:, penalty_index] /= norm_freq
+        
         image_description_similarity[i] = dot_product_matrix
-        image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i], aggregation_method='mean')
+        image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
+
     cumulative_tensor = torch.stack(image_description_similarity_cumulative,dim=1)
     descr_predictions = cumulative_tensor.argmax(dim=1)
     
