@@ -105,6 +105,7 @@ if hparams['dataset'] == 'imagenet':
     if hparams['dataset'] == 'imagenet':
         dsclass = ImageNet        
         hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
+        hparams['analysis_fname'] = 'descriptors_freq_imagenet'
         # train_ds = ImageNet(hparams['data_dir'], split='val', transform=train_tfms)
         dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
@@ -123,6 +124,7 @@ if hparams['dataset'] == 'imagenet':
 elif hparams['dataset'] == 'cub':
     # load CUB dataset
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
@@ -137,6 +139,7 @@ elif hparams['dataset'] == 'cub_edit':
 elif hparams['dataset'] == 'cub_exp':
     # load CUB dataset
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_full'
@@ -153,6 +156,7 @@ elif hparams['dataset'] == 'cub_post_noise':
 elif hparams['dataset'] == 'eurosat':
     from extra_datasets.patching.eurosat import EuroSATVal
     hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_eurosat'
     dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
     dataset = dataset.test_dataset
     hparams['descriptor_fname'] = 'descriptors_eurosat'
@@ -160,6 +164,7 @@ elif hparams['dataset'] == 'eurosat':
     
 elif hparams['dataset'] == 'places365':
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_places365'
     # dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'val', transform=tfms)
@@ -167,6 +172,7 @@ elif hparams['dataset'] == 'places365':
     
 elif hparams['dataset'] == 'food101':
     hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_food101'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
@@ -174,6 +180,7 @@ elif hparams['dataset'] == 'food101':
 
 elif hparams['dataset'] == 'pets':
     hparams['data_dir'] = pathlib.Path(PETS_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_pets'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
@@ -181,17 +188,15 @@ elif hparams['dataset'] == 'pets':
     
 elif hparams['dataset'] == 'dtd':
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_dtd'
     dataset = ImageFolder(hparams['data_dir'] / 'val', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
     
-
-
-
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
+hparams['analysis_fname'] = './descriptor_freq_analysis/' + hparams['analysis_fname']
     
-
 print("Creating descriptors...")
 
 gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
@@ -200,7 +205,7 @@ label_to_classname = list(gpt_descriptions.keys())
 
 n_classes = len(list(gpt_descriptions.keys()))
 
-descriptor_frequencies = load_json('descriptor_freq_analysis/descriptors_freq_cub')
+descriptor_frequencies = load_json(hparams['analysis_fname'] + '.json')
 total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
 total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
 frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
@@ -208,17 +213,24 @@ frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc,
 
 def compute_description_encodings(model, freq_penalty_config: str = None):
     description_encodings = OrderedDict()
+    freq_penalty_dict = {}
     if freq_penalty_config == "is":
-        freq_penalty_dict = frequency_proportion_is.copy()
+        freq_penalty_dict = frequency_proportion_is
     elif freq_penalty_config == "contains":
-        freq_penalty_dict = frequency_proportion_contains.copy()
-    for k, v in gpt_descriptions.items():
-        tokens = clip.tokenize(v).to(hparams['device'])
-        description_encodings[k] = F.normalize(model.encode_text(tokens))
-        if freq_penalty_config:
-            for class_name, freq_penalty in freq_penalty_dict.items():
-                if description_encodings[k] == class_name:
-                    description_encodings[k] = description_encodings[k] * freq_penalty
+        freq_penalty_dict = frequency_proportion_contains
+
+    for description_name, description_text in gpt_descriptions.items():
+        tokens = clip.tokenize(description_text).to(hparams['device'])
+        encoded_text = model.encode_text(tokens)
+        normalized_encoding = F.normalize(encoded_text, dim=-1)
+
+        if freq_penalty_config and description_name in freq_penalty_dict:
+            penalty = freq_penalty_dict[description_name]
+            penalized_encoding = normalized_encoding * penalty
+            description_encodings[description_name] = penalized_encoding
+        else:
+            description_encodings[description_name] = normalized_encoding
+
     return description_encodings
 
 def compute_label_encodings(model):
