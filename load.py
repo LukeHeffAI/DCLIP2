@@ -35,8 +35,8 @@ hparams['dataset'] = 'cub'
 # Options:
 # ['imagenet',
 #  'cub',
-#  'cub_edit',
-#  'cub_exp',
+#  'cub_gpt4_test',
+#  'cub_gpt4_full',
 #  'cub_noise',
 #  'eurosat',
 #  'places365',
@@ -127,14 +127,14 @@ elif hparams['dataset'] == 'cub':
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
 
-elif hparams['dataset'] == 'cub_edit':
+elif hparams['dataset'] == 'cub_gpt4_test':
     # load CUB dataset
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
 
-elif hparams['dataset'] == 'cub_exp':
+elif hparams['dataset'] == 'cub_gpt4_full':
     # load CUB dataset
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
