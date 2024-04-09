@@ -105,6 +105,7 @@ if hparams['dataset'] == 'imagenet':
     if hparams['dataset'] == 'imagenet':
         dsclass = ImageNet        
         hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
+        hparams['analysis_fname'] = 'descriptors_freq_imagenet'
         # train_ds = ImageNet(hparams['data_dir'], split='val', transform=train_tfms)
         dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
@@ -123,20 +124,22 @@ if hparams['dataset'] == 'imagenet':
 elif hparams['dataset'] == 'cub':
     # load CUB dataset
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
 
-elif hparams['dataset'] == 'cub_gpt4_test':
+elif hparams['dataset'] == 'cub_edit':
     # load CUB dataset
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
 
-elif hparams['dataset'] == 'cub_gpt4_full':
+elif hparams['dataset'] == 'cub_exp':
     # load CUB dataset
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_full'
@@ -153,6 +156,7 @@ elif hparams['dataset'] == 'cub_post_noise':
 elif hparams['dataset'] == 'eurosat':
     from extra_datasets.patching.eurosat import EuroSATVal
     hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_eurosat'
     dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
     dataset = dataset.test_dataset
     hparams['descriptor_fname'] = 'descriptors_eurosat'
@@ -160,6 +164,7 @@ elif hparams['dataset'] == 'eurosat':
     
 elif hparams['dataset'] == 'places365':
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_places365'
     # dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'val', transform=tfms)
@@ -167,6 +172,7 @@ elif hparams['dataset'] == 'places365':
     
 elif hparams['dataset'] == 'food101':
     hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_food101'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
@@ -174,6 +180,7 @@ elif hparams['dataset'] == 'food101':
 
 elif hparams['dataset'] == 'pets':
     hparams['data_dir'] = pathlib.Path(PETS_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_pets'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
@@ -181,15 +188,14 @@ elif hparams['dataset'] == 'pets':
     
 elif hparams['dataset'] == 'dtd':
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_dtd'
     dataset = ImageFolder(hparams['data_dir'] / 'val', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
     
-
-
-
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
+hparams['analysis_fname'] = './descriptor_freq_analysis/' + hparams['analysis_fname']
     
 
 print("Creating descriptors...")
@@ -197,6 +203,8 @@ print("Creating descriptors...")
 gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
 label_to_classname = list(gpt_descriptions.keys())
 
+print("Creating descriptor frequencies...")
+descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 
