@@ -43,12 +43,12 @@ def compute_freq_contains(data):
 
 descriptor_file = [
     'descriptors/descriptors_cub.json',
-    'descriptors/descriptors_dtd.json',
-    'descriptors/descriptors_eurosat.json',
-    'descriptors/descriptors_food101.json',
-    'descriptors/descriptors_imagenet.json',
-    'descriptors/descriptors_pets.json',
-    'descriptors/descriptors_places365.json',
+    # 'descriptors/descriptors_dtd.json',
+    # 'descriptors/descriptors_eurosat.json',
+    # 'descriptors/descriptors_food101.json',
+    # 'descriptors/descriptors_imagenet.json',
+    # 'descriptors/descriptors_pets.json',
+    # 'descriptors/descriptors_places365.json',
 ]
 
 for json_path in descriptor_file:
@@ -62,27 +62,26 @@ for json_path in descriptor_file:
     with open(json_output_path, 'w') as f:
         json.dump(freq, f, indent=4)
 
-def hide_code_to_make_graph():
-    import pandas as pd
-    # import seaborn as sns
-    # import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-    # # df_is = pd.DataFrame([(k, v) for k, v in freq_is.items() if v > 6], columns=['Value', 'Frequency'])
-    # # df_is = df_is.sort_values(by='Frequency', ascending=False)
-    # df_contains = pd.DataFrame([(k, v) for k, v in freq_contains.items() if v > 15], columns=['Value', 'Frequency'])
-    # df_contains = df_contains.sort_values(by='Frequency', ascending=False)
+df_is = pd.DataFrame([(k, v) for k, v in freq_is.items() if v > 6], columns=['Value', 'Frequency'])
+df_is = df_is.sort_values(by='Frequency', ascending=False)
+# df_contains = pd.DataFrame([(k, v) for k, v in freq_contains.items() if v > 15], columns=['Value', 'Frequency'])
+# df_contains = df_contains.sort_values(by='Frequency', ascending=False)
 
-    # plt.figure(figsize=(15, 6))  # Adjust the size of the plot as needed
-    # # sns.barplot(x='Value', y='Frequency', data=df_is, palette='viridis')
-    # sns.barplot(x='Value', y='Frequency', data=df_contains, palette='viridis')
+plt.figure(figsize=(15, 6))  # Adjust the size of the plot as needed
+sns.barplot(x='Value', y='Frequency', data=df_is, palette='viridis')
+# sns.barplot(x='Value', y='Frequency', data=df_contains, palette='viridis')
 
-    # # Adding plot title and labels for clarity
-    # plt.title('Frequency Distribution of Descriptors')
-    # plt.xlabel('Value')
-    # plt.ylabel('Frequency')
+# Adding plot title and labels for clarity
+plt.title('Frequency Distribution of Descriptors')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
 
-    # # Rotating the x-axis labels for better readability if necessary
-    # plt.xticks(rotation=60)
+# Rotating the x-axis labels for better readability if necessary
+plt.xticks(rotation=60)
 
-    # # Show the plot
-    # plt.show()
+# Show the plot
+plt.show()
