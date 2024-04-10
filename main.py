@@ -56,9 +56,6 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
         class_mask = labels == i
         if class_mask.any():
             class_wise_clip_accuracy[i](clip_predictions[class_mask], labels[class_mask])
-     
-    frequency_penalty_config = False
-    freq_type = "freq_contains"
 
     # Compute description-based predictions
     image_description_similarity = [None]*n_classes
