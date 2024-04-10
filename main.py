@@ -138,11 +138,30 @@ print("Trivial count: ", trivial_count)
 
 ## TODO: Review this section
 # Print overall accuracies
-accuracy_logs = {}
-accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
-accuracy_logs["Total Description-based Top-5 Accuracy: "] = 100*overall_lang_accuracy_metric_top5.compute().item()
-accuracy_logs["Total CLIP-Standard Top-1 Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
-accuracy_logs["Total CLIP-Standard Top-5 Accuracy: "] = 100*overall_clip_accuracy_metric_top5.compute().item()
+experimental_results = {}
+experimental_results["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
+experimental_results["Total Description-based Top-5 Accuracy: "] = 100*overall_lang_accuracy_metric_top5.compute().item()
+experimental_results["Total CLIP-Standard Top-1 Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
+experimental_results["Total CLIP-Standard Top-5 Accuracy: "] = 100*overall_clip_accuracy_metric_top5.compute().item()
+
+# Ensure the structure 'model_size' > 'dataset' > 'freq_type'
+model_size = hparams['model_size']
+dataset_name = hparams['dataset_name']
+
+if model_size not in results:
+    results[model_size] = {}
+
+if dataset_name not in results[model_size]:
+    results[model_size][dataset_name] = {}
+
+if freq_type not in results[model_size][dataset_name]:
+    results[model_size][dataset_name][freq_type] = {}
+
+# Store results
+results[model_size][dataset_name][freq_type] = experimental_results
+
+# Save the updated results
+save_results(results, results_file_path)
 
 print("\nDataset being tested: ", hparams['dataset'])
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
