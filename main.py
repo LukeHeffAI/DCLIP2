@@ -57,7 +57,8 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
         if class_mask.any():
             class_wise_clip_accuracy[i](clip_predictions[class_mask], labels[class_mask])
      
-    frequency_penalty_config = True
+    frequency_penalty_config = False
+    freq_type = "freq_contains"
 
     # Compute description-based predictions
     image_description_similarity = [None]*n_classes
@@ -70,9 +71,9 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
         # Normalize by frequency if frequency_penalty_config is True
         if frequency_penalty_config:
             for descriptor in gpt_descriptions[k]:
-                freq = descriptors_freq['freq_is'].get(descriptor, 1) # Fallback to 1 if not found
+                freq = descriptors_freq[freq_type].get(descriptor, 1) # Fallback to 1 if not found
                 # Normalize freq here, if necessary
-                norm_freq = freq / max(descriptors_freq['freq_contains'].values())
+                norm_freq = freq / max(descriptors_freq[freq_type].values())
                 penalty_index = gpt_descriptions[k].index(descriptor)
                 dot_product_matrix[:, penalty_index] /= norm_freq
         
