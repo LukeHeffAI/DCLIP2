@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'cub_gpt4_full'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -44,6 +44,14 @@ hparams['dataset'] = 'cub'
 #  'pets',
 #  'dtd',
 #  'imagenetv2']
+
+frequency_penalty_config = False
+freq_type = "freq_contains"
+# Options:
+# if frequency_penalty_config is True, freq_type can be:
+# ['freq_is',
+#  'freq_contains']
+# if frequency_penalty_config is False, freq_type is ignored
 
 hparams['batch_size'] = 64*10
 hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
@@ -78,9 +86,6 @@ hparams['unmodify'] = True
 hparams['label_after_text'] = ''
 # hparams['label_after_text'] = ' which is a type of bird.'
 hparams['seed'] = 1
-
-# TODO: fix this... defining global variable to be edited in a function, bad practice
-# unmodify_dict = {}
 
 # classes_to_load = openai_imagenet_classes
 hparams['descriptor_fname'] = None
@@ -131,14 +136,15 @@ elif hparams['dataset'] == 'cub':
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
 
-elif hparams['dataset'] == 'cub_edit':
+elif hparams['dataset'] == 'cub_gpt4_test':
     hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
 
-elif hparams['dataset'] == 'cub_exp':
+elif hparams['dataset'] == 'cub_gpt4_full':
     hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_cub'
@@ -149,6 +155,7 @@ elif hparams['dataset'] == 'cub_exp':
 elif hparams['dataset'] == 'cub_post_noise':
     hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_post_noise'
