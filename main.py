@@ -29,9 +29,11 @@ num_classes = len(dataset.classes)
 print("Evaluating...")
 overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
 overall_lang_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
+overall_lang_accuracy_metric_top10 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=10).to(device)
 
 overall_clip_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
 overall_clip_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
+overall_clip_accuracy_metric_top10 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=10).to(device)
 
 # Initialize dictionaries to track class-wise accuracy
 class_wise_lang_accuracy = {i: torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device) for i in range(num_classes)}
@@ -52,6 +54,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     # Update overall and class-wise accuracies for CLIP
     overall_clip_accuracy_metric(image_labels_similarity, labels)
     overall_clip_accuracy_metric_top5(image_labels_similarity, labels)
+    overall_clip_accuracy_metric_top10(image_labels_similarity, labels)
     for i in range(num_classes):
         class_mask = labels == i
         if class_mask.any():
@@ -83,6 +86,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     # Update overall and class-wise accuracies for descriptions
     overall_lang_accuracy_metric(cumulative_tensor.softmax(dim=-1), labels)
     overall_lang_accuracy_metric_top5(cumulative_tensor.softmax(dim=-1), labels)
+    overall_lang_accuracy_metric_top10(cumulative_tensor.softmax(dim=-1), labels)
     for i in range(num_classes):
         class_mask = labels == i
         if class_mask.any():
@@ -123,14 +127,18 @@ print("Trivial count: ", trivial_count)
 
 ## TODO: Review this section
 # Print overall accuracies
-accuracy_logs = {}
-accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
-accuracy_logs["Total Description-based Top-5 Accuracy: "] = 100*overall_lang_accuracy_metric_top5.compute().item()
-accuracy_logs["Total CLIP-Standard Top-1 Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
-accuracy_logs["Total CLIP-Standard Top-5 Accuracy: "] = 100*overall_clip_accuracy_metric_top5.compute().item()
+experimental_results = {}
+experimental_results["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
+experimental_results["Total Description-based Top-5 Accuracy: "] = 100*overall_lang_accuracy_metric_top5.compute().item()
+experimental_results["Total Description-based Top-10 Accuracy: "] = 100*overall_clip_accuracy_metric_top10.compute().item()
+experimental_results["Total CLIP-Standard Top-1 Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
+experimental_results["Total CLIP-Standard Top-5 Accuracy: "] = 100*overall_clip_accuracy_metric_top5.compute().item()
+experimental_results["Total CLIP-Standard Top-10 Accuracy: "] = 100*overall_clip_accuracy_metric_top10.compute().item()
 
 print("\nDataset being tested: ", hparams['dataset'])
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
+print("Total Description-based Top-10 Accuracy: ", 100 * overall_lang_accuracy_metric_top10.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
 print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
+print("Total CLIP-Standard Top-10 Accuracy: ", 100 * overall_clip_accuracy_metric_top10.compute().item(), "%")
