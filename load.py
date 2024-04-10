@@ -197,7 +197,6 @@ elif hparams['dataset'] == 'dtd':
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
 hparams['analysis_fname'] = './descriptor_freq_analysis/' + hparams['analysis_fname']
     
-
 print("Creating descriptors...")
 
 gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
@@ -208,11 +207,32 @@ descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 
-def compute_description_encodings(model):
+descriptor_frequencies = load_json(hparams['analysis_fname'] + '.json')
+total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
+total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
+frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
+frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
+
+def compute_description_encodings(model, freq_penalty_config: str = None):
     description_encodings = OrderedDict()
-    for k, v in gpt_descriptions.items():
-        tokens = clip.tokenize(v).to(hparams['device'])
-        description_encodings[k] = F.normalize(model.encode_text(tokens))
+    freq_penalty_dict = {}
+    if freq_penalty_config == "is":
+        freq_penalty_dict = frequency_proportion_is
+    elif freq_penalty_config == "contains":
+        freq_penalty_dict = frequency_proportion_contains
+
+    for description_name, description_text in gpt_descriptions.items():
+        tokens = clip.tokenize(description_text).to(hparams['device'])
+        encoded_text = model.encode_text(tokens)
+        normalized_encoding = F.normalize(encoded_text, dim=-1)
+
+        if freq_penalty_config and description_name in freq_penalty_dict:
+            penalty = freq_penalty_dict[description_name]
+            penalized_encoding = normalized_encoding * penalty
+            description_encodings[description_name] = penalized_encoding
+        else:
+            description_encodings[description_name] = normalized_encoding
+
     return description_encodings
 
 def compute_label_encodings(model):

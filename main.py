@@ -19,18 +19,11 @@ model.requires_grad_(False)
 
 # Encode descriptions and labels
 print("Encoding descriptions...")
-description_encodings = compute_description_encodings(model)
+description_encodings = compute_description_encodings(model, "contains")
 label_encodings = compute_label_encodings(model)
 
 # Number of classes
 num_classes = len(dataset.classes)
-
-# # TODO: Move this to load.py
-# descriptor_frequencies = load_json('descriptor_freq_analysis/descriptors_freq_cub')
-# total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
-# total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
-# frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
-# frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
 
 # Evaluation metrics for overall and per-class accuracies
 print("Evaluating...")
@@ -132,13 +125,14 @@ print("Trivial count: ", trivial_count)
 #     print(f"{sorted(acc_list)[i]}")
 # print(sum(acc_list))
 
+## TODO: Review this section
+# Print overall accuracies
 accuracy_logs = {}
 accuracy_logs["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
 accuracy_logs["Total Description-based Top-5 Accuracy: "] = 100*overall_lang_accuracy_metric_top5.compute().item()
 accuracy_logs["Total CLIP-Standard Top-1 Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
 accuracy_logs["Total CLIP-Standard Top-5 Accuracy: "] = 100*overall_clip_accuracy_metric_top5.compute().item()
 
-# Print overall accuracies
 print("\nDataset being tested: ", hparams['dataset'])
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
