@@ -31,12 +31,12 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'imagenet'
 # Options:
 # ['imagenet',
 #  'cub',
-#  'cub_edit',
-#  'cub_exp',
+#  'cub_gpt4_test',
+#  'cub_gpt4_full',
 #  'cub_noise',
 #  'eurosat',
 #  'places365',
@@ -202,6 +202,8 @@ print("Creating descriptors...")
 gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
 label_to_classname = list(gpt_descriptions.keys())
 
+print("Creating descriptor frequencies...")
+descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 

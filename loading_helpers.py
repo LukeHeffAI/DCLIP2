@@ -12,6 +12,12 @@ def load_json(filename):
     with open(filename, 'r') as fp:
         return json.load(fp)
     
+def load_descriptors_frequency(hparams):
+    freq_filename = hparams.get('analysis_fname', None)
+    if freq_filename:
+        return load_json(freq_filename)
+    return None
+    
 
 def wordify(string):
     word = string.replace('_', ' ')
