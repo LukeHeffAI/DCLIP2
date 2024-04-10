@@ -103,6 +103,7 @@ tfms = _transform(hparams['image_size'])
 
 if hparams['dataset'] == 'imagenet':
     if hparams['dataset'] == 'imagenet':
+        hparams['dataset_name'] = 'ImageNet'
         dsclass = ImageNet        
         hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
         hparams['analysis_fname'] = 'descriptors_freq_imagenet'
@@ -115,6 +116,7 @@ if hparams['dataset'] == 'imagenet':
         hparams['after_text'] = hparams['label_after_text'] = '.'
         
     elif hparams['dataset'] == 'imagenetv2':
+        hparams['dataset_name'] = 'ImageNetV2'
         hparams['data_dir'] = pathlib.Path(IMAGENETV2_DIR)
         dataset = ImageNetV2(location=hparams['data_dir'], transform=tfms)
         classes_to_load = openai_imagenet_classes
@@ -122,7 +124,7 @@ if hparams['dataset'] == 'imagenet':
         dataset.classes = classes_to_load
 
 elif hparams['dataset'] == 'cub':
-    # load CUB dataset
+    hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -130,14 +132,14 @@ elif hparams['dataset'] == 'cub':
     hparams['descriptor_fname'] = 'descriptors_cub'
 
 elif hparams['dataset'] == 'cub_edit':
-    # load CUB dataset
+    hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
 
 elif hparams['dataset'] == 'cub_exp':
-    # load CUB dataset
+    hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -145,7 +147,7 @@ elif hparams['dataset'] == 'cub_exp':
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_full'
 
 elif hparams['dataset'] == 'cub_post_noise':
-    # load CUB dataset
+    hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
@@ -154,6 +156,7 @@ elif hparams['dataset'] == 'cub_post_noise':
 # I recommend using VISSL https://github.com/facebookresearch/vissl/blob/main/extra_scripts/README.md to download these
     
 elif hparams['dataset'] == 'eurosat':
+    hparams['dataset_name'] = 'EuroSAT'
     from extra_datasets.patching.eurosat import EuroSATVal
     hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_eurosat'
@@ -163,6 +166,7 @@ elif hparams['dataset'] == 'eurosat':
     classes_to_load = None
     
 elif hparams['dataset'] == 'places365':
+    hparams['dataset_name'] = 'Places365'
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_places365'
     # dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
@@ -171,6 +175,7 @@ elif hparams['dataset'] == 'places365':
     hparams['descriptor_fname'] = 'descriptors_places365'
     
 elif hparams['dataset'] == 'food101':
+    hparams['dataset_name'] = 'Food101'
     hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_food101'
     dsclass = ImageFolder
@@ -179,6 +184,7 @@ elif hparams['dataset'] == 'food101':
     classes_to_load = None
 
 elif hparams['dataset'] == 'pets':
+    hparams['dataset_name'] = 'Pets'
     hparams['data_dir'] = pathlib.Path(PETS_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_pets'
     dsclass = ImageFolder
@@ -187,6 +193,7 @@ elif hparams['dataset'] == 'pets':
     classes_to_load = None
     
 elif hparams['dataset'] == 'dtd':
+    hparams['dataset_name'] = 'DTD'
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_dtd'
     dataset = ImageFolder(hparams['data_dir'] / 'val', transform=tfms)
