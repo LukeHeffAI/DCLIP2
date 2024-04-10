@@ -69,8 +69,6 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
         
         # Normalize by frequency if frequency_penalty_config is True
         if frequency_penalty_config:
-            # Assuming `descriptors_freq` is loaded and available
-            # Adjust the similarity based on frequency
             for descriptor in gpt_descriptions[k]:
                 freq = descriptors_freq['freq_is'].get(descriptor, 1) # Fallback to 1 if not found
                 # Normalize freq here, if necessary
