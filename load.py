@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub_gpt4_full'
+hparams['dataset'] = 'cub_gpt4_test'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -46,7 +46,10 @@ hparams['dataset'] = 'cub_gpt4_full'
 #  'imagenetv2']
 
 frequency_penalty_config = False
-freq_type = "freq_contains"
+if frequency_penalty_config:
+    freq_type = "freq_contains"
+else:
+    freq_type = None
 # Options:
 # if frequency_penalty_config is True, freq_type can be:
 # ['freq_is',
