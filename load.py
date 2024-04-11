@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub_gpt4_full'
+hparams['dataset'] = 'cub'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -45,8 +45,11 @@ hparams['dataset'] = 'cub_gpt4_full'
 #  'dtd',
 #  'imagenetv2']
 
-frequency_penalty_config = False
-freq_type = "freq_contains"
+frequency_penalty_config = True
+if frequency_penalty_config:
+    freq_type = "freq_contains"
+else:
+    freq_type = None
 # Options:
 # if frequency_penalty_config is True, freq_type can be:
 # ['freq_is',
@@ -137,7 +140,7 @@ elif hparams['dataset'] == 'cub':
     hparams['descriptor_fname'] = 'descriptors_cub'
 
 elif hparams['dataset'] == 'cub_gpt4_test':
-    hparams['dataset_name'] = 'CUB'
+    hparams['dataset_name'] = 'CUB_GPT4_test'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -145,7 +148,7 @@ elif hparams['dataset'] == 'cub_gpt4_test':
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
 
 elif hparams['dataset'] == 'cub_gpt4_full':
-    hparams['dataset_name'] = 'CUB'
+    hparams['dataset_name'] = 'CUB_GPT4_full'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'descriptors_freq_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -227,26 +230,33 @@ total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values(
 frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
 frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
 
-def compute_description_encodings(model, freq_penalty_config: str = None):
+# def compute_description_encodings(model, freq_penalty_config: str = None):
+#     description_encodings = OrderedDict()
+#     freq_penalty_dict = {}
+#     if freq_penalty_config == "is":
+#         freq_penalty_dict = frequency_proportion_is
+#     elif freq_penalty_config == "contains":
+#         freq_penalty_dict = frequency_proportion_contains
+
+#     for description_name, description_text in gpt_descriptions.items():
+#         tokens = clip.tokenize(description_text).to(hparams['device'])
+#         encoded_text = model.encode_text(tokens)
+#         normalized_encoding = F.normalize(encoded_text, dim=-1)
+
+#         if freq_penalty_config and description_name in freq_penalty_dict:
+#             penalty = freq_penalty_dict[description_name]
+#             penalized_encoding = normalized_encoding * penalty
+#             description_encodings[description_name] = penalized_encoding
+#         else:
+#             description_encodings[description_name] = normalized_encoding
+
+#     return description_encodings
+
+def compute_description_encodings(model):
     description_encodings = OrderedDict()
-    freq_penalty_dict = {}
-    if freq_penalty_config == "is":
-        freq_penalty_dict = frequency_proportion_is
-    elif freq_penalty_config == "contains":
-        freq_penalty_dict = frequency_proportion_contains
-
-    for description_name, description_text in gpt_descriptions.items():
-        tokens = clip.tokenize(description_text).to(hparams['device'])
-        encoded_text = model.encode_text(tokens)
-        normalized_encoding = F.normalize(encoded_text, dim=-1)
-
-        if freq_penalty_config and description_name in freq_penalty_dict:
-            penalty = freq_penalty_dict[description_name]
-            penalized_encoding = normalized_encoding * penalty
-            description_encodings[description_name] = penalized_encoding
-        else:
-            description_encodings[description_name] = normalized_encoding
-
+    for k, v in gpt_descriptions.items():
+        tokens = clip.tokenize(v).to(hparams['device'])
+        description_encodings[k] = F.normalize(model.encode_text(tokens))
     return description_encodings
 
 def compute_label_encodings(model):
