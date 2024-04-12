@@ -20,10 +20,36 @@ Total CLIP-Standard Top-5 Accuracy:  82.53365755081177
 
 Improvement Top-1:
 CLIP to paper:          1.1%
-CLIP to new approach:   1.5%
+CLIP to new approach:   1.5%    
 Paper to new approach:  0.4%
 
 Improvement Top-5:
 CLIP to paper:          1.5%
 CLIP to new approach:   2.3%
 Paper to new approach:  0.8%
+
+
+
+Dataset being tested:  cub || Frequency Penalisation Type:  None
+Total Description-based Top-1 Accuracy:  53.05488705635071 %
+Total Description-based Top-5 Accuracy:  84.15602445602417 %
+Total CLIP-Standard Top-1 Accuracy:  52.00207233428955 %
+Total CLIP-Standard Top-5 Accuracy:  82.53365755081177 %
+
+Dataset being tested:  cub || Frequency Penalisation Type:  None
+Total Description-based Top-1 Accuracy:  53.05488705635071 %
+Total Description-based Top-5 Accuracy:  84.15602445602417 %
+Total CLIP-Standard Top-1 Accuracy:  51.9848108291626 %
+Total CLIP-Standard Top-5 Accuracy:  82.53365755081177 %
+
+Dataset being tested:  cub || Frequency Penalisation Type:  freq_contains
+Total Description-based Top-1 Accuracy:  53.123921155929565 %
+Total Description-based Top-5 Accuracy:  83.89713764190674 %
+Total CLIP-Standard Top-1 Accuracy:  52.00207233428955 %
+Total CLIP-Standard Top-5 Accuracy:  82.53365755081177 %
+
+Dataset being tested:  cub || Frequency Penalisation Type:  freq_contains
+Total Description-based Top-1 Accuracy:  53.123921155929565 %
+Total Description-based Top-5 Accuracy:  83.89713764190674 %
+Total CLIP-Standard Top-1 Accuracy:  51.9848108291626 %
+Total CLIP-Standard Top-5 Accuracy:  82.53365755081177 %

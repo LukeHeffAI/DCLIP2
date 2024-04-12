@@ -34,7 +34,7 @@ model.requires_grad_(False)
 
 # Encode descriptions and labels
 print("Encoding descriptions...")
-description_encodings = compute_description_encodings(model, "contains")
+description_encodings = compute_description_encodings(model)
 label_encodings = compute_label_encodings(model)
 
 # Number of classes
@@ -136,9 +136,40 @@ print("Trivial count: ", trivial_count)
 #     print(f"{sorted(acc_list)[i]}")
 # print(sum(acc_list))
 
+class_wise_accuracies = {}
+differences = {}
+
+for i in range(num_classes):
+    class_name = dataset.classes[i]
+    desc_accuracy = 100 * class_wise_lang_accuracy[i].compute().item()
+    clip_accuracy = 100 * class_wise_clip_accuracy[i].compute().item()
+    
+    # Calculate the difference between description-based and CLIP-standard accuracies
+    difference = desc_accuracy - clip_accuracy
+    
+    # Store accuracies and their difference in the dictionary
+    class_wise_accuracies[class_name] = {
+        "Description-based Accuracy": desc_accuracy,
+        "CLIP-Standard Accuracy": clip_accuracy,
+        "Difference": difference
+    }
+    
+    # Also store the difference separately for sorting
+    differences[class_name] = difference
+
+# Sort classes by the magnitude of difference
+sorted_classes_by_difference = sorted(differences, key=differences.get, reverse=True)
+
+# Reorganize the class-wise accuracies based on the sorted order
+sorted_class_wise_accuracies = {class_name: class_wise_accuracies[class_name] for class_name in sorted_classes_by_difference}
+
 ## TODO: Review this section
 # Print overall accuracies
 experimental_results = {}
+experimental_results["Class-wise Accuracies and Differences (Top 5)"] = [list(sorted_class_wise_accuracies.keys())[:5]]
+experimental_results["Class-wise Accuracies and Differences (Bottom 5)"] = [list(sorted_class_wise_accuracies.keys())[-5:]]
+experimental_results["Trivial Count"] = trivial_count
+experimental_results["Class-wise Accuracies and Differences"] = sorted_class_wise_accuracies
 experimental_results["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
 experimental_results["Total Description-based Top-5 Accuracy: "] = 100*overall_lang_accuracy_metric_top5.compute().item()
 experimental_results["Total CLIP-Standard Top-1 Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
@@ -163,8 +194,9 @@ results[model_size][dataset_name][freq_type] = experimental_results
 # Save the updated results
 save_results(results, results_file_path)
 
-print("\nDataset being tested: ", hparams['dataset'])
+print("\nDataset being tested: ", hparams['dataset'], "|| Frequency Penalisation Type: ", freq_type)
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
 print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
+print("Class-wise Accuracies and Differences (Top 5 and Bottom 5):\n", list(sorted_class_wise_accuracies.keys())[:5], "\n", list(sorted_class_wise_accuracies.keys())[-5:])
