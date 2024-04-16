@@ -79,6 +79,8 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
 # In main.py, where image_description_similarity is computed
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
+        # if i == 4:
+        #     print(f"Class {k}: GPT Desc. {gpt_descriptions[k]}, Similarity {dot_product_matrix[:60,:]}")
         
         # Normalize by frequency if frequency_penalty_config is True
         if frequency_penalty_config:
@@ -104,33 +106,33 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
             class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
 
 # Print class-wise accuracies
-print("\nClass-wise Description-based Accuracy:")
-for i, acc in class_wise_lang_accuracy.items():
-    class_name = dataset.classes[i]
-    accuracy = 100 * acc.compute().item()
-    print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
+# print("\nClass-wise Description-based Accuracy:")
+# for i, acc in class_wise_lang_accuracy.items():
+#     class_name = dataset.classes[i]
+#     accuracy = 100 * acc.compute().item()
+#     print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
 
-print("\nClass-wise CLIP-Standard Accuracy:")
-for i, acc in class_wise_clip_accuracy.items():
-    class_name = dataset.classes[i]
-    accuracy = 100 * acc.compute().item()
-    print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
+# print("\nClass-wise CLIP-Standard Accuracy:")
+# for i, acc in class_wise_clip_accuracy.items():
+#     class_name = dataset.classes[i]
+#     accuracy = 100 * acc.compute().item()
+#     print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
 
 acc_list = []
 trivial_count = 0
-print("Compare accuracies of description and CLIP-Standard")
-for i, acc_class_wise in class_wise_lang_accuracy.items():
-    for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
-        if i == j:
-            class_name = dataset.classes[i]
-            acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
-            acc_list.append(acc)
-            if acc > 0.001 or acc < -0.001:
-                print(f"Desc. Acc. - CLIP Acc.: {acc:.3f}% - {class_name}")
-            else:
-                trivial_count += 1
-                print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
-print("Trivial count: ", trivial_count)
+# print("Compare accuracies of description and CLIP-Standard")
+# for i, acc_class_wise in class_wise_lang_accuracy.items():
+#     for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
+#         if i == j:
+#             class_name = dataset.classes[i]
+#             acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
+#             acc_list.append(acc)
+#             if acc > 0.001 or acc < -0.001:
+#                 print(f"Desc. Acc. - CLIP Acc.: {acc:.3f}% - {class_name}")
+#             else:
+#                 trivial_count += 1
+#                 print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
+# print("Trivial count: ", trivial_count)
 
 # for i in range(len(sorted(acc_list))):
 #     print(f"{sorted(acc_list)[i]}")
