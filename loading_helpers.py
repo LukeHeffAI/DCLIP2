@@ -31,7 +31,7 @@ def make_descriptor_sentence(descriptor):
     elif descriptor.startswith('used'):
         return f"which is {descriptor}"
     else:
-        return f"which has {descriptor}"
+        return f"which is a {descriptor}"
     
 # def make_descriptor_sentence(descriptor):
 #     return descriptor.replace('It', 'which').replace('.', ',')
@@ -62,7 +62,9 @@ def load_gpt_descriptions(hparams, classes_to_load=None):
                 v = ['']
             
             
-            word_to_add = wordify(k)
+            # word_to_add = wordify(k)
+            word_to_add = f"A seabird classed as a '{wordify(k)}'"
+            # word_to_add = f"A type of {wordify(k).split(' ')[-1]}"
             
             if (hparams['category_name_inclusion'] == 'append'):
                 build_descriptor_string = lambda item: f"{modify_descriptor(item, hparams['apply_descriptor_modification'])}{hparams['between_text']}{word_to_add}"
