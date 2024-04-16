@@ -1,7 +1,9 @@
 import torch
 import json
-import time as t
+from tqdm import tqdm
 from loading_helpers import load_json
+from load import *
+
 
 def compute_descriptor_list(data):
     '''
@@ -52,6 +54,55 @@ def compute_freq_contains(data):
 
     return descriptor_frequencies
 
+def compute_cosine_similarity(data):
+
+    num_classes = len(dataset.classes)
+    # Load descriptor files
+    # Create prompt templates ("{class_label} which is {descriptor}")
+    # Compute similarity between descriptor and every image embedding
+    # Aggregate similarity score for each descriptor
+    # Normalise the similarity scores
+    normalised_similarity = []*num_classes
+
+    # Initialize the environment
+    seed_everything(hparams['seed'])
+
+    # Prepare the data loader
+    bs = hparams['batch_size']
+    dataloader = DataLoader(dataset, bs, shuffle=False, num_workers=16, pin_memory=True)  # Shuffle should be False for class-wise evaluation
+
+    # Load the model and preprocessing
+    print("Loading model...")
+    device = torch.device(hparams['device'])
+    model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
+    model.eval()
+    model.requires_grad_(False)
+
+    # Encode descriptions and labels
+    print("Encoding descriptions...")
+    description_encodings = compute_description_encodings(model)
+
+    # Number of classes
+    num_classes = len(dataset.classes)
+
+    for batch_number, (images, labels) in enumerate(tqdm(dataloader)):    
+        images = images.to(device)
+        labels = labels.to(device)
+        
+        # Encode images
+        image_encodings = model.encode_image(images)
+        image_encodings = F.normalize(image_encodings)
+
+        # Compute description-based predictions
+        image_description_similarity = [None]*n_classes
+        image_description_similarity_cumulative = [None]*n_classes
+
+    # In main.py, where image_description_similarity is computed
+        for i, (k, v) in enumerate(description_encodings.items()):
+            dot_product_matrix = image_encodings @ v.T
+
+    return normalised_similarity
+
 descriptor_file = [
     'descriptors/descriptors_cub.json',
     # 'descriptors/descriptors_dtd.json',
@@ -67,9 +118,12 @@ for json_path in descriptor_file:
 
     freq_is = compute_freq_is(data)
     freq_contains = compute_freq_contains(data)
-    freq = {"freq_is": freq_is, "freq_contains": freq_contains}
+
+    freq = {"freq_is": freq_is,
+            "freq_contains": freq_contains}
+    
     output_path_name = json_path.split("/")[-1].split(".")[0].split("_")[-1]
-    json_output_path = f'descriptor_freq_analysis/descriptors_freq_{output_path_name}.json'
+    json_output_path = f'descriptor_freq_analysis/descriptors_analysis_{output_path_name}.json'
     with open(json_output_path, 'w') as f:
         json.dump(freq, f, indent=4)
 
