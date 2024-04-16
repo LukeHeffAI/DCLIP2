@@ -5,12 +5,6 @@ import seaborn as sns
 from load import *
 import torchmetrics
 
-'''
-Refactor this code:
-- Create "create_class_list"
-- Create "create_descriptor_list"
-'''
-
 def compute_freq_is(data):
     '''
     Compute the frequency of each value in the data when the value completely matches the key.    
@@ -47,17 +41,6 @@ def compute_freq_contains(data):
                 descriptor_frequencies[descriptor] += 1
 
     return descriptor_frequencies
-
-def compute_cosine_similarity(data):
-    num_classes = len(dataset.classes)
-    # Load descriptor files
-    # Create prompt templates ("{class_label} which is {descriptor}")
-    # Compute similarity between descriptor and every image embedding
-    # Aggregate similarity score for each descriptor
-    # Normalise the similarity scores
-    normalised_similarity = []*num_classes
-
-    return normalised_similarity
 
 descriptor_file = [
     'descriptors/descriptors_cub.json',
