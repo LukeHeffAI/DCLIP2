@@ -45,7 +45,7 @@ hparams['dataset'] = 'cub'
 #  'dtd',
 #  'imagenetv2']
 
-frequency_penalty_config = True
+frequency_penalty_config = False
 if frequency_penalty_config:
     freq_type = "freq_contains"
 else:
@@ -268,6 +268,8 @@ def aggregate_similarity(similarity_matrix_chunk, aggregation_method='mean'):
     if aggregation_method == 'max': return similarity_matrix_chunk.max(dim=1)[0]
     elif aggregation_method == 'sum': return similarity_matrix_chunk.sum(dim=1)
     elif aggregation_method == 'mean': return similarity_matrix_chunk.mean(dim=1)
+    elif aggregation_method == 'median': return similarity_matrix_chunk.median(dim=1)[0]
+
     else: raise ValueError("Unknown aggregate_similarity")
 
 def show_from_indices(indices, images, labels=None, predictions=None, predictions2 = None, n=None, image_description_similarity=None, image_labels_similarity=None):
