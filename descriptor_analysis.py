@@ -2,7 +2,14 @@ import torch
 import json
 import time as t
 import seaborn as sns
-from loading_helpers import load_json
+from load import *
+import torchmetrics
+
+'''
+Refactor this code:
+- Create "create_class_list"
+- Create "create_descriptor_list"
+'''
 
 def compute_freq_is(data):
     '''
@@ -41,6 +48,17 @@ def compute_freq_contains(data):
 
     return descriptor_frequencies
 
+def compute_cosine_similarity(data):
+    num_classes = len(dataset.classes)
+    # Load descriptor files
+    # Create prompt templates ("{class_label} which is {descriptor}")
+    # Compute similarity between descriptor and every image embedding
+    # Aggregate similarity score for each descriptor
+    # Normalise the similarity scores
+    normalised_similarity = []*num_classes
+
+    return normalised_similarity
+
 descriptor_file = [
     'descriptors/descriptors_cub.json',
     # 'descriptors/descriptors_dtd.json',
@@ -51,37 +69,40 @@ descriptor_file = [
     # 'descriptors/descriptors_places365.json',
 ]
 
-for json_path in descriptor_file:
-    data = load_json(json_path)
+# -------------------------------------------
 
-    freq_is = compute_freq_is(data)
-    freq_contains = compute_freq_contains(data)
-    freq = {"freq_is": freq_is, "freq_contains": freq_contains}
-    output_path_name = json_path.split("/")[-1].split(".")[0].split("_")[-1]
-    json_output_path = f'descriptor_freq_analysis/descriptors_freq_{output_path_name}.json'
-    with open(json_output_path, 'w') as f:
-        json.dump(freq, f, indent=4)
+# for json_path in descriptor_file:
+#     data = load_json(json_path)
 
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+#     freq_is = compute_freq_is(data)
+#     freq_contains = compute_freq_contains(data)
+# # Include the cosine similarity adjustment score here
+#     freq = {"freq_is": freq_is, "freq_contains": freq_contains}
+#     output_path_name = json_path.split("/")[-1].split(".")[0].split("_")[-1]
+#     json_output_path = f'descriptor_freq_analysis/descriptors_freq_{output_path_name}.json'
+#     with open(json_output_path, 'w') as f:
+#         json.dump(freq, f, indent=4)
 
-df_is = pd.DataFrame([(k, v) for k, v in freq_is.items() if v > 6], columns=['Value', 'Frequency'])
-df_is = df_is.sort_values(by='Frequency', ascending=False)
-# df_contains = pd.DataFrame([(k, v) for k, v in freq_contains.items() if v > 15], columns=['Value', 'Frequency'])
-# df_contains = df_contains.sort_values(by='Frequency', ascending=False)
+# import pandas as pd
+# import seaborn as sns
+# import matplotlib.pyplot as plt
 
-plt.figure(figsize=(15, 6))  # Adjust the size of the plot as needed
-sns.barplot(x='Value', y='Frequency', data=df_is, palette='viridis')
-# sns.barplot(x='Value', y='Frequency', data=df_contains, palette='viridis')
+# df_is = pd.DataFrame([(k, v) for k, v in freq_is.items() if v > 6], columns=['Value', 'Frequency'])
+# df_is = df_is.sort_values(by='Frequency', ascending=False)
+# # df_contains = pd.DataFrame([(k, v) for k, v in freq_contains.items() if v > 15], columns=['Value', 'Frequency'])
+# # df_contains = df_contains.sort_values(by='Frequency', ascending=False)
 
-# Adding plot title and labels for clarity
-plt.title('Frequency Distribution of Descriptors')
-plt.xlabel('Value')
-plt.ylabel('Frequency')
+# plt.figure(figsize=(15, 6))  # Adjust the size of the plot as needed
+# sns.barplot(x='Value', y='Frequency', data=df_is, palette='viridis')
+# # sns.barplot(x='Value', y='Frequency', data=df_contains, palette='viridis')
 
-# Rotating the x-axis labels for better readability if necessary
-plt.xticks(rotation=60)
+# # Adding plot title and labels for clarity
+# plt.title('Frequency Distribution of Descriptors')
+# plt.xlabel('Value')
+# plt.ylabel('Frequency')
 
-# Show the plot
-plt.show()
+# # Rotating the x-axis labels for better readability if necessary
+# plt.xticks(rotation=60)
+
+# # Show the plot
+# plt.show()
