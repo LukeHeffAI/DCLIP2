@@ -76,15 +76,12 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     image_description_similarity = [None]*n_classes
     image_description_similarity_cumulative = [None]*n_classes
 
-# In main.py, where image_description_similarity is computed
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
         
-        # Normalize by frequency if frequency_penalty_config is True
         if frequency_penalty_config:
             for descriptor in gpt_descriptions[k]:
-                freq = descriptors_freq[freq_type].get(descriptor, 1) # Fallback to 1 if not found
-                # Normalize freq here, if necessary
+                freq = descriptors_freq[freq_type].get(descriptor, 1)
                 norm_freq = freq / max(descriptors_freq[freq_type].values())
                 penalty_index = gpt_descriptions[k].index(descriptor)
                 dot_product_matrix[:, penalty_index] /= norm_freq
