@@ -1,7 +1,6 @@
 import torch
 import json
 from tqdm import tqdm
-from loading_helpers import load_json
 from load import *
 
 
@@ -55,53 +54,54 @@ def compute_freq_contains(data):
     return descriptor_frequencies
 
 def compute_cosine_similarity(data):
+    '''
+    Compute the cosine similarity between each descriptor and all images,
+    normalize these values, and save the results in JSON format.
+    '''
 
-    num_classes = len(dataset.classes)
     # Load descriptor files
     # Create prompt templates ("{class_label} which is {descriptor}")
     # Compute similarity between descriptor and every image embedding
     # Aggregate similarity score for each descriptor
     # Normalise the similarity scores
-    normalised_similarity = []*num_classes
 
     # Initialize the environment
-    seed_everything(hparams['seed'])
-
-    # Prepare the data loader
-    bs = hparams['batch_size']
-    dataloader = DataLoader(dataset, bs, shuffle=False, num_workers=16, pin_memory=True)  # Shuffle should be False for class-wise evaluation
-
-    # Load the model and preprocessing
-    print("Loading model...")
     device = torch.device(hparams['device'])
     model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
     model.eval()
-    model.requires_grad_(False)
 
-    # Encode descriptions and labels
-    print("Encoding descriptions...")
-    description_encodings = compute_description_encodings(model)
+    # Load descriptors and encode them
+    descriptor_list = compute_descriptor_list(data)
+    descriptor_encodings = compute_description_encodings(model)
+    
+    # Prepare data loader for images
+    dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=4, pin_memory=True)
 
-    # Number of classes
-    num_classes = len(dataset.classes)
+    # Compute similarities
+    descriptor_sums = {desc: 0 for desc in descriptor_list}
+    with torch.no_grad():
+        for images, _ in tqdm(dataloader, desc="Processing Images"):
+            images = images.to(device)
+            image_encodings = model.encode_image(images)
+            image_encodings = F.normalize(image_encodings, dim=1)
 
-    for batch_number, (images, labels) in enumerate(tqdm(dataloader)):    
-        images = images.to(device)
-        labels = labels.to(device)
-        
-        # Encode images
-        image_encodings = model.encode_image(images)
-        image_encodings = F.normalize(image_encodings)
+            for desc, desc_encoding in descriptor_encodings.items():
+                desc_encoding = desc_encoding.unsqueeze(0)  # Add batch dimension
+                sim = (desc_encoding @ image_encodings.T).squeeze(0)  # Cosine similarity
+                descriptor_sums[desc] += sim.sum().item()  # Sum similarities for this batch
 
-        # Compute description-based predictions
-        image_description_similarity = [None]*n_classes
-        image_description_similarity_cumulative = [None]*n_classes
+    # Normalize the sums
+    max_sum = max(descriptor_sums.values())
+    descriptor_normalized_sums = {k: v / max_sum for k, v in descriptor_sums.items()}
 
-    # In main.py, where image_description_similarity is computed
-        for i, (k, v) in enumerate(description_encodings.items()):
-            dot_product_matrix = image_encodings @ v.T
+    # Save the results
+    save_path = 'descriptor_cosine_similarity.json'
+    with open(save_path, 'w') as f:
+        json.dump(descriptor_normalized_sums, f, indent=4)
 
-    return normalised_similarity
+    return descriptor_normalized_sums
+
+
 
 descriptor_file = [
     'descriptors/descriptors_cub.json',
