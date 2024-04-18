@@ -63,7 +63,9 @@ def load_gpt_descriptions(hparams, classes_to_load=None):
             
             
             # word_to_add = wordify(k)
-            word_to_add = f"A seabird classed as a '{wordify(k)}'"
+            # word_to_add = f"A seabird ({wordify(k)})'"
+            # word_to_add = ""
+            word_to_add = f"A type of seabird named a '{wordify(k)}'"
             # word_to_add = f"A type of {wordify(k).split(' ')[-1]}"
             
             if (hparams['category_name_inclusion'] == 'append'):
