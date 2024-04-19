@@ -15,7 +15,7 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
-results_file_path = 'experiment_results.json'
+results_file_path = 'results/experiment_results.json'
 results = load_or_initialize_results(results_file_path)
 
 # Initialize the environment
