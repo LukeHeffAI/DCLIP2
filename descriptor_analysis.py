@@ -11,6 +11,8 @@ def compute_descriptor_list(data):
     descriptor_list = []
     for v in data.values():
         descriptor_list.extend(v)
+
+    descriptor_list = list(set(descriptor_list))
     return descriptor_list
 
 def compute_class_list(data):
@@ -20,6 +22,8 @@ def compute_class_list(data):
     class_list = []
     for k in data.keys():
         class_list.append(k)
+
+    class_list = list(set(class_list))
     return class_list
 
 def compute_freq_is(data):
@@ -34,6 +38,7 @@ def compute_freq_is(data):
             descriptor_frequencies[entry] += 1
 
     return descriptor_frequencies
+
 
 def compute_freq_contains(data):
     '''
@@ -53,53 +58,39 @@ def compute_freq_contains(data):
 
     return descriptor_frequencies
 
-def compute_cosine_similarity(data):
-    '''
-    Compute the cosine similarity between each descriptor and all images,
-    normalize these values, and save the results in JSON format.
-    '''
 
-    # Load descriptor files
-    # Create prompt templates ("{class_label} which is {descriptor}")
-    # Compute similarity between descriptor and every image embedding
-    # Aggregate similarity score for each descriptor
-    # Normalise the similarity scores
+# def compute_cosine_similarity(data):
+#     '''
+#     Compute the cosine similarity between each descriptor and all images,
+#     normalize these values, and save the results in JSON format.
+#     '''
+#     device = torch.device(hparams['device'])
+#     model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
+#     model.eval()
 
-    # Initialize the environment
-    device = torch.device(hparams['device'])
-    model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
-    model.eval()
+#     descriptor_list = compute_descriptor_list(data)
+#     dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=16, pin_memory=True)
 
-    # Load descriptors and encode them
-    descriptor_list = compute_descriptor_list(data)
-    descriptor_encodings = compute_description_encodings(model)
-    
-    # Prepare data loader for images
-    dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=4, pin_memory=True)
+#     descriptor_sums = {desc: 0 for desc in descriptor_list}
+#     for desc in tqdm(descriptor_list, desc="Processing Descriptors"):
+#         # Load and encode a single descriptor
+#         desc_tensor = tokenise_descriptor(desc, model)  # Ensure this function handles single descriptor
+#         desc_tensor = desc_tensor.to(device)
+        
+#         with torch.no_grad():
+#             for images, _ in tqdm(dataloader, desc="Computing Similarities", leave=False):
+#                 images = images.to(device)
+#                 image_encodings = model.encode_image(images)
+#                 image_encodings = F.normalize(image_encodings, dim=1)
 
-    # Compute similarities
-    descriptor_sums = {desc: 0 for desc in descriptor_list}
-    with torch.no_grad():
-        for images, _ in tqdm(dataloader, desc="Processing Images"):
-            images = images.to(device)
-            image_encodings = model.encode_image(images)
-            image_encodings = F.normalize(image_encodings, dim=1)
+#                 sim = torch.mm(desc_tensor, image_encodings.T).sum()
+#                 descriptor_sums[desc] += sim.item()
 
-            for desc, desc_encoding in descriptor_encodings.items():
-                desc_encoding = desc_encoding.unsqueeze(0)  # Add batch dimension
-                sim = (desc_encoding @ image_encodings.T).squeeze(0)  # Cosine similarity
-                descriptor_sums[desc] += sim.sum().item()  # Sum similarities for this batch
+#     # Normalize the sums
+#     max_sum = max(descriptor_sums.values())
+#     descriptor_normalised_sums = {k: v / max_sum for k, v in descriptor_sums.items()}
 
-    # Normalize the sums
-    max_sum = max(descriptor_sums.values())
-    descriptor_normalized_sums = {k: v / max_sum for k, v in descriptor_sums.items()}
-
-    # Save the results
-    save_path = 'descriptor_cosine_similarity.json'
-    with open(save_path, 'w') as f:
-        json.dump(descriptor_normalized_sums, f, indent=4)
-
-    return descriptor_normalized_sums
+#     return descriptor_normalised_sums
 
 
 
@@ -118,14 +109,17 @@ for json_path in descriptor_file:
 
     freq_is = compute_freq_is(data)
     freq_contains = compute_freq_contains(data)
+    # similarity = compute_cosine_similarity(data)
 
-    freq = {"freq_is": freq_is,
-            "freq_contains": freq_contains}
+    analysis = {"freq_is": freq_is,
+            "freq_contains": freq_contains,
+            # "similarity": similarity
+            }
     
     output_path_name = json_path.split("/")[-1].split(".")[0].split("_")[-1]
-    json_output_path = f'descriptor_freq_analysis/descriptors_analysis_{output_path_name}.json'
+    json_output_path = f'descriptor_analysis/descriptors_analysis_{output_path_name}.json'
     with open(json_output_path, 'w') as f:
-        json.dump(freq, f, indent=4)
+        json.dump(analysis, f, indent=4)
 
 # import pandas as pd
 # import seaborn as sns
