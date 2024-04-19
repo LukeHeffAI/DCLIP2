@@ -45,7 +45,7 @@ hparams['dataset'] = 'cub'
 #  'dtd',
 #  'imagenetv2']
 
-frequency_penalty_config = True
+frequency_penalty_config = False
 if frequency_penalty_config:
     freq_type = "freq_contains"
 else:
@@ -114,7 +114,7 @@ if hparams['dataset'] == 'imagenet':
         hparams['dataset_name'] = 'ImageNet'
         dsclass = ImageNet        
         hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
-        hparams['analysis_fname'] = 'descriptors_freq_imagenet'
+        hparams['analysis_fname'] = 'descriptors_analysis_imagenet'
         # train_ds = ImageNet(hparams['data_dir'], split='val', transform=train_tfms)
         dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
@@ -134,7 +134,7 @@ if hparams['dataset'] == 'imagenet':
 elif hparams['dataset'] == 'cub':
     hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_cub'
+    hparams['analysis_fname'] = 'descriptors_analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
@@ -142,7 +142,7 @@ elif hparams['dataset'] == 'cub':
 elif hparams['dataset'] == 'cub_gpt4_test':
     hparams['dataset_name'] = 'CUB_GPT4_test'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_cub'
+    hparams['analysis_fname'] = 'descriptors_analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
@@ -150,7 +150,7 @@ elif hparams['dataset'] == 'cub_gpt4_test':
 elif hparams['dataset'] == 'cub_gpt4_full':
     hparams['dataset_name'] = 'CUB_GPT4_full'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_cub'
+    hparams['analysis_fname'] = 'descriptors_analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_full'
@@ -158,7 +158,7 @@ elif hparams['dataset'] == 'cub_gpt4_full':
 elif hparams['dataset'] == 'cub_post_noise':
     hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_cub'
+    hparams['analysis_fname'] = 'descriptors_analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_post_noise'
@@ -169,7 +169,7 @@ elif hparams['dataset'] == 'eurosat':
     hparams['dataset_name'] = 'EuroSAT'
     from extra_datasets.patching.eurosat import EuroSATVal
     hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_eurosat'
+    hparams['analysis_fname'] = 'descriptors_analysis_eurosat'
     dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
     dataset = dataset.test_dataset
     hparams['descriptor_fname'] = 'descriptors_eurosat'
@@ -178,7 +178,7 @@ elif hparams['dataset'] == 'eurosat':
 elif hparams['dataset'] == 'places365':
     hparams['dataset_name'] = 'Places365'
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_places365'
+    hparams['analysis_fname'] = 'descriptors_analysis_places365'
     # dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'val', transform=tfms)
@@ -187,7 +187,7 @@ elif hparams['dataset'] == 'places365':
 elif hparams['dataset'] == 'food101':
     hparams['dataset_name'] = 'Food101'
     hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_food101'
+    hparams['analysis_fname'] = 'descriptors_analysis_food101'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
@@ -196,7 +196,7 @@ elif hparams['dataset'] == 'food101':
 elif hparams['dataset'] == 'pets':
     hparams['dataset_name'] = 'Pets'
     hparams['data_dir'] = pathlib.Path(PETS_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_pets'
+    hparams['analysis_fname'] = 'descriptors_analysis_pets'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
@@ -205,14 +205,14 @@ elif hparams['dataset'] == 'pets':
 elif hparams['dataset'] == 'dtd':
     hparams['dataset_name'] = 'DTD'
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
-    hparams['analysis_fname'] = 'descriptors_freq_dtd'
+    hparams['analysis_fname'] = 'descriptors_analysis_dtd'
     dataset = ImageFolder(hparams['data_dir'] / 'val', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
     
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
-hparams['analysis_fname'] = './descriptor_freq_analysis/' + hparams['analysis_fname']
+hparams['analysis_fname'] = './descriptor_analysis/' + hparams['analysis_fname']
     
 print("Creating descriptors...")
 
