@@ -12,7 +12,7 @@ def compute_descriptor_list(data):
     for v in data.values():
         descriptor_list.extend(v)
 
-    descriptor_list = list(set(descriptor_list))
+    descriptor_list = sorted(list(set(descriptor_list)))
     return descriptor_list
 
 def compute_class_list(data):
@@ -23,7 +23,7 @@ def compute_class_list(data):
     for k in data.keys():
         class_list.append(k)
 
-    class_list = list(set(class_list))
+    class_list = sorted(list(set(class_list)))
     return class_list
 
 def compute_freq_is(data):
