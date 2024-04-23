@@ -87,9 +87,9 @@ def compute_cosine_similarity(data):
     model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
     model.eval()
 
-    descriptor_list = compute_descriptor_list(data)
     dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=16, pin_memory=True)
 
+    descriptor_list = compute_descriptor_list(data)
     descriptor_sums = {desc: 0 for desc in descriptor_list}
     for desc in tqdm(descriptor_list, desc="Processing Descriptors"):
         # Load and encode a single descriptor
@@ -112,16 +112,7 @@ def compute_cosine_similarity(data):
     return descriptor_normalised_sums
 
 
-
-descriptor_file = [
-    'descriptors/descriptors_cub.json',
-    # 'descriptors/descriptors_dtd.json',
-    # 'descriptors/descriptors_eurosat.json',
-    # 'descriptors/descriptors_food101.json',
-    # 'descriptors/descriptors_imagenet.json',
-    # 'descriptors/descriptors_pets.json',
-    # 'descriptors/descriptors_places365.json',
-]
+descriptor_file = hparams['descriptor_fname']
 
 for json_path in descriptor_file:
     data = load_json(json_path)
