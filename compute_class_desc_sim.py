@@ -5,9 +5,8 @@ import torch
 from descriptor_analysis import compute_class_list, compute_descriptor_list
 import csv
 
-results_file_path = 'results/experiment_results.json'
-
 descriptor_file_path = hparams['descriptor_fname']
+results_file_path = 'results/experiment_results.json'
 
 class_descriptor_dict = load_json(descriptor_file_path)
 class_list = compute_class_list(class_descriptor_dict, sort_config=True)
@@ -36,6 +35,7 @@ label_encodings = F.normalize(model.encode_text(clip.tokenize(class_list).to(dev
 cosine_similarity = torch.mm(description_encodings, label_encodings.T)
 
 
+
 # Load JSON data
 with open(results_file_path, 'r', encoding='utf-8') as results_file:
     classification_results_dict = json.load(results_file)
@@ -45,6 +45,8 @@ class_acc_diff = classification_results_dict['ViT-B/32'][hparams['dataset_name']
 
 # Transform keys and retain the full dictionary structure for each class
 classification_results = {k.split('.')[-1].replace('_', ' '): v for k, v in class_acc_diff.items()}
+
+
 
 # Open the CSV file for writing
 with open('results/descriptor_similarity_cub.csv', 'w', newline='', encoding='utf-8') as file:
