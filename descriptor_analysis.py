@@ -4,7 +4,7 @@ from tqdm import tqdm
 from load import *
 
 
-def compute_descriptor_list(data):
+def compute_descriptor_list(data, sort_config = False):
     '''
     Compute the list of all descriptors in the data.
     '''
@@ -13,9 +13,12 @@ def compute_descriptor_list(data):
         descriptor_list.extend(v)
 
     descriptor_list = list(set(descriptor_list))
+    
+    if sort_config:
+        descriptor_list.sort()
     return descriptor_list
 
-def compute_class_list(data):
+def compute_class_list(data, sort_config = False):
     '''
     Compute the list of all classes in the data.
     '''
@@ -24,6 +27,8 @@ def compute_class_list(data):
         class_list.append(k)
 
     class_list = list(set(class_list))
+    if sort_config:
+        class_list.sort()
     return class_list
 
 def compute_freq_is(data):
