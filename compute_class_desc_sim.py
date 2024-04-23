@@ -5,8 +5,8 @@ import torch
 from descriptor_analysis import compute_class_list, compute_descriptor_list
 
 descriptor_file = [
-    # 'descriptors/descriptors_cub.json',
-    'descriptors/descriptors_cub_gpt4_full.json',
+    'descriptors/descriptors_cub.json',
+    # 'descriptors/descriptors_cub_gpt4_full.json',
     # 'descriptors/descriptors_dtd.json',
     # 'descriptors/descriptors_eurosat.json',
     # 'descriptors/descriptors_food101.json',
@@ -18,6 +18,8 @@ descriptor_file = [
 class_descriptor_dict = load_json(descriptor_file[0])
 class_list = compute_class_list(class_descriptor_dict)
 descriptor_list = compute_descriptor_list(class_descriptor_dict)
+
+print(class_list[0:5], "\n", descriptor_list[0:5])
 
 seed_everything(hparams['seed'])
 
@@ -48,7 +50,7 @@ print(cosine_similarity, cosine_similarity.shape)
 # y-axis: descriptor names
 # values: cosine similarity
 
-with open('results/descriptor_similarity_cub_gpt4.csv', 'w') as file:
+with open('results/descriptor_similarity_cub.csv', 'w') as file:
     file.write(','.join(class_list) + '\n')
     for i, descriptor in enumerate(descriptor_list):
         descriptor = f'"{descriptor}"'
