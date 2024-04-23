@@ -160,7 +160,6 @@ sorted_classes_by_difference = sorted(differences, key=differences.get, reverse=
 # Reorganize the class-wise accuracies based on the sorted order
 sorted_class_wise_accuracies = {class_name: class_wise_accuracies[class_name] for class_name in sorted_classes_by_difference}
 
-## TODO: Review this section
 # Print overall accuracies
 experimental_results = {}
 experimental_results["Class-wise Accuracies and Differences (Top 5)"] = [list(sorted_class_wise_accuracies.keys())[:5]]
