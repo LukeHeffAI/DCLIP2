@@ -17,8 +17,7 @@ class_list = [c.replace('-', ' ') for c in class_list]
 seed_everything(hparams['seed'])
 
 # Prepare the data loader
-bs = hparams['batch_size']
-dataloader = DataLoader(dataset, bs, shuffle=False, num_workers=16, pin_memory=True)
+dataloader = DataLoader(dataset, hparams['batch_size'], shuffle=False, num_workers=16, pin_memory=True)
 
 # Load the model and preprocessing
 print("Loading model...")
