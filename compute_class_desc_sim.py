@@ -9,15 +9,11 @@ results_file_path = 'results/experiment_results.json'
 
 descriptor_file_path = hparams['descriptor_fname']
 
-replace_list = ["-"," "]
-
 class_descriptor_dict = load_json(descriptor_file_path)
 class_list = compute_class_list(class_descriptor_dict, sort_config=True)
 descriptor_list = compute_descriptor_list(class_descriptor_dict, sort_config=True)
 
-class_list = [c.replace(replace_list[0], replace_list[1]) for c in class_list]
-
-print(class_list[0:5], "\n", descriptor_list[0:5])
+class_list = [c.replace('-', ' ') for c in class_list]
 
 seed_everything(hparams['seed'])
 
