@@ -78,38 +78,38 @@ def compute_freq_contains(data):
     return descriptor_frequencies
 
 
-# def compute_cosine_similarity(data):
-#     '''
-#     Compute the cosine similarity between each descriptor and all images,
-#     normalize these values, and save the results in JSON format.
-#     '''
-#     device = torch.device(hparams['device'])
-#     model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
-#     model.eval()
+def compute_cosine_similarity(data):
+    '''
+    Compute the cosine similarity between each descriptor and all images,
+    normalize these values, and save the results in JSON format.
+    '''
+    device = torch.device(hparams['device'])
+    model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
+    model.eval()
 
-#     descriptor_list = compute_descriptor_list(data)
-#     dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=16, pin_memory=True)
+    descriptor_list = compute_descriptor_list(data)
+    dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=16, pin_memory=True)
 
-#     descriptor_sums = {desc: 0 for desc in descriptor_list}
-#     for desc in tqdm(descriptor_list, desc="Processing Descriptors"):
-#         # Load and encode a single descriptor
-#         desc_tensor = tokenise_descriptor(desc, model)  # Ensure this function handles single descriptor
-#         desc_tensor = desc_tensor.to(device)
+    descriptor_sums = {desc: 0 for desc in descriptor_list}
+    for desc in tqdm(descriptor_list, desc="Processing Descriptors"):
+        # Load and encode a single descriptor
+        desc_tensor = tokenise_descriptor(desc, model)  # Ensure this function handles single descriptor
+        desc_tensor = desc_tensor.to(device)
         
-#         with torch.no_grad():
-#             for images, _ in tqdm(dataloader, desc="Computing Similarities", leave=False):
-#                 images = images.to(device)
-#                 image_encodings = model.encode_image(images)
-#                 image_encodings = F.normalize(image_encodings, dim=1)
+        with torch.no_grad():
+            for images, _ in tqdm(dataloader, desc="Computing Similarities", leave=False):
+                images = images.to(device)
+                image_encodings = model.encode_image(images)
+                image_encodings = F.normalize(image_encodings, dim=1)
 
-#                 sim = torch.mm(desc_tensor, image_encodings.T).sum()
-#                 descriptor_sums[desc] += sim.item()
+                sim = torch.mm(desc_tensor, image_encodings.T).sum()
+                descriptor_sums[desc] += sim.item()
 
-#     # Normalize the sums
-#     max_sum = max(descriptor_sums.values())
-#     descriptor_normalised_sums = {k: v / max_sum for k, v in descriptor_sums.items()}
+    # Normalize the sums
+    max_sum = max(descriptor_sums.values())
+    descriptor_normalised_sums = {k: v / max_sum for k, v in descriptor_sums.items()}
 
-#     return descriptor_normalised_sums
+    return descriptor_normalised_sums
 
 
 
