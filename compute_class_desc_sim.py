@@ -5,20 +5,13 @@ import torch
 from descriptor_analysis import compute_class_list, compute_descriptor_list
 import csv
 
-descriptor_file = [
-    'descriptors/descriptors_cub.json',
-    # 'descriptors/descriptors_cub_gpt4_full.json',
-    # 'descriptors/descriptors_dtd.json',
-    # 'descriptors/descriptors_eurosat.json',
-    # 'descriptors/descriptors_food101.json',
-    # 'descriptors/descriptors_imagenet.json',
-    # 'descriptors/descriptors_pets.json',
-    # 'descriptors/descriptors_places365.json',
-]
+results_file_path = 'results/experiment_results.json'
+
+descriptor_file_path = hparams['descriptor_fname']
 
 replace_list = ["-"," "]
 
-class_descriptor_dict = load_json(descriptor_file[0])
+class_descriptor_dict = load_json(descriptor_file_path)
 class_list = compute_class_list(class_descriptor_dict, sort_config=True)
 descriptor_list = compute_descriptor_list(class_descriptor_dict, sort_config=True)
 
@@ -47,18 +40,8 @@ label_encodings = F.normalize(model.encode_text(clip.tokenize(class_list).to(dev
 cosine_similarity = torch.mm(description_encodings, label_encodings.T)
 
 
-
-print(cosine_similarity, cosine_similarity.shape)
-
-# Save this information to a .csv file, with the following format:
-# x-axis: class names
-# y-axis: descriptor names
-# values: cosine similarity
-
-file_path = 'results/experiment_results.json'
-
 # Load JSON data
-with open(file_path, 'r', encoding='utf-8') as results_file:
+with open(results_file_path, 'r', encoding='utf-8') as results_file:
     classification_results_dict = json.load(results_file)
 
 # Extract the relevant nested dictionary
