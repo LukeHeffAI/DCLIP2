@@ -4,47 +4,6 @@ from tqdm import tqdm
 from load import *
 
 
-def compute_class_list(data:dict, sort_config = False):
-    '''
-    Compute the list of all classes in the data.
-    '''
-
-    if sort_config:
-        data = dict(sorted(data.items()))
-
-    class_list = []
-    for k in data.keys():
-        class_list.append(k)
-
-    if sort_config:
-        class_list = list(set(class_list))
-        class_list = sorted(class_list)
-    else:
-        class_list = list(set(class_list))
-
-    return class_list
-
-def compute_descriptor_list(data:dict, sort_config = False):
-    '''
-    Compute the list of all descriptors in the data.
-    '''
-
-    if sort_config:
-        data = dict(sorted(data.items()))
-        
-    descriptor_list = []
-    for v in data.values():
-        descriptor_list.extend(v)
-
-    if sort_config:
-        descriptor_list = list(set(descriptor_list))
-        descriptor_list = sorted(descriptor_list)
-    else:
-        descriptor_list = list(set(descriptor_list))
-    
-    return descriptor_list
-
-
 def compute_freq_is(data):
     '''
     Compute the frequency of each value in the data when the value completely matches the key.    
@@ -77,8 +36,26 @@ def compute_freq_contains(data):
 
     return descriptor_frequencies
 
+def tokenise_descriptor(descriptor, model):
+    """
+    Tokenize and encode a single descriptor using the provided CLIP model.
+    
+    Args:
+        descriptor (str): A textual description or descriptor of an image.
+        model (clip.model): An instance of a CLIP model preloaded with a tokeniser and text encoder.
+    
+    Returns:
+        torch.Tensor: The normalized encoding of the descriptor.
+    """
+    # Assuming your CLIP model has a tokenize method as part of its interface
+    tokens = clip.tokenize([descriptor]).to(hparams['device'])  # Convert descriptor into a format suitable for the model
+    with torch.no_grad():
+        # Encode text tokens and normalize
+        encoded_text = model.encode_text(tokens)
+        normalised_text_encoding = torch.nn.functional.normalize(encoded_text, dim=1)
+    return normalised_text_encoding
 
-def compute_cosine_similarity(data):
+def compute_text_image_cosine_similarity(data):
     """
     Compute the cosine similarity between each descriptor and all images,
     normalize these values, and save the results in JSON format.
@@ -87,12 +64,13 @@ def compute_cosine_similarity(data):
     model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
     model.eval()
 
-    descriptor_list = compute_descriptor_list(data)
+    descriptor_list = compute_descriptor_list(data, sort_config=True)
+    descriptor_list = descriptor_list # During testing, only use the first 5 descriptors
     dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=16, pin_memory=True)
 
     descriptor_sums = {desc: 0 for desc in descriptor_list}
     for desc in tqdm(descriptor_list, desc="Processing Descriptors"):
-        desc_tensor = tokenize_descriptor(desc, model)
+        desc_tensor = tokenise_descriptor(desc, model)
         with torch.no_grad():
             for images, _ in tqdm(dataloader, desc="Computing Similarities", leave=False):
                 images = images.to(device)
@@ -104,29 +82,32 @@ def compute_cosine_similarity(data):
 
     # Normalize the sums
     max_sum = max(descriptor_sums.values())
-    descriptor_normalized_sums = {k: v / max_sum for k, v in descriptor_sums.items()}
+    descriptor_normalised_sums = {k: v / max_sum for k, v in descriptor_sums.items()}
 
-    return descriptor_normalized_sums
+    return descriptor_normalised_sums
 
 
-descriptor_file = hparams['descriptor_fname']
 
-for json_path in descriptor_file:
-    data = load_json(json_path)
 
-    freq_is = compute_freq_is(data)
-    freq_contains = compute_freq_contains(data)
-    # similarity = compute_cosine_similarity(data)
+descriptor_file_path = hparams['descriptor_fname']
 
-    analysis = {"freq_is": freq_is,
-            "freq_contains": freq_contains,
-            # "similarity": similarity
-            }
+# for json_path in descriptor_file:
+analysis = load_json(descriptor_file_path)
+
+freq_is = compute_freq_is(analysis)
+freq_contains = compute_freq_contains(analysis)
+similarity = compute_text_image_cosine_similarity(analysis)
+
+analysis = {"freq_is": freq_is,
+        "freq_contains": freq_contains,
+        "text-image-similarity": similarity
+        }
     
-    output_path_name = json_path.split("/")[-1].split(".")[0].split("_")[-1]
-    json_output_path = f'descriptor_analysis/descriptors_analysis_{output_path_name}.json'
-    with open(json_output_path, 'w') as f:
-        json.dump(analysis, f, indent=4)
+print(analysis['text-image-similarity'])
+output_path_name = descriptor_file_path.split("/")[-1].split(".")[0].split("_")[-1]
+json_output_path = f'descriptor_analysis/descriptors_analysis_{output_path_name}.json'
+with open(json_output_path, 'w') as f:
+    json.dump(analysis, f, indent=4)
 
 # import pandas as pd
 # import seaborn as sns

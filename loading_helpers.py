@@ -17,6 +17,46 @@ def load_descriptors_frequency(hparams):
     if freq_filename:
         return load_json(freq_filename)
     return None
+
+def compute_class_list(data:dict, sort_config = False):
+    '''
+    Compute the list of all classes in the data.
+    '''
+
+    if sort_config:
+        data = dict(sorted(data.items()))
+
+    class_list = []
+    for k in data.keys():
+        class_list.append(k)
+
+    if sort_config:
+        class_list = list(set(class_list))
+        class_list = sorted(class_list)
+    else:
+        class_list = list(set(class_list))
+
+    return class_list
+
+def compute_descriptor_list(data:dict, sort_config = False):
+    '''
+    Compute the list of all descriptors in the data.
+    '''
+
+    if sort_config:
+        data = dict(sorted(data.items()))
+        
+    descriptor_list = []
+    for v in data.values():
+        descriptor_list.extend(v)
+
+    if sort_config:
+        descriptor_list = list(set(descriptor_list))
+        descriptor_list = sorted(descriptor_list)
+    else:
+        descriptor_list = list(set(descriptor_list))
+    
+    return descriptor_list
     
 
 def wordify(string):
