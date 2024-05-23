@@ -98,16 +98,16 @@ freq_is = compute_freq_is(analysis)
 freq_contains = compute_freq_contains(analysis)
 similarity = compute_text_image_cosine_similarity(analysis)
 
-analysis = {"freq_is": freq_is,
+analysis_dict = {"freq_is": freq_is,
         "freq_contains": freq_contains,
         "text-image-similarity": similarity
         }
     
-print(analysis['text-image-similarity'])
+print(analysis_dict['text-image-similarity'])
 output_path_name = descriptor_file_path.split("/")[-1].split(".")[0].split("_")[-1]
 json_output_path = f'descriptor_analysis/descriptors_analysis_{output_path_name}.json'
 with open(json_output_path, 'w') as f:
-    json.dump(analysis, f, indent=4)
+    json.dump(analysis_dict, f, indent=4)
 
 # import pandas as pd
 # import seaborn as sns
