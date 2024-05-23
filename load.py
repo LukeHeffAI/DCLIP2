@@ -20,7 +20,7 @@ from loading_helpers import *
 hparams = {}
 # hyperparameters
 
-hparams['model_size'] = "ViT-B/32" 
+hparams['model_size'] = "ViT-B/32"
 # Options:
 # ['RN50',
 #  'RN101',
@@ -44,6 +44,8 @@ hparams['dataset'] = 'cub'
 #  'pets',
 #  'dtd',
 #  'imagenetv2']
+
+similarity_penalty_config = False
 
 frequency_penalty_config = False
 if frequency_penalty_config:
@@ -114,7 +116,7 @@ if hparams['dataset'] == 'imagenet':
         hparams['dataset_name'] = 'ImageNet'
         dsclass = ImageNet        
         hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
-        hparams['analysis_fname'] = 'descriptors_analysis_imagenet'
+        hparams['analysis_fname'] = 'analysis_imagenet'
         # train_ds = ImageNet(hparams['data_dir'], split='val', transform=train_tfms)
         dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
@@ -134,7 +136,7 @@ if hparams['dataset'] == 'imagenet':
 elif hparams['dataset'] == 'cub':
     hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_cub'
+    hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
@@ -142,7 +144,7 @@ elif hparams['dataset'] == 'cub':
 elif hparams['dataset'] == 'cub_gpt4_test':
     hparams['dataset_name'] = 'CUB_GPT4_test'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_cub'
+    hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
@@ -150,7 +152,7 @@ elif hparams['dataset'] == 'cub_gpt4_test':
 elif hparams['dataset'] == 'cub_gpt4_full':
     hparams['dataset_name'] = 'CUB_GPT4_full'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_cub'
+    hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_full'
@@ -158,7 +160,7 @@ elif hparams['dataset'] == 'cub_gpt4_full':
 elif hparams['dataset'] == 'cub_post_noise':
     hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_cub'
+    hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_post_noise'
@@ -169,7 +171,7 @@ elif hparams['dataset'] == 'eurosat':
     hparams['dataset_name'] = 'EuroSAT'
     from extra_datasets.patching.eurosat import EuroSATVal
     hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_eurosat'
+    hparams['analysis_fname'] = 'analysis_eurosat'
     dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
     dataset = dataset.test_dataset
     hparams['descriptor_fname'] = 'descriptors_eurosat'
@@ -178,7 +180,7 @@ elif hparams['dataset'] == 'eurosat':
 elif hparams['dataset'] == 'places365':
     hparams['dataset_name'] = 'Places365'
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_places365'
+    hparams['analysis_fname'] = 'analysis_places365'
     # dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'val', transform=tfms)
@@ -187,7 +189,7 @@ elif hparams['dataset'] == 'places365':
 elif hparams['dataset'] == 'food101':
     hparams['dataset_name'] = 'Food101'
     hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_food101'
+    hparams['analysis_fname'] = 'analysis_food101'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
@@ -196,7 +198,7 @@ elif hparams['dataset'] == 'food101':
 elif hparams['dataset'] == 'pets':
     hparams['dataset_name'] = 'Pets'
     hparams['data_dir'] = pathlib.Path(PETS_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_pets'
+    hparams['analysis_fname'] = 'analysis_pets'
     dsclass = ImageFolder
     dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
@@ -205,14 +207,15 @@ elif hparams['dataset'] == 'pets':
 elif hparams['dataset'] == 'dtd':
     hparams['dataset_name'] = 'DTD'
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
-    hparams['analysis_fname'] = 'descriptors_analysis_dtd'
+    hparams['analysis_fname'] = 'analysis_dtd'
     dataset = ImageFolder(hparams['data_dir'] / 'val', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
     
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
-hparams['analysis_fname'] = './descriptor_analysis/' + hparams['analysis_fname']
+hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
+hparams['class_analysis_fname'] = './class_analysis/class_' + hparams['analysis_fname']
     
 print("Creating descriptors...")
 
@@ -224,11 +227,17 @@ descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 
-descriptor_frequencies = load_json(hparams['analysis_fname'] + '.json')
+descriptor_frequencies = load_json(hparams['descriptor_analysis_fname'] + '.json')
 total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
 total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
 frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
 frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
+
+class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
+class_list = compute_class_list(class_similarity_dict, sort_config=True)
+average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
+
+
 
 # def compute_description_encodings(model, freq_penalty_config: str = None):
 #     description_encodings = OrderedDict()
