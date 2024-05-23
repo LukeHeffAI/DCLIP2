@@ -85,6 +85,10 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
                 norm_freq = freq / max(descriptors_freq[freq_type].values())
                 penalty_index = gpt_descriptions[k].index(descriptor)
                 dot_product_matrix[:, penalty_index] /= norm_freq
+
+        if similarity_penalty_config:
+            class_average_sim = average_cosine_similarities.get(k, 0)  # Default to 0 if not found
+            dot_product_matrix -= class_average_sim
         
         image_description_similarity[i] = dot_product_matrix
         image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
@@ -101,33 +105,33 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
             class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
 
 # Print class-wise accuracies
-print("\nClass-wise Description-based Accuracy:")
-for i, acc in class_wise_lang_accuracy.items():
-    class_name = dataset.classes[i]
-    accuracy = 100 * acc.compute().item()
-    print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
+# print("\nClass-wise Description-based Accuracy:")
+# for i, acc in class_wise_lang_accuracy.items():
+#     class_name = dataset.classes[i]
+#     accuracy = 100 * acc.compute().item()
+#     print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
 
-print("\nClass-wise CLIP-Standard Accuracy:")
-for i, acc in class_wise_clip_accuracy.items():
-    class_name = dataset.classes[i]
-    accuracy = 100 * acc.compute().item()
-    print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
+# print("\nClass-wise CLIP-Standard Accuracy:")
+# for i, acc in class_wise_clip_accuracy.items():
+#     class_name = dataset.classes[i]
+#     accuracy = 100 * acc.compute().item()
+#     print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
 
 acc_list = []
 trivial_count = 0
-print("Compare accuracies of description and CLIP-Standard")
-for i, acc_class_wise in class_wise_lang_accuracy.items():
-    for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
-        if i == j:
-            class_name = dataset.classes[i]
-            acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
-            acc_list.append(acc)
-            if acc > 0.001 or acc < -0.001:
-                print(f"Desc. Acc. - CLIP Acc.: {acc:.3f}% - {class_name}")
-            else:
-                trivial_count += 1
-                print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
-print("Trivial count: ", trivial_count)
+# print("Compare accuracies of description and CLIP-Standard")
+# for i, acc_class_wise in class_wise_lang_accuracy.items():
+#     for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
+#         if i == j:
+#             class_name = dataset.classes[i]
+#             acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
+#             acc_list.append(acc)
+#             if acc > 0.001 or acc < -0.001:
+#                 print(f"Desc. Acc. - CLIP Acc.: {acc:.3f}% - {class_name}")
+#             else:
+#                 trivial_count += 1
+#                 print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
+# print("Trivial count: ", trivial_count)
 
 # for i in range(len(sorted(acc_list))):
 #     print(f"{sorted(acc_list)[i]}")
@@ -190,7 +194,7 @@ results[model_size][dataset_name][freq_type] = experimental_results
 # Save the updated results
 save_results(results, results_file_path)
 
-print("\nDataset being tested: ", hparams['dataset'], "|| Frequency Penalisation Type: ", freq_type)
+print("\nDataset being tested: ", hparams['dataset'], "|| Frequency Penalisation Type: ", freq_type, "|| Similarity Penalisation Applied: ", similarity_penalty_config)
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
