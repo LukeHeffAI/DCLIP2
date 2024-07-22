@@ -117,7 +117,7 @@ def load_gpt_descriptions(hparams, classes_to_load=None):
             
             # print an example the first time
             if i == 0: #verbose and 
-                print(f"\nExample description for class {k}: \"{gpt_descriptions[k][0]}\"\n")
+                print(f"Example description for class '{k}': \"{gpt_descriptions[k][0]}\"\n")
     return gpt_descriptions, unmodify_dict
 
 
