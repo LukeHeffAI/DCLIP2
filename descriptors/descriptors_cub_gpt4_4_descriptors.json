@@ -1,0 +1,1202 @@
+{
+    "Black-footed Albatross": [
+        "Seabird with contrasting black and white plumage",
+        "Adapted to long flights over the ocean with its long, narrow wings",
+        "Features long, narrow wings suited for gliding over the ocean",
+        "Has distinctly black feet, uncommon among seabirds"
+    ],
+    "Laysan Albatross": [
+        "Notable for its long, hooked bill and webbed feet, designed for a life at sea",
+        "A predominantly white seabird with black wingtips",
+        "Equipped with long, hooked bill and webbed feet for effective foraging",
+        "Exhibits a graceful flight pattern over ocean waters"
+    ],
+    "Sooty Albatross": [
+        "Adapted with webbed feet for navigating the marine environment",
+        "Webbed feet support its aquatic lifestyle",
+        "Has a distinctive white band around its neck, setting it apart from similar species",
+        "Characterized by long, hooked bill and long, narrow wings for sustained flight"
+    ],
+    "Groove-billed Ani": [
+        "Distinguished by its long, curved bill and black plumage",
+        "Tail longer than average, aiding in agile flight maneuvers",
+        "Exhibits a unique toe arrangement for perching",
+        "Adapted to diverse habitats from the southern United States to Mexico"
+    ],
+    "Crested Auklet": [
+        "Black body adorned with white spots, matched with black legs and feet",
+        "Small seabird with distinctive white crest on black head",
+        "Utilizes its black bill for feeding in marine environments",
+        "Adapted to cold climates with a dense feather coat"
+    ],
+    "Least Auklet": [
+        "Features a black bill and distinct white ring around black eyes",
+        "White spots on black wings create a distinctive pattern for identification",
+        "Black wings feature distinctive white spots",
+        "Adapted to cold marine habitats with its plumage and webbed feet"
+    ],
+    "Parakeet Auklet": [
+        "Features bright orange feet, unusual in its genus",
+        "Black back and wings with white underside for thermal regulation",
+        "Small, stocky seabird with a black and white color scheme and orange feet",
+        "Small, stocky seabird with a striking black and white contrast"
+    ],
+    "Rhinoceros Auklet": [
+        "Features a unique black stripe down the center of its back",
+        "Seabird with a robust, bulbous bill and mixed black/dark gray plumage",
+        "Features a unique white face with black stripe behind the eye",
+        "Short, stubby tail and webbed feet are well-adapted for marine life"
+    ],
+    "Brewer Blackbird": [
+        "Features subtle white spots on wings, visible during flight",
+        "Exhibits a glossy, jet-black plumage with striking yellow eyes",
+        "Exhibits glossy black plumage with notable yellow eyes",
+        "Equipped with a long, curved beak for feeding"
+    ],
+    "Red-winged Blackbird": [
+        "Sturdy black legs support its foraging activities in diverse habitats",
+        "Possesses a sleek, yellow beak, used for various feeding habits",
+        "Features a contrasting yellow beak",
+        "Well-adapted to marsh and wetland environments"
+    ],
+    "Rusty Blackbird": [
+        "Black bill and legs complement its overall dark appearance",
+        "Yellow eyes pierce through its darker plumage, creating a striking visual",
+        "Exhibits seasonal rusty-brown feather tips, distinguishing it from other blackbirds",
+        "Medium-sized, versatile for both ground and aerial foraging"
+    ],
+    "Yellow-headed Blackbird": [
+        "Black body equipped with a long, black beak for feeding",
+        "Equipped with black legs and feet, suited for marshland navigation",
+        "Showcases a bright yellow head and chest, creating a stark contrast with its black body",
+        "Yellow eyes add to the bird's vibrant head coloring"
+    ],
+    "Bobolink": [
+        "Displays a unique black and white plumage with yellow accents",
+        "Features a striking white collar against a black underside.",
+        "Characterized by its long, black tail and pointed black bill",
+        "Sporting a sleek black bill."
+    ],
+    "Indigo Bunting": [
+        "A compact, conical bill characteristic of seed eaters.",
+        "Small songbird with striking blue plumage and a white belly",
+        "Females and juveniles are brown with faint wing bars.",
+        "Black wings and tail accentuate its blue plumage."
+    ],
+    "Lazuli Bunting": [
+        "Features a white wing bar on dark wings.",
+        "Small songbird displaying a mosaic of blue, grey, and white shades",
+        "Distinctive appearance includes a two-toned bill.",
+        "Male plumage transitions from blue to orange on the breast."
+    ],
+    "Painted Bunting": [
+        "Prefers scrubby habitats and thickets.",
+        "Inhabits dense thickets and woodland edges",
+        "Known for its kaleidoscopic plumage of blue, green, and red.",
+        "Juvenile males and females are mostly green."
+    ],
+    "Cardinal": [
+        "Bright red bird with contrasting black beak and mask",
+        "Prefers habitats with dense shrubbery",
+        "Features a distinctive crest on its head",
+        "Notably vocal, with a variety of songs and calls."
+    ],
+    "Spotted Catbird": [
+        "Dense greenish plumage with conspicuous white spots.",
+        "Inhabits dense tropical and subtropical forests",
+        "Small, dark bird highlighted by white spots on its black body",
+        "Features a short, stout bill for fruit consumption."
+    ],
+    "Gray Catbird": [
+        "Prefers thickets and edges of forests.",
+        "Prefers dense underbrush and thicket habitats",
+        "Exhibits a distinctive reddish patch beneath its tail.",
+        "Slate grey bird with a black cap and tail, accented by a white belly"
+    ],
+    "Yellow-breasted Chat": [
+        "Vibrant yellow and black songbird with a distinctive black 'mask'",
+        "Notable for its large size among North American warblers.",
+        "Equipped with a black bill suitable for its insectivorous diet",
+        "Bright yellow breast contrasts with its olive-green back."
+    ],
+    "Eastern Towhee": [
+        "Males are predominantly black with white sides.",
+        "Feeds primarily on the ground, often seen scratching in leaf litter.",
+        "Females and juveniles are brown where males are black.",
+        "Blackbird with contrasting white belly and red eyes"
+    ],
+    "Chuck-will Widow": [
+        "Inhabits woodlands and savannas",
+        "Features distinctive white throat and breast",
+        "Primarily nocturnal, known for catching insects in flight.",
+        "Nests on the ground, relying on camouflage to protect its clutch."
+    ],
+    "Brandt Cormorant": [
+        "Utilizes wings to 'fly' underwater while hunting fish.",
+        "Equipped with a long, hooked bill for fish hunting",
+        "Seabird with glossy black or dark brown plumage and webbed feet",
+        "Dark plumage overall with an iridescent sheen in sunlight."
+    ],
+    "Red-faced Cormorant": [
+        "Long neck and body streamline for underwater pursuit.",
+        "Prefers cold, northern waters, often seen diving from the surface.",
+        "Aquatic bird with dark plumage and distinct red facial skin",
+        "Breeds on steep, rocky cliffs near the ocean."
+    ],
+    "Pelagic Cormorant": [
+        "Breeding adults display white flank patches and a red face.",
+        "Highly adapted for marine life, feeds on fish and invertebrates.",
+        "Smallest of the cormorants, with glossy black plumage.",
+        "Flight is low over the water with rapid wing beats."
+    ],
+    "Bronzed Cowbird": [
+        "Eyes strikingly red in males, brown in females.",
+        "Known for its parasitic breeding, laying eggs in the nests of other species.",
+        "Known for its parasitic breeding habits",
+        "Displays a bronzed iridescence on black plumage."
+    ],
+    "Shiny Cowbird": [
+        "Males perform a distinctive bowing display during courtship.",
+        "Equipped with a long, curved beak and red eyes",
+        "Inhabits open grasslands and agricultural areas",
+        "Inclined to brood parasitism, impacting populations of host species."
+    ],
+    "Brown Creeper": [
+        "Spirals upward around tree trunks in search of insects.",
+        "Inhabits wooded areas across North America",
+        "Short, curved bill specialized for extracting insects from bark crevices.",
+        "Nests behind loose bark on dead or dying trees."
+    ],
+    "American Crow": [
+        "Complex social structure, often seen in large flocks.",
+        "Vocal bird, producing a variety of sounds beyond the typical 'caw'.",
+        "Known for its intelligence and complex social behaviors",
+        "Inhabits a wide range of habitats from urban to rural"
+    ],
+    "Fish Crow": [
+        "Coastal bird, feeds on fish and crustaceans as well as garbage",
+        "Prefers coastal and near-water habitats",
+        "Resembles the American Crow but with a more slender body and distinct call",
+        "Slightly smaller than the American Crow, with a more slender bill"
+    ],
+    "Black-billed Cuckoo": [
+        "Medium-sized bird with black and white plumage and a long black bill",
+        "Inhabits dense woodlands and thickets",
+        "White underparts with thin, black bill",
+        "Secretive, more often heard than seen"
+    ],
+    "Mangrove Cuckoo": [
+        "Features a long tail and brown or grey plumage with a white breast",
+        "Low, guttural call notes, often in series",
+        "Yellow-bellied with a gray face and brown upperparts",
+        "Equipped with a black bill for feeding on a variety of insects and fruits"
+    ],
+    "Yellow-billed Cuckoo": [
+        "Known for its ability to eat spiny caterpillars",
+        "Distinctive knocking call sounds like 'kowp-kowp-kowp'",
+        "Nests in dense thickets and trees",
+        "Recognizable by its unique calling sounds"
+    ],
+    "Gray-crowned-Rosy Finch": [
+        "Sparrow-sized bird with a mix of gray, brown, and pink plumage",
+        "Pink body, gray crown, and black back make it distinctive",
+        "High elevation dweller, hardy against cold temperatures",
+        "Prefers alpine and tundra zones, often seen in flocks"
+    ],
+    "Purple Finch": [
+        "Highly sociable outside of breeding season, often at feeders",
+        "Males raspberry red on head and breast, females streaky brown",
+        "Song is a rich, warbling cascade of notes",
+        "Breeds in coniferous and mixed forests"
+    ],
+    "Northern Flicker": [
+        "Nests in tree cavities, often excavated by the bird itself",
+        "Medium-sized woodpecker known for its barred back and spotted belly",
+        "Undulating flight with flashes of white rump patch",
+        "Brown with black bars, distinctive red nape patch"
+    ],
+    "Acadian Flycatcher": [
+        "Nests are shallow cups of grass and spiderwebs",
+        "Features a short tail and black bill for aerial insect catching",
+        "Olive green upperparts, white underparts, and pale eye-ring",
+        "Inhabits dense forests and woodlands, near streams"
+    ],
+    "Great-Crested Flycatcher": [
+        "Bright yellow belly, brown back, and long, rusty tail",
+        "Loud, whistling call 'wreeep'",
+        "Conspicuous crest and aggressive behavior towards intruders",
+        "Nests in tree cavities, may use snake skin in nest lining"
+    ],
+    "Least Flycatcher": [
+        "Song is a sharp 'chebek', often repeated",
+        "Forages from a perch, short flights to snap up insects",
+        "Frequent tail flicking, perches upright",
+        "Grayish-olive upperparts, white underparts, and distinct eye-ring"
+    ],
+    "Olive-sided Flycatcher": [
+        "Songbird with distinct white breast marked by three black stripes",
+        "Hunts flying insects from high perches, sallies out for prey",
+        "Frequents forest edges, clearings, and burned-over lands",
+        "Perches at top of tall trees, distinctive 'quick, three beers!' call"
+    ],
+    "Scissor-tailed Flycatcher": [
+        "Winter in Central and South America, iconic of the Texas landscape",
+        "Catches insects in flight with acrobatic maneuvers",
+        "Open country and roadside percher, often on wires",
+        "Insectivorous, hunts in graceful aerial sallies"
+    ],
+    "Vermilion Flycatcher": [
+        "Distinctive song is a series of sweet, clear phrases",
+        "Inhabits open areas and parks, often seen perched when hunting for insects",
+        "Features a distinctive flying pattern during feeding",
+        "Prefers open woodlands, scrub, and desert edges"
+    ],
+    "Yellow-bellied Flycatcher": [
+        "Notable for its yellow belly and white throat",
+        "Song is a soft 'che-lick'",
+        "Insect eater, forages in dense foliage",
+        "Breeds in wet, northern forests, often near water"
+    ],
+    "Frigatebird": [
+        "Nests in colonies on isolated islands",
+        "Feeds on fish and squid by snatching them from the ocean surface or theft from other birds",
+        "Soars high over oceans, rarely flaps wings",
+        "Large seabird with a distinctive red gular sac and deeply forked tail"
+    ],
+    "Northern Fulmar": [
+        "Feeds on squid, fish, and krill by surface seizing or shallow diving",
+        "Breeds in dense colonies on cliffs, lays single white egg",
+        "Feeds primarily at sea, known to follow ships",
+        "Inhabits polar and subpolar regions"
+    ],
+    "Gadwall": [
+        "Equipped with orange legs and feet for swimming",
+        "Drabber than other ducks, males have a neat black rear end",
+        "Feeds by dabbling not diving, in shallow waters",
+        "Subtle plumage with intricate patterning upon closer inspection"
+    ],
+    "American Goldfinch": [
+        "Prefers open and semi-open areas with abundant seeds",
+        "Females and winter males more muted yellow-brown",
+        "Specialized bill for extracting seeds, notably from thistles and sunflowers",
+        "Known for its undulating flight pattern"
+    ],
+    "European Goldfinch": [
+        "Feeds on thistle, teasel, and dandelion seeds",
+        "Inhabits gardens, forests, and open fields",
+        "Small bird known for its colorful plumage and melodious song",
+        "Distinctive liquid twittering song and call"
+    ],
+    "Boat-tailed Grackle": [
+        "Inhabits coastal marshes and urban areas",
+        "Known for its loud calls and complex social structures",
+        "Omnivorous, eating insects, grain, small vertebrates, and food waste",
+        "Males substantially larger than females, with a more pronounced tail"
+    ],
+    "Eared Grebe": [
+        "Inhabits freshwater lakes and ponds during breeding season",
+        "Excellent diver, feeds on aquatic invertebrates and fish",
+        "Dense, compact body with a thin neck and sharply pointed bill",
+        "Builds floating nests anchored to submerged vegetation"
+    ],
+    "Horned Grebe": [
+        "Small and compact, with a steep forehead and a short, pointed bill",
+        "Predominantly aquatic, feeds on small fish and aquatic invertebrates",
+        "Known for its loud, trilling songs and aggressive territorial behavior",
+        "Recognizable by its horn-like feather tufts and red eyes"
+    ],
+    "Pied-billed Grebe": [
+        "Small waterbird with a unique bill pattern and webbed feet for diving",
+        "Builds a floating nest made of vegetation",
+        "Expert diver, vanishes quickly at slightest alarm",
+        "Small, brownish water bird with a distinctive thick, white bill ring in breeding season"
+    ],
+    "Western Grebe": [
+        "Nests in dense colonies on large lakes, building floating nests of vegetation",
+        "In winter, migrates to coastal waters, becomes more solitary",
+        "Large waterbird with striking black and white plumage and a long neck",
+        "Famed for its elaborate courtship dance, including synchronized water running"
+    ],
+    "Blue Grosbeak": [
+        "Nests in dense vegetation, often low in trees or bushes",
+        "Prefers habitats with thickets and brushy areas",
+        "Equipped with a large, conical bill for seed and insect eating",
+        "Inhabits shrubby areas and open woodlands, often near water"
+    ],
+    "Evening Grosbeak": [
+        "Inhabits coniferous forests and travels in flocks",
+        "Frequents sunflower feeders in winter, often in large, noisy flocks",
+        "Males are bright yellow and black with a prominent white wing patch; females are more subdued",
+        "Large, stocky finch with a robust, conical bill"
+    ],
+    "Pine Grosbeak": [
+        "Favors coniferous forests, feeds on seeds, buds, and berries",
+        "Features a red breast and a stout conical bill for foraging",
+        "Large, chunky finch with rounded head and thick bill",
+        "Gentle, mellow call, often forming loose flocks outside of breeding season"
+    ],
+    "Rose-breasted Grosbeak": [
+        "Song is a series of sweet whistles, similar to a robin's but more melodious",
+        "Nests are a shallow cup in a tree or large shrub",
+        "Breeds in deciduous forests, often near edges or clearings",
+        "Forages in trees and bushes for insects, seeds, and fruit"
+    ],
+    "Pigeon Guillemot": [
+        "Medium-sized seabird with distinct black and white plumage",
+        "Expert diver, feeds on fish and invertebrates",
+        "Breeds in burrows along rocky coastlines",
+        "Calls are high-pitched and squeaky, often while in flight"
+    ],
+    "California Gull": [
+        "Versatile feeder: eats insects, fish, eggs, and garbage",
+        "Medium-sized gull with a white body, gray back, and black wingtips with white spots",
+        "Nests in large colonies on the ground near water",
+        "Opportunistic feeder, known to follow agricultural activities"
+    ],
+    "Glaucous-winged Gull": [
+        "Bright yellow beak with a subtle red dot on the lower part",
+        "Legs and feet of a vivid yellow",
+        "Nests on islands and coastal regions",
+        "Wings shaded with a unique glacier-blue hue"
+    ],
+    "Heermann Gull": [
+        "Legs and webbed feet of a deep reddish hue",
+        "White tipped black tail visible in flight",
+        "Feeds on small fish and invertebrates",
+        "Characterized by its uniform grey body and a distinctive red spot on its bill"
+    ],
+    "Herring Gull": [
+        "Pinkish legs supporting its large body",
+        "Wide-ranging, inhabits coastal and inland areas",
+        "Classic seagull appearance with a white and grey palette",
+        "Large seabird with a powerful build and a yellow bill marked with a red spot"
+    ],
+    "Ivory Gull": [
+        "Arctic inhabitant, feeds on fish and scavenges from polar bear kills",
+        "Small, entirely white gull with a distinctive black bill",
+        "Eyes like drops of golden honey",
+        "Pure snowy plumage, an Arctic beauty"
+    ],
+    "Ring-billed Gull": [
+        "Medium-sized gull with a characteristic black ring on its bill",
+        "Clean white body with a graceful gray back",
+        "Prominent black band wrapping the yellow bill",
+        "Legs of a delicate lemony yellow"
+    ],
+    "Slaty-backed Gull": [
+        "Back and wings painted in a dusky shade of slate gray",
+        "Primarily feeds on fish, crustaceans, and occasionally other birds",
+        "Large gull with a notable dark grey back and a strong yellow bill",
+        "Legs and feet dipped in yellow, contrasting with its dark plumage"
+    ],
+    "Western Gull": [
+        "Feeds on fish, marine invertebrates, and by scavenging",
+        "Large size with a white head and underparts",
+        "Eyes of a pale, ghostly yellow",
+        "Breeding colonies located on offshore islands"
+    ],
+    "Anna Hummingbird": [
+        "Vibrant green feathers covering the body, with a dazzling ruby throat",
+        "Known for its hovering feeding behavior on flower nectar",
+        "Year-round resident of the western coastal regions",
+        "Small, vibrant bird with green and reddish plumage"
+    ],
+    "Ruby-throated Hummingbird": [
+        "Tiny, agile body capable of hovering mid-air",
+        "Feeds on nectar from tubular flowers using its long, narrow beak",
+        "Wings beat so fast they're often just a blur",
+        "Iridescent feathers that glimmer in direct sunlight"
+    ],
+    "Rufous Hummingbird": [
+        "Long migration route stretching from Alaska to Mexico",
+        "Migratory, with routes spanning Western North America",
+        "Features reddish-brown plumage and an aggressive defense of feeding territories",
+        "Bright rufous (reddish-orange) feathers covering most of the body"
+    ],
+    "Green Violetear": [
+        "Favors highland forests, often found above the canopy level",
+        "Utilizes rapid wing flaps to hover in place while feeding",
+        "Vibrant green plumage with violet ear patches",
+        "Feeds on nectar, showcasing rapid wing motion while hovering"
+    ],
+    "Long-tailed Jaeger": [
+        "Adept flyer, often seen gliding low over ocean waves",
+        "Breeds in Arctic tundra, winters at sea far from land",
+        "Breeds in Arctic tundra and winters at sea",
+        "Plumage varies from light gray to brown with white underparts"
+    ],
+    "Pomarine Jaeger": [
+        "Heavy, powerful build with broad wings and stout body",
+        "Robust seabird with a powerful build and twisted central tail feathers",
+        "Large, hooked bill used for scavenging and attacking prey",
+        "Rarely seen inland, prefers life over open ocean waters"
+    ],
+    "Blue Jay": [
+        "Feeds on nuts, seeds, and occasionally small invertebrates",
+        "Crest on head can be raised or lowered depending on mood",
+        "Loud, jarring calls often used to communicate with others",
+        "Inhabits forests, parks, and residential areas"
+    ],
+    "Florida Jay": [
+        "Inhabits scrub and woodland edges",
+        "Feeds on acorns, insects, and berries",
+        "Endemic to Florida, particularly the scrub and oak thickets",
+        "Known for its territorial behavior"
+    ],
+    "Green Jay": [
+        "Prominent black face mask with a white stripe above",
+        "Inhabits tropical and subtropical forested areas",
+        "Colorful bird with a unique plumage pattern of blue, green, and black",
+        "Uses sticks to extract insects from bark, showcasing tool use"
+    ],
+    "Dark-eyed Junco": [
+        "Distinctive trilling song and musical chirping calls",
+        "Ground feeder, often seen hopping on the forest floor",
+        "Ground feeders, primarily feed on seeds",
+        "Small, sparrow-like bird with distinct color variations across regions"
+    ],
+    "Tropical Kingbird": [
+        "Feeds on flying insects which it catches in mid-air acrobatics",
+        "Long, forked tail often seen in a characteristic twitching motion",
+        "Bright yellow belly with a light gray head and darker wings",
+        "Favors open and semi-open areas across Central and South America"
+    ],
+    "Gray Kingbird": [
+        "Distinct yellow eyes and long legs",
+        "Breeds in coastal areas, mangrove swamps, and islands",
+        "Distinctive, repetitive call sounds like a high-pitched, electronic buzz",
+        "Gray body with a white throat and breast"
+    ],
+    "Belted Kingfisher": [
+        "Blue-grey with a white underbelly",
+        "Noticeable crest on the head",
+        "Nests in burrows along earthen banks",
+        "Characteristic black band across the belly"
+    ],
+    "Green Kingfisher": [
+        "Small size with long, thin beak",
+        "Usually solitary, defends feeding territories fiercely",
+        "Male has a broad chestnut breast band which the female lacks",
+        "White underbelly and black eye stripe"
+    ],
+    "Pied Kingfisher": [
+        "Black and white plumage with a crest and unique hovering flight",
+        "Widely distributed across Africa and Asia near water bodies",
+        "Black and white plumage, long bill",
+        "Both sexes share distinctive double breast bands"
+    ],
+    "Ringed Kingfisher": [
+        "Feeds mainly on fish, captured with dramatic plunging dives",
+        "Long, curved bill and white belly",
+        "Often seen perched conspicuously along water bodies",
+        "Loud, laughing call echoes along rivers and lakes"
+    ],
+    "White-breasted Kingfisher": [
+        "Bright blue back and wings with a contrasting white front",
+        "Large head with a stout, reddish bill ideal for hunting fish and insects",
+        "Bright colors with a white breast",
+        "Adaptable, found near water as well as in gardens and farmlands"
+    ],
+    "Red-legged Kittiwake": [
+        "Red legs and a yellow bill",
+        "Small, white seabird with black wingtips",
+        "Black wingtips and a short, yellow bill",
+        "Breeds on steep, coastal cliffs in the Northern Pacific"
+    ],
+    "Horned Lark": [
+        "Notable for the small black 'horns' of feathers on its head",
+        "Small, ground-dwelling bird with brown back and yellow throat and face",
+        "Small, resembles a sparrow, variable color",
+        "Distinctive bright yellow face contrasts with its brown and black body markings"
+    ],
+    "Pacific Loon": [
+        "Markings include a white stripe above the eye",
+        "Notable for its eerie, wailing calls that echo across northern lakes",
+        "Waterbird with a long neck and thin neck",
+        "Powerful swimmer, dives to catch fish and invertebrates"
+    ],
+    "Mallard": [
+        "Effortless flyer, can migrate long distances seasonally",
+        "Adaptable to various habitats, often found in urban and suburban ponds",
+        "Green head, long neck, brown-white body",
+        "Orange bill with a black tip"
+    ],
+    "Western Meadowlark": [
+        "Melodious flute-like song resonates through grasslands",
+        "Bright yellow throat and belly with a distinctive black 'V' on chest",
+        "Prefers open fields and meadows as habitats",
+        "Insects and seeds comprise its diet"
+    ],
+    "Hooded Merganser": [
+        "Males have a black and white head and chestnut flanks",
+        "Nests in tree cavities near water bodies",
+        "Distinguished by a crest on the head",
+        "Long, thin bill and body"
+    ],
+    "Red-breasted Merganser": [
+        "Fast flyer, often seen flying low over water",
+        "Streamlined body with a distinctive shaggy crest on the head",
+        "Adapted for swimming with long, thin legs",
+        "Dives to catch fish, which form the bulk of its diet"
+    ],
+    "Mockingbird": [
+        "Known for mimicking sounds",
+        "Inhabits open areas with sparse vegetation, from suburbs to countryside",
+        "White breast with black wings and white spots",
+        "Territorial and fearless, often seen chasing away larger birds"
+    ],
+    "Nighthawk": [
+        "Nests on the ground or flat roofs without any material",
+        "Nocturnal predator with large eyes",
+        "Hooked beak for catching prey",
+        "Camouflaged plumage blends with its nocturnal habitat"
+    ],
+    "Clark Nutcracker": [
+        "Black cap and nape, white face and throat",
+        "Strong flier, capable of covering long distances",
+        "Famed for burying pine nuts in the ground as a winter food source",
+        "Long, black beak and black back"
+    ],
+    "White-breasted Nuthatch": [
+        "Frequent visitor to bird feeders, attracted to seeds and nuts",
+        "Nimble climber, often seen upside down on tree trunks",
+        "Slate blue-gray back with a stark white underpart",
+        "Short, stout bill for feeding"
+    ],
+    "Baltimore Oriole": [
+        "Feeds on nectar, fruits, and insects",
+        "Weaves a hanging basket-like nest at the end of tree branches",
+        "Black wings with white bars, yellow eyes",
+        "Migratory bird, winters in Central America"
+    ],
+    "Hooded Oriole": [
+        "Males perform elaborate courtship displays with fluffed feathers and bowed postures",
+        "Black hood, orange body, black wings",
+        "Not shy around humans, frequently found in suburban gardens",
+        "Brilliant orange body with a contrasting black 'hood'"
+    ],
+    "Orchard Oriole": [
+        "Prefers open woodlands for habitat",
+        "Rusty-orange and black coloring, smaller than many other orioles",
+        "Orange-red body with black head, back, and tail",
+        "Song is a series of clear, whistled notes and chatters"
+    ],
+    "Scott Oriole": [
+        "Feeds on nectar, insects, and fruits",
+        "Nests in yuccas or high trees",
+        "Orange-yellow with black head and back",
+        "Inclined to arid landscapes with yucca plants, which are used for nesting"
+    ],
+    "Ovenbird": [
+        "Can be difficult to spot, but often betrays its presence with its song",
+        "Brown or grey with a distinctive head stripe",
+        "Forages on the ground for insects and spiders",
+        "Resembles a small, ground-dwelling sparrow"
+    ],
+    "Brown Pelican": [
+        "Large bird adept at diving for fish",
+        "Breeds in colonies on islands and coastal cliffs",
+        "Plunges headfirst into water in spectacular fishing dives",
+        "Brown body with a distinct pouched bill"
+    ],
+    "White Pelican": [
+        "Forms large flocks, often seen soaring",
+        "Does not dive for fish, unlike the Brown Pelican",
+        "Inland lakes and marshes are preferred during breeding season",
+        "One of the largest flying birds"
+    ],
+    "Western-Wood Pewee": [
+        "Migrates to Central and South America for the winter",
+        "Distinctive upright posture when perched",
+        "Small, drab flycatcher with a faint vest and white underbelly",
+        "Small, brownish-grey with a long, black beak"
+    ],
+    "Sayornis": [
+        "Small size with dusky plumage, often perching conspicuously",
+        "Insectivorous, using acrobatic flights to catch prey",
+        "Frequent tail flicking when perched is characteristic",
+        "Simple, repetitive call notes often given in series"
+    ],
+    "American Pipit": [
+        "Feeds on insects and seeds, often in flocks during winter",
+        "Feeds on insects from the ground",
+        "Brown or grey with a distinctive bobbing tail",
+        "Flight call is a sharp 'pipit,' from which its name derives"
+    ],
+    "Whip-poor Will": [
+        "Camouflage plumage blends perfectly with leaf litter on the forest floor",
+        "Camouflaged plumage, large eyes for night vision",
+        "Nests on the ground without any nest structure",
+        "Named for its continuous, haunting whip-poor-will call at night"
+    ],
+    "Horned Puffin": [
+        "In winter, lives far out to sea, rarely seen near land",
+        "Breeds on rocky cliff sides in the Northern Pacific",
+        "Swims underwater using wings to 'fly' and catch fish",
+        "Nests in cliffs, skilled swimmer and diver"
+    ],
+    "Common Raven": [
+        "Known for complex vocalizations",
+        "Adaptable, inhabits diverse environments from wilderness to urban areas",
+        "Variety of vocalizations from deep croaks to complex mimicry",
+        "Large, all-black bird with a thick neck and shaggy throat feathers"
+    ],
+    "White-necked Raven": [
+        "White neck patch, large black beak",
+        "Lives in East Africa, from open fields to mountains",
+        "Distinctive croaking and knocking sounds",
+        "Smaller than the common raven"
+    ],
+    "American Redstart": [
+        "Small, active warbler with striking orange patches on wings and tail",
+        "Males are black with bright patches, while females are gray with yellow patches",
+        "Song is a series of high-pitched, sweet notes",
+        "Flashy orange and black plumage"
+    ],
+    "Geococcyx": [
+        "Famous for outrunning predators",
+        "Known as the roadrunner, famous for its fast, ground-based running",
+        "Long legs and tail, curved beak",
+        "Eats a variety of prey, including insects, lizards, and small mammals"
+    ],
+    "Loggerhead Shrike": [
+        "Breeds in open habitats including farmland and grasslands",
+        "Sharp, hooked bill for attacking and consuming prey",
+        "Impales its prey on thorns or barbed wire for storage",
+        "Prefers open habitats for hunting"
+    ],
+    "Great-Grey Shrike": [
+        "Larger than loggerhead, with a distinctive mask",
+        "Hunts from high perches, diving down to catch prey",
+        "Dominant and territorial, often seen alone or in pairs",
+        "Largest of the shrikes, with a broad black mask and pale gray body"
+    ],
+    "Baird Sparrow": [
+        "Songs are a mix of trills and buzzes",
+        "Prefers grasslands, inconspicuous",
+        "Feeds mostly on seeds but includes insects during summer",
+        "Small, cryptically colored sparrow with a rich, melodious song"
+    ],
+    "Black-throated Sparrow": [
+        "Diet includes seeds and insects, can survive long periods without water",
+        "White face with a grey back",
+        "Distinguished by its black throat and white face, contrasting with gray upperparts",
+        "Diet includes seeds and insects"
+    ],
+    "Brewer Sparrow": [
+        "Distinctly marked brown cap atop its head",
+        "Grey-brown with a streaked appearance",
+        "Sings a long, complex song",
+        "Noticeable streaks across a lighter breast"
+    ],
+    "Chipping Sparrow": [
+        "Compact bird with variable plumage coloration",
+        "Rusty cap and striking face pattern",
+        "Sleek silhouette with a proportionately long black tail",
+        "White underparts distinguished by crisp black streaks"
+    ],
+    "Clay-colored Sparrow": [
+        "Two noticeable white wing bars adding to its distinctive appearance",
+        "Light brown overall plumage with darker, crisp streaks",
+        "Thin, slightly curved bill enhancing its delicate profile",
+        "Bright, white underparts accented with subtle streaking"
+    ],
+    "House Sparrow": [
+        "Iconic black bib and stripe adorning the male",
+        "Paler underparts contrasted with darker, browner upperparts",
+        "Brown and grey with a black bib",
+        "Highly adaptable, often found near humans"
+    ],
+    "Field Sparrow": [
+        "Eats seeds and insects",
+        "Rufous-toned back with clear, white underparts",
+        "Clear, white bars on wings against a mostly brown plumage",
+        "White eye-ring giving it a gentle expression"
+    ],
+    "Fox Sparrow": [
+        "Prominent white eyebrow stripe offering a striking look",
+        "Vibrant contrast between its dark head and white throat",
+        "Song consists of loud, clear notes",
+        "Streaked back and tail indicative of its dense habitat preference"
+    ],
+    "Grasshopper Sparrow": [
+        "Light brown with a flat head",
+        "Fine, dark streaks across a lighter breast resembling grass shadows",
+        "Pale brown legs, well-adapted to its terrestrial lifestyle",
+        "Subdued, earthy brown colors blending with grasslands"
+    ],
+    "Harris Sparrow": [
+        "Winter visitor, large and chunky",
+        "Bold, pinkish bill setting it apart visually",
+        "Dark eyes set against a lighter face, enhancing its distinct look",
+        "Chunky build with a black bib and crown"
+    ],
+    "Henslow Sparrow": [
+        "Tail relatively short, with fine, dark banding",
+        "Longer legs aiding in movement through dense grass",
+        "Olive-green upperparts with heavy streaking",
+        "Bright yellow face accents with an olive cap"
+    ],
+    "Le-Conte Sparrow": [
+        "Buff-orange with fine streaks",
+        "A fine, pointed bill suited for seed extraction",
+        "Bright, yellow eyes giving it a vigilant appearance",
+        "Buff-orange facial pattern with a fine gray nape"
+    ],
+    "Lincoln Sparrow": [
+        "Notably fine, crisp streaks on breast",
+        "Fine, crisp streaking across a buffy breast",
+        "Moderately long tail with a rounded appearance",
+        "Feeds on seeds and insects"
+    ],
+    "Nelson-Sharp-tailed Sparrow": [
+        "Sharp, pointed tail aiding in its nimble flight",
+        "Feeds on seeds and aquatic invertebrates",
+        "Black bill sharply contrasting with lighter plumage",
+        "Distinctive orange face with gray cheeks"
+    ],
+    "Savannah Sparrow": [
+        "Wide distribution, yellowish over eye",
+        "Yellowish lores distinguishing it from similar species",
+        "Brown back with white streaks",
+        "Streaked back with brown and black marking"
+    ],
+    "Seaside Sparrow": [
+        "Marsh specialist, robust body",
+        "Feeds on insects and marsh plants",
+        "Robust body adapted to a life in dense marshes",
+        "Dark, streaked upperparts mimicking marsh reeds"
+    ],
+    "Song Sparrow": [
+        "Highly variable in color across regions",
+        "Loud, melodious song",
+        "Dark, brown eyes intensifying its inquisitive look",
+        "Richly streaked underparts with a central breast spot"
+    ],
+    "Tree Sparrow": [
+        "Rufous, narrow streaks along its flanks and back",
+        "Feeds on seeds and buds",
+        "Wing bars appearing more buff than pure white",
+        "Bi-colored bill\ufffddark above, yellow below"
+    ],
+    "Vesper Sparrow": [
+        "Melodious song at dusk",
+        "Brown back with streaks",
+        "Grayish head with fine streaks, blending into its habitat",
+        "Distinctive white outer tail feathers flashing in flight"
+    ],
+    "White-crowned Sparrow": [
+        "Distinctive black and white head stripes",
+        "Pale, gray breast lacking streaks, providing uniformity",
+        "Pink or yellowish bill, varying with age and region",
+        "Grey breast and brown back"
+    ],
+    "White-throated Sparrow": [
+        "White throat sharply contrasting with its darker head",
+        "Feeds on seeds and insects",
+        "Bill grayish, stout, and well-suited to seed foraging",
+        "Song is a clear, whistled 'Oh-sweet-canada'"
+    ],
+    "Cape-Glossy Starling": [
+        "Loud, varied song including mimicry",
+        "Sharp, orange-yellow beak contrasts with glossy feathers",
+        "Eats fruits, insects, and seeds",
+        "Glossy plumage with a metallic sheen"
+    ],
+    "Bank Swallow": [
+        "Short, forked tail designed for quick aerial maneuvers",
+        "Nests in riverbanks, agile flyer",
+        "Underparts range from white to pale, contrasting with darker upperparts",
+        "Small size with a streamlined, agile body"
+    ],
+    "Barn Swallow": [
+        "Distinctive reddish throat and forehead in adults",
+        "Feeds on insects captured in mid-air",
+        "Long, deeply forked tail with white spots on tail feathers",
+        "Juveniles show paler underparts and less forked tails"
+    ],
+    "Cliff Swallow": [
+        "Dark, glossy blue-black upperparts with a contrasting pale underparts",
+        "Builds mud nests on vertical surfaces",
+        "Short, broad wings for maneuvering around cliff faces",
+        "Colonial nester with gregarious behavior"
+    ],
+    "Tree Swallow": [
+        "Frequently seen flying over water, catching insects mid-air",
+        "Social species, often nesting in large colonies",
+        "Sleek, streamlined body with long, pointed wings",
+        "Iridescent blue-green back, white underparts"
+    ],
+    "Scarlet Tanager": [
+        "Distinctive, rich song often heard before the bird is seen",
+        "Feeds on insects and fruits",
+        "Prefers dense deciduous forests as habitats",
+        "Striking red plumage with black wings"
+    ],
+    "Summer Tanager": [
+        "Feeds primarily on bees and wasps, catching them in mid-flight",
+        "Feeds on bees, wasps, and fruits",
+        "Females are mustard-yellow, with some greenish shades on the back",
+        "Nests in deciduous forests"
+    ],
+    "Artic Tern": [
+        "Longest migration of any bird",
+        "Plumage transitions from a black cap in breeding season to a more mottled head in winter",
+        "Bright red bill and legs contrast with its pale body",
+        "Feeds on fish and invertebrates"
+    ],
+    "Black Tern": [
+        "Nests in marshes",
+        "Elegant flight over water bodies, dipping down to catch prey",
+        "Juveniles have a barred appearance with a dark bill and legs",
+        "Non-breeding adults have a white head and underparts with dark wings"
+    ],
+    "Caspian Tern": [
+        "Largest tern, feeds on large fish",
+        "Breeding adults have a full black cap, transitioning to a patchy crown in non-breeding season",
+        "Nests are simple scrapes on the ground, often on isolated beaches",
+        "Largest tern with a heavy red bill and a deep, raucous call"
+    ],
+    "Common Tern": [
+        "Medium-sized tern with a slender body and pointed wings",
+        "Flight is buoyant and graceful, often hovering before diving for fish",
+        "Feeds on fish, diving from altitude",
+        "Silver-gray plumage with a black cap and a red bill with a dark tip"
+    ],
+    "Elegant Tern": [
+        "Long, thin bill with a slight curve",
+        "Feeds primarily on small fish, captured with precise aerial dives",
+        "Nests in dense colonies on sandy beaches or islands",
+        "Long, slender bill with a slight droop, bright orange in color"
+    ],
+    "Forsters Tern": [
+        "Favors marshes and coastal wetlands for breeding",
+        "Nests are floating platforms built from vegetation",
+        "Nests in marshes",
+        "Distinctive black eye patch in breeding plumage with a white body"
+    ],
+    "Least Tern": [
+        "Sharp, rapid flight over shallow waters, catching small fish and crustaceans",
+        "Nests are simple scrapes in the sand, sometimes lined with shells or debris",
+        "Nests in small scrapes on sandy beaches",
+        "Smallest of American terns with a yellow bill and a black tip"
+    ],
+    "Green-tailed Towhee": [
+        "Song is a sweet, descending trill, often heard at dawn",
+        "Greenish back with rust-colored crown",
+        "Feeds on seeds and insects",
+        "Scratches at the ground with both feet to uncover food"
+    ],
+    "Brown Thrasher": [
+        "Vocal mimic with an extensive repertoire of songs and calls",
+        "Feeds on insects, fruits, and seeds, often seen foraging on the ground",
+        "Long rufous tail and curved bill for probing into leaf litter",
+        "Long, rufous tail with a curved bill"
+    ],
+    "Sage Thrasher": [
+        "Inhabits sagebrush flats, where it is often more heard than seen",
+        "Smallest of the thrashers with a short, straight bill",
+        "Nests are well-hidden in dense sagebrush or low shrubs",
+        "Song is a long, melodious warble"
+    ],
+    "Black-capped Vireo": [
+        "Diminutive songbird with a distinctive black cap",
+        "Endangered, prefers scrubby habitats",
+        "Song is a series of quick, cheerful notes",
+        "Elegant white wing bars on a sleek body"
+    ],
+    "Blue-headed Vireo": [
+        "Sleek black bill complements its sharp profile",
+        "Dark legs, adept at navigating through foliage",
+        "Clear, slow song with rising and falling notes",
+        "Feeds on insects and berries"
+    ],
+    "Philadelphia Vireo": [
+        "Two white wing bars, adding to its delicate appearance",
+        "Song is a series of musical phrases",
+        "Yellowish throat and breast, blending seamlessly into its underparts",
+        "Black bill, small yet effective for its dietary needs"
+    ],
+    "Red-eyed Vireo": [
+        "Olive-green songbird with a mysterious red-eyed gaze",
+        "Feeds on insects and fruits",
+        "Two white wing bars, symbols of its aerial agility",
+        "Black bill, perfectly curved for precision"
+    ],
+    "Warbling Vireo": [
+        "Black bill, slender and suited for insect catching",
+        "Feeds on insects and berries",
+        "Black eye, a piercing contrast to its softer plumage tones",
+        "Notable white eyebrow streak, accentuating its vigilant eyes"
+    ],
+    "White-eyed Vireo": [
+        "Short, stout bill, a testament to its versatility",
+        "Distinctive white eye-ring, loud song",
+        "Yellow-green plumage, with a distinctive white eye-ring, a window to its soul",
+        "Feeds on insects and berries"
+    ],
+    "Yellow-throated Vireo": [
+        "Feeds on insects, often in treetops",
+        "White belly, pristine and untouched",
+        "Olive-green upperparts with a striking yellow throat, a burst of sunlight",
+        "Two white wingbars, like frosted edges against a green canvas"
+    ],
+    "Bay-breasted Warbler": [
+        "Feeds on insects, especially caterpillars",
+        "Yellowish legs, subtle hints of its arboreal lifestyle",
+        "Long, black tail, a rudder through the skies",
+        "White throat and breast with brown streaks, a canvas of earth tones"
+    ],
+    "Black-and-white Warbler": [
+        "Monochrome marvel, a blend of black and white",
+        "Black streaks on a white belly, like ink drops on snow",
+        "Song is a series of high-pitched notes",
+        "Distinctive black-and-white striped pattern"
+    ],
+    "Black-throated-Blue Warbler": [
+        "Black wings with white stripes, the night sky streaked with stars",
+        "Prefers dense undergrowth, feeds on insects",
+        "Black throat, a shadow amidst the light",
+        "White belly, the underbelly of a cloud"
+    ],
+    "Blue-winged Warbler": [
+        "Sleek black cap atop head",
+        "Song is a series of buzzing notes",
+        "Petite, sharp bill for foraging",
+        "Hybridizes with golden-winged warbler"
+    ],
+    "Canada Warbler": [
+        "Striking black eye mask",
+        "Short, agile tail for maneuvering",
+        "Yellow underparts with streaked chest",
+        "Short, direct flight, feeds on insects"
+    ],
+    "Cape-May Warbler": [
+        "Sleek black cap for identification",
+        "Long, flowing tail feathers",
+        "Song is a high, thin seet-seet-seet",
+        "Two distinct white wing bars"
+    ],
+    "Cerulean Warbler": [
+        "White underparts with fine black streaks",
+        "Vulnerable due to habitat loss",
+        "Dark bill contrasting with light plumage",
+        "Song is a series of fast, high notes"
+    ],
+    "Chestnut-sided Warbler": [
+        "Unique chestnut-brown flanks",
+        "Song is a rapid, musical trill",
+        "Distinctive chestnut flanks on male",
+        "Black eye stripe adding character"
+    ],
+    "Golden-winged Warbler": [
+        "Golden yellow wing bars as a namesake",
+        "Sturdy black bill for feeding",
+        "Feeds on insects in shrubby habitats",
+        "Populations declining, conservation concern"
+    ],
+    "Hooded Warbler": [
+        "Prefers dense undergrowth, feeds on insects",
+        "Bright yellow underparts for contrast",
+        "Long, black tail for display",
+        "Black hood enveloping head"
+    ],
+    "Kentucky Warbler": [
+        "Feeds on insects in dense woods",
+        "Vibrant appearance in undergrowth",
+        "White belly for underpart contrast",
+        "Song is a loud, clear whistle"
+    ],
+    "Magnolia Warbler": [
+        "Feeds on insects in trees and shrubs",
+        "Black eye stripe for visual distinction",
+        "White belly contrasting with upperparts",
+        "Breeds in coniferous forests, migrates to Central America"
+    ],
+    "Mourning Warbler": [
+        "Difficult to see in dense underbrush",
+        "Feeds on insects near the ground",
+        "Song is a mournful, slow trill",
+        "Olive-grey plumage with a black cap"
+    ],
+    "Myrtle Warbler": [
+        "Black head with white stripes",
+        "Vibrant yellow-green upperparts",
+        "Long, black tail with white edges",
+        "Small size distinguished by black head and yellow throat"
+    ],
+    "Nashville Warbler": [
+        "Yellow tail with a black tip",
+        "Small, with a yellow belly and dark legs",
+        "Yellow-green plumage with white belly",
+        "Black eye stripe for character"
+    ],
+    "Orange-crowned Warbler": [
+        "Long, thin beak for precision feeding",
+        "Features a long, thin beak and a similarly long tail",
+        "White underparts contrast with two white wing bars",
+        "Two white wing bars for distinction"
+    ],
+    "Palm Warbler": [
+        "Two distinct white wing bars",
+        "Long, thin beak for probing",
+        "Yellow-brown plumage with white belly",
+        "Noted for its yellow-brown or olive-brown plumage and white belly"
+    ],
+    "Pine Warbler": [
+        "Yellow-green with a white belly and a prominent yellow breast",
+        "Yellow-green plumage with white underbelly",
+        "Two white wingbars for identification",
+        "Adapted to life in the trees with a long, pointed bill"
+    ],
+    "Prairie Warbler": [
+        "Short tail for maneuvering in brush",
+        "Its yellow throat brightens the white underparts",
+        "Yellow throat adding a splash of color",
+        "White belly providing contrast"
+    ],
+    "Prothonotary Warbler": [
+        "White wing bars on dark wings",
+        "Dark legs sturdy for perching",
+        "Black tail for visual distinction",
+        "Bright yellow body as a standout feature"
+    ],
+    "Swainson Warbler": [
+        "Long, curved bill useful for digging insects",
+        "Dull, brown, grey, or olive-colored plumage with a white underbelly",
+        "Yellowish legs adding subtle color",
+        "Long, curved bill for foraging"
+    ],
+    "Tennessee Warbler": [
+        "White belly contrasts with a vibrant yellow crown",
+        "Yellow crown adding vibrancy",
+        "Equipped with a black bill and dark legs for forest foraging",
+        "Black bill sturdy for feeding"
+    ],
+    "Wilson Warbler": [
+        "Features a black stripe through the eye and a white belly",
+        "Vibrant appearance in foliage",
+        "White belly for underpart contrast",
+        "Bright yellow plumage with a black cap"
+    ],
+    "Worm-eating Warbler": [
+        "Yellow throat adding a splash of color",
+        "Black cap atop head",
+        "White underbelly providing contrast",
+        "Olive-green or yellow-green plumage"
+    ],
+    "Yellow Warbler": [
+        "Entirely yellow with subtle black eye stripe",
+        "Bright yellow plumage throughout",
+        "Yellow breast with fine black streaks",
+        "Black bill and legs for contrast"
+    ],
+    "Northern Waterthrush": [
+        "White throat and breast with brown streaks",
+        "Adapted to wet environments with long, brown legs",
+        "Yellow eyes adding a touch of color",
+        "Browns and whites dominate its plumage, with a long, brown tail"
+    ],
+    "Louisiana Waterthrush": [
+        "Yellow eyes for visual appeal",
+        "Similar to the Northern Waterthrush but with a longer, curved bill",
+        "Brown back with white streaks for camouflage",
+        "Brown and white plumage with distinct streaks"
+    ],
+    "Bohemian Waxwing": [
+        "Red waxy wingtips as a unique feature",
+        "Noted for its unique red waxy wing tips",
+        "Medium-sized with a distinctive crest and a black mask",
+        "Crested head with sleek plumage"
+    ],
+    "Cedar Waxwing": [
+        "Sleek brown, gray, or black plumage with a striking crest",
+        "Yellow or orange beak adding color",
+        "Crested head for a distinguished look",
+        "Yellow or orange beak contrasts with the black mask around its eyes"
+    ],
+    "American-Three-toed Woodpecker": [
+        "Identifiable by black and white plumage and three toes on each foot",
+        "Black head with central white stripe",
+        "Features a black head with a central white stripe",
+        "Specialized for foraging on insect-infested trees"
+    ],
+    "Pileated Woodpecker": [
+        "Large, black and white bird with a distinctive red crest",
+        "Creates large holes in trees while searching for insects",
+        "Black and white plumage for visibility",
+        "Zygodactyl feet for strong grip"
+    ],
+    "Red-bellied Woodpecker": [
+        "Features a subtle red belly and a black and white patterned back",
+        "Long, black tail for support",
+        "Black and white barred wings for identification",
+        "Exhibits a black head with a striking white stripe"
+    ],
+    "Red-cockaded Woodpecker": [
+        "White eye stripe for visual distinction",
+        "Habitat specialist, reliant on mature pine forests",
+        "Characterized by a white stripe above the eye and zygodactyl feet",
+        "Red crescent on chest as a unique mark"
+    ],
+    "Red-headed Woodpecker": [
+        "Black wings with white bars for identification",
+        "Prefers open woodlands",
+        "Vivid, completely red head on a contrasting black and white body",
+        "Easily identified by its white rump and black tail"
+    ],
+    "Downy Woodpecker": [
+        "Black head with central white stripe",
+        "Black head with white stripes and a spotted back",
+        "Frequents backyard feeders",
+        "Black tail with white spots for identification"
+    ],
+    "Bewick Wren": [
+        "Inhabits thickets and brushy areas, often seen flicking its tail",
+        "Features a black tail with a white tip",
+        "Vocal with a melodious song",
+        "Small, brown bird with a distinguished white belly"
+    ],
+    "Cactus Wren": [
+        "Nests in cactus plants, using them for protection and nesting",
+        "Brown or grey with a white belly, known for its loud call",
+        "Black tail with white bars for identification",
+        "Largest North American wren, adapted to arid environments"
+    ],
+    "Carolina Wren": [
+        "Loud, melodious song",
+        "Brown plumage with a white belly and a distinctive black eye band",
+        "Long tail often held upright",
+        "Black band across eyes for distinction"
+    ],
+    "House Wren": [
+        "Black bill suited for insect hunting",
+        "Black tail with white bars for identification",
+        "Frequents human-made structures for nesting",
+        "Small, brown bird with a white belly"
+    ],
+    "Marsh Wren": [
+        "Loud, distinctive song echoing in marshes",
+        "Short tail often held upright",
+        "Lives in wetlands, identified by streaked plumage and a loud song",
+        "Brown or grey with streaked feathers"
+    ],
+    "Rock Wren": [
+        "Brown or grey plumage with a white belly",
+        "Prefers rocky outcrops, identifiable by its white belly and a black tail with white bars",
+        "Subtle white eyebrow distinguishes it from other wrens",
+        "Distinctive white eyebrow stripe"
+    ],
+    "Winter Wren": [
+        "Small, brown bird with a round body",
+        "Known for its surprisingly loud song given its small size",
+        "Dark streaks on back for camouflage",
+        "Short tail distinguishing it from others"
+    ],
+    "Common Yellowthroat": [
+        "Yellow and black plumage with a striking mask",
+        "Males display a vivid contrast between the mask and body color",
+        "Frequents marshy or wetland areas",
+        "Yellow throat contrasting with black mask"
+    ]
+}
