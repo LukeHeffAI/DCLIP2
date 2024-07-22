@@ -81,40 +81,43 @@ def modify_descriptor(descriptor, apply_changes):
         return make_descriptor_sentence(descriptor)
     return descriptor
 
-def load_gpt_descriptions(hparams, classes_to_load=None):
+def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=0.5):
     gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
     unmodify_dict = {}
-    
-    
+
+    def truncate_label(label, proportion):
+        cut_len = int(len(label) * proportion)
+        return label[:cut_len]
+
     if classes_to_load is not None: 
         gpt_descriptions = {c: gpt_descriptions_unordered[c] for c in classes_to_load}
     else:
         gpt_descriptions = gpt_descriptions_unordered
+
     if hparams['category_name_inclusion'] is not None:
         if classes_to_load is not None:
             keys_to_remove = [k for k in gpt_descriptions.keys() if k not in classes_to_load]
             for k in keys_to_remove:
                 print(f"Skipping descriptions for \"{k}\", not in classes to load")
                 gpt_descriptions.pop(k)
-            
+
         for i, (k, v) in enumerate(gpt_descriptions.items()):
             if len(v) == 0:
                 v = ['']
-            
-            
+
             word_to_add = wordify(k)
-            
+
             if (hparams['category_name_inclusion'] == 'append'):
-                build_descriptor_string = lambda item: f"{modify_descriptor(item, hparams['apply_descriptor_modification'])}{hparams['between_text']}{word_to_add}"
+                build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)}{hparams['between_text']}{word_to_add}"
             elif (hparams['category_name_inclusion'] == 'prepend'):
-                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{modify_descriptor(item, hparams['apply_descriptor_modification'])}{hparams['after_text']}"
+                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)}{hparams['after_text']}"
             else:
-                build_descriptor_string = lambda item: modify_descriptor(item, hparams['apply_descriptor_modification'])
-            
+                build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)
+
             unmodify_dict[k] = {build_descriptor_string(item): item for item in v}
-                
+
             gpt_descriptions[k] = [build_descriptor_string(item) for item in v]
-            
+
             # print an example the first time
             if i == 0: #verbose and 
                 print(f"Example description for class '{k}': \"{gpt_descriptions[k][0]}\"\n")
