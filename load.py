@@ -31,12 +31,20 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'cub_gpt4_8_desc'
 # Options:
 # ['imagenet',
 #  'cub',
-#  'cub_gpt4_test',
-#  'cub_gpt4_full',
+#  'cub_reassignment',
+#  'cub_reassignment_threshold',
+#  'cub_gpt4_1_desc',
+#  'cub_gpt4_2_desc',
+#  'cub_gpt4_3_desc',
+#  'cub_gpt4_4_desc',
+#  'cub_gpt4_5_desc',
+#  'cub_gpt4_6_desc',
+#  'cub_gpt4_7_desc',
+#  'cub_gpt4_8_desc',
 #  'cub_noise',
 #  'eurosat',
 #  'places365',
@@ -141,21 +149,85 @@ elif hparams['dataset'] == 'cub':
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
 
-elif hparams['dataset'] == 'cub_gpt4_test':
-    hparams['dataset_name'] = 'CUB_GPT4_test'
+elif hparams['dataset'] == 'cub_reassignment':
+    hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_test'
+    hparams['descriptor_fname'] = 'descriptors_cub_reassignment'
 
-elif hparams['dataset'] == 'cub_gpt4_full':
-    hparams['dataset_name'] = 'CUB_GPT4_full'
+elif hparams['dataset'] == 'cub_reassignment_threshold':
+    hparams['dataset_name'] = 'CUB'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_full'
+    hparams['descriptor_fname'] = 'descriptors_cub_reassignment_threshold'
+
+elif hparams['dataset'] == 'cub_gpt4_1_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_1'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_1_descriptors'
+
+elif hparams['dataset'] == 'cub_gpt4_2_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_2'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_2_descriptors'
+
+elif hparams['dataset'] == 'cub_gpt4_3_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_3'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None #dataset.classes
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_3_descriptors'
+
+elif hparams['dataset'] == 'cub_gpt4_4_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_4'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_4_descriptors'
+
+elif hparams['dataset'] == 'cub_gpt4_5_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_5'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None #dataset.classes
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_5_descriptors'
+
+elif hparams['dataset'] == 'cub_gpt4_6_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_6'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_6_descriptors'
+
+elif hparams['dataset'] == 'cub_gpt4_7_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_7'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_7_descriptors'
+
+elif hparams['dataset'] == 'cub_gpt4_8_desc':
+    hparams['dataset_name'] = 'CUB_GPT4_8'
+    hparams['data_dir'] = pathlib.Path(CUB_DIR)
+    hparams['analysis_fname'] = 'analysis_cub'
+    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
+    classes_to_load = None
+    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_8_descriptors'
 
 elif hparams['dataset'] == 'cub_post_noise':
     hparams['dataset_name'] = 'CUB'
@@ -215,7 +287,7 @@ elif hparams['dataset'] == 'dtd':
     
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
-hparams['class_analysis_fname'] = './class_analysis/class_' + hparams['analysis_fname']
+hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
     
 print("Creating descriptors...")
 
@@ -233,9 +305,10 @@ total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values(
 frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
 frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
 
-class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
-class_list = compute_class_list(class_similarity_dict, sort_config=True)
-average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
+if similarity_penalty_config:
+    class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
+    class_list = compute_class_list(class_similarity_dict, sort_config=True)
+    average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
 
 
 
