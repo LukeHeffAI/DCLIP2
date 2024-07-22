@@ -87,8 +87,6 @@ def compute_text_image_cosine_similarity(data):
     return descriptor_normalised_sums
 
 
-
-
 descriptor_file_path = hparams['descriptor_fname']
 
 # for json_path in descriptor_file:
@@ -108,27 +106,3 @@ output_path_name = descriptor_file_path.split("/")[-1].split(".")[0].split("_")[
 json_output_path = f'descriptor_analysis/descriptors_analysis_{output_path_name}.json'
 with open(json_output_path, 'w') as f:
     json.dump(analysis_dict, f, indent=4)
-
-# import pandas as pd
-# import seaborn as sns
-# import matplotlib.pyplot as plt
-
-# df_is = pd.DataFrame([(k, v) for k, v in freq_is.items() if v > 6], columns=['Value', 'Frequency'])
-# df_is = df_is.sort_values(by='Frequency', ascending=False)
-# # df_contains = pd.DataFrame([(k, v) for k, v in freq_contains.items() if v > 15], columns=['Value', 'Frequency'])
-# # df_contains = df_contains.sort_values(by='Frequency', ascending=False)
-
-# plt.figure(figsize=(15, 6))  # Adjust the size of the plot as needed
-# sns.barplot(x='Value', y='Frequency', data=df_is, palette='viridis')
-# # sns.barplot(x='Value', y='Frequency', data=df_contains, palette='viridis')
-
-# # Adding plot title and labels for clarity
-# plt.title('Frequency Distribution of Descriptors')
-# plt.xlabel('Value')
-# plt.ylabel('Frequency')
-
-# # Rotating the x-axis labels for better readability if necessary
-# plt.xticks(rotation=60)
-
-# # Show the plot
-# plt.show()
