@@ -105,37 +105,37 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
             class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
 
 # Print class-wise accuracies
-# print("\nClass-wise Description-based Accuracy:")
-# for i, acc in class_wise_lang_accuracy.items():
-#     class_name = dataset.classes[i]
-#     accuracy = 100 * acc.compute().item()
-#     print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
+print("\nClass-wise Description-based Accuracy:")
+for i, acc in class_wise_lang_accuracy.items():
+    class_name = dataset.classes[i]
+    accuracy = 100 * acc.compute().item()
+    print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
 
-# print("\nClass-wise CLIP-Standard Accuracy:")
-# for i, acc in class_wise_clip_accuracy.items():
-#     class_name = dataset.classes[i]
-#     accuracy = 100 * acc.compute().item()
-#     print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
+print("\nClass-wise CLIP-Standard Accuracy:")
+for i, acc in class_wise_clip_accuracy.items():
+    class_name = dataset.classes[i]
+    accuracy = 100 * acc.compute().item()
+    print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
 
 acc_list = []
 trivial_count = 0
-# print("Compare accuracies of description and CLIP-Standard")
-# for i, acc_class_wise in class_wise_lang_accuracy.items():
-#     for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
-#         if i == j:
-#             class_name = dataset.classes[i]
-#             acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
-#             acc_list.append(acc)
-#             if acc > 0.001 or acc < -0.001:
-#                 print(f"Desc. Acc. - CLIP Acc.: {acc:.3f}% - {class_name}")
-#             else:
-#                 trivial_count += 1
-#                 print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
-# print("Trivial count: ", trivial_count)
+print("Compare accuracies of description and CLIP-Standard")
+for i, acc_class_wise in class_wise_lang_accuracy.items():
+    for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
+        if i == j:
+            class_name = dataset.classes[i]
+            acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
+            acc_list.append(acc)
+            if acc > 0.01 or acc < -0.01:
+                print(f"Desc. Acc. - CLIP Acc.: {acc:.3f}% - {class_name}")
+            else:
+                trivial_count += 1
+                print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
+print("Trivial count: ", trivial_count)
 
-# for i in range(len(sorted(acc_list))):
-#     print(f"{sorted(acc_list)[i]}")
-# print(sum(acc_list))
+for i in range(len(sorted(acc_list))):
+    print(f"{sorted(acc_list)[i]}")
+print(sum(acc_list))
 
 class_wise_accuracies = {}
 differences = {}
@@ -166,8 +166,8 @@ sorted_class_wise_accuracies = {class_name: class_wise_accuracies[class_name] fo
 
 # Print overall accuracies
 experimental_results = {}
-experimental_results["Class-wise Accuracies and Differences (Top 5)"] = [list(sorted_class_wise_accuracies.keys())[:5]]
-experimental_results["Class-wise Accuracies and Differences (Bottom 5)"] = [list(sorted_class_wise_accuracies.keys())[-5:]]
+experimental_results["Class-wise Accuracies and Differences (Top 10)"] = [list(sorted_class_wise_accuracies.keys())[:10]]
+experimental_results["Class-wise Accuracies and Differences (Bottom 10)"] = [list(sorted_class_wise_accuracies.keys())[-10:]]
 experimental_results["Trivial Count"] = trivial_count
 experimental_results["Class-wise Accuracies and Differences"] = sorted_class_wise_accuracies
 experimental_results["Total Description-based Top-1 Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
@@ -199,4 +199,4 @@ print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_me
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
 print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
-print("Class-wise Accuracies and Differences (Top 5 and Bottom 5):\n", list(sorted_class_wise_accuracies.keys())[:5], "\n", list(sorted_class_wise_accuracies.keys())[-5:])
+print("Class-wise Accuracies and Differences (Top 5 and Bottom 5):\n", list(sorted_class_wise_accuracies.keys())[:10], "\n", list(sorted_class_wise_accuracies.keys())[-10:])
