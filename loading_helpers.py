@@ -81,7 +81,7 @@ def modify_descriptor(descriptor, apply_changes):
         return make_descriptor_sentence(descriptor)
     return descriptor
 
-def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=0.5):
+def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
     unmodify_dict = {}
 
