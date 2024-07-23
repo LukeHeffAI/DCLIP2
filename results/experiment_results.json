@@ -5195,1184 +5195,167 @@
             "null": {
                 "Class-wise Accuracies and Differences (Top 10)": [
                     [
-                        "091.Mockingbird",
-                        "018.Spotted_Catbird",
-                        "077.Tropical_Kingbird",
-                        "128.Seaside_Sparrow",
+                        "092.Nighthawk",
                         "098.Scott_Oriole",
-                        "116.Chipping_Sparrow",
-                        "062.Herring_Gull",
+                        "091.Mockingbird",
+                        "123.Henslow_Sparrow",
+                        "070.Green_Violetear",
+                        "122.Harris_Sparrow",
                         "145.Elegant_Tern",
-                        "009.Brewer_Blackbird",
-                        "118.House_Sparrow"
+                        "154.Red_eyed_Vireo",
+                        "029.American_Crow",
+                        "017.Cardinal"
                     ]
                 ],
                 "Class-wise Accuracies and Differences (Bottom 10)": [
                     [
-                        "094.White_breasted_Nuthatch",
-                        "162.Canada_Warbler",
-                        "131.Vesper_Sparrow",
-                        "147.Least_Tern",
-                        "129.Song_Sparrow",
-                        "082.Ringed_Kingfisher",
-                        "172.Nashville_Warbler",
+                        "176.Prairie_Warbler",
+                        "107.Common_Raven",
+                        "047.American_Goldfinch",
+                        "046.Gadwall",
+                        "151.Black_capped_Vireo",
+                        "002.Laysan_Albatross",
                         "157.Yellow_throated_Vireo",
-                        "136.Barn_Swallow",
-                        "140.Summer_Tanager"
+                        "162.Canada_Warbler",
+                        "008.Rhinoceros_Auklet",
+                        "186.Cedar_Waxwing"
                     ]
                 ],
-                "Trivial Count": 28,
+                "Trivial Count": 36,
                 "Class-wise Accuracies and Differences": {
-                    "091.Mockingbird": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": 49.99999925494194
-                    },
-                    "018.Spotted_Catbird": {
-                        "Description-based Accuracy": 60.00000238418579,
-                        "CLIP-Standard Accuracy": 13.333334028720856,
-                        "Difference": 46.666668355464935
-                    },
-                    "077.Tropical_Kingbird": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
-                        "Difference": 40.00000059604645
-                    },
-                    "128.Seaside_Sparrow": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 16.66666716337204,
-                        "Difference": 33.33333283662796
+                    "092.Nighthawk": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 66.66666865348816
                     },
                     "098.Scott_Oriole": {
-                        "Description-based Accuracy": 26.66666805744171,
+                        "Description-based Accuracy": 66.66666865348816,
                         "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 26.66666805744171
+                        "Difference": 66.66666865348816
                     },
-                    "116.Chipping_Sparrow": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
-                        "Difference": 26.66666805744171
+                    "091.Mockingbird": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": 46.666669100522995
                     },
-                    "062.Herring_Gull": {
-                        "Description-based Accuracy": 43.33333373069763,
-                        "CLIP-Standard Accuracy": 16.66666716337204,
-                        "Difference": 26.666666567325592
+                    "123.Henslow_Sparrow": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 36.666667461395264,
+                        "Difference": 39.99999761581421
+                    },
+                    "070.Green_Violetear": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 63.333332538604736,
+                        "Difference": 33.33333134651184
+                    },
+                    "122.Harris_Sparrow": {
+                        "Description-based Accuracy": 30.000001192092896,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 30.000001192092896
                     },
                     "145.Elegant_Tern": {
-                        "Description-based Accuracy": 40.00000059604645,
+                        "Description-based Accuracy": 43.33333373069763,
                         "CLIP-Standard Accuracy": 13.333334028720856,
-                        "Difference": 26.666666567325592
+                        "Difference": 29.999999701976776
                     },
-                    "009.Brewer_Blackbird": {
-                        "Description-based Accuracy": 27.586206793785095,
-                        "CLIP-Standard Accuracy": 3.448275849223137,
-                        "Difference": 24.13793094456196
+                    "154.Red_eyed_Vireo": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
+                        "Difference": 26.66666805744171
                     },
-                    "118.House_Sparrow": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 16.66666716337204,
-                        "Difference": 23.333333432674408
+                    "029.American_Crow": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 23.33333194255829
                     },
                     "017.Cardinal": {
                         "Description-based Accuracy": 77.77777910232544,
                         "CLIP-Standard Accuracy": 55.55555820465088,
                         "Difference": 22.22222089767456
                     },
-                    "027.Shiny_Cowbird": {
-                        "Description-based Accuracy": 26.66666805744171,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": 20.000001043081284
-                    },
-                    "066.Western_Gull": {
-                        "Description-based Accuracy": 30.000001192092896,
-                        "CLIP-Standard Accuracy": 10.000000149011612,
-                        "Difference": 20.000001043081284
-                    },
-                    "041.Scissor_tailed_Flycatcher": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": 19.999998807907104
-                    },
-                    "023.Brandt_Cormorant": {
-                        "Description-based Accuracy": 34.48275923728943,
-                        "CLIP-Standard Accuracy": 17.241379618644714,
-                        "Difference": 17.241379618644714
-                    },
-                    "051.Horned_Grebe": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 63.333332538604736,
-                        "Difference": 16.66666865348816
-                    },
-                    "059.California_Gull": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 23.333333432674408,
-                        "Difference": 16.66666716337204
-                    },
-                    "039.Least_Flycatcher": {
-                        "Description-based Accuracy": 17.241379618644714,
-                        "CLIP-Standard Accuracy": 3.448275849223137,
-                        "Difference": 13.793103769421577
-                    },
-                    "092.Nighthawk": {
-                        "Description-based Accuracy": 13.333334028720856,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 13.333334028720856
-                    },
-                    "030.Fish_Crow": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": 13.333333283662796
-                    },
-                    "156.White_eyed_Vireo": {
-                        "Description-based Accuracy": 23.333333432674408,
-                        "CLIP-Standard Accuracy": 10.000000149011612,
-                        "Difference": 13.333333283662796
-                    },
-                    "050.Eared_Grebe": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": 13.333332538604736
-                    },
-                    "064.Ring_billed_Gull": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": 13.333332538604736
-                    },
-                    "083.White_breasted_Kingfisher": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 60.00000238418579,
-                        "Difference": 13.333332538604736
-                    },
-                    "139.Scarlet_Tanager": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": 13.333332538604736
-                    },
-                    "183.Northern_Waterthrush": {
-                        "Description-based Accuracy": 63.333332538604736,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": 13.333332538604736
-                    },
-                    "020.Yellow_breasted_Chat": {
-                        "Description-based Accuracy": 34.48275923728943,
-                        "CLIP-Standard Accuracy": 24.13793057203293,
-                        "Difference": 10.3448286652565
-                    },
-                    "043.Yellow_bellied_Flycatcher": {
-                        "Description-based Accuracy": 20.68965584039688,
+                    "168.Kentucky_Warbler": {
+                        "Description-based Accuracy": 31.034481525421143,
                         "CLIP-Standard Accuracy": 10.34482792019844,
-                        "Difference": 10.34482792019844
-                    },
-                    "119.Field_Sparrow": {
-                        "Description-based Accuracy": 65.51724076271057,
-                        "CLIP-Standard Accuracy": 55.17241358757019,
-                        "Difference": 10.34482717514038
-                    },
-                    "031.Black_billed_Cuckoo": {
-                        "Description-based Accuracy": 66.66666865348816,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": 10.000002384185791
-                    },
-                    "073.Blue_Jay": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": 10.000002384185791
-                    },
-                    "087.Mallard": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": 10.000002384185791
-                    },
-                    "080.Green_Kingfisher": {
-                        "Description-based Accuracy": 26.66666805744171,
-                        "CLIP-Standard Accuracy": 16.66666716337204,
-                        "Difference": 10.000000894069672
-                    },
-                    "114.Black_throated_Sparrow": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 10.000000149011612,
-                        "Difference": 10.000000149011612
-                    },
-                    "055.Evening_Grosbeak": {
-                        "Description-based Accuracy": 96.66666388511658,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 9.999996423721313
-                    },
-                    "104.American_Pipit": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": 9.999996423721313
-                    },
-                    "006.Least_Auklet": {
-                        "Description-based Accuracy": 63.63636255264282,
-                        "CLIP-Standard Accuracy": 54.54545617103577,
-                        "Difference": 9.090906381607056
-                    },
-                    "097.Orchard_Oriole": {
-                        "Description-based Accuracy": 44.82758641242981,
-                        "CLIP-Standard Accuracy": 37.931033968925476,
-                        "Difference": 6.8965524435043335
-                    },
-                    "072.Pomarine_Jaeger": {
-                        "Description-based Accuracy": 13.333334028720856,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": 6.666667014360428
-                    },
-                    "170.Mourning_Warbler": {
-                        "Description-based Accuracy": 13.333334028720856,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": 6.666667014360428
-                    },
-                    "135.Bank_Swallow": {
-                        "Description-based Accuracy": 10.000000149011612,
-                        "CLIP-Standard Accuracy": 3.333333507180214,
-                        "Difference": 6.666666641831398
-                    },
-                    "054.Blue_Grosbeak": {
-                        "Description-based Accuracy": 83.33333134651184,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": 6.666666269302368
-                    },
-                    "056.Pine_Grosbeak": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": 6.666666269302368
-                    },
-                    "096.Hooded_Oriole": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
-                        "Difference": 6.666666269302368
-                    },
-                    "112.Great_Grey_Shrike": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 66.66666865348816,
-                        "Difference": 6.666666269302368
-                    },
-                    "132.White_crowned_Sparrow": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": 6.666666269302368
+                        "Difference": 20.689653605222702
                     },
                     "142.Black_Tern": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": 6.666666269302368
-                    },
-                    "154.Red_eyed_Vireo": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
-                        "Difference": 6.666666269302368
-                    },
-                    "185.Bohemian_Waxwing": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": 6.666666269302368
-                    },
-                    "192.Downy_Woodpecker": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 43.33333373069763,
-                        "Difference": 6.666666269302368
-                    },
-                    "105.Whip_poor_Will": {
-                        "Description-based Accuracy": 5.263157933950424,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 5.263157933950424
-                    },
-                    "007.Parakeet_Auklet": {
-                        "Description-based Accuracy": 8.695652335882187,
-                        "CLIP-Standard Accuracy": 4.3478261679410934,
-                        "Difference": 4.3478261679410934
-                    },
-                    "032.Mangrove_Cuckoo": {
-                        "Description-based Accuracy": 56.521737575531006,
-                        "CLIP-Standard Accuracy": 52.173912525177,
-                        "Difference": 4.347825050354004
-                    },
-                    "022.Chuck_will_Widow": {
-                        "Description-based Accuracy": 3.8461539894342422,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 3.8461539894342422
-                    },
-                    "075.Green_Jay": {
-                        "Description-based Accuracy": 96.29629850387573,
-                        "CLIP-Standard Accuracy": 92.59259104728699,
-                        "Difference": 3.703707456588745
-                    },
-                    "019.Gray_Catbird": {
-                        "Description-based Accuracy": 82.75862336158752,
-                        "CLIP-Standard Accuracy": 79.31034564971924,
-                        "Difference": 3.448277711868286
-                    },
-                    "141.Artic_Tern": {
-                        "Description-based Accuracy": 17.241379618644714,
-                        "CLIP-Standard Accuracy": 13.793103396892548,
-                        "Difference": 3.4482762217521667
-                    },
-                    "160.Black_throated_Blue_Warbler": {
-                        "Description-based Accuracy": 86.20689511299133,
-                        "CLIP-Standard Accuracy": 82.75862336158752,
-                        "Difference": 3.4482717514038086
-                    },
-                    "100.Brown_Pelican": {
-                        "Description-based Accuracy": 100.0,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": 3.333336114883423
-                    },
-                    "195.Carolina_Wren": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": 3.333336114883423
-                    },
-                    "061.Heermann_Gull": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 3.333333507180214
-                    },
-                    "158.Bay_breasted_Warbler": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 3.333333507180214
-                    },
-                    "193.Bewick_Wren": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 3.333333507180214,
-                        "Difference": 3.333333507180214
-                    },
-                    "120.Fox_Sparrow": {
-                        "Description-based Accuracy": 36.666667461395264,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": 3.333333134651184
-                    },
-                    "173.Orange_crowned_Warbler": {
-                        "Description-based Accuracy": 16.66666716337204,
-                        "CLIP-Standard Accuracy": 13.333334028720856,
-                        "Difference": 3.333333134651184
-                    },
-                    "175.Pine_Warbler": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 43.33333373069763,
-                        "Difference": 3.333333134651184
-                    },
-                    "010.Red_winged_Blackbird": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 3.3333301544189453
-                    },
-                    "093.Clark_Nutcracker": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 3.3333301544189453
-                    },
-                    "198.Rock_Wren": {
-                        "Description-based Accuracy": 83.33333134651184,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": 3.3333301544189453
-                    },
-                    "200.Common_Yellowthroat": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 3.3333301544189453
-                    },
-                    "004.Groove_billed_Ani": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": 0.0
-                    },
-                    "012.Yellow_headed_Blackbird": {
-                        "Description-based Accuracy": 96.15384340286255,
-                        "CLIP-Standard Accuracy": 96.15384340286255,
-                        "Difference": 0.0
-                    },
-                    "014.Indigo_Bunting": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": 0.0
-                    },
-                    "016.Painted_Bunting": {
-                        "Description-based Accuracy": 92.85714030265808,
-                        "CLIP-Standard Accuracy": 92.85714030265808,
-                        "Difference": 0.0
-                    },
-                    "028.Brown_Creeper": {
-                        "Description-based Accuracy": 96.55172228813171,
-                        "CLIP-Standard Accuracy": 96.55172228813171,
-                        "Difference": 0.0
-                    },
-                    "036.Northern_Flicker": {
-                        "Description-based Accuracy": 96.66666388511658,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": 0.0
-                    },
-                    "068.Ruby_throated_Hummingbird": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": 0.0
-                    },
-                    "071.Long_tailed_Jaeger": {
-                        "Description-based Accuracy": 23.333333432674408,
-                        "CLIP-Standard Accuracy": 23.333333432674408,
-                        "Difference": 0.0
-                    },
-                    "076.Dark_eyed_Junco": {
-                        "Description-based Accuracy": 83.33333134651184,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": 0.0
-                    },
-                    "079.Belted_Kingfisher": {
-                        "Description-based Accuracy": 96.66666388511658,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": 0.0
-                    },
-                    "081.Pied_Kingfisher": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": 0.0
-                    },
-                    "085.Horned_Lark": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 0.0
-                    },
-                    "089.Hooded_Merganser": {
-                        "Description-based Accuracy": 83.33333134651184,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": 0.0
-                    },
-                    "101.White_Pelican": {
-                        "Description-based Accuracy": 100.0,
-                        "CLIP-Standard Accuracy": 100.0,
-                        "Difference": 0.0
-                    },
-                    "103.Sayornis": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 0.0
-                    },
-                    "106.Horned_Puffin": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 0.0
-                    },
-                    "110.Geococcyx": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 0.0
-                    },
-                    "122.Harris_Sparrow": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 0.0
-                    },
-                    "123.Henslow_Sparrow": {
-                        "Description-based Accuracy": 36.666667461395264,
-                        "CLIP-Standard Accuracy": 36.666667461395264,
-                        "Difference": 0.0
-                    },
-                    "126.Nelson_Sharp_tailed_Sparrow": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 0.0
-                    },
-                    "138.Tree_Swallow": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 0.0
-                    },
-                    "149.Brown_Thrasher": {
-                        "Description-based Accuracy": 89.65517282485962,
-                        "CLIP-Standard Accuracy": 89.65517282485962,
-                        "Difference": 0.0
-                    },
-                    "165.Chestnut_sided_Warbler": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": 0.0
-                    },
-                    "166.Golden_winged_Warbler": {
-                        "Description-based Accuracy": 72.41379022598267,
-                        "CLIP-Standard Accuracy": 72.41379022598267,
-                        "Difference": 0.0
-                    },
-                    "180.Wilson_Warbler": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 3.333333507180214,
-                        "Difference": 0.0
-                    },
-                    "189.Red_bellied_Woodpecker": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": 0.0
-                    },
-                    "190.Red_cockaded_Woodpecker": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 0.0
-                    },
-                    "197.Marsh_Wren": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": 0.0
-                    },
-                    "021.Eastern_Towhee": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": -3.3333301544189453
-                    },
-                    "044.Frigatebird": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": -3.3333301544189453
-                    },
-                    "057.Rose_breasted_Grosbeak": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": -3.3333301544189453
-                    },
-                    "159.Black_and_white_Warbler": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": -3.3333301544189453
-                    },
-                    "177.Prothonotary_Warbler": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": -3.3333301544189453
-                    },
-                    "188.Pileated_Woodpecker": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": -3.3333301544189453
-                    },
-                    "191.Red_headed_Woodpecker": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": -3.3333301544189453
-                    },
-                    "029.American_Crow": {
-                        "Description-based Accuracy": 30.000001192092896,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": -3.333333134651184
-                    },
-                    "045.Northern_Fulmar": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -3.333333134651184
-                    },
-                    "067.Anna_Hummingbird": {
-                        "Description-based Accuracy": 16.66666716337204,
-                        "CLIP-Standard Accuracy": 20.000000298023224,
-                        "Difference": -3.333333134651184
-                    },
-                    "121.Grasshopper_Sparrow": {
-                        "Description-based Accuracy": 16.66666716337204,
-                        "CLIP-Standard Accuracy": 20.000000298023224,
-                        "Difference": -3.333333134651184
-                    },
-                    "130.Tree_Sparrow": {
-                        "Description-based Accuracy": 26.66666805744171,
-                        "CLIP-Standard Accuracy": 30.000001192092896,
-                        "Difference": -3.333333134651184
-                    },
-                    "137.Cliff_Swallow": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -3.333333134651184
-                    },
-                    "167.Hooded_Warbler": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 23.333333432674408,
-                        "Difference": -3.333333134651184
-                    },
-                    "174.Palm_Warbler": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -3.333333134651184
-                    },
-                    "108.White_necked_Raven": {
-                        "Description-based Accuracy": 63.333332538604736,
-                        "CLIP-Standard Accuracy": 66.66666865348816,
-                        "Difference": -3.333336114883423
-                    },
-                    "148.Green_tailed_Towhee": {
-                        "Description-based Accuracy": 76.66666507720947,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": -3.333336114883423
-                    },
-                    "182.Yellow_Warbler": {
-                        "Description-based Accuracy": 76.66666507720947,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": -3.333336114883423
-                    },
-                    "153.Philadelphia_Vireo": {
-                        "Description-based Accuracy": 3.448275849223137,
-                        "CLIP-Standard Accuracy": 6.896551698446274,
-                        "Difference": -3.448275849223137
-                    },
-                    "125.Lincoln_Sparrow": {
-                        "Description-based Accuracy": 6.896551698446274,
-                        "CLIP-Standard Accuracy": 10.34482792019844,
-                        "Difference": -3.4482762217521667
-                    },
-                    "168.Kentucky_Warbler": {
-                        "Description-based Accuracy": 6.896551698446274,
-                        "CLIP-Standard Accuracy": 10.34482792019844,
-                        "Difference": -3.4482762217521667
-                    },
-                    "037.Acadian_Flycatcher": {
-                        "Description-based Accuracy": 62.068963050842285,
-                        "CLIP-Standard Accuracy": 65.51724076271057,
-                        "Difference": -3.448277711868286
-                    },
-                    "178.Swainson_Warbler": {
-                        "Description-based Accuracy": 34.61538553237915,
-                        "CLIP-Standard Accuracy": 38.46153914928436,
-                        "Difference": -3.8461536169052124
-                    },
-                    "024.Red_faced_Cormorant": {
-                        "Description-based Accuracy": 40.909090638160706,
-                        "CLIP-Standard Accuracy": 45.45454680919647,
-                        "Difference": -4.545456171035767
-                    },
-                    "113.Baird_Sparrow": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 5.000000074505806,
-                        "Difference": -5.000000074505806
-                    },
-                    "035.Purple_Finch": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 93.33333373069763,
-                        "Difference": -6.666666269302368
-                    },
-                    "040.Olive_sided_Flycatcher": {
-                        "Description-based Accuracy": 30.000001192092896,
-                        "CLIP-Standard Accuracy": 36.666667461395264,
-                        "Difference": -6.666666269302368
-                    },
-                    "048.European_Goldfinch": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": -6.666666269302368
-                    },
-                    "052.Pied_billed_Grebe": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -6.666666269302368
-                    },
-                    "069.Rufous_Hummingbird": {
-                        "Description-based Accuracy": 83.33333134651184,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": -6.666666269302368
-                    },
-                    "171.Myrtle_Warbler": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
-                        "Difference": -6.666666269302368
-                    },
-                    "176.Prairie_Warbler": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": -6.666666269302368
-                    },
-                    "194.Cactus_Wren": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": -6.666666269302368
-                    },
-                    "199.Winter_Wren": {
-                        "Description-based Accuracy": 43.33333373069763,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -6.666666269302368
-                    },
-                    "163.Cape_May_Warbler": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 10.000000149011612,
-                        "Difference": -6.666666641831398
-                    },
-                    "038.Great_Crested_Flycatcher": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 13.333334028720856,
-                        "Difference": -6.666667014360428
-                    },
-                    "146.Forsters_Tern": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": -6.666667014360428
-                    },
-                    "115.Brewer_Sparrow": {
-                        "Description-based Accuracy": 17.241379618644714,
-                        "CLIP-Standard Accuracy": 24.13793057203293,
-                        "Difference": -6.896550953388214
-                    },
-                    "179.Tennessee_Warbler": {
-                        "Description-based Accuracy": 24.13793057203293,
-                        "CLIP-Standard Accuracy": 31.034481525421143,
-                        "Difference": -6.896550953388214
-                    },
-                    "117.Clay_colored_Sparrow": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 6.896551698446274,
-                        "Difference": -6.896551698446274
-                    },
-                    "181.Worm_eating_Warbler": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 6.896551698446274,
-                        "Difference": -6.896551698446274
-                    },
-                    "034.Gray_crowned_Rosy_Finch": {
-                        "Description-based Accuracy": 27.586206793785095,
-                        "CLIP-Standard Accuracy": 34.48275923728943,
-                        "Difference": -6.8965524435043335
-                    },
-                    "015.Lazuli_Bunting": {
-                        "Description-based Accuracy": 71.42857313156128,
-                        "CLIP-Standard Accuracy": 78.57142686843872,
-                        "Difference": -7.142853736877441
-                    },
-                    "005.Crested_Auklet": {
-                        "Description-based Accuracy": 14.28571492433548,
-                        "CLIP-Standard Accuracy": 21.42857164144516,
-                        "Difference": -7.14285671710968
-                    },
-                    "046.Gadwall": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": -9.999996423721313
-                    },
-                    "088.Western_Meadowlark": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": -9.999996423721313
-                    },
-                    "109.American_Redstart": {
                         "Description-based Accuracy": 53.33333611488342,
-                        "CLIP-Standard Accuracy": 63.333332538604736,
-                        "Difference": -9.999996423721313
-                    },
-                    "187.American_Three_toed_Woodpecker": {
-                        "Description-based Accuracy": 85.00000238418579,
-                        "CLIP-Standard Accuracy": 94.9999988079071,
-                        "Difference": -9.999996423721313
-                    },
-                    "161.Blue_winged_Warbler": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 13.333334028720856,
-                        "Difference": -10.000000521540642
-                    },
-                    "102.Western_Wood_Pewee": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 30.000001192092896,
-                        "Difference": -10.000000894069672
-                    },
-                    "013.Bobolink": {
-                        "Description-based Accuracy": 76.66666507720947,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -10.000002384185791
-                    },
-                    "042.Vermilion_Flycatcher": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 100.0,
-                        "Difference": -10.000002384185791
-                    },
-                    "090.Red_breasted_Merganser": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": -10.000002384185791
-                    },
-                    "150.Sage_Thrasher": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": -10.000002384185791
-                    },
-                    "003.Sooty_Albatross": {
-                        "Description-based Accuracy": 21.42857164144516,
-                        "CLIP-Standard Accuracy": 32.14285671710968,
-                        "Difference": -10.71428507566452
-                    },
-                    "058.Pigeon_Guillemot": {
-                        "Description-based Accuracy": 60.71428656578064,
-                        "CLIP-Standard Accuracy": 71.42857313156128,
-                        "Difference": -10.71428656578064
-                    },
-                    "001.Black_footed_Albatross": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -13.333332538604736
-                    },
-                    "025.Pelagic_Cormorant": {
-                        "Description-based Accuracy": 36.666667461395264,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -13.333332538604736
-                    },
-                    "049.Boat_tailed_Grackle": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": -13.333332538604736
-                    },
-                    "063.Ivory_Gull": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 69.9999988079071,
-                        "Difference": -13.333332538604736
-                    },
-                    "099.Ovenbird": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 69.9999988079071,
-                        "Difference": -13.333332538604736
-                    },
-                    "060.Glaucous_winged_Gull": {
-                        "Description-based Accuracy": 10.34482792019844,
-                        "CLIP-Standard Accuracy": 24.13793057203293,
-                        "Difference": -13.793102651834488
-                    },
-                    "133.White_throated_Sparrow": {
-                        "Description-based Accuracy": 60.00000238418579,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": -16.66666269302368
-                    },
-                    "008.Rhinoceros_Auklet": {
-                        "Description-based Accuracy": 33.33333432674408,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -16.66666567325592
-                    },
-                    "011.Rusty_Blackbird": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": -16.66666567325592
-                    },
-                    "070.Green_Violetear": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 63.333332538604736,
-                        "Difference": -16.66666567325592
-                    },
-                    "095.Baltimore_Oriole": {
-                        "Description-based Accuracy": 23.333333432674408,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
-                        "Difference": -16.66666716337204
-                    },
-                    "111.Loggerhead_Shrike": {
-                        "Description-based Accuracy": 16.66666716337204,
                         "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": -16.66666716337204
-                    },
-                    "184.Louisiana_Waterthrush": {
-                        "Description-based Accuracy": 10.000000149011612,
-                        "CLIP-Standard Accuracy": 26.66666805744171,
-                        "Difference": -16.6666679084301
-                    },
-                    "086.Pacific_Loon": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": -16.66666865348816
-                    },
-                    "078.Gray_Kingbird": {
-                        "Description-based Accuracy": 55.17241358757019,
-                        "CLIP-Standard Accuracy": 72.41379022598267,
-                        "Difference": -17.241376638412476
-                    },
-                    "151.Black_capped_Vireo": {
-                        "Description-based Accuracy": 52.3809552192688,
-                        "CLIP-Standard Accuracy": 71.42857313156128,
-                        "Difference": -19.04761791229248
-                    },
-                    "047.American_Goldfinch": {
-                        "Description-based Accuracy": 66.66666865348816,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -19.999998807907104
-                    },
-                    "053.Western_Grebe": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 100.0,
-                        "Difference": -19.999998807907104
-                    },
-                    "134.Cape_Glossy_Starling": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 93.33333373069763,
-                        "Difference": -19.999998807907104
-                    },
-                    "155.Warbling_Vireo": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 23.333333432674408,
-                        "Difference": -19.999999925494194
-                    },
-                    "144.Common_Tern": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
-                        "Difference": -20.000000298023224
-                    },
-                    "152.Blue_headed_Vireo": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
-                        "Difference": -20.000000298023224
-                    },
-                    "026.Bronzed_Cowbird": {
-                        "Description-based Accuracy": 10.000000149011612,
-                        "CLIP-Standard Accuracy": 30.000001192092896,
-                        "Difference": -20.000001043081284
-                    },
-                    "127.Savannah_Sparrow": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 43.33333373069763,
-                        "Difference": -23.333333432674408
-                    },
-                    "164.Cerulean_Warbler": {
-                        "Description-based Accuracy": 43.33333373069763,
-                        "CLIP-Standard Accuracy": 66.66666865348816,
-                        "Difference": -23.333334922790527
-                    },
-                    "186.Cedar_Waxwing": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 93.33333373069763,
-                        "Difference": -23.333334922790527
-                    },
-                    "196.House_Wren": {
-                        "Description-based Accuracy": 36.666667461395264,
-                        "CLIP-Standard Accuracy": 60.00000238418579,
-                        "Difference": -23.333334922790527
-                    },
-                    "169.Magnolia_Warbler": {
-                        "Description-based Accuracy": 48.27586114406586,
-                        "CLIP-Standard Accuracy": 72.41379022598267,
-                        "Difference": -24.13792908191681
-                    },
-                    "065.Slaty_backed_Gull": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 44.999998807907104,
-                        "Difference": -24.99999850988388
-                    },
-                    "084.Red_legged_Kittiwake": {
-                        "Description-based Accuracy": 47.826087474823,
-                        "CLIP-Standard Accuracy": 73.9130437374115,
-                        "Difference": -26.0869562625885
-                    },
-                    "074.Florida_Jay": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
-                        "Difference": -26.666666567325592
-                    },
-                    "107.Common_Raven": {
-                        "Description-based Accuracy": 23.333333432674408,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -26.666666567325592
-                    },
-                    "033.Yellow_billed_Cuckoo": {
-                        "Description-based Accuracy": 20.68965584039688,
-                        "CLIP-Standard Accuracy": 48.27586114406586,
-                        "Difference": -27.586205303668976
-                    },
-                    "002.Laysan_Albatross": {
-                        "Description-based Accuracy": 43.33333373069763,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": -30.000001192092896
-                    },
-                    "143.Caspian_Tern": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -30.000001192092896
-                    },
-                    "124.Le_Conte_Sparrow": {
-                        "Description-based Accuracy": 10.34482792019844,
-                        "CLIP-Standard Accuracy": 41.37931168079376,
-                        "Difference": -31.03448376059532
-                    },
-                    "094.White_breasted_Nuthatch": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": -33.33333134651184
-                    },
-                    "162.Canada_Warbler": {
-                        "Description-based Accuracy": 16.66666716337204,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -33.33333283662796
-                    },
-                    "131.Vesper_Sparrow": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 36.666667461395264,
-                        "Difference": -33.33333395421505
-                    },
-                    "147.Least_Tern": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": -36.666664481163025
-                    },
-                    "129.Song_Sparrow": {
-                        "Description-based Accuracy": 13.333334028720856,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -36.666665971279144
-                    },
-                    "082.Ringed_Kingfisher": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 43.33333373069763,
-                        "Difference": -36.666666716337204
-                    },
-                    "172.Nashville_Warbler": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 63.333332538604736,
-                        "Difference": -43.33333224058151
-                    },
-                    "157.Yellow_throated_Vireo": {
-                        "Description-based Accuracy": 3.448275849223137,
-                        "CLIP-Standard Accuracy": 48.27586114406586,
-                        "Difference": -44.82758529484272
-                    },
-                    "136.Barn_Swallow": {
-                        "Description-based Accuracy": 26.66666805744171,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": -49.99999701976776
-                    },
-                    "140.Summer_Tanager": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": -70.00000141561031
-                    }
-                },
-                "Total Description-based Top-1 Accuracy: ": 48.63651990890503,
-                "Total Description-based Top-5 Accuracy: ": 82.01587796211243,
-                "Total CLIP-Standard Top-1 Accuracy: ": 52.00207233428955,
-                "Total CLIP-Standard Top-5 Accuracy: ": 82.53365755081177
-            },
-            "null": {
-                "Class-wise Accuracies and Differences (Top 10)": [
-                    [
-                        "098.Scott_Oriole",
-                        "092.Nighthawk",
-                        "027.Shiny_Cowbird",
-                        "091.Mockingbird",
-                        "005.Crested_Auklet",
-                        "034.Gray_crowned_Rosy_Finch",
-                        "017.Cardinal",
-                        "070.Green_Violetear",
-                        "183.Northern_Waterthrush",
-                        "009.Brewer_Blackbird"
-                    ]
-                ],
-                "Class-wise Accuracies and Differences (Bottom 10)": [
-                    [
-                        "164.Cerulean_Warbler",
-                        "053.Western_Grebe",
-                        "186.Cedar_Waxwing",
-                        "172.Nashville_Warbler",
-                        "107.Common_Raven",
-                        "136.Barn_Swallow",
-                        "014.Indigo_Bunting",
-                        "002.Laysan_Albatross",
-                        "157.Yellow_throated_Vireo",
-                        "008.Rhinoceros_Auklet"
-                    ]
-                ],
-                "Trivial Count": 40,
-                "Class-wise Accuracies and Differences": {
-                    "098.Scott_Oriole": {
-                        "Description-based Accuracy": 63.333332538604736,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 63.333332538604736
-                    },
-                    "092.Nighthawk": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 56.66666626930237
-                    },
-                    "027.Shiny_Cowbird": {
-                        "Description-based Accuracy": 53.33333611488342,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": 46.666669100522995
-                    },
-                    "091.Mockingbird": {
-                        "Description-based Accuracy": 53.33333611488342,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": 46.666669100522995
-                    },
-                    "005.Crested_Auklet": {
-                        "Description-based Accuracy": 64.28571343421936,
-                        "CLIP-Standard Accuracy": 21.42857164144516,
-                        "Difference": 42.8571417927742
-                    },
-                    "034.Gray_crowned_Rosy_Finch": {
-                        "Description-based Accuracy": 75.86206793785095,
-                        "CLIP-Standard Accuracy": 34.48275923728943,
-                        "Difference": 41.37930870056152
-                    },
-                    "017.Cardinal": {
-                        "Description-based Accuracy": 92.59259104728699,
-                        "CLIP-Standard Accuracy": 55.55555820465088,
-                        "Difference": 37.03703284263611
-                    },
-                    "070.Green_Violetear": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 63.333332538604736,
-                        "Difference": 30.000001192092896
-                    },
-                    "183.Northern_Waterthrush": {
-                        "Description-based Accuracy": 76.66666507720947,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": 26.666665077209473
-                    },
-                    "009.Brewer_Blackbird": {
-                        "Description-based Accuracy": 27.586206793785095,
-                        "CLIP-Standard Accuracy": 3.448275849223137,
-                        "Difference": 24.13793094456196
-                    },
-                    "128.Seaside_Sparrow": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 16.66666716337204,
-                        "Difference": 23.333333432674408
-                    },
-                    "018.Spotted_Catbird": {
-                        "Description-based Accuracy": 33.33333432674408,
-                        "CLIP-Standard Accuracy": 13.333334028720856,
-                        "Difference": 20.000000298023224
-                    },
-                    "102.Western_Wood_Pewee": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 30.000001192092896,
-                        "Difference": 19.999998807907104
-                    },
-                    "032.Mangrove_Cuckoo": {
-                        "Description-based Accuracy": 69.5652186870575,
-                        "CLIP-Standard Accuracy": 52.173912525177,
-                        "Difference": 17.391306161880493
-                    },
-                    "174.Palm_Warbler": {
-                        "Description-based Accuracy": 66.66666865348816,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": 16.66666865348816
-                    },
-                    "145.Elegant_Tern": {
-                        "Description-based Accuracy": 30.000001192092896,
-                        "CLIP-Standard Accuracy": 13.333334028720856,
-                        "Difference": 16.66666716337204
-                    },
-                    "116.Chipping_Sparrow": {
-                        "Description-based Accuracy": 63.333332538604736,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
-                        "Difference": 16.66666567325592
-                    },
-                    "120.Fox_Sparrow": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": 16.66666567325592
-                    },
-                    "003.Sooty_Albatross": {
-                        "Description-based Accuracy": 46.42857015132904,
-                        "CLIP-Standard Accuracy": 32.14285671710968,
-                        "Difference": 14.28571343421936
+                        "Difference": 20.000001788139343
                     },
                     "059.California_Gull": {
-                        "Description-based Accuracy": 36.666667461395264,
+                        "Description-based Accuracy": 43.33333373069763,
                         "CLIP-Standard Accuracy": 23.333333432674408,
-                        "Difference": 13.333334028720856
+                        "Difference": 20.000000298023224
                     },
-                    "118.House_Sparrow": {
-                        "Description-based Accuracy": 30.000001192092896,
+                    "128.Seaside_Sparrow": {
+                        "Description-based Accuracy": 36.666667461395264,
                         "CLIP-Standard Accuracy": 16.66666716337204,
+                        "Difference": 20.000000298023224
+                    },
+                    "064.Ring_billed_Gull": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": 19.999998807907104
+                    },
+                    "026.Bronzed_Cowbird": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 30.000001192092896,
+                        "Difference": 16.66666567325592
+                    },
+                    "184.Louisiana_Waterthrush": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 26.66666805744171,
+                        "Difference": 16.66666567325592
+                    },
+                    "083.White_breasted_Kingfisher": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 60.00000238418579,
+                        "Difference": 16.66666269302368
+                    },
+                    "140.Summer_Tanager": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
+                        "Difference": 16.66666269302368
+                    },
+                    "005.Crested_Auklet": {
+                        "Description-based Accuracy": 35.71428656578064,
+                        "CLIP-Standard Accuracy": 21.42857164144516,
+                        "Difference": 14.28571492433548
+                    },
+                    "119.Field_Sparrow": {
+                        "Description-based Accuracy": 68.96551847457886,
+                        "CLIP-Standard Accuracy": 55.17241358757019,
+                        "Difference": 13.793104887008667
+                    },
+                    "060.Glaucous_winged_Gull": {
+                        "Description-based Accuracy": 37.931033968925476,
+                        "CLIP-Standard Accuracy": 24.13793057203293,
+                        "Difference": 13.793103396892548
+                    },
+                    "077.Tropical_Kingbird": {
+                        "Description-based Accuracy": 60.00000238418579,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
+                        "Difference": 13.333335518836975
+                    },
+                    "121.Grasshopper_Sparrow": {
+                        "Description-based Accuracy": 33.33333432674408,
+                        "CLIP-Standard Accuracy": 20.000000298023224,
                         "Difference": 13.333334028720856
                     },
-                    "030.Fish_Crow": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
+                    "135.Bank_Swallow": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 3.333333507180214,
+                        "Difference": 13.333333656191826
+                    },
+                    "114.Black_throated_Sparrow": {
+                        "Description-based Accuracy": 23.333333432674408,
+                        "CLIP-Standard Accuracy": 10.000000149011612,
                         "Difference": 13.333333283662796
                     },
-                    "082.Ringed_Kingfisher": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 43.33333373069763,
+                    "086.Pacific_Loon": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
                         "Difference": 13.333332538604736
                     },
                     "087.Mallard": {
@@ -6380,50 +5363,50 @@
                         "CLIP-Standard Accuracy": 83.33333134651184,
                         "Difference": 13.333332538604736
                     },
-                    "123.Henslow_Sparrow": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 36.666667461395264,
+                    "174.Palm_Warbler": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 50.0,
                         "Difference": 13.333332538604736
                     },
-                    "132.White_crowned_Sparrow": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
+                    "175.Pine_Warbler": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 43.33333373069763,
                         "Difference": 13.333332538604736
                     },
-                    "182.Yellow_Warbler": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": 13.333332538604736
-                    },
-                    "007.Parakeet_Auklet": {
-                        "Description-based Accuracy": 17.391304671764374,
-                        "CLIP-Standard Accuracy": 4.3478261679410934,
-                        "Difference": 13.04347850382328
-                    },
-                    "105.Whip_poor_Will": {
-                        "Description-based Accuracy": 10.526315867900848,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 10.526315867900848
+                    "003.Sooty_Albatross": {
+                        "Description-based Accuracy": 42.85714328289032,
+                        "CLIP-Standard Accuracy": 32.14285671710968,
+                        "Difference": 10.71428656578064
                     },
                     "039.Least_Flycatcher": {
                         "Description-based Accuracy": 13.793103396892548,
                         "CLIP-Standard Accuracy": 3.448275849223137,
                         "Difference": 10.34482754766941
                     },
-                    "119.Field_Sparrow": {
-                        "Description-based Accuracy": 65.51724076271057,
-                        "CLIP-Standard Accuracy": 55.17241358757019,
+                    "034.Gray_crowned_Rosy_Finch": {
+                        "Description-based Accuracy": 44.82758641242981,
+                        "CLIP-Standard Accuracy": 34.48275923728943,
                         "Difference": 10.34482717514038
                     },
-                    "109.American_Redstart": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 63.333332538604736,
+                    "185.Bohemian_Waxwing": {
+                        "Description-based Accuracy": 93.33333373069763,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
                         "Difference": 10.000002384185791
                     },
-                    "177.Prothonotary_Warbler": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": 10.000002384185791
+                    "118.House_Sparrow": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 16.66666716337204,
+                        "Difference": 10.000000894069672
+                    },
+                    "030.Fish_Crow": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": 10.000000149011612
+                    },
+                    "050.Eared_Grebe": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 9.999999403953552
                     },
                     "173.Orange_crowned_Warbler": {
                         "Description-based Accuracy": 23.333333432674408,
@@ -6435,134 +5418,94 @@
                         "CLIP-Standard Accuracy": 73.33333492279053,
                         "Difference": 9.999996423721313
                     },
-                    "167.Hooded_Warbler": {
-                        "Description-based Accuracy": 30.000001192092896,
-                        "CLIP-Standard Accuracy": 23.333333432674408,
-                        "Difference": 6.6666677594184875
+                    "006.Least_Auklet": {
+                        "Description-based Accuracy": 63.63636255264282,
+                        "CLIP-Standard Accuracy": 54.54545617103577,
+                        "Difference": 9.090906381607056
                     },
-                    "061.Heermann_Gull": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 0.0,
+                    "084.Red_legged_Kittiwake": {
+                        "Description-based Accuracy": 82.6086938381195,
+                        "CLIP-Standard Accuracy": 73.9130437374115,
+                        "Difference": 8.695650100708008
+                    },
+                    "027.Shiny_Cowbird": {
+                        "Description-based Accuracy": 13.333334028720856,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
                         "Difference": 6.666667014360428
                     },
-                    "126.Nelson_Sharp_tailed_Sparrow": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 6.666667014360428
-                    },
-                    "156.White_eyed_Vireo": {
-                        "Description-based Accuracy": 16.66666716337204,
-                        "CLIP-Standard Accuracy": 10.000000149011612,
-                        "Difference": 6.666667014360428
-                    },
-                    "041.Scissor_tailed_Flycatcher": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": 6.666666269302368
-                    },
-                    "086.Pacific_Loon": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": 6.666666269302368
-                    },
-                    "090.Red_breasted_Merganser": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": 6.666666269302368
-                    },
-                    "131.Vesper_Sparrow": {
-                        "Description-based Accuracy": 43.33333373069763,
-                        "CLIP-Standard Accuracy": 36.666667461395264,
-                        "Difference": 6.666666269302368
-                    },
-                    "142.Black_Tern": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": 6.666666269302368
-                    },
-                    "154.Red_eyed_Vireo": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
-                        "Difference": 6.666666269302368
-                    },
-                    "161.Blue_winged_Warbler": {
+                    "018.Spotted_Catbird": {
                         "Description-based Accuracy": 20.000000298023224,
                         "CLIP-Standard Accuracy": 13.333334028720856,
                         "Difference": 6.666666269302368
                     },
-                    "084.Red_legged_Kittiwake": {
-                        "Description-based Accuracy": 78.2608687877655,
-                        "CLIP-Standard Accuracy": 73.9130437374115,
-                        "Difference": 4.347825050354004
+                    "102.Western_Wood_Pewee": {
+                        "Description-based Accuracy": 36.666667461395264,
+                        "CLIP-Standard Accuracy": 30.000001192092896,
+                        "Difference": 6.666666269302368
+                    },
+                    "111.Loggerhead_Shrike": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 6.666666269302368
+                    },
+                    "112.Great_Grey_Shrike": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 66.66666865348816,
+                        "Difference": 6.666666269302368
+                    },
+                    "024.Red_faced_Cormorant": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 45.45454680919647,
+                        "Difference": 4.545453190803528
+                    },
+                    "007.Parakeet_Auklet": {
+                        "Description-based Accuracy": 8.695652335882187,
+                        "CLIP-Standard Accuracy": 4.3478261679410934,
+                        "Difference": 4.3478261679410934
                     },
                     "028.Brown_Creeper": {
                         "Description-based Accuracy": 100.0,
                         "CLIP-Standard Accuracy": 96.55172228813171,
                         "Difference": 3.448277711868286
                     },
-                    "149.Brown_Thrasher": {
-                        "Description-based Accuracy": 93.1034505367279,
-                        "CLIP-Standard Accuracy": 89.65517282485962,
+                    "037.Acadian_Flycatcher": {
+                        "Description-based Accuracy": 68.96551847457886,
+                        "CLIP-Standard Accuracy": 65.51724076271057,
                         "Difference": 3.448277711868286
                     },
-                    "179.Tennessee_Warbler": {
-                        "Description-based Accuracy": 34.48275923728943,
-                        "CLIP-Standard Accuracy": 31.034481525421143,
+                    "097.Orchard_Oriole": {
+                        "Description-based Accuracy": 41.37931168079376,
+                        "CLIP-Standard Accuracy": 37.931033968925476,
                         "Difference": 3.448277711868286
                     },
-                    "020.Yellow_breasted_Chat": {
-                        "Description-based Accuracy": 27.586206793785095,
-                        "CLIP-Standard Accuracy": 24.13793057203293,
-                        "Difference": 3.4482762217521667
+                    "190.Red_cockaded_Woodpecker": {
+                        "Description-based Accuracy": 3.448275849223137,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 3.448275849223137
                     },
-                    "060.Glaucous_winged_Gull": {
-                        "Description-based Accuracy": 27.586206793785095,
-                        "CLIP-Standard Accuracy": 24.13793057203293,
-                        "Difference": 3.4482762217521667
-                    },
-                    "141.Artic_Tern": {
-                        "Description-based Accuracy": 17.241379618644714,
-                        "CLIP-Standard Accuracy": 13.793103396892548,
-                        "Difference": 3.4482762217521667
-                    },
-                    "043.Yellow_bellied_Flycatcher": {
-                        "Description-based Accuracy": 13.793103396892548,
-                        "CLIP-Standard Accuracy": 10.34482792019844,
-                        "Difference": 3.448275476694107
-                    },
-                    "168.Kentucky_Warbler": {
-                        "Description-based Accuracy": 13.793103396892548,
-                        "CLIP-Standard Accuracy": 10.34482792019844,
-                        "Difference": 3.448275476694107
-                    },
-                    "160.Black_throated_Blue_Warbler": {
-                        "Description-based Accuracy": 86.20689511299133,
-                        "CLIP-Standard Accuracy": 82.75862336158752,
-                        "Difference": 3.4482717514038086
-                    },
-                    "063.Ivory_Gull": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 69.9999988079071,
+                    "054.Blue_Grosbeak": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
                         "Difference": 3.333336114883423
                     },
-                    "064.Ring_billed_Gull": {
-                        "Description-based Accuracy": 60.00000238418579,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
+                    "109.American_Redstart": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 63.333332538604736,
                         "Difference": 3.333336114883423
                     },
-                    "185.Bohemian_Waxwing": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": 3.333336114883423
+                    "156.White_eyed_Vireo": {
+                        "Description-based Accuracy": 13.333334028720856,
+                        "CLIP-Standard Accuracy": 10.000000149011612,
+                        "Difference": 3.3333338797092438
                     },
-                    "103.Sayornis": {
+                    "126.Nelson_Sharp_tailed_Sparrow": {
                         "Description-based Accuracy": 3.333333507180214,
                         "CLIP-Standard Accuracy": 0.0,
                         "Difference": 3.333333507180214
                     },
-                    "135.Bank_Swallow": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 3.333333507180214,
+                    "158.Bay_breasted_Warbler": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 0.0,
                         "Difference": 3.333333507180214
                     },
                     "193.Bewick_Wren": {
@@ -6570,29 +5513,54 @@
                         "CLIP-Standard Accuracy": 3.333333507180214,
                         "Difference": 3.333333507180214
                     },
-                    "171.Myrtle_Warbler": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
+                    "038.Great_Crested_Flycatcher": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 13.333334028720856,
                         "Difference": 3.333333134651184
+                    },
+                    "082.Ringed_Kingfisher": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 43.33333373069763,
+                        "Difference": 3.333333134651184
+                    },
+                    "120.Fox_Sparrow": {
+                        "Description-based Accuracy": 36.666667461395264,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 3.333333134651184
+                    },
+                    "131.Vesper_Sparrow": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 36.666667461395264,
+                        "Difference": 3.333333134651184
+                    },
+                    "152.Blue_headed_Vireo": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
+                        "Difference": 3.333333134651184
+                    },
+                    "161.Blue_winged_Warbler": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 13.333334028720856,
+                        "Difference": 3.333333134651184
+                    },
+                    "013.Bobolink": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": 3.3333301544189453
                     },
                     "052.Pied_billed_Grebe": {
                         "Description-based Accuracy": 89.99999761581421,
                         "CLIP-Standard Accuracy": 86.66666746139526,
                         "Difference": 3.3333301544189453
                     },
-                    "139.Scarlet_Tanager": {
-                        "Description-based Accuracy": 76.66666507720947,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": 3.3333301544189453
+                    "009.Brewer_Blackbird": {
+                        "Description-based Accuracy": 3.448275849223137,
+                        "CLIP-Standard Accuracy": 3.448275849223137,
+                        "Difference": 0.0
                     },
-                    "140.Summer_Tanager": {
-                        "Description-based Accuracy": 76.66666507720947,
-                        "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": 3.3333301544189453
-                    },
-                    "010.Red_winged_Blackbird": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
+                    "012.Yellow_headed_Blackbird": {
+                        "Description-based Accuracy": 96.15384340286255,
+                        "CLIP-Standard Accuracy": 96.15384340286255,
                         "Difference": 0.0
                     },
                     "016.Painted_Bunting": {
@@ -6600,24 +5568,44 @@
                         "CLIP-Standard Accuracy": 92.85714030265808,
                         "Difference": 0.0
                     },
+                    "021.Eastern_Towhee": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": 0.0
+                    },
                     "022.Chuck_will_Widow": {
                         "Description-based Accuracy": 0.0,
                         "CLIP-Standard Accuracy": 0.0,
                         "Difference": 0.0
                     },
-                    "023.Brandt_Cormorant": {
-                        "Description-based Accuracy": 17.241379618644714,
-                        "CLIP-Standard Accuracy": 17.241379618644714,
+                    "031.Black_billed_Cuckoo": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
                         "Difference": 0.0
                     },
-                    "037.Acadian_Flycatcher": {
-                        "Description-based Accuracy": 65.51724076271057,
-                        "CLIP-Standard Accuracy": 65.51724076271057,
+                    "032.Mangrove_Cuckoo": {
+                        "Description-based Accuracy": 52.173912525177,
+                        "CLIP-Standard Accuracy": 52.173912525177,
                         "Difference": 0.0
                     },
-                    "045.Northern_Fulmar": {
+                    "036.Northern_Flicker": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": 0.0
+                    },
+                    "041.Scissor_tailed_Flycatcher": {
                         "Description-based Accuracy": 50.0,
                         "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 0.0
+                    },
+                    "042.Vermilion_Flycatcher": {
+                        "Description-based Accuracy": 100.0,
+                        "CLIP-Standard Accuracy": 100.0,
+                        "Difference": 0.0
+                    },
+                    "043.Yellow_bellied_Flycatcher": {
+                        "Description-based Accuracy": 10.34482792019844,
+                        "CLIP-Standard Accuracy": 10.34482792019844,
                         "Difference": 0.0
                     },
                     "056.Pine_Grosbeak": {
@@ -6625,39 +5613,14 @@
                         "CLIP-Standard Accuracy": 83.33333134651184,
                         "Difference": 0.0
                     },
-                    "062.Herring_Gull": {
-                        "Description-based Accuracy": 16.66666716337204,
-                        "CLIP-Standard Accuracy": 16.66666716337204,
-                        "Difference": 0.0
-                    },
-                    "069.Rufous_Hummingbird": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
+                    "061.Heermann_Gull": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 0.0,
                         "Difference": 0.0
                     },
                     "071.Long_tailed_Jaeger": {
                         "Description-based Accuracy": 23.333333432674408,
                         "CLIP-Standard Accuracy": 23.333333432674408,
-                        "Difference": 0.0
-                    },
-                    "074.Florida_Jay": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
-                        "Difference": 0.0
-                    },
-                    "075.Green_Jay": {
-                        "Description-based Accuracy": 92.59259104728699,
-                        "CLIP-Standard Accuracy": 92.59259104728699,
-                        "Difference": 0.0
-                    },
-                    "076.Dark_eyed_Junco": {
-                        "Description-based Accuracy": 83.33333134651184,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": 0.0
-                    },
-                    "078.Gray_Kingbird": {
-                        "Description-based Accuracy": 68.96551847457886,
-                        "CLIP-Standard Accuracy": 68.96551847457886,
                         "Difference": 0.0
                     },
                     "079.Belted_Kingfisher": {
@@ -6680,14 +5643,9 @@
                         "CLIP-Standard Accuracy": 83.33333134651184,
                         "Difference": 0.0
                     },
-                    "093.Clark_Nutcracker": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": 0.0
-                    },
-                    "097.Orchard_Oriole": {
-                        "Description-based Accuracy": 37.931033968925476,
-                        "CLIP-Standard Accuracy": 37.931033968925476,
+                    "090.Red_breasted_Merganser": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
                         "Difference": 0.0
                     },
                     "100.Brown_Pelican": {
@@ -6700,37 +5658,22 @@
                         "CLIP-Standard Accuracy": 100.0,
                         "Difference": 0.0
                     },
+                    "103.Sayornis": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 0.0
+                    },
+                    "105.Whip_poor_Will": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 0.0
+                    },
                     "106.Horned_Puffin": {
                         "Description-based Accuracy": 86.66666746139526,
                         "CLIP-Standard Accuracy": 86.66666746139526,
                         "Difference": 0.0
                     },
                     "110.Geococcyx": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
-                        "Difference": 0.0
-                    },
-                    "111.Loggerhead_Shrike": {
-                        "Description-based Accuracy": 33.33333432674408,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
-                        "Difference": 0.0
-                    },
-                    "113.Baird_Sparrow": {
-                        "Description-based Accuracy": 5.000000074505806,
-                        "CLIP-Standard Accuracy": 5.000000074505806,
-                        "Difference": 0.0
-                    },
-                    "117.Clay_colored_Sparrow": {
-                        "Description-based Accuracy": 6.896551698446274,
-                        "CLIP-Standard Accuracy": 6.896551698446274,
-                        "Difference": 0.0
-                    },
-                    "121.Grasshopper_Sparrow": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 20.000000298023224,
-                        "Difference": 0.0
-                    },
-                    "122.Harris_Sparrow": {
                         "Description-based Accuracy": 0.0,
                         "CLIP-Standard Accuracy": 0.0,
                         "Difference": 0.0
@@ -6745,9 +5688,9 @@
                         "CLIP-Standard Accuracy": 76.66666507720947,
                         "Difference": 0.0
                     },
-                    "158.Bay_breasted_Warbler": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
+                    "149.Brown_Thrasher": {
+                        "Description-based Accuracy": 89.65517282485962,
+                        "CLIP-Standard Accuracy": 89.65517282485962,
                         "Difference": 0.0
                     },
                     "159.Black_and_white_Warbler": {
@@ -6755,9 +5698,14 @@
                         "CLIP-Standard Accuracy": 89.99999761581421,
                         "Difference": 0.0
                     },
-                    "169.Magnolia_Warbler": {
-                        "Description-based Accuracy": 72.41379022598267,
-                        "CLIP-Standard Accuracy": 72.41379022598267,
+                    "160.Black_throated_Blue_Warbler": {
+                        "Description-based Accuracy": 82.75862336158752,
+                        "CLIP-Standard Accuracy": 82.75862336158752,
+                        "Difference": 0.0
+                    },
+                    "163.Cape_May_Warbler": {
+                        "Description-based Accuracy": 10.000000149011612,
+                        "CLIP-Standard Accuracy": 10.000000149011612,
                         "Difference": 0.0
                     },
                     "170.Mourning_Warbler": {
@@ -6765,54 +5713,39 @@
                         "CLIP-Standard Accuracy": 6.666667014360428,
                         "Difference": 0.0
                     },
-                    "175.Pine_Warbler": {
-                        "Description-based Accuracy": 43.33333373069763,
-                        "CLIP-Standard Accuracy": 43.33333373069763,
-                        "Difference": 0.0
-                    },
                     "180.Wilson_Warbler": {
                         "Description-based Accuracy": 3.333333507180214,
                         "CLIP-Standard Accuracy": 3.333333507180214,
                         "Difference": 0.0
                     },
-                    "189.Red_bellied_Woodpecker": {
-                        "Description-based Accuracy": 89.99999761581421,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
+                    "182.Yellow_Warbler": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
                         "Difference": 0.0
                     },
-                    "190.Red_cockaded_Woodpecker": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 0.0,
+                    "195.Carolina_Wren": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
                         "Difference": 0.0
                     },
-                    "199.Winter_Wren": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 50.0,
+                    "198.Rock_Wren": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
                         "Difference": 0.0
-                    },
-                    "021.Eastern_Towhee": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": -3.3333301544189453
-                    },
-                    "036.Northern_Flicker": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": -3.3333301544189453
-                    },
-                    "044.Frigatebird": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 89.99999761581421,
-                        "Difference": -3.3333301544189453
                     },
                     "048.European_Goldfinch": {
                         "Description-based Accuracy": 93.33333373069763,
                         "CLIP-Standard Accuracy": 96.66666388511658,
                         "Difference": -3.3333301544189453
                     },
-                    "054.Blue_Grosbeak": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
+                    "063.Ivory_Gull": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 69.9999988079071,
+                        "Difference": -3.3333301544189453
+                    },
+                    "076.Dark_eyed_Junco": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
                         "Difference": -3.3333301544189453
                     },
                     "081.Pied_Kingfisher": {
@@ -6820,29 +5753,39 @@
                         "CLIP-Standard Accuracy": 89.99999761581421,
                         "Difference": -3.3333301544189453
                     },
-                    "194.Cactus_Wren": {
-                        "Description-based Accuracy": 93.33333373069763,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
-                        "Difference": -3.3333301544189453
-                    },
-                    "195.Carolina_Wren": {
+                    "177.Prothonotary_Warbler": {
                         "Description-based Accuracy": 73.33333492279053,
                         "CLIP-Standard Accuracy": 76.66666507720947,
                         "Difference": -3.3333301544189453
+                    },
+                    "191.Red_headed_Woodpecker": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": -3.3333301544189453
+                    },
+                    "040.Olive_sided_Flycatcher": {
+                        "Description-based Accuracy": 33.33333432674408,
+                        "CLIP-Standard Accuracy": 36.666667461395264,
+                        "Difference": -3.333333134651184
+                    },
+                    "062.Herring_Gull": {
+                        "Description-based Accuracy": 13.333334028720856,
+                        "CLIP-Standard Accuracy": 16.66666716337204,
+                        "Difference": -3.333333134651184
+                    },
+                    "074.Florida_Jay": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
+                        "Difference": -3.333333134651184
                     },
                     "080.Green_Kingfisher": {
                         "Description-based Accuracy": 13.333334028720856,
                         "CLIP-Standard Accuracy": 16.66666716337204,
                         "Difference": -3.333333134651184
                     },
-                    "114.Black_throated_Sparrow": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 10.000000149011612,
-                        "Difference": -3.333333134651184
-                    },
-                    "137.Cliff_Swallow": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 50.0,
+                    "167.Hooded_Warbler": {
+                        "Description-based Accuracy": 20.000000298023224,
+                        "CLIP-Standard Accuracy": 23.333333432674408,
                         "Difference": -3.333333134651184
                     },
                     "072.Pomarine_Jaeger": {
@@ -6850,24 +5793,19 @@
                         "CLIP-Standard Accuracy": 6.666667014360428,
                         "Difference": -3.333333507180214
                     },
-                    "146.Forsters_Tern": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 6.666667014360428,
-                        "Difference": -3.333333507180214
-                    },
-                    "042.Vermilion_Flycatcher": {
-                        "Description-based Accuracy": 96.66666388511658,
-                        "CLIP-Standard Accuracy": 100.0,
+                    "055.Evening_Grosbeak": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
                         "Difference": -3.333336114883423
                     },
-                    "112.Great_Grey_Shrike": {
-                        "Description-based Accuracy": 63.333332538604736,
-                        "CLIP-Standard Accuracy": 66.66666865348816,
-                        "Difference": -3.333336114883423
-                    },
-                    "198.Rock_Wren": {
+                    "068.Ruby_throated_Hummingbird": {
                         "Description-based Accuracy": 76.66666507720947,
                         "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -3.333336114883423
+                    },
+                    "138.Tree_Swallow": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
                         "Difference": -3.333336114883423
                     },
                     "200.Common_Yellowthroat": {
@@ -6875,39 +5813,54 @@
                         "CLIP-Standard Accuracy": 86.66666746139526,
                         "Difference": -3.333336114883423
                     },
-                    "125.Lincoln_Sparrow": {
-                        "Description-based Accuracy": 6.896551698446274,
-                        "CLIP-Standard Accuracy": 10.34482792019844,
+                    "078.Gray_Kingbird": {
+                        "Description-based Accuracy": 68.96551847457886,
+                        "CLIP-Standard Accuracy": 72.41379022598267,
+                        "Difference": -3.4482717514038086
+                    },
+                    "179.Tennessee_Warbler": {
+                        "Description-based Accuracy": 27.586206793785095,
+                        "CLIP-Standard Accuracy": 31.034481525421143,
+                        "Difference": -3.4482747316360474
+                    },
+                    "141.Artic_Tern": {
+                        "Description-based Accuracy": 10.34482792019844,
+                        "CLIP-Standard Accuracy": 13.793103396892548,
+                        "Difference": -3.448275476694107
+                    },
+                    "117.Clay_colored_Sparrow": {
+                        "Description-based Accuracy": 3.448275849223137,
+                        "CLIP-Standard Accuracy": 6.896551698446274,
+                        "Difference": -3.448275849223137
+                    },
+                    "153.Philadelphia_Vireo": {
+                        "Description-based Accuracy": 3.448275849223137,
+                        "CLIP-Standard Accuracy": 6.896551698446274,
+                        "Difference": -3.448275849223137
+                    },
+                    "023.Brandt_Cormorant": {
+                        "Description-based Accuracy": 13.793103396892548,
+                        "CLIP-Standard Accuracy": 17.241379618644714,
                         "Difference": -3.4482762217521667
                     },
-                    "015.Lazuli_Bunting": {
-                        "Description-based Accuracy": 75.0,
-                        "CLIP-Standard Accuracy": 78.57142686843872,
-                        "Difference": -3.5714268684387207
+                    "113.Baird_Sparrow": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 5.000000074505806,
+                        "Difference": -5.000000074505806
                     },
-                    "012.Yellow_headed_Blackbird": {
-                        "Description-based Accuracy": 92.30769276618958,
-                        "CLIP-Standard Accuracy": 96.15384340286255,
-                        "Difference": -3.8461506366729736
-                    },
-                    "178.Swainson_Warbler": {
-                        "Description-based Accuracy": 34.61538553237915,
-                        "CLIP-Standard Accuracy": 38.46153914928436,
-                        "Difference": -3.8461536169052124
-                    },
-                    "029.American_Crow": {
-                        "Description-based Accuracy": 26.66666805744171,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
+                    "004.Groove_billed_Ani": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
                         "Difference": -6.666666269302368
                     },
-                    "050.Eared_Grebe": {
-                        "Description-based Accuracy": 26.66666805744171,
-                        "CLIP-Standard Accuracy": 33.33333432674408,
+                    "011.Rusty_Blackbird": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
                         "Difference": -6.666666269302368
                     },
-                    "055.Evening_Grosbeak": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
+                    "049.Boat_tailed_Grackle": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
                         "Difference": -6.666666269302368
                     },
                     "057.Rose_breasted_Grosbeak": {
@@ -6915,14 +5868,14 @@
                         "CLIP-Standard Accuracy": 96.66666388511658,
                         "Difference": -6.666666269302368
                     },
-                    "104.American_Pipit": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
+                    "116.Chipping_Sparrow": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
                         "Difference": -6.666666269302368
                     },
-                    "127.Savannah_Sparrow": {
-                        "Description-based Accuracy": 36.666667461395264,
-                        "CLIP-Standard Accuracy": 43.33333373069763,
+                    "144.Common_Tern": {
+                        "Description-based Accuracy": 33.33333432674408,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
                         "Difference": -6.666666269302368
                     },
                     "148.Green_tailed_Towhee": {
@@ -6930,19 +5883,24 @@
                         "CLIP-Standard Accuracy": 80.0000011920929,
                         "Difference": -6.666666269302368
                     },
-                    "152.Blue_headed_Vireo": {
-                        "Description-based Accuracy": 33.33333432674408,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
+                    "171.Myrtle_Warbler": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
                         "Difference": -6.666666269302368
                     },
-                    "163.Cape_May_Warbler": {
-                        "Description-based Accuracy": 3.333333507180214,
-                        "CLIP-Standard Accuracy": 10.000000149011612,
-                        "Difference": -6.666666641831398
+                    "194.Cactus_Wren": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": -6.666666269302368
                     },
-                    "038.Great_Crested_Flycatcher": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 13.333334028720856,
+                    "199.Winter_Wren": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -6.666666269302368
+                    },
+                    "146.Forsters_Tern": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
                         "Difference": -6.666667014360428
                     },
                     "166.Golden_winged_Warbler": {
@@ -6950,59 +5908,44 @@
                         "CLIP-Standard Accuracy": 72.41379022598267,
                         "Difference": -6.896549463272095
                     },
-                    "153.Philadelphia_Vireo": {
-                        "Description-based Accuracy": 0.0,
-                        "CLIP-Standard Accuracy": 6.896551698446274,
-                        "Difference": -6.896551698446274
-                    },
                     "181.Worm_eating_Warbler": {
                         "Description-based Accuracy": 0.0,
                         "CLIP-Standard Accuracy": 6.896551698446274,
                         "Difference": -6.896551698446274
                     },
-                    "019.Gray_Catbird": {
-                        "Description-based Accuracy": 72.41379022598267,
-                        "CLIP-Standard Accuracy": 79.31034564971924,
-                        "Difference": -6.896555423736572
+                    "015.Lazuli_Bunting": {
+                        "Description-based Accuracy": 71.42857313156128,
+                        "CLIP-Standard Accuracy": 78.57142686843872,
+                        "Difference": -7.142853736877441
                     },
-                    "024.Red_faced_Cormorant": {
-                        "Description-based Accuracy": 36.36363744735718,
-                        "CLIP-Standard Accuracy": 45.45454680919647,
-                        "Difference": -9.090909361839294
+                    "058.Pigeon_Guillemot": {
+                        "Description-based Accuracy": 64.28571343421936,
+                        "CLIP-Standard Accuracy": 71.42857313156128,
+                        "Difference": -7.142859697341919
                     },
-                    "188.Pileated_Woodpecker": {
-                        "Description-based Accuracy": 86.66666746139526,
-                        "CLIP-Standard Accuracy": 96.66666388511658,
+                    "178.Swainson_Warbler": {
+                        "Description-based Accuracy": 30.769231915473938,
+                        "CLIP-Standard Accuracy": 38.46153914928436,
+                        "Difference": -7.692307233810425
+                    },
+                    "136.Barn_Swallow": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
                         "Difference": -9.999996423721313
                     },
-                    "191.Red_headed_Woodpecker": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
+                    "189.Red_bellied_Woodpecker": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
                         "Difference": -9.999996423721313
                     },
-                    "031.Black_billed_Cuckoo": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": -9.999999403953552
-                    },
-                    "065.Slaty_backed_Gull": {
-                        "Description-based Accuracy": 34.99999940395355,
-                        "CLIP-Standard Accuracy": 44.999998807907104,
-                        "Difference": -9.999999403953552
-                    },
-                    "162.Canada_Warbler": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -9.999999403953552
-                    },
-                    "165.Chestnut_sided_Warbler": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": -9.999999403953552
-                    },
-                    "192.Downy_Woodpecker": {
+                    "127.Savannah_Sparrow": {
                         "Description-based Accuracy": 33.33333432674408,
                         "CLIP-Standard Accuracy": 43.33333373069763,
+                        "Difference": -9.999999403953552
+                    },
+                    "183.Northern_Waterthrush": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 50.0,
                         "Difference": -9.999999403953552
                     },
                     "066.Western_Gull": {
@@ -7010,134 +5953,149 @@
                         "CLIP-Standard Accuracy": 10.000000149011612,
                         "Difference": -10.000000149011612
                     },
-                    "184.Louisiana_Waterthrush": {
-                        "Description-based Accuracy": 16.66666716337204,
-                        "CLIP-Standard Accuracy": 26.66666805744171,
-                        "Difference": -10.000000894069672
+                    "067.Anna_Hummingbird": {
+                        "Description-based Accuracy": 10.000000149011612,
+                        "CLIP-Standard Accuracy": 20.000000298023224,
+                        "Difference": -10.000000149011612
                     },
-                    "047.American_Goldfinch": {
+                    "035.Purple_Finch": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 93.33333373069763,
+                        "Difference": -10.000002384185791
+                    },
+                    "093.Clark_Nutcracker": {
                         "Description-based Accuracy": 76.66666507720947,
                         "CLIP-Standard Accuracy": 86.66666746139526,
                         "Difference": -10.000002384185791
                     },
-                    "068.Ruby_throated_Hummingbird": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
+                    "139.Scarlet_Tanager": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
                         "Difference": -10.000002384185791
                     },
-                    "083.White_breasted_Kingfisher": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 60.00000238418579,
-                        "Difference": -10.000002384185791
-                    },
-                    "108.White_necked_Raven": {
-                        "Description-based Accuracy": 56.66666626930237,
-                        "CLIP-Standard Accuracy": 66.66666865348816,
-                        "Difference": -10.000002384185791
-                    },
-                    "196.House_Wren": {
-                        "Description-based Accuracy": 50.0,
-                        "CLIP-Standard Accuracy": 60.00000238418579,
-                        "Difference": -10.000002384185791
-                    },
-                    "115.Brewer_Sparrow": {
+                    "020.Yellow_breasted_Chat": {
                         "Description-based Accuracy": 13.793103396892548,
                         "CLIP-Standard Accuracy": 24.13793057203293,
                         "Difference": -10.34482717514038
                     },
-                    "058.Pigeon_Guillemot": {
-                        "Description-based Accuracy": 60.71428656578064,
-                        "CLIP-Standard Accuracy": 71.42857313156128,
-                        "Difference": -10.71428656578064
+                    "033.Yellow_billed_Cuckoo": {
+                        "Description-based Accuracy": 37.931033968925476,
+                        "CLIP-Standard Accuracy": 48.27586114406586,
+                        "Difference": -10.34482717514038
                     },
-                    "011.Rusty_Blackbird": {
-                        "Description-based Accuracy": 43.33333373069763,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": -13.333332538604736
-                    },
-                    "013.Bobolink": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -13.333332538604736
-                    },
-                    "035.Purple_Finch": {
-                        "Description-based Accuracy": 80.0000011920929,
-                        "CLIP-Standard Accuracy": 93.33333373069763,
-                        "Difference": -13.333332538604736
-                    },
-                    "049.Boat_tailed_Grackle": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
-                        "Difference": -13.333332538604736
+                    "125.Lincoln_Sparrow": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 10.34482792019844,
+                        "Difference": -10.34482792019844
                     },
                     "096.Hooded_Oriole": {
                         "Description-based Accuracy": 26.66666805744171,
                         "CLIP-Standard Accuracy": 40.00000059604645,
                         "Difference": -13.333332538604736
                     },
-                    "129.Song_Sparrow": {
+                    "137.Cliff_Swallow": {
                         "Description-based Accuracy": 36.666667461395264,
                         "CLIP-Standard Accuracy": 50.0,
                         "Difference": -13.333332538604736
                     },
-                    "138.Tree_Swallow": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 86.66666746139526,
+                    "164.Cerulean_Warbler": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 66.66666865348816,
                         "Difference": -13.333332538604736
                     },
-                    "147.Least_Tern": {
-                        "Description-based Accuracy": 69.9999988079071,
-                        "CLIP-Standard Accuracy": 83.33333134651184,
+                    "192.Downy_Woodpecker": {
+                        "Description-based Accuracy": 30.000001192092896,
+                        "CLIP-Standard Accuracy": 43.33333373069763,
                         "Difference": -13.333332538604736
                     },
-                    "150.Sage_Thrasher": {
-                        "Description-based Accuracy": 66.66666865348816,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": -13.333332538604736
+                    "196.House_Wren": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 60.00000238418579,
+                        "Difference": -13.333335518836975
                     },
-                    "067.Anna_Hummingbird": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 20.000000298023224,
-                        "Difference": -13.333333283662796
+                    "115.Brewer_Sparrow": {
+                        "Description-based Accuracy": 10.34482792019844,
+                        "CLIP-Standard Accuracy": 24.13793057203293,
+                        "Difference": -13.793102651834488
                     },
-                    "124.Le_Conte_Sparrow": {
-                        "Description-based Accuracy": 27.586206793785095,
-                        "CLIP-Standard Accuracy": 41.37931168079376,
-                        "Difference": -13.793104887008667
+                    "075.Green_Jay": {
+                        "Description-based Accuracy": 77.77777910232544,
+                        "CLIP-Standard Accuracy": 92.59259104728699,
+                        "Difference": -14.814811944961548
                     },
                     "187.American_Three_toed_Woodpecker": {
                         "Description-based Accuracy": 80.0000011920929,
                         "CLIP-Standard Accuracy": 94.9999988079071,
                         "Difference": -14.999997615814209
                     },
-                    "046.Gadwall": {
+                    "044.Frigatebird": {
                         "Description-based Accuracy": 73.33333492279053,
                         "CLIP-Standard Accuracy": 89.99999761581421,
                         "Difference": -16.66666269302368
                     },
-                    "051.Horned_Grebe": {
-                        "Description-based Accuracy": 46.666666865348816,
-                        "CLIP-Standard Accuracy": 63.333332538604736,
-                        "Difference": -16.66666567325592
-                    },
-                    "006.Least_Auklet": {
-                        "Description-based Accuracy": 36.36363744735718,
-                        "CLIP-Standard Accuracy": 54.54545617103577,
-                        "Difference": -18.18181872367859
+                    "069.Rufous_Hummingbird": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": -16.66666269302368
                     },
                     "073.Blue_Jay": {
-                        "Description-based Accuracy": 56.66666626930237,
+                        "Description-based Accuracy": 60.00000238418579,
                         "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": -19.999998807907104
+                        "Difference": -16.66666269302368
                     },
                     "099.Ovenbird": {
-                        "Description-based Accuracy": 50.0,
+                        "Description-based Accuracy": 53.33333611488342,
                         "CLIP-Standard Accuracy": 69.9999988079071,
+                        "Difference": -16.66666269302368
+                    },
+                    "147.Least_Tern": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": -16.66666269302368
+                    },
+                    "188.Pileated_Woodpecker": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": -16.66666269302368
+                    },
+                    "129.Song_Sparrow": {
+                        "Description-based Accuracy": 33.33333432674408,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -16.66666567325592
+                    },
+                    "104.American_Pipit": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -16.66666865348816
+                    },
+                    "132.White_crowned_Sparrow": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -16.66666865348816
+                    },
+                    "150.Sage_Thrasher": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -16.66666865348816
+                    },
+                    "019.Gray_Catbird": {
+                        "Description-based Accuracy": 62.068963050842285,
+                        "CLIP-Standard Accuracy": 79.31034564971924,
+                        "Difference": -17.241382598876953
+                    },
+                    "010.Red_winged_Blackbird": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
                         "Difference": -19.999998807907104
                     },
-                    "134.Cape_Glossy_Starling": {
-                        "Description-based Accuracy": 73.33333492279053,
-                        "CLIP-Standard Accuracy": 93.33333373069763,
+                    "053.Western_Grebe": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 100.0,
+                        "Difference": -19.999998807907104
+                    },
+                    "065.Slaty_backed_Gull": {
+                        "Description-based Accuracy": 25.0,
+                        "CLIP-Standard Accuracy": 44.999998807907104,
                         "Difference": -19.999998807907104
                     },
                     "155.Warbling_Vireo": {
@@ -7145,54 +6103,59 @@
                         "CLIP-Standard Accuracy": 23.333333432674408,
                         "Difference": -19.999999925494194
                     },
-                    "033.Yellow_billed_Cuckoo": {
-                        "Description-based Accuracy": 27.586206793785095,
-                        "CLIP-Standard Accuracy": 48.27586114406586,
-                        "Difference": -20.68965435028076
+                    "124.Le_Conte_Sparrow": {
+                        "Description-based Accuracy": 20.68965584039688,
+                        "CLIP-Standard Accuracy": 41.37931168079376,
+                        "Difference": -20.68965584039688
                     },
                     "094.White_breasted_Nuthatch": {
                         "Description-based Accuracy": 60.00000238418579,
                         "CLIP-Standard Accuracy": 83.33333134651184,
                         "Difference": -23.33332896232605
                     },
-                    "026.Bronzed_Cowbird": {
-                        "Description-based Accuracy": 6.666667014360428,
-                        "CLIP-Standard Accuracy": 30.000001192092896,
-                        "Difference": -23.333334177732468
+                    "025.Pelagic_Cormorant": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -23.33333194255829
+                    },
+                    "051.Horned_Grebe": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 63.333332538604736,
+                        "Difference": -23.33333194255829
+                    },
+                    "014.Indigo_Bunting": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -23.333334922790527
+                    },
+                    "108.White_necked_Raven": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 66.66666865348816,
+                        "Difference": -23.333334922790527
                     },
                     "001.Black_footed_Albatross": {
-                        "Description-based Accuracy": 63.333332538604736,
+                        "Description-based Accuracy": 60.00000238418579,
                         "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -23.333334922790527
+                        "Difference": -26.666665077209473
+                    },
+                    "134.Cape_Glossy_Starling": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 93.33333373069763,
+                        "Difference": -26.666665077209473
                     },
                     "143.Caspian_Tern": {
-                        "Description-based Accuracy": 63.333332538604736,
+                        "Description-based Accuracy": 60.00000238418579,
                         "CLIP-Standard Accuracy": 86.66666746139526,
-                        "Difference": -23.333334922790527
+                        "Difference": -26.666665077209473
                     },
-                    "151.Black_capped_Vireo": {
-                        "Description-based Accuracy": 47.61904776096344,
-                        "CLIP-Standard Accuracy": 71.42857313156128,
-                        "Difference": -23.80952537059784
-                    },
-                    "004.Groove_billed_Ani": {
+                    "165.Chestnut_sided_Warbler": {
                         "Description-based Accuracy": 30.000001192092896,
                         "CLIP-Standard Accuracy": 56.66666626930237,
                         "Difference": -26.666665077209473
                     },
-                    "176.Prairie_Warbler": {
-                        "Description-based Accuracy": 30.000001192092896,
-                        "CLIP-Standard Accuracy": 56.66666626930237,
-                        "Difference": -26.666665077209473
-                    },
-                    "025.Pelagic_Cormorant": {
+                    "045.Northern_Fulmar": {
                         "Description-based Accuracy": 23.333333432674408,
                         "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -26.666666567325592
-                    },
-                    "077.Tropical_Kingbird": {
-                        "Description-based Accuracy": 20.000000298023224,
-                        "CLIP-Standard Accuracy": 46.666666865348816,
                         "Difference": -26.666666567325592
                     },
                     "095.Baltimore_Oriole": {
@@ -7200,70 +6163,70 @@
                         "CLIP-Standard Accuracy": 40.00000059604645,
                         "Difference": -26.666666567325592
                     },
-                    "040.Olive_sided_Flycatcher": {
-                        "Description-based Accuracy": 10.000000149011612,
-                        "CLIP-Standard Accuracy": 36.666667461395264,
-                        "Difference": -26.66666731238365
-                    },
-                    "144.Common_Tern": {
-                        "Description-based Accuracy": 10.000000149011612,
-                        "CLIP-Standard Accuracy": 40.00000059604645,
-                        "Difference": -30.000000447034836
-                    },
-                    "164.Cerulean_Warbler": {
-                        "Description-based Accuracy": 36.666667461395264,
-                        "CLIP-Standard Accuracy": 66.66666865348816,
-                        "Difference": -30.000001192092896
-                    },
-                    "053.Western_Grebe": {
-                        "Description-based Accuracy": 66.66666865348816,
-                        "CLIP-Standard Accuracy": 100.0,
-                        "Difference": -33.33333134651184
-                    },
-                    "186.Cedar_Waxwing": {
-                        "Description-based Accuracy": 60.00000238418579,
-                        "CLIP-Standard Accuracy": 93.33333373069763,
-                        "Difference": -33.33333134651184
+                    "169.Magnolia_Warbler": {
+                        "Description-based Accuracy": 44.82758641242981,
+                        "CLIP-Standard Accuracy": 72.41379022598267,
+                        "Difference": -27.586203813552856
                     },
                     "172.Nashville_Warbler": {
-                        "Description-based Accuracy": 26.66666805744171,
+                        "Description-based Accuracy": 33.33333432674408,
                         "CLIP-Standard Accuracy": 63.333332538604736,
-                        "Difference": -36.666664481163025
+                        "Difference": -29.999998211860657
+                    },
+                    "176.Prairie_Warbler": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": -29.999998211860657
                     },
                     "107.Common_Raven": {
-                        "Description-based Accuracy": 13.333334028720856,
+                        "Description-based Accuracy": 20.000000298023224,
                         "CLIP-Standard Accuracy": 50.0,
-                        "Difference": -36.666665971279144
+                        "Difference": -29.999999701976776
                     },
-                    "136.Barn_Swallow": {
-                        "Description-based Accuracy": 36.666667461395264,
-                        "CLIP-Standard Accuracy": 76.66666507720947,
-                        "Difference": -39.99999761581421
+                    "047.American_Goldfinch": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": -30.000001192092896
                     },
-                    "014.Indigo_Bunting": {
-                        "Description-based Accuracy": 40.00000059604645,
-                        "CLIP-Standard Accuracy": 80.0000011920929,
-                        "Difference": -40.00000059604645
+                    "046.Gadwall": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": -33.33333134651184
+                    },
+                    "151.Black_capped_Vireo": {
+                        "Description-based Accuracy": 38.0952388048172,
+                        "CLIP-Standard Accuracy": 71.42857313156128,
+                        "Difference": -33.33333432674408
                     },
                     "002.Laysan_Albatross": {
-                        "Description-based Accuracy": 30.000001192092896,
+                        "Description-based Accuracy": 36.666667461395264,
                         "CLIP-Standard Accuracy": 73.33333492279053,
-                        "Difference": -43.33333373069763
+                        "Difference": -36.666667461395264
                     },
                     "157.Yellow_throated_Vireo": {
-                        "Description-based Accuracy": 3.448275849223137,
+                        "Description-based Accuracy": 10.34482792019844,
                         "CLIP-Standard Accuracy": 48.27586114406586,
-                        "Difference": -44.82758529484272
+                        "Difference": -37.931033223867416
+                    },
+                    "162.Canada_Warbler": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -46.666666492819786
                     },
                     "008.Rhinoceros_Auklet": {
                         "Description-based Accuracy": 0.0,
                         "CLIP-Standard Accuracy": 50.0,
                         "Difference": -50.0
+                    },
+                    "186.Cedar_Waxwing": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 93.33333373069763,
+                        "Difference": -50.0
                     }
                 },
-                "Total Description-based Top-1 Accuracy: ": 49.74111020565033,
-                "Total Description-based Top-5 Accuracy: ": 82.86157846450806,
-                "Total CLIP-Standard Top-1 Accuracy: ": 51.9848108291626,
+                "Total Description-based Top-1 Accuracy: ": 49.551260471343994,
+                "Total Description-based Top-5 Accuracy: ": 82.205730676651,
+                "Total CLIP-Standard Top-1 Accuracy: ": 52.00207233428955,
                 "Total CLIP-Standard Top-5 Accuracy: ": 82.53365755081177
             }
         },
@@ -10385,6 +9348,1043 @@
             }
         },
         "CUB_GPT4_5": {
+            "null": {
+                "Class-wise Accuracies and Differences (Top 10)": [
+                    [
+                        "091.Mockingbird",
+                        "018.Spotted_Catbird",
+                        "092.Nighthawk",
+                        "077.Tropical_Kingbird",
+                        "118.House_Sparrow",
+                        "128.Seaside_Sparrow",
+                        "064.Ring_billed_Gull",
+                        "145.Elegant_Tern",
+                        "154.Red_eyed_Vireo",
+                        "005.Crested_Auklet"
+                    ]
+                ],
+                "Class-wise Accuracies and Differences (Bottom 10)": [
+                    [
+                        "047.American_Goldfinch",
+                        "164.Cerulean_Warbler",
+                        "151.Black_capped_Vireo",
+                        "157.Yellow_throated_Vireo",
+                        "169.Magnolia_Warbler",
+                        "134.Cape_Glossy_Starling",
+                        "033.Yellow_billed_Cuckoo",
+                        "019.Gray_Catbird",
+                        "099.Ovenbird",
+                        "143.Caspian_Tern"
+                    ]
+                ],
+                "Trivial Count": 45,
+                "Class-wise Accuracies and Differences": {
+                    "091.Mockingbird": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": 49.99999925494194
+                    },
+                    "018.Spotted_Catbird": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 13.333334028720856,
+                        "Difference": 40.00000208616257
+                    },
+                    "092.Nighthawk": {
+                        "Description-based Accuracy": 36.666667461395264,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 36.666667461395264
+                    },
+                    "077.Tropical_Kingbird": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
+                        "Difference": 36.666664481163025
+                    },
+                    "118.House_Sparrow": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 16.66666716337204,
+                        "Difference": 29.999999701976776
+                    },
+                    "128.Seaside_Sparrow": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 16.66666716337204,
+                        "Difference": 26.666666567325592
+                    },
+                    "064.Ring_billed_Gull": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": 23.333334922790527
+                    },
+                    "145.Elegant_Tern": {
+                        "Description-based Accuracy": 36.666667461395264,
+                        "CLIP-Standard Accuracy": 13.333334028720856,
+                        "Difference": 23.333333432674408
+                    },
+                    "154.Red_eyed_Vireo": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
+                        "Difference": 23.33333194255829
+                    },
+                    "005.Crested_Auklet": {
+                        "Description-based Accuracy": 42.85714328289032,
+                        "CLIP-Standard Accuracy": 21.42857164144516,
+                        "Difference": 21.42857164144516
+                    },
+                    "029.American_Crow": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 20.000001788139343
+                    },
+                    "098.Scott_Oriole": {
+                        "Description-based Accuracy": 20.000000298023224,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 20.000000298023224
+                    },
+                    "109.American_Redstart": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 63.333332538604736,
+                        "Difference": 19.999998807907104
+                    },
+                    "017.Cardinal": {
+                        "Description-based Accuracy": 74.0740716457367,
+                        "CLIP-Standard Accuracy": 55.55555820465088,
+                        "Difference": 18.518513441085815
+                    },
+                    "003.Sooty_Albatross": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 32.14285671710968,
+                        "Difference": 17.85714328289032
+                    },
+                    "114.Black_throated_Sparrow": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 10.000000149011612,
+                        "Difference": 16.6666679084301
+                    },
+                    "009.Brewer_Blackbird": {
+                        "Description-based Accuracy": 17.241379618644714,
+                        "CLIP-Standard Accuracy": 3.448275849223137,
+                        "Difference": 13.793103769421577
+                    },
+                    "024.Red_faced_Cormorant": {
+                        "Description-based Accuracy": 59.090906381607056,
+                        "CLIP-Standard Accuracy": 45.45454680919647,
+                        "Difference": 13.636359572410583
+                    },
+                    "096.Hooded_Oriole": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
+                        "Difference": 13.333335518836975
+                    },
+                    "059.California_Gull": {
+                        "Description-based Accuracy": 36.666667461395264,
+                        "CLIP-Standard Accuracy": 23.333333432674408,
+                        "Difference": 13.333334028720856
+                    },
+                    "027.Shiny_Cowbird": {
+                        "Description-based Accuracy": 20.000000298023224,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": 13.333333283662796
+                    },
+                    "051.Horned_Grebe": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 63.333332538604736,
+                        "Difference": 13.333332538604736
+                    },
+                    "073.Blue_Jay": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
+                        "Difference": 13.333332538604736
+                    },
+                    "087.Mallard": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 13.333332538604736
+                    },
+                    "102.Western_Wood_Pewee": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 30.000001192092896,
+                        "Difference": 13.333332538604736
+                    },
+                    "111.Loggerhead_Shrike": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 13.333332538604736
+                    },
+                    "120.Fox_Sparrow": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 13.333332538604736
+                    },
+                    "127.Savannah_Sparrow": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 43.33333373069763,
+                        "Difference": 13.333332538604736
+                    },
+                    "140.Summer_Tanager": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
+                        "Difference": 13.333332538604736
+                    },
+                    "182.Yellow_Warbler": {
+                        "Description-based Accuracy": 93.33333373069763,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": 13.333332538604736
+                    },
+                    "192.Downy_Woodpecker": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 43.33333373069763,
+                        "Difference": 13.333332538604736
+                    },
+                    "190.Red_cockaded_Woodpecker": {
+                        "Description-based Accuracy": 10.34482792019844,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 10.34482792019844
+                    },
+                    "039.Least_Flycatcher": {
+                        "Description-based Accuracy": 13.793103396892548,
+                        "CLIP-Standard Accuracy": 3.448275849223137,
+                        "Difference": 10.34482754766941
+                    },
+                    "070.Green_Violetear": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 63.333332538604736,
+                        "Difference": 10.000002384185791
+                    },
+                    "132.White_crowned_Sparrow": {
+                        "Description-based Accuracy": 93.33333373069763,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 10.000002384185791
+                    },
+                    "174.Palm_Warbler": {
+                        "Description-based Accuracy": 60.00000238418579,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 10.000002384185791
+                    },
+                    "062.Herring_Gull": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 16.66666716337204,
+                        "Difference": 10.000000894069672
+                    },
+                    "074.Florida_Jay": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
+                        "Difference": 9.999999403953552
+                    },
+                    "116.Chipping_Sparrow": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
+                        "Difference": 9.999999403953552
+                    },
+                    "083.White_breasted_Kingfisher": {
+                        "Description-based Accuracy": 69.9999988079071,
+                        "CLIP-Standard Accuracy": 60.00000238418579,
+                        "Difference": 9.999996423721313
+                    },
+                    "084.Red_legged_Kittiwake": {
+                        "Description-based Accuracy": 82.6086938381195,
+                        "CLIP-Standard Accuracy": 73.9130437374115,
+                        "Difference": 8.695650100708008
+                    },
+                    "022.Chuck_will_Widow": {
+                        "Description-based Accuracy": 7.6923079788684845,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 7.6923079788684845
+                    },
+                    "166.Golden_winged_Warbler": {
+                        "Description-based Accuracy": 79.31034564971924,
+                        "CLIP-Standard Accuracy": 72.41379022598267,
+                        "Difference": 6.896555423736572
+                    },
+                    "141.Artic_Tern": {
+                        "Description-based Accuracy": 20.68965584039688,
+                        "CLIP-Standard Accuracy": 13.793103396892548,
+                        "Difference": 6.8965524435043335
+                    },
+                    "043.Yellow_bellied_Flycatcher": {
+                        "Description-based Accuracy": 17.241379618644714,
+                        "CLIP-Standard Accuracy": 10.34482792019844,
+                        "Difference": 6.896551698446274
+                    },
+                    "124.Le_Conte_Sparrow": {
+                        "Description-based Accuracy": 48.27586114406586,
+                        "CLIP-Standard Accuracy": 41.37931168079376,
+                        "Difference": 6.896549463272095
+                    },
+                    "067.Anna_Hummingbird": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 20.000000298023224,
+                        "Difference": 6.6666677594184875
+                    },
+                    "121.Grasshopper_Sparrow": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 20.000000298023224,
+                        "Difference": 6.6666677594184875
+                    },
+                    "167.Hooded_Warbler": {
+                        "Description-based Accuracy": 30.000001192092896,
+                        "CLIP-Standard Accuracy": 23.333333432674408,
+                        "Difference": 6.6666677594184875
+                    },
+                    "061.Heermann_Gull": {
+                        "Description-based Accuracy": 6.666667014360428,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 6.666667014360428
+                    },
+                    "163.Cape_May_Warbler": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 10.000000149011612,
+                        "Difference": 6.666667014360428
+                    },
+                    "135.Bank_Swallow": {
+                        "Description-based Accuracy": 10.000000149011612,
+                        "CLIP-Standard Accuracy": 3.333333507180214,
+                        "Difference": 6.666666641831398
+                    },
+                    "010.Red_winged_Blackbird": {
+                        "Description-based Accuracy": 93.33333373069763,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": 6.666666269302368
+                    },
+                    "056.Pine_Grosbeak": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 6.666666269302368
+                    },
+                    "080.Green_Kingfisher": {
+                        "Description-based Accuracy": 23.333333432674408,
+                        "CLIP-Standard Accuracy": 16.66666716337204,
+                        "Difference": 6.666666269302368
+                    },
+                    "090.Red_breasted_Merganser": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": 6.666666269302368
+                    },
+                    "104.American_Pipit": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": 6.666666269302368
+                    },
+                    "106.Horned_Puffin": {
+                        "Description-based Accuracy": 93.33333373069763,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": 6.666666269302368
+                    },
+                    "162.Canada_Warbler": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 6.666666269302368
+                    },
+                    "172.Nashville_Warbler": {
+                        "Description-based Accuracy": 69.9999988079071,
+                        "CLIP-Standard Accuracy": 63.333332538604736,
+                        "Difference": 6.666666269302368
+                    },
+                    "175.Pine_Warbler": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 43.33333373069763,
+                        "Difference": 6.666666269302368
+                    },
+                    "177.Prothonotary_Warbler": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
+                        "Difference": 6.666666269302368
+                    },
+                    "197.Marsh_Wren": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
+                        "Difference": 6.666666269302368
+                    },
+                    "105.Whip_poor_Will": {
+                        "Description-based Accuracy": 5.263157933950424,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 5.263157933950424
+                    },
+                    "075.Green_Jay": {
+                        "Description-based Accuracy": 96.29629850387573,
+                        "CLIP-Standard Accuracy": 92.59259104728699,
+                        "Difference": 3.703707456588745
+                    },
+                    "058.Pigeon_Guillemot": {
+                        "Description-based Accuracy": 75.0,
+                        "CLIP-Standard Accuracy": 71.42857313156128,
+                        "Difference": 3.5714268684387207
+                    },
+                    "028.Brown_Creeper": {
+                        "Description-based Accuracy": 100.0,
+                        "CLIP-Standard Accuracy": 96.55172228813171,
+                        "Difference": 3.448277711868286
+                    },
+                    "149.Brown_Thrasher": {
+                        "Description-based Accuracy": 93.1034505367279,
+                        "CLIP-Standard Accuracy": 89.65517282485962,
+                        "Difference": 3.448277711868286
+                    },
+                    "025.Pelagic_Cormorant": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 3.333336114883423
+                    },
+                    "045.Northern_Fulmar": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 3.333336114883423
+                    },
+                    "054.Blue_Grosbeak": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
+                        "Difference": 3.333336114883423
+                    },
+                    "063.Ivory_Gull": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 69.9999988079071,
+                        "Difference": 3.333336114883423
+                    },
+                    "100.Brown_Pelican": {
+                        "Description-based Accuracy": 100.0,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": 3.333336114883423
+                    },
+                    "165.Chestnut_sided_Warbler": {
+                        "Description-based Accuracy": 60.00000238418579,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": 3.333336114883423
+                    },
+                    "176.Prairie_Warbler": {
+                        "Description-based Accuracy": 60.00000238418579,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": 3.333336114883423
+                    },
+                    "183.Northern_Waterthrush": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 3.333336114883423
+                    },
+                    "071.Long_tailed_Jaeger": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 23.333333432674408,
+                        "Difference": 3.3333346247673035
+                    },
+                    "122.Harris_Sparrow": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 3.333333507180214
+                    },
+                    "158.Bay_breasted_Warbler": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 3.333333507180214
+                    },
+                    "123.Henslow_Sparrow": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 36.666667461395264,
+                        "Difference": 3.333333134651184
+                    },
+                    "144.Common_Tern": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
+                        "Difference": 3.333333134651184
+                    },
+                    "173.Orange_crowned_Warbler": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 13.333334028720856,
+                        "Difference": 3.333333134651184
+                    },
+                    "184.Louisiana_Waterthrush": {
+                        "Description-based Accuracy": 30.000001192092896,
+                        "CLIP-Standard Accuracy": 26.66666805744171,
+                        "Difference": 3.333333134651184
+                    },
+                    "055.Evening_Grosbeak": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": 3.3333301544189453
+                    },
+                    "002.Laysan_Albatross": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
+                        "Difference": 0.0
+                    },
+                    "006.Least_Auklet": {
+                        "Description-based Accuracy": 54.54545617103577,
+                        "CLIP-Standard Accuracy": 54.54545617103577,
+                        "Difference": 0.0
+                    },
+                    "007.Parakeet_Auklet": {
+                        "Description-based Accuracy": 4.3478261679410934,
+                        "CLIP-Standard Accuracy": 4.3478261679410934,
+                        "Difference": 0.0
+                    },
+                    "011.Rusty_Blackbird": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": 0.0
+                    },
+                    "012.Yellow_headed_Blackbird": {
+                        "Description-based Accuracy": 96.15384340286255,
+                        "CLIP-Standard Accuracy": 96.15384340286255,
+                        "Difference": 0.0
+                    },
+                    "015.Lazuli_Bunting": {
+                        "Description-based Accuracy": 78.57142686843872,
+                        "CLIP-Standard Accuracy": 78.57142686843872,
+                        "Difference": 0.0
+                    },
+                    "021.Eastern_Towhee": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": 0.0
+                    },
+                    "030.Fish_Crow": {
+                        "Description-based Accuracy": 6.666667014360428,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": 0.0
+                    },
+                    "031.Black_billed_Cuckoo": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": 0.0
+                    },
+                    "032.Mangrove_Cuckoo": {
+                        "Description-based Accuracy": 52.173912525177,
+                        "CLIP-Standard Accuracy": 52.173912525177,
+                        "Difference": 0.0
+                    },
+                    "035.Purple_Finch": {
+                        "Description-based Accuracy": 93.33333373069763,
+                        "CLIP-Standard Accuracy": 93.33333373069763,
+                        "Difference": 0.0
+                    },
+                    "036.Northern_Flicker": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": 0.0
+                    },
+                    "041.Scissor_tailed_Flycatcher": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 0.0
+                    },
+                    "042.Vermilion_Flycatcher": {
+                        "Description-based Accuracy": 100.0,
+                        "CLIP-Standard Accuracy": 100.0,
+                        "Difference": 0.0
+                    },
+                    "048.European_Goldfinch": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": 0.0
+                    },
+                    "049.Boat_tailed_Grackle": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 0.0
+                    },
+                    "076.Dark_eyed_Junco": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 0.0
+                    },
+                    "079.Belted_Kingfisher": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": 0.0
+                    },
+                    "081.Pied_Kingfisher": {
+                        "Description-based Accuracy": 89.99999761581421,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": 0.0
+                    },
+                    "085.Horned_Lark": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": 0.0
+                    },
+                    "086.Pacific_Loon": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
+                        "Difference": 0.0
+                    },
+                    "088.Western_Meadowlark": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": 0.0
+                    },
+                    "089.Hooded_Merganser": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 0.0
+                    },
+                    "093.Clark_Nutcracker": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": 0.0
+                    },
+                    "101.White_Pelican": {
+                        "Description-based Accuracy": 100.0,
+                        "CLIP-Standard Accuracy": 100.0,
+                        "Difference": 0.0
+                    },
+                    "103.Sayornis": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 0.0
+                    },
+                    "110.Geococcyx": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 0.0
+                    },
+                    "113.Baird_Sparrow": {
+                        "Description-based Accuracy": 5.000000074505806,
+                        "CLIP-Standard Accuracy": 5.000000074505806,
+                        "Difference": 0.0
+                    },
+                    "119.Field_Sparrow": {
+                        "Description-based Accuracy": 55.17241358757019,
+                        "CLIP-Standard Accuracy": 55.17241358757019,
+                        "Difference": 0.0
+                    },
+                    "126.Nelson_Sharp_tailed_Sparrow": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 0.0,
+                        "Difference": 0.0
+                    },
+                    "142.Black_Tern": {
+                        "Description-based Accuracy": 33.33333432674408,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": 0.0
+                    },
+                    "146.Forsters_Tern": {
+                        "Description-based Accuracy": 6.666667014360428,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": 0.0
+                    },
+                    "148.Green_tailed_Towhee": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": 0.0
+                    },
+                    "153.Philadelphia_Vireo": {
+                        "Description-based Accuracy": 6.896551698446274,
+                        "CLIP-Standard Accuracy": 6.896551698446274,
+                        "Difference": 0.0
+                    },
+                    "168.Kentucky_Warbler": {
+                        "Description-based Accuracy": 10.34482792019844,
+                        "CLIP-Standard Accuracy": 10.34482792019844,
+                        "Difference": 0.0
+                    },
+                    "171.Myrtle_Warbler": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 46.666666865348816,
+                        "Difference": 0.0
+                    },
+                    "178.Swainson_Warbler": {
+                        "Description-based Accuracy": 38.46153914928436,
+                        "CLIP-Standard Accuracy": 38.46153914928436,
+                        "Difference": 0.0
+                    },
+                    "180.Wilson_Warbler": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 3.333333507180214,
+                        "Difference": 0.0
+                    },
+                    "185.Bohemian_Waxwing": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 0.0
+                    },
+                    "191.Red_headed_Woodpecker": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": 0.0
+                    },
+                    "193.Bewick_Wren": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 3.333333507180214,
+                        "Difference": 0.0
+                    },
+                    "194.Cactus_Wren": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": 0.0
+                    },
+                    "198.Rock_Wren": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": 0.0
+                    },
+                    "199.Winter_Wren": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": 0.0
+                    },
+                    "200.Common_Yellowthroat": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": 0.0
+                    },
+                    "069.Rufous_Hummingbird": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": -3.3333301544189453
+                    },
+                    "159.Black_and_white_Warbler": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": -3.3333301544189453
+                    },
+                    "189.Red_bellied_Woodpecker": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": -3.3333301544189453
+                    },
+                    "066.Western_Gull": {
+                        "Description-based Accuracy": 6.666667014360428,
+                        "CLIP-Standard Accuracy": 10.000000149011612,
+                        "Difference": -3.333333134651184
+                    },
+                    "130.Tree_Sparrow": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 30.000001192092896,
+                        "Difference": -3.333333134651184
+                    },
+                    "131.Vesper_Sparrow": {
+                        "Description-based Accuracy": 33.33333432674408,
+                        "CLIP-Standard Accuracy": 36.666667461395264,
+                        "Difference": -3.333333134651184
+                    },
+                    "137.Cliff_Swallow": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -3.333333134651184
+                    },
+                    "156.White_eyed_Vireo": {
+                        "Description-based Accuracy": 6.666667014360428,
+                        "CLIP-Standard Accuracy": 10.000000149011612,
+                        "Difference": -3.333333134651184
+                    },
+                    "170.Mourning_Warbler": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": -3.333333507180214
+                    },
+                    "013.Bobolink": {
+                        "Description-based Accuracy": 83.33333134651184,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": -3.333336114883423
+                    },
+                    "014.Indigo_Bunting": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -3.333336114883423
+                    },
+                    "053.Western_Grebe": {
+                        "Description-based Accuracy": 96.66666388511658,
+                        "CLIP-Standard Accuracy": 100.0,
+                        "Difference": -3.333336114883423
+                    },
+                    "068.Ruby_throated_Hummingbird": {
+                        "Description-based Accuracy": 76.66666507720947,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -3.333336114883423
+                    },
+                    "023.Brandt_Cormorant": {
+                        "Description-based Accuracy": 13.793103396892548,
+                        "CLIP-Standard Accuracy": 17.241379618644714,
+                        "Difference": -3.4482762217521667
+                    },
+                    "125.Lincoln_Sparrow": {
+                        "Description-based Accuracy": 6.896551698446274,
+                        "CLIP-Standard Accuracy": 10.34482792019844,
+                        "Difference": -3.4482762217521667
+                    },
+                    "037.Acadian_Flycatcher": {
+                        "Description-based Accuracy": 62.068963050842285,
+                        "CLIP-Standard Accuracy": 65.51724076271057,
+                        "Difference": -3.448277711868286
+                    },
+                    "160.Black_throated_Blue_Warbler": {
+                        "Description-based Accuracy": 79.31034564971924,
+                        "CLIP-Standard Accuracy": 82.75862336158752,
+                        "Difference": -3.448277711868286
+                    },
+                    "016.Painted_Bunting": {
+                        "Description-based Accuracy": 89.28571343421936,
+                        "CLIP-Standard Accuracy": 92.85714030265808,
+                        "Difference": -3.5714268684387207
+                    },
+                    "052.Pied_billed_Grebe": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": -6.666666269302368
+                    },
+                    "082.Ringed_Kingfisher": {
+                        "Description-based Accuracy": 36.666667461395264,
+                        "CLIP-Standard Accuracy": 43.33333373069763,
+                        "Difference": -6.666666269302368
+                    },
+                    "108.White_necked_Raven": {
+                        "Description-based Accuracy": 60.00000238418579,
+                        "CLIP-Standard Accuracy": 66.66666865348816,
+                        "Difference": -6.666666269302368
+                    },
+                    "129.Song_Sparrow": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -6.666666269302368
+                    },
+                    "133.White_throated_Sparrow": {
+                        "Description-based Accuracy": 69.9999988079071,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
+                        "Difference": -6.666666269302368
+                    },
+                    "138.Tree_Swallow": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": -6.666666269302368
+                    },
+                    "155.Warbling_Vireo": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 23.333333432674408,
+                        "Difference": -6.666666269302368
+                    },
+                    "196.House_Wren": {
+                        "Description-based Accuracy": 53.33333611488342,
+                        "CLIP-Standard Accuracy": 60.00000238418579,
+                        "Difference": -6.666666269302368
+                    },
+                    "072.Pomarine_Jaeger": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 6.666667014360428,
+                        "Difference": -6.666667014360428
+                    },
+                    "161.Blue_winged_Warbler": {
+                        "Description-based Accuracy": 6.666667014360428,
+                        "CLIP-Standard Accuracy": 13.333334028720856,
+                        "Difference": -6.666667014360428
+                    },
+                    "020.Yellow_breasted_Chat": {
+                        "Description-based Accuracy": 17.241379618644714,
+                        "CLIP-Standard Accuracy": 24.13793057203293,
+                        "Difference": -6.896550953388214
+                    },
+                    "117.Clay_colored_Sparrow": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 6.896551698446274,
+                        "Difference": -6.896551698446274
+                    },
+                    "181.Worm_eating_Warbler": {
+                        "Description-based Accuracy": 0.0,
+                        "CLIP-Standard Accuracy": 6.896551698446274,
+                        "Difference": -6.896551698446274
+                    },
+                    "046.Gadwall": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": -9.999996423721313
+                    },
+                    "057.Rose_breasted_Grosbeak": {
+                        "Description-based Accuracy": 86.66666746139526,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": -9.999996423721313
+                    },
+                    "094.White_breasted_Nuthatch": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": -9.999996423721313
+                    },
+                    "187.American_Three_toed_Woodpecker": {
+                        "Description-based Accuracy": 85.00000238418579,
+                        "CLIP-Standard Accuracy": 94.9999988079071,
+                        "Difference": -9.999996423721313
+                    },
+                    "195.Carolina_Wren": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
+                        "Difference": -9.999996423721313
+                    },
+                    "004.Groove_billed_Ani": {
+                        "Description-based Accuracy": 46.666666865348816,
+                        "CLIP-Standard Accuracy": 56.66666626930237,
+                        "Difference": -9.999999403953552
+                    },
+                    "107.Common_Raven": {
+                        "Description-based Accuracy": 40.00000059604645,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -9.999999403953552
+                    },
+                    "038.Great_Crested_Flycatcher": {
+                        "Description-based Accuracy": 3.333333507180214,
+                        "CLIP-Standard Accuracy": 13.333334028720856,
+                        "Difference": -10.000000521540642
+                    },
+                    "112.Great_Grey_Shrike": {
+                        "Description-based Accuracy": 56.66666626930237,
+                        "CLIP-Standard Accuracy": 66.66666865348816,
+                        "Difference": -10.000002384185791
+                    },
+                    "139.Scarlet_Tanager": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 73.33333492279053,
+                        "Difference": -10.000002384185791
+                    },
+                    "150.Sage_Thrasher": {
+                        "Description-based Accuracy": 69.9999988079071,
+                        "CLIP-Standard Accuracy": 80.0000011920929,
+                        "Difference": -10.000002384185791
+                    },
+                    "060.Glaucous_winged_Gull": {
+                        "Description-based Accuracy": 13.793103396892548,
+                        "CLIP-Standard Accuracy": 24.13793057203293,
+                        "Difference": -10.34482717514038
+                    },
+                    "078.Gray_Kingbird": {
+                        "Description-based Accuracy": 62.068963050842285,
+                        "CLIP-Standard Accuracy": 72.41379022598267,
+                        "Difference": -10.34482717514038
+                    },
+                    "097.Orchard_Oriole": {
+                        "Description-based Accuracy": 27.586206793785095,
+                        "CLIP-Standard Accuracy": 37.931033968925476,
+                        "Difference": -10.34482717514038
+                    },
+                    "115.Brewer_Sparrow": {
+                        "Description-based Accuracy": 13.793103396892548,
+                        "CLIP-Standard Accuracy": 24.13793057203293,
+                        "Difference": -10.34482717514038
+                    },
+                    "034.Gray_crowned_Rosy_Finch": {
+                        "Description-based Accuracy": 24.13793057203293,
+                        "CLIP-Standard Accuracy": 34.48275923728943,
+                        "Difference": -10.3448286652565
+                    },
+                    "095.Baltimore_Oriole": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
+                        "Difference": -13.333332538604736
+                    },
+                    "136.Barn_Swallow": {
+                        "Description-based Accuracy": 63.333332538604736,
+                        "CLIP-Standard Accuracy": 76.66666507720947,
+                        "Difference": -13.333332538604736
+                    },
+                    "152.Blue_headed_Vireo": {
+                        "Description-based Accuracy": 26.66666805744171,
+                        "CLIP-Standard Accuracy": 40.00000059604645,
+                        "Difference": -13.333332538604736
+                    },
+                    "186.Cedar_Waxwing": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 93.33333373069763,
+                        "Difference": -13.333332538604736
+                    },
+                    "040.Olive_sided_Flycatcher": {
+                        "Description-based Accuracy": 23.333333432674408,
+                        "CLIP-Standard Accuracy": 36.666667461395264,
+                        "Difference": -13.333334028720856
+                    },
+                    "179.Tennessee_Warbler": {
+                        "Description-based Accuracy": 17.241379618644714,
+                        "CLIP-Standard Accuracy": 31.034481525421143,
+                        "Difference": -13.793101906776428
+                    },
+                    "065.Slaty_backed_Gull": {
+                        "Description-based Accuracy": 30.000001192092896,
+                        "CLIP-Standard Accuracy": 44.999998807907104,
+                        "Difference": -14.999997615814209
+                    },
+                    "044.Frigatebird": {
+                        "Description-based Accuracy": 73.33333492279053,
+                        "CLIP-Standard Accuracy": 89.99999761581421,
+                        "Difference": -16.66666269302368
+                    },
+                    "147.Least_Tern": {
+                        "Description-based Accuracy": 66.66666865348816,
+                        "CLIP-Standard Accuracy": 83.33333134651184,
+                        "Difference": -16.66666269302368
+                    },
+                    "188.Pileated_Woodpecker": {
+                        "Description-based Accuracy": 80.0000011920929,
+                        "CLIP-Standard Accuracy": 96.66666388511658,
+                        "Difference": -16.66666269302368
+                    },
+                    "008.Rhinoceros_Auklet": {
+                        "Description-based Accuracy": 33.33333432674408,
+                        "CLIP-Standard Accuracy": 50.0,
+                        "Difference": -16.66666567325592
+                    },
+                    "026.Bronzed_Cowbird": {
+                        "Description-based Accuracy": 13.333334028720856,
+                        "CLIP-Standard Accuracy": 30.000001192092896,
+                        "Difference": -16.66666716337204
+                    },
+                    "050.Eared_Grebe": {
+                        "Description-based Accuracy": 16.66666716337204,
+                        "CLIP-Standard Accuracy": 33.33333432674408,
+                        "Difference": -16.66666716337204
+                    },
+                    "001.Black_footed_Albatross": {
+                        "Description-based Accuracy": 69.9999988079071,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": -16.66666865348816
+                    },
+                    "047.American_Goldfinch": {
+                        "Description-based Accuracy": 69.9999988079071,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": -16.66666865348816
+                    },
+                    "164.Cerulean_Warbler": {
+                        "Description-based Accuracy": 50.0,
+                        "CLIP-Standard Accuracy": 66.66666865348816,
+                        "Difference": -16.66666865348816
+                    },
+                    "151.Black_capped_Vireo": {
+                        "Description-based Accuracy": 52.3809552192688,
+                        "CLIP-Standard Accuracy": 71.42857313156128,
+                        "Difference": -19.04761791229248
+                    },
+                    "157.Yellow_throated_Vireo": {
+                        "Description-based Accuracy": 27.586206793785095,
+                        "CLIP-Standard Accuracy": 48.27586114406586,
+                        "Difference": -20.68965435028076
+                    },
+                    "169.Magnolia_Warbler": {
+                        "Description-based Accuracy": 51.724135875701904,
+                        "CLIP-Standard Accuracy": 72.41379022598267,
+                        "Difference": -20.68965435028076
+                    },
+                    "134.Cape_Glossy_Starling": {
+                        "Description-based Accuracy": 69.9999988079071,
+                        "CLIP-Standard Accuracy": 93.33333373069763,
+                        "Difference": -23.333334922790527
+                    },
+                    "033.Yellow_billed_Cuckoo": {
+                        "Description-based Accuracy": 24.13793057203293,
+                        "CLIP-Standard Accuracy": 48.27586114406586,
+                        "Difference": -24.13793057203293
+                    },
+                    "019.Gray_Catbird": {
+                        "Description-based Accuracy": 55.17241358757019,
+                        "CLIP-Standard Accuracy": 79.31034564971924,
+                        "Difference": -24.137932062149048
+                    },
+                    "099.Ovenbird": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 69.9999988079071,
+                        "Difference": -26.666665077209473
+                    },
+                    "143.Caspian_Tern": {
+                        "Description-based Accuracy": 43.33333373069763,
+                        "CLIP-Standard Accuracy": 86.66666746139526,
+                        "Difference": -43.33333373069763
+                    }
+                },
+                "Total Description-based Top-1 Accuracy: ": 53.0203640460968,
+                "Total Description-based Top-5 Accuracy: ": 84.57024693489075,
+                "Total CLIP-Standard Top-1 Accuracy: ": 52.019327878952026,
+                "Total CLIP-Standard Top-5 Accuracy: ": 82.53365755081177
+            },
             "null": {
                 "Class-wise Accuracies and Differences (Top 10)": [
                     [
