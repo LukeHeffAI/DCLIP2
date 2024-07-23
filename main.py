@@ -73,8 +73,8 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
             class_wise_clip_accuracy[i](clip_predictions[class_mask], labels[class_mask])
 
     # Compute description-based predictions
-    image_description_similarity = [None]*n_classes
-    image_description_similarity_cumulative = [None]*n_classes
+    image_description_similarity = [None]*num_classes
+    image_description_similarity_cumulative = [None]*num_classes
 
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
