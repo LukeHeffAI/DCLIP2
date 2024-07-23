@@ -4,7 +4,7 @@ import torchmetrics
 from tqdm import tqdm
 import torch
 
-def load_or_initialize_results(file_path):
+def load_or_initialise_results(file_path):
     try:
         with open(file_path, 'r') as file:
             return json.load(file)
@@ -16,7 +16,7 @@ def save_results(results, file_path):
         json.dump(results, file, indent=4)
 
 results_file_path = 'results/experiment_results.json'
-results = load_or_initialize_results(results_file_path)
+results = load_or_initialise_results(results_file_path)
 
 # Initialize the environment
 seed_everything(hparams['seed'])
