@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub_gpt4_5_desc'
+hparams['dataset'] = 'cub'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -291,7 +291,8 @@ hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['anal
     
 print("Creating descriptors...")
 
-gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
+# gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
+gpt_descriptions, unmodify_dict = load_and_permute_gpt_descriptions(hparams, classes_to_load)
 label_to_classname = list(gpt_descriptions.keys())
 
 print("Creating descriptor frequencies...")
