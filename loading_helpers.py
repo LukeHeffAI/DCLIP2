@@ -123,6 +123,60 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 print(f"Example description for class '{k}': \"{gpt_descriptions[k][0]}\"\n")
     return gpt_descriptions, unmodify_dict
 
+import itertools
+
+def load_and_permute_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
+    gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
+    unmodify_dict = {}
+
+    def truncate_label(label, proportion):
+        cut_len = int(len(label) * proportion)
+        return label[:cut_len]
+
+    def get_permutations(descriptors):
+        return list(itertools.permutations(descriptors))
+
+    if classes_to_load is not None: 
+        gpt_descriptions = {c: gpt_descriptions_unordered[c] for c in classes_to_load}
+    else:
+        gpt_descriptions = gpt_descriptions_unordered
+
+    if hparams['category_name_inclusion'] is not None:
+        if classes_to_load is not None:
+            keys_to_remove = [k for k in gpt_descriptions.keys() if k not in classes_to_load]
+            for k in keys_to_remove:
+                print(f"Skipping descriptions for \"{k}\", not in classes to load")
+                gpt_descriptions.pop(k)
+
+        for i, (k, v) in enumerate(gpt_descriptions.items()):
+            if len(v) == 0:
+                v = ['']
+
+            word_to_add = wordify(k)
+
+            # Generate permutations of descriptors
+            permutations = get_permutations(v)
+
+            all_descriptor_strings = []
+            for perm in permutations:
+                combined_descriptor = ' and '.join([truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion) for item in perm])
+                if hparams['category_name_inclusion'] == 'append':
+                    descriptor_string = f"{combined_descriptor}{hparams['between_text']}{word_to_add}"
+                elif hparams['category_name_inclusion'] == 'prepend':
+                    descriptor_string = f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{combined_descriptor}{hparams['after_text']}"
+                else:
+                    descriptor_string = combined_descriptor
+
+                all_descriptor_strings.append(descriptor_string)
+
+            unmodify_dict[k] = {descriptor: v for descriptor in all_descriptor_strings}
+
+            gpt_descriptions[k] = all_descriptor_strings
+
+            # print an example the first time
+            if i == 0: #verbose and 
+                print(f"Example description for class '{k}': \"{gpt_descriptions[k][0]}\"\n")
+    return gpt_descriptions, unmodify_dict
 
 def seed_everything(seed: int):
     # import random, os
