@@ -3,7 +3,7 @@ import numpy as np
 import torch
 from torch.nn import functional as F
 
-from descriptor_strings import *  # label_to_classname, wordify, modify_descriptor,
+from descriptor_strings import *  # label_to_classname, wordify, modify_descriptor
 import pathlib
 
 from torch.utils.data import DataLoader, Subset
@@ -15,7 +15,6 @@ from collections import OrderedDict
 import clip
 
 from loading_helpers import *
-
 
 hparams = {}
 # hyperparameters
@@ -31,7 +30,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'cub_gpt4_5_desc'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -291,8 +290,7 @@ hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['anal
     
 print("Creating descriptors...")
 
-# gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
-gpt_descriptions, unmodify_dict = load_and_permute_gpt_descriptions(hparams, classes_to_load)
+gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
 label_to_classname = list(gpt_descriptions.keys())
 
 print("Creating descriptor frequencies...")
@@ -311,50 +309,47 @@ if similarity_penalty_config:
     class_list = compute_class_list(class_similarity_dict, sort_config=True)
     average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
 
-
-
-# def compute_description_encodings(model, freq_penalty_config: str = None):
-#     description_encodings = OrderedDict()
-#     freq_penalty_dict = {}
-#     if freq_penalty_config == "is":
-#         freq_penalty_dict = frequency_proportion_is
-#     elif freq_penalty_config == "contains":
-#         freq_penalty_dict = frequency_proportion_contains
-
-#     for description_name, description_text in gpt_descriptions.items():
-#         tokens = clip.tokenize(description_text).to(hparams['device'])
-#         encoded_text = model.encode_text(tokens)
-#         normalized_encoding = F.normalize(encoded_text, dim=-1)
-
-#         if freq_penalty_config and description_name in freq_penalty_dict:
-#             penalty = freq_penalty_dict[description_name]
-#             penalized_encoding = normalized_encoding * penalty
-#             description_encodings[description_name] = penalized_encoding
-#         else:
-#             description_encodings[description_name] = normalized_encoding
-
-#     return description_encodings
-
-def compute_description_encodings(model):
+def compute_description_encodings(model, freq_penalty_config: str = None, batch_size=32):
     description_encodings = OrderedDict()
-    for k, v in gpt_descriptions.items():
-        tokens = clip.tokenize(v).to(hparams['device'])
-        description_encodings[k] = F.normalize(model.encode_text(tokens))
+    freq_penalty_dict = {}
+    if freq_penalty_config == "is":
+        freq_penalty_dict = frequency_proportion_is
+    elif freq_penalty_config == "contains":
+        freq_penalty_dict = frequency_proportion_contains
+
+    for description_name, description_text in gpt_descriptions.items():
+        encodings = []
+        for i in range(0, len(description_text), batch_size):
+            batch = description_text[i:i + batch_size]
+            tokens = clip.tokenize(batch).to(hparams['device'])
+            encoded_text = model.encode_text(tokens)
+            normalized_encoding = F.normalize(encoded_text, dim=-1).cpu()
+            if freq_penalty_config and description_name in freq_penalty_dict:
+                penalty = freq_penalty_dict[description_name]
+                penalized_encoding = normalized_encoding * penalty
+                encodings.append(penalized_encoding)
+            else:
+                encodings.append(normalized_encoding)
+        description_encodings[description_name] = torch.cat(encodings).to(hparams['device'])
+    
     return description_encodings
 
 def compute_label_encodings(model):
     label_encodings = F.normalize(model.encode_text(clip.tokenize([hparams['label_before_text'] + wordify(l) + hparams['label_after_text'] for l in label_to_classname]).to(hparams['device'])))
     return label_encodings
 
-
 def aggregate_similarity(similarity_matrix_chunk, aggregation_method='mean'):
-    if aggregation_method == 'max': return similarity_matrix_chunk.max(dim=1)[0]
-    elif aggregation_method == 'sum': return similarity_matrix_chunk.sum(dim=1)
-    elif aggregation_method == 'mean': return similarity_matrix_chunk.mean(dim=1)
-    else: raise ValueError("Unknown aggregate_similarity")
+    if aggregation_method == 'max': 
+        return similarity_matrix_chunk.max(dim=1)[0]
+    elif aggregation_method == 'sum': 
+        return similarity_matrix_chunk.sum(dim=1)
+    elif aggregation_method == 'mean': 
+        return similarity_matrix_chunk.mean(dim=1)
+    else: 
+        raise ValueError("Unknown aggregate_similarity")
 
 def show_from_indices(indices, images, labels=None, predictions=None, predictions2 = None, n=None, image_description_similarity=None, image_labels_similarity=None):
-    if indices is None or (len(indices) == 0):
+    if indices is None or not indices:
         print("No indices provided")
         return
     
@@ -404,14 +399,12 @@ def show_from_indices(indices, images, labels=None, predictions=None, prediction
             if predictions is not None:
                 if labels is not None and true_label_name == predicted_label_name:
                     print("Predicted label (ours) same as true label")
-                    # continue
                 else:
                     print_descriptor_similarity(image_description_similarity, index, predicted_label, predicted_label_name, "descriptor")
                 print("\n")
             if predictions2 is not None:
                 if labels is not None and true_label_name == predicted_label_name2:
                     print("Predicted label 2 (CLIP) same as true label")
-                    # continue
                 elif predictions is not None and predicted_label_name == predicted_label_name2: 
                     print("Predicted label 2 (CLIP) matches predicted label 1")
                 else:
@@ -419,13 +412,11 @@ def show_from_indices(indices, images, labels=None, predictions=None, prediction
             print("\n")
 
 def print_descriptor_similarity(image_description_similarity, index, label, label_name, label_type="provided"):
-    # print(f"Total similarity to {label_name} ({label_type} label) descriptors: {aggregate_similarity(image_description_similarity[label][index].unsqueeze(0)).item()}")
     print(f"Total similarity to {label_name} ({label_type} label) descriptors:")
     print(f"Average:\t\t{100.*aggregate_similarity(image_description_similarity[label][index].unsqueeze(0)).item()}")
     label_descriptors = gpt_descriptions[label_name]
     for k, v in sorted(zip(label_descriptors, image_description_similarity[label][index]), key = lambda x: x[1], reverse=True):
         k = unmodify_dict[label_name][k]
-        # print("\t" + f"matched \"{k}\" with score: {v}")
         print(f"{k}\t{100.*v}")
         
 def print_max_descriptor_similarity(image_description_similarity, index, label, label_name):
@@ -459,7 +450,6 @@ def yield_misclassified_indices(images, labels, predictions, true_label_to_consi
         if predicted_label_to_consider is not None:
             output_string += f' with predicted label {label_to_classname[predicted_label_to_consider]}'
         print(output_string + '.')
-            
         return
     
     misclassified_indices = torch.arange(images.shape[0])[misclassified_indicators]
@@ -468,7 +458,7 @@ def yield_misclassified_indices(images, labels, predictions, true_label_to_consi
 
 from PIL import Image
 def predict_and_show_explanations(images, model, labels=None, description_encodings=None, label_encodings=None, device=None):
-    if type(images) == Image:
+    if isinstance(images, Image):
         images = tfms(images)
         
     if images.device != device:
@@ -478,28 +468,18 @@ def predict_and_show_explanations(images, model, labels=None, description_encodi
     image_encodings = model.encode_image(images)
     image_encodings = F.normalize(image_encodings)
     
-    
-    
     image_labels_similarity = image_encodings @ label_encodings.T
     clip_predictions = image_labels_similarity.argmax(dim=1)
     
     n_classes = len(description_encodings)
     image_description_similarity = [None]*n_classes
     image_description_similarity_cumulative = [None]*n_classes
-    for i, (k, v) in enumerate(description_encodings.items()): # You can also vectorize this; it wasn't much faster for me
-        
-        
+    for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
-        
         image_description_similarity[i] = dot_product_matrix
         image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
         
-        
-    # create tensor of similarity means
-    cumulative_tensor = torch.stack(image_description_similarity_cumulative,dim=1)
-        
-    
+    cumulative_tensor = torch.stack(image_description_similarity_cumulative, dim=1)
     descr_predictions = cumulative_tensor.argmax(dim=1)
-    
     
     show_from_indices(torch.arange(images.shape[0]), images, labels, descr_predictions, clip_predictions, image_description_similarity=image_description_similarity, image_labels_similarity=image_labels_similarity)
