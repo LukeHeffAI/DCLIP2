@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub_gpt4_5_desc'
+hparams['dataset'] = 'cub_gpt4_7_desc'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -312,27 +312,27 @@ if similarity_penalty_config:
 
 
 
-# def compute_description_encodings(model, freq_penalty_config: str = None):
-#     description_encodings = OrderedDict()
-#     freq_penalty_dict = {}
-#     if freq_penalty_config == "is":
-#         freq_penalty_dict = frequency_proportion_is
-#     elif freq_penalty_config == "contains":
-#         freq_penalty_dict = frequency_proportion_contains
+def compute_description_encodings(model, freq_penalty_config: str = None):
+    description_encodings = OrderedDict()
+    freq_penalty_dict = {}
+    if freq_penalty_config == "is":
+        freq_penalty_dict = frequency_proportion_is
+    elif freq_penalty_config == "contains":
+        freq_penalty_dict = frequency_proportion_contains
 
-#     for description_name, description_text in gpt_descriptions.items():
-#         tokens = clip.tokenize(description_text).to(hparams['device'])
-#         encoded_text = model.encode_text(tokens)
-#         normalized_encoding = F.normalize(encoded_text, dim=-1)
+    for description_name, description_text in gpt_descriptions.items():
+        tokens = clip.tokenize(description_text).to(hparams['device'])
+        encoded_text = model.encode_text(tokens)
+        normalized_encoding = F.normalize(encoded_text, dim=-1)
 
-#         if freq_penalty_config and description_name in freq_penalty_dict:
-#             penalty = freq_penalty_dict[description_name]
-#             penalized_encoding = normalized_encoding * penalty
-#             description_encodings[description_name] = penalized_encoding
-#         else:
-#             description_encodings[description_name] = normalized_encoding
+        if freq_penalty_config and description_name in freq_penalty_dict:
+            penalty = freq_penalty_dict[description_name]
+            penalized_encoding = normalized_encoding * penalty
+            description_encodings[description_name] = penalized_encoding
+        else:
+            description_encodings[description_name] = normalized_encoding
 
-#     return description_encodings
+    return description_encodings
 
 def compute_description_encodings(model):
     description_encodings = OrderedDict()
