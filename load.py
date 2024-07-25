@@ -2,6 +2,7 @@ import json
 import numpy as np
 import torch
 from torch.nn import functional as F
+from tqdm import tqdm
 
 from descriptor_strings import *  # label_to_classname, wordify, modify_descriptor
 import pathlib
@@ -317,9 +318,9 @@ def compute_description_encodings(model, freq_penalty_config: str = None, batch_
     elif freq_penalty_config == "contains":
         freq_penalty_dict = frequency_proportion_contains
 
-    for description_name, description_text in gpt_descriptions.items():
+    for description_name, description_text in tqdm(gpt_descriptions.items(), desc="Encoding descriptions"):
         encodings = []
-        for i in range(0, len(description_text), batch_size):
+        for i in tqdm(range(0, len(description_text), batch_size), desc=f"Processing {description_name}", leave=False):
             batch = description_text[i:i + batch_size]
             tokens = clip.tokenize(batch).to(hparams['device'])
             encoded_text = model.encode_text(tokens)
