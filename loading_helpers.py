@@ -29,6 +29,14 @@ def compute_descriptor_list(data:dict, sort_config = False):
     descriptor_list = [item for sublist in data.values() for item in sublist]
     return sorted(list(set(descriptor_list))) if sort_config else list(set(descriptor_list))
 
+def get_permutations(descriptors, max_permutations=100):
+    return list(itertools.permutations(descriptors, min(len(descriptors), max_permutations)))
+
+def format_descriptors(descriptors):
+    if len(descriptors) > 1:
+        return ', '.join(descriptors[:-1]) + ' and ' + descriptors[-1]
+    return descriptors[0]
+
 def wordify(string):
     return string.replace('_', ' ')
 
@@ -51,14 +59,6 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
 
     def truncate_label(label, proportion):
         return label[:int(len(label) * proportion)]
-
-    def get_permutations(descriptors, max_permutations=10):
-        return list(itertools.permutations(descriptors, min(len(descriptors), max_permutations)))
-
-    def format_descriptors(descriptors):
-        if len(descriptors) > 1:
-            return ', '.join(descriptors[:-1]) + ' and ' + descriptors[-1]
-        return descriptors[0]
 
     if classes_to_load is not None: 
         gpt_descriptions = {c: gpt_descriptions_unordered[c] for c in classes_to_load}
