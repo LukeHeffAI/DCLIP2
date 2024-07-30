@@ -200,3 +200,4 @@ print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_me
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
 print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
 print("Class-wise Accuracies and Differences (Top 5 and Bottom 5):\n", list(sorted_class_wise_accuracies.keys())[:10], "\n", list(sorted_class_wise_accuracies.keys())[-10:])
+
