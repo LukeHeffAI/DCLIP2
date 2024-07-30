@@ -45,14 +45,14 @@ def make_descriptor_sentence(descriptor):
 def modify_descriptor(descriptor, apply_changes):
     return make_descriptor_sentence(descriptor) if apply_changes else descriptor
 
-def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=0):
+def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
     unmodify_dict = {}
 
     def truncate_label(label, proportion):
         return label[:int(len(label) * proportion)]
 
-    def get_permutations(descriptors, max_permutations=120):
+    def get_permutations(descriptors, max_permutations=10):
         return list(itertools.permutations(descriptors, min(len(descriptors), max_permutations)))
 
     def format_descriptors(descriptors):
@@ -82,7 +82,6 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=0):
             all_descriptor_strings = []
             for perm in permutations:
                 # TODO: make truncatation happen before permutation
-                # TODO: make truncation happen before modification of descriptor
                 combined_descriptor = format_descriptors([truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion) for item in perm])
                 if hparams['category_name_inclusion'] == 'append':
                     descriptor_string = f"{combined_descriptor}{hparams['between_text']}{word_to_add}"
