@@ -318,11 +318,17 @@ def compute_description_encodings(model, freq_penalty_config: str = None, batch_
     elif freq_penalty_config == "contains":
         freq_penalty_dict = frequency_proportion_contains
 
+    MAX_TOKENS = 77
+    def tokenize_and_truncate(batch, device):
+        tokens = clip.tokenize(batch, truncate=True)  # truncate=True ensures truncation
+        tokens = tokens[:, :MAX_TOKENS]  # Explicitly truncate to MAX_TOKENS length
+        return tokens.to(device)
+
     for description_name, description_text in tqdm(gpt_descriptions.items(), desc="Encoding descriptions"):
         encodings = []
         for i in tqdm(range(0, len(description_text), batch_size), desc=f"Processing {description_name}", leave=False):
             batch = description_text[i:i + batch_size]
-            tokens = clip.tokenize(batch).to(hparams['device'])
+            tokens = tokenize_and_truncate(batch, hparams['device'])
             encoded_text = model.encode_text(tokens)
             normalized_encoding = F.normalize(encoded_text, dim=-1).cpu()
             if freq_penalty_config and description_name in freq_penalty_dict:
