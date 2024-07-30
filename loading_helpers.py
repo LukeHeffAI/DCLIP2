@@ -111,6 +111,7 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)}{hparams['between_text']}{word_to_add}"
             elif (hparams['category_name_inclusion'] == 'prepend'):
                 build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)}{hparams['after_text']}"
+                # build_descriptor_string = lambda item: f"{word_to_add}" # Uncomment when using the bare class label only
             else:
                 build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)
 
