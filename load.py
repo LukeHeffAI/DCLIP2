@@ -30,7 +30,8 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-hparams['dataset'] = 'cub_gpt4_5_desc'
+cut_proportion = 0.07
+hparams['dataset'] = 'cub_gpt4_6_desc'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -51,6 +52,8 @@ hparams['dataset'] = 'cub_gpt4_5_desc'
 #  'pets',
 #  'dtd',
 #  'imagenetv2']
+
+
 
 similarity_penalty_config = False
 
@@ -149,7 +152,7 @@ elif hparams['dataset'] == 'cub':
     hparams['descriptor_fname'] = 'descriptors_cub'
 
 elif hparams['dataset'] == 'cub_reassignment':
-    hparams['dataset_name'] = 'CUB'
+    hparams['dataset_name'] = 'CUB_reassignment'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -157,7 +160,7 @@ elif hparams['dataset'] == 'cub_reassignment':
     hparams['descriptor_fname'] = 'descriptors_cub_reassignment'
 
 elif hparams['dataset'] == 'cub_reassignment_threshold':
-    hparams['dataset_name'] = 'CUB'
+    hparams['dataset_name'] = 'CUB_reassignment_threshold'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -229,7 +232,7 @@ elif hparams['dataset'] == 'cub_gpt4_8_desc':
     hparams['descriptor_fname'] = 'descriptors_cub_gpt4_8_descriptors'
 
 elif hparams['dataset'] == 'cub_post_noise':
-    hparams['dataset_name'] = 'CUB'
+    hparams['dataset_name'] = 'CUB_post_noise'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -290,7 +293,7 @@ hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['anal
     
 print("Creating descriptors...")
 
-gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
+gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load, cut_proportion=cut_proportion)
 label_to_classname = list(gpt_descriptions.keys())
 
 print("Creating descriptor frequencies...")
