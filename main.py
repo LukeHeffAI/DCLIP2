@@ -133,9 +133,9 @@ for i, acc_class_wise in class_wise_lang_accuracy.items():
                 print(f"Desc. Acc. - CLIP Acc.: Trivial - {class_name}")
 print("Trivial count: ", trivial_count)
 
-for i in range(len(sorted(acc_list))):
-    print(f"{sorted(acc_list)[i]}")
-print(sum(acc_list))
+# for i in range(len(sorted(acc_list))):
+#     print(f"{sorted(acc_list)[i]}")
+# print(sum(acc_list))
 
 class_wise_accuracies = {}
 differences = {}
@@ -194,7 +194,7 @@ results[model_size][dataset_name][freq_type] = experimental_results
 # Save the updated results
 save_results(results, results_file_path)
 
-print("\nDataset being tested: ", hparams['dataset'], "|| Frequency Penalisation Type: ", freq_type, "|| Similarity Penalisation Applied: ", similarity_penalty_config)
+print("\nDataset being tested: ", hparams['dataset'], f"|| Cut Proportion: {cut_proportion}", f"|| Frequency Penalisation Type: {freq_type}", f"|| Similarity Penalisation Applied: {similarity_penalty_config}")
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
