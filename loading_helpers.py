@@ -63,22 +63,25 @@ def wordify(string):
     word = string.replace('_', ' ')
     return word
 
-def make_descriptor_sentence(descriptor):
-    if descriptor.startswith('a') or descriptor.startswith('an'):
-        return f"which is {descriptor}"
-    elif descriptor.startswith('has') or descriptor.startswith('often') or descriptor.startswith('typically') or descriptor.startswith('may') or descriptor.startswith('can'):
-        return f"which {descriptor}"
-    elif descriptor.startswith('used'):
-        return f"which is {descriptor}"
-    else:
-        return f"which has {descriptor}"
+def make_descriptor_sentence(descriptor, hparams):
+    if (hparams['category_name_inclusion'] == 'prepend'):
+        if descriptor.startswith('a') or descriptor.startswith('an'):
+            return f"which is {descriptor}"
+        elif descriptor.startswith('has') or descriptor.startswith('often') or descriptor.startswith('typically') or descriptor.startswith('may') or descriptor.startswith('can'):
+            return f"which {descriptor}"
+        elif descriptor.startswith('used'):
+            return f"which is {descriptor}"
+        else:
+            return f"which has {descriptor}"
+    elif hparams['category_name_inclusion'] == 'append':
+        return f"{descriptor.capitalize()}, which is a description of a "
     
 # def make_descriptor_sentence(descriptor):
 #     return descriptor.replace('It', 'which').replace('.', ',')
     
-def modify_descriptor(descriptor, apply_changes):
+def modify_descriptor(descriptor, apply_changes, hparams):
     if apply_changes:
-        return make_descriptor_sentence(descriptor)
+        return make_descriptor_sentence(descriptor, hparams)
     return descriptor
 
 def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
@@ -117,12 +120,12 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
             word_to_add = wordify(k)
 
             if (hparams['category_name_inclusion'] == 'append'):
-                build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)}{hparams['between_text']}{word_to_add}"
+                build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['between_text']}{word_to_add}"
             elif (hparams['category_name_inclusion'] == 'prepend'):
-                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)}{hparams['after_text']}"
+                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
                 # build_descriptor_string = lambda item: f"{word_to_add}" # Uncomment when using the bare class label only
             else:
-                build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification']), cut_proportion)
+                build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)
 
             unmodify_dict[k] = {build_descriptor_string(item): item for item in v}
 
