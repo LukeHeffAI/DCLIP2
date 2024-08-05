@@ -3,6 +3,7 @@ from load import *
 import torchmetrics
 from tqdm import tqdm
 import torch
+import time
 
 def load_or_initialise_results(file_path):
     try:
@@ -181,8 +182,6 @@ similarity_penalty_configs = [False]
 frequency_penalty_configs = [False]
 
 total_experiment_count = len(cut_proportions) * len(datasets) * len(similarity_penalty_configs) * len(frequency_penalty_configs)
-
-import time
 
 start_time = time.time()
 
