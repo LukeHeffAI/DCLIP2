@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 cut_proportion = 1
-hparams['dataset'] = 'cub_gpt4_8_desc'
+hparams['dataset'] = 'cub'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -91,7 +91,7 @@ elif hparams['model_size'] == 'RN50x64' and hparams['image_size'] != 448:
 
 hparams['before_text'] = ""
 hparams['label_before_text'] = ""
-hparams['between_text'] = ''
+hparams['between_text'] = ', '
 # hparams['between_text'] = ' '
 # hparams['between_text'] = ''
 hparams['after_text'] = ''
