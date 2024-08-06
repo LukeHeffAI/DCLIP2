@@ -30,8 +30,8 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-cut_proportion = 0.07
-hparams['dataset'] = 'cub_gpt4_6_desc'
+cut_proportion = 1
+hparams['dataset'] = 'cub'
 # Options:
 # ['imagenet',
 #  'cub',
