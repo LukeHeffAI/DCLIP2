@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['dataset'] = 'cub_gpt4_6_desc'
+hparams['dataset'] = 'imagenet'
 # Options:
 # ['imagenet',
 #  'cub',
