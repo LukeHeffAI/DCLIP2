@@ -57,16 +57,11 @@ cut_proportion = 1
 
 similarity_penalty_config = False
 
-frequency_penalty_config = False
-if frequency_penalty_config:
-    freq_type = "freq_contains"
-else:
-    freq_type = None
+frequency_type = 'freq_contains'
 # Options:
-# if frequency_penalty_config is True, freq_type can be:
-# ['freq_is',
-#  'freq_contains']
-# if frequency_penalty_config is False, freq_type is ignored
+# [ None
+#   'freq_is',
+#   'freq_contains']
 
 hparams['batch_size'] = 64*10
 hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
@@ -245,11 +240,10 @@ descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 
-descriptor_frequencies = load_json(hparams['descriptor_analysis_fname'] + '.json')
-total_descriptors_is = sum(descriptor_frequencies['freq_is'].values())
-total_descriptors_contains = sum(descriptor_frequencies['freq_contains'].values())
-frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptor_frequencies['freq_is'].items()}
-frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptor_frequencies['freq_contains'].items()}
+total_descriptors_is = sum(descriptors_freq['freq_is'].values())
+total_descriptors_contains = sum(descriptors_freq['freq_contains'].values())
+frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptors_freq['freq_is'].items()}
+frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptors_freq['freq_contains'].items()}
 
 if similarity_penalty_config:
     class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
