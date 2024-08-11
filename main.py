@@ -191,6 +191,9 @@ if freq_type not in results[model_size][dataset_name]:
 # Store results
 results[model_size][dataset_name][freq_type] = experimental_results
 
+# Save the updated results
+# save_results(results, results_file_path)
+
 print("\nDataset being tested: ", hparams['dataset'], f"|| Cut Proportion: {cut_proportion}", f"|| Frequency Penalisation Type: {freq_type}", f"|| Similarity Penalisation Applied: {similarity_penalty_config}")
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
