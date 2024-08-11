@@ -79,10 +79,10 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
         
-        if frequency_penalty_config:
+        if frequency_type:
             for descriptor in gpt_descriptions[k]:
-                freq = descriptors_freq[freq_type].get(descriptor, 1)
-                norm_freq = freq / max(descriptors_freq[freq_type].values())
+                freq = descriptors_freq[frequency_type].get(descriptor, 1)
+                norm_freq = freq / max(descriptors_freq[frequency_type].values())
                 penalty_index = gpt_descriptions[k].index(descriptor)
                 dot_product_matrix[:, penalty_index] /= norm_freq
 
@@ -185,16 +185,16 @@ if model_size not in results:
 if dataset_name not in results[model_size]:
     results[model_size][dataset_name] = {}
 
-if freq_type not in results[model_size][dataset_name]:
-    results[model_size][dataset_name][freq_type] = {}
+if frequency_type not in results[model_size][dataset_name]:
+    results[model_size][dataset_name][frequency_type] = {}
 
 # Store results
-results[model_size][dataset_name][freq_type] = experimental_results
+results[model_size][dataset_name][frequency_type] = experimental_results
 
 # Save the updated results
 # save_results(results, results_file_path)
 
-print("\nDataset being tested: ", hparams['dataset'], f"|| Cut Proportion: {cut_proportion}", f"|| Frequency Penalisation Type: {freq_type}", f"|| Similarity Penalisation Applied: {similarity_penalty_config}")
+print("\nDataset being tested: ", hparams['dataset'], f"|| Cut Proportion: {cut_proportion}", f"|| Frequency Penalisation Type: {frequency_type}", f"|| Similarity Penalisation Applied: {similarity_penalty_config}")
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
