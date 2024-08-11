@@ -149,7 +149,7 @@ def save_experiment_results(results, cut_proportion, dataset_name, similarity_pe
     experimental_results["Total CLIP-Standard Top-1 Accuracy: "] = 100 * overall_clip_accuracy_metric.compute().item()
     experimental_results["Total CLIP-Standard Top-5 Accuracy: "] = 100 * overall_clip_accuracy_metric_top5.compute().item()
 
-    # Ensure the structure 'model_size' > 'dataset' > 'cut_proportion' > 'similarity_penalty_config' > 'frequency_penalty_config'
+    # Ensure the structure 'model_size' > 'dataset' > 'cut_proportion' > 'similarity_penalty_config' > 'frequency_penalty_type'
     model_size = hparams['model_size']
 
     if model_size not in results:
@@ -165,23 +165,25 @@ def save_experiment_results(results, cut_proportion, dataset_name, similarity_pe
         results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)] = {}
 
     if str(frequency_penalty_config) not in results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)]:
-        results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_config)] = {}
+        results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = {}
 
     # Store results
-    results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_config)] = experimental_results
+    results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = experimental_results
 
 # Main loop
 results_file_path = 'results/experiment_results.json'
 
 # Example of variable configurations
-cut_proportions = [0.00, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
-                   0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 1.0]
+cut_proportions = [# 0.00, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
+                   # 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9,
+                   1.0]
 datasets = ['cub',
-            *['cub_gpt4_{0}_desc'.format(i) for i in range(1, 9)]]
+            #*['cub_gpt4_{0}_desc'.format(i) for i in range(1, 9)]
+            ]
 similarity_penalty_configs = [False]
-frequency_penalty_configs = [False]
+frequency_penalty_types = [None, 'freq_is', 'freq_contains']
 
-total_experiment_count = len(cut_proportions) * len(datasets) * len(similarity_penalty_configs) * len(frequency_penalty_configs)
+total_experiment_count = len(cut_proportions) * len(datasets) * len(similarity_penalty_configs) * len(frequency_penalty_types)
 
 start_time = time.time()
 
@@ -189,10 +191,10 @@ experiment_tally = 0
 for cut_proportion in cut_proportions:
     for dataset_name in datasets:
         for similarity_penalty_config in similarity_penalty_configs:
-            for frequency_penalty_config in frequency_penalty_configs:
+            for frequency_penalty_type in frequency_penalty_types:
                 experiment_tally += 1
                 print(f"Running experiment {experiment_tally} of {total_experiment_count}...")
-                run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_config, results_file_path)
+                run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path)
 
 end_time = time.time()
 print(f"Total time taken to run {total_experiment_count} experiments: {end_time - start_time} seconds")
