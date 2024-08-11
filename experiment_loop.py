@@ -16,7 +16,7 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
-def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_config, results_file_path):
+def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path):
     results = load_or_initialise_results(results_file_path)
 
     # Initialize the environment
@@ -43,6 +43,7 @@ def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, freq
 
     # Evaluation metrics for overall and per-class accuracies
     print("Evaluating...")
+    print(f"Cut Proportion: {cut_proportion}", f"|| Dataset: {dataset_name}", f"|| Sim. Penalty: {similarity_penalty_config}", f"|| Freq. Penalty: {frequency_penalty_type}")
     overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
     overall_lang_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
 
@@ -80,10 +81,10 @@ def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, freq
         for i, (k, v) in enumerate(description_encodings.items()):
             dot_product_matrix = image_encodings @ v.T
             
-            if frequency_penalty_config:
+            if frequency_penalty_type:
                 for descriptor in gpt_descriptions[k]:
-                    freq = descriptors_freq[freq_type].get(descriptor, 1)
-                    norm_freq = freq / max(descriptors_freq[freq_type].values())
+                    freq = descriptors_freq[frequency_type].get(descriptor, 1)
+                    norm_freq = freq / sum(descriptors_freq[frequency_type].values())
                     penalty_index = gpt_descriptions[k].index(descriptor)
                     dot_product_matrix[:, penalty_index] /= norm_freq
 
@@ -106,12 +107,12 @@ def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, freq
                 class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
 
     # Save results for current experiment
-    save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_config, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy)
+    save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy)
 
     # Save the updated results
     save_results(results, results_file_path)
 
-def save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_config, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy):
+def save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy):
     class_wise_accuracies = {}
     differences = {}
     num_classes = len(class_wise_lang_accuracy)
@@ -164,14 +165,14 @@ def save_experiment_results(results, cut_proportion, dataset_name, similarity_pe
     if str(similarity_penalty_config) not in results[model_size][dataset_name][str(cut_proportion)]:
         results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)] = {}
 
-    if str(frequency_penalty_config) not in results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)]:
+    if str(frequency_penalty_type) not in results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)]:
         results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = {}
 
     # Store results
     results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = experimental_results
 
 # Main loop
-results_file_path = 'results/experiment_results.json'
+results_file_path = 'results/experiment_loop_results.json'
 
 # Example of variable configurations
 cut_proportions = [# 0.00, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
