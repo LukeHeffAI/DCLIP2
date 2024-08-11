@@ -53,7 +53,7 @@ hparams['dataset'] = 'cub'
 #  'dtd',
 #  'imagenetv2']
 
-
+cut_proportion = 1
 
 similarity_penalty_config = False
 
@@ -167,69 +167,13 @@ elif hparams['dataset'] == 'cub_reassignment_threshold':
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub_reassignment_threshold'
 
-elif hparams['dataset'] == 'cub_gpt4_1_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_1'
+elif hparams['dataset'].startswith('cub_gpt4'):
+    hparams['dataset_name'] = 'CUB_GPT4_{}'.format(hparams['dataset'][-1].split('_')[2:-1])
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_1_descriptors'
-
-elif hparams['dataset'] == 'cub_gpt4_2_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_2'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_2_descriptors'
-
-elif hparams['dataset'] == 'cub_gpt4_3_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_3'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None #dataset.classes
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_3_descriptors'
-
-elif hparams['dataset'] == 'cub_gpt4_4_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_4'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_4_descriptors'
-
-elif hparams['dataset'] == 'cub_gpt4_5_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_5'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None #dataset.classes
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_5_descriptors'
-
-elif hparams['dataset'] == 'cub_gpt4_6_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_6'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_6_descriptors'
-
-elif hparams['dataset'] == 'cub_gpt4_7_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_7'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_7_descriptors'
-
-elif hparams['dataset'] == 'cub_gpt4_8_desc':
-    hparams['dataset_name'] = 'CUB_GPT4_8'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_8_descriptors'
+    hparams['descriptor_fname'] = f'descriptors_{hparams["dataset"]}riptors'
 
 elif hparams['dataset'] == 'cub_post_noise':
     hparams['dataset_name'] = 'CUB_post_noise'
@@ -291,7 +235,7 @@ hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
     
-print("Creating descriptors...")
+print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
 gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load, cut_proportion=cut_proportion)
 label_to_classname = list(gpt_descriptions.keys())
