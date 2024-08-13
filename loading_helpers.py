@@ -4,6 +4,7 @@ import os
 import numpy as np
 import random
 
+import spacy
 
 import json
 def load_json(filename):
@@ -76,6 +77,15 @@ def make_descriptor_sentence(descriptor, hparams):
     elif hparams['category_name_inclusion'] == 'append':
         return f"{descriptor.capitalize()}, which is a description of a "
     
+def remove_stopwords(text):
+    nlp = spacy.load('en_core_web_sm')
+    doc = nlp(text)
+    tokens = [token.text for token in doc if not token.is_stop]
+    string = ' '.join(tokens)
+    for p in ['.', ',', '!', '?', ';', ':']:
+        string = string.replace(f' {p}', p)
+    return string
+    
 # def make_descriptor_sentence(descriptor):
 #     return descriptor.replace('It', 'which').replace('.', ',')
     
@@ -130,7 +140,7 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['between_text']}{word_to_add}"
             elif (hparams['category_name_inclusion'] == 'prepend'):
                 # # Base structure
-                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
                 # Descriptor only
                 # build_descriptor_string = lambda item: f"{item.capitalize()}"
                 # # Class name only
@@ -139,6 +149,9 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 # build_descriptor_string = lambda item: f"{word_to_add}{', '}{create_gibberish_descriptions(2)}"
                 # # Ascend taxonomic class
                 # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add.split(' ')[-1]}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
+                # Stop word removal
+                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
+                build_descriptor_string = remove_stopwords(build_descriptor_string)
             else:
                 build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)
 
