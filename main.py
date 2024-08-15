@@ -86,7 +86,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
                 penalty_index = gpt_descriptions[k].index(descriptor)
                 dot_product_matrix[:, penalty_index] /= norm_freq
 
-        if similarity_penalty_config:
+        if similarity_penalty_config: # TODO: test other ways to do this
             class_average_sim = average_cosine_similarities.get(k, 0)  # Default to 0 if not found
             dot_product_matrix -= class_average_sim
         
