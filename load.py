@@ -55,7 +55,7 @@ hparams['dataset'] = 'cub'
 
 cut_proportion = 1
 
-similarity_penalty_config = True
+similarity_penalty_config = False
 
 frequency_type = None
 # Options:
