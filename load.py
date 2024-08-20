@@ -57,7 +57,7 @@ cut_proportion = 1
 
 similarity_penalty_config = False
 
-frequency_type = 'freq_contains'
+frequency_type = None
 # Options:
 # [ None
 #   'freq_is',

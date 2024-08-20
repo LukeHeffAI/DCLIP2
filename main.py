@@ -86,7 +86,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
                 penalty_index = gpt_descriptions[k].index(descriptor)
                 dot_product_matrix[:, penalty_index] /= norm_freq
 
-        if similarity_penalty_config:
+        if similarity_penalty_config: # TODO: test other ways to do this
             class_average_sim = average_cosine_similarities.get(k, 0)  # Default to 0 if not found
             dot_product_matrix -= class_average_sim
         
@@ -199,4 +199,4 @@ print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_me
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
 print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
-print("Class-wise Accuracies and Differences (Top 5 and Bottom 5):\n", list(sorted_class_wise_accuracies.keys())[:10], "\n", list(sorted_class_wise_accuracies.keys())[-10:])
+print("Class-wise Accuracies and Differences (Top 10 and Bottom 10):\n", list(sorted_class_wise_accuracies.keys())[:10], "\n", list(sorted_class_wise_accuracies.keys())[-10:])
