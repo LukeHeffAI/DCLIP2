@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 cut_proportion = 1
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'cub_gpt4_8_desc'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -84,9 +84,10 @@ elif hparams['model_size'] == 'RN50x64' and hparams['image_size'] != 448:
     print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 288.')
     hparams['image_size'] = 448
 
-hparams['before_text'] = ""
+
+hparams['before_text'] = 'a photo of a '.capitalize()
 hparams['label_before_text'] = ""
-hparams['between_text'] = ', '
+hparams['between_text'] = ', which is a type of bird, '
 # hparams['between_text'] = ' '
 # hparams['between_text'] = ''
 hparams['after_text'] = ''
