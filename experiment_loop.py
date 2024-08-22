@@ -4,6 +4,7 @@ import torchmetrics
 from tqdm import tqdm
 import torch
 import time
+import numpy as np
 
 def load_or_initialise_results(file_path):
     try:
@@ -16,7 +17,7 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
-def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path):
+def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path, template_index):
     results = load_or_initialise_results(results_file_path)
 
     # Initialize the environment
@@ -43,7 +44,7 @@ def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, freq
 
     # Evaluation metrics for overall and per-class accuracies
     print("Evaluating...")
-    print(f"Cut Proportion: {cut_proportion}", f"|| Dataset: {dataset_name}", f"|| Sim. Penalty: {similarity_penalty_config}", f"|| Freq. Penalty: {frequency_penalty_type}")
+    print(f"Cut Proportion: {cut_proportion}", f"|| Dataset: {dataset_name}", f"|| Sim. Penalty: {similarity_penalty_config}", f"|| Freq. Penalty: {frequency_penalty_type}", f"|| Template: {imagenet_templates[template_index]}")
     overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
     overall_lang_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
 
@@ -107,12 +108,14 @@ def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, freq
                 class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
 
     # Save results for current experiment
-    save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy)
+    save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy, imagenet_templates, template_index)
 
     # Save the updated results
     save_results(results, results_file_path)
 
-def save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy):
+prepend_results = []
+
+def save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy, imagenet_templates, template_index):
     class_wise_accuracies = {}
     differences = {}
     num_classes = len(class_wise_lang_accuracy)
@@ -150,6 +153,10 @@ def save_experiment_results(results, cut_proportion, dataset_name, similarity_pe
     experimental_results["Total CLIP-Standard Top-1 Accuracy: "] = 100 * overall_clip_accuracy_metric.compute().item()
     experimental_results["Total CLIP-Standard Top-5 Accuracy: "] = 100 * overall_clip_accuracy_metric_top5.compute().item()
 
+    print('Results:', experimental_results["Total Description-based Top-1 Accuracy: "]
+          , experimental_results["Total CLIP-Standard Top-1 Accuracy: "])
+    prepend_results.append(experimental_results["Total Description-based Top-1 Accuracy: "])
+
     # Ensure the structure 'model_size' > 'dataset' > 'cut_proportion' > 'similarity_penalty_config' > 'frequency_penalty_type'
     model_size = hparams['model_size']
 
@@ -168,6 +175,9 @@ def save_experiment_results(results, cut_proportion, dataset_name, similarity_pe
     if str(frequency_penalty_type) not in results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)]:
         results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = {}
 
+    if imagenet_templates[template_index].split('{')[0].capitalize() not in results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)]:
+        results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)][imagenet_templates[template_index].split('{')[0].capitalize()] = {}
+
     # Store results
     results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = experimental_results
 
@@ -182,9 +192,11 @@ datasets = ['cub',
             #*['cub_gpt4_{0}_desc'.format(i) for i in range(1, 9)]
             ]
 similarity_penalty_configs = [False]
-frequency_penalty_types = [None, 'freq_is', 'freq_contains']
+frequency_penalty_types = [None]
 
-total_experiment_count = len(cut_proportions) * len(datasets) * len(similarity_penalty_configs) * len(frequency_penalty_types)
+template_indicies = np.linspace(1, len(imagenet_templates)).astype(int)
+
+total_experiment_count = len(cut_proportions) * len(datasets) * len(similarity_penalty_configs) * len(frequency_penalty_types) * len(template_indicies)
 
 start_time = time.time()
 
@@ -193,9 +205,11 @@ for cut_proportion in cut_proportions:
     for dataset_name in datasets:
         for similarity_penalty_config in similarity_penalty_configs:
             for frequency_penalty_type in frequency_penalty_types:
-                experiment_tally += 1
-                print(f"Running experiment {experiment_tally} of {total_experiment_count}...")
-                run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path)
+                for template_index in template_indicies:
+                    experiment_tally += 1
+                    print(f"Running experiment {experiment_tally} of {total_experiment_count}...")
+                    run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path, template_index)
+                    print("Results:", prepend_results)
 
 end_time = time.time()
 print(f"Total time taken to run {total_experiment_count} experiments: {end_time - start_time} seconds")
