@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 cut_proportion = 1
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'imagenetv2'
 # Options:
 # ['imagenet',
 #  'cub',
@@ -52,8 +52,6 @@ hparams['dataset'] = 'cub'
 #  'pets',
 #  'dtd',
 #  'imagenetv2']
-
-cut_proportion = 1
 
 similarity_penalty_config = False
 
@@ -101,13 +99,13 @@ hparams['seed'] = 1
 hparams['descriptor_fname'] = None
 
 IMAGENET_DIR = '/home/luke/Documents/GitHub/data/ImageNet/'
-IMAGENETV2_DIR = '/proj/vondrick/datasets/ImageNetV2/' # REPLACE THIS WITH YOUR OWN PATH
+IMAGENETV2_DIR = '/home/luke/Documents/GitHub/data/ImageNetV2/' # TODO: Find ImageNet V2 dataset download somewhere
 CUB_DIR = '/home/luke/Documents/GitHub/data/CUB/CUB_200_2011/'
-EUROSAT_DIR = ''
-FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/'
-PETS_DIR = ''
-DTD_DIR = ''
-PLACES_DIR = ''
+EUROSAT_DIR = '/home/luke/Documents/GitHub/data/EuroSAT/2750/'
+FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/' # TODO: Fix shape issue when running main.py
+PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/' # TODO: Images need to be in class folders
+DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
+PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/' # TODO: Expand tar file and check this works
 ESC_10_DIR = '/home/luke/Documents/GitHub/ImageBind/ESC-50-master/audio/ESC-10'
 
 
@@ -132,8 +130,10 @@ if hparams['dataset'] == 'imagenet':
         
     elif hparams['dataset'] == 'imagenetv2':
         hparams['dataset_name'] = 'ImageNetV2'
+        dsclass = ImageNetV2
         hparams['data_dir'] = pathlib.Path(IMAGENETV2_DIR)
-        dataset = ImageNetV2(location=hparams['data_dir'], transform=tfms)
+        hparams['analysis_fname'] = 'analysis_imagenetv2'
+        dataset = dsclass(location=str(hparams['data_dir']), transform=tfms)
         classes_to_load = openai_imagenet_classes
         hparams['descriptor_fname'] = 'descriptors_imagenet'
         dataset.classes = classes_to_load
@@ -182,11 +182,13 @@ elif hparams['dataset'] == 'cub_post_noise':
     
 elif hparams['dataset'] == 'eurosat':
     hparams['dataset_name'] = 'EuroSAT'
-    from extra_datasets.patching.eurosat import EuroSATVal
+    # from extra_datasets.patching.eurosat import EuroSATVal
     hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
     hparams['analysis_fname'] = 'analysis_eurosat'
-    dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
-    dataset = dataset.test_dataset
+    # dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
+    # dataset = dataset.test_dataset
+    dsclass = ImageFolder
+    dataset = dsclass(str(hparams['data_dir']), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_eurosat'
     classes_to_load = None
     
@@ -194,17 +196,16 @@ elif hparams['dataset'] == 'places365':
     hparams['dataset_name'] = 'Places365'
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
     hparams['analysis_fname'] = 'analysis_places365'
-    # dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
-    dsclass = ImageFolder
-    dataset = dsclass(hparams['data_dir'] / 'val', transform=tfms)
+    dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_places365'
+    classes_to_load = None
     
 elif hparams['dataset'] == 'food101':
     hparams['dataset_name'] = 'Food101'
     hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
     hparams['analysis_fname'] = 'analysis_food101'
     dsclass = ImageFolder
-    dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
+    dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
     classes_to_load = None
 
@@ -213,7 +214,7 @@ elif hparams['dataset'] == 'pets':
     hparams['data_dir'] = pathlib.Path(PETS_DIR)
     hparams['analysis_fname'] = 'analysis_pets'
     dsclass = ImageFolder
-    dataset = dsclass(hparams['data_dir'] / 'test', transform=tfms)
+    dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
     classes_to_load = None
     
@@ -221,7 +222,7 @@ elif hparams['dataset'] == 'dtd':
     hparams['dataset_name'] = 'DTD'
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
     hparams['analysis_fname'] = 'analysis_dtd'
-    dataset = ImageFolder(hparams['data_dir'] / 'val', transform=tfms)
+    dataset = ImageFolder(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
