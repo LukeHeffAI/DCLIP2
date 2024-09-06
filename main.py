@@ -38,7 +38,7 @@ description_encodings = compute_description_encodings(model)
 label_encodings = compute_label_encodings(model)
 
 # Number of classes
-num_classes = len(dataset.classes)
+num_classes = len(dataset_classes)
 
 # Evaluation metrics for overall and per-class accuracies
 print("Evaluating...")
@@ -107,13 +107,13 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
 # Print class-wise accuracies
 print("\nClass-wise Description-based Accuracy:")
 for i, acc in class_wise_lang_accuracy.items():
-    class_name = dataset.classes[i]
+    class_name = dataset_classes[i]
     accuracy = 100 * acc.compute().item()
     print(f"Desc. Acc.: {accuracy:.3f}% - {class_name}")
 
 print("\nClass-wise CLIP-Standard Accuracy:")
 for i, acc in class_wise_clip_accuracy.items():
-    class_name = dataset.classes[i]
+    class_name = dataset_classes[i]
     accuracy = 100 * acc.compute().item()
     print(f"CLIP Acc.: {accuracy:.3f}% - {class_name}")
 
@@ -123,7 +123,7 @@ print("Compare accuracies of description and CLIP-Standard")
 for i, acc_class_wise in class_wise_lang_accuracy.items():
     for j, acc_clip_class_wise in class_wise_clip_accuracy.items():
         if i == j:
-            class_name = dataset.classes[i]
+            class_name = dataset_classes[i]
             acc = acc_class_wise.compute().item() - acc_clip_class_wise.compute().item()
             acc_list.append(acc)
             if acc > 0.01 or acc < -0.01:
@@ -141,7 +141,7 @@ class_wise_accuracies = {}
 differences = {}
 
 for i in range(num_classes):
-    class_name = dataset.classes[i]
+    class_name = dataset_classes[i]
     desc_accuracy = 100 * class_wise_lang_accuracy[i].compute().item()
     clip_accuracy = 100 * class_wise_clip_accuracy[i].compute().item()
     
