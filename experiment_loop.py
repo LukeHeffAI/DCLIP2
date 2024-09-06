@@ -1,201 +1,131 @@
-import json
-from load import *
-import torchmetrics
-from tqdm import tqdm
+# experiment_loop.py
+
 import torch
-import time
+from joblib import Parallel, delayed
+from itertools import product
+import torch.nn.functional as F
+from loading_helpers import seed_everything, load_gpt_descriptions
+from load import dataset_classes, compute_description_encodings, compute_label_encodings
+from main import dataloader
+import torchmetrics
+import clip
 
-def load_or_initialise_results(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            return json.load(file)
-    except FileNotFoundError:
-        return {}
+# Hyperparameter lists
+model_size_list = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14', 'ViT-L/14@336px'] # Omitting 'RN50', 'RN101', 'RN50x4', 'RN50x16', 'RN50x64'
+dataset_name_list = ['imagenet', 'imagenetv2', 'cub', 'cub_reassignment', 'cub_reassignment_threshold', 'cub_gpt4_8_desc', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+cut_proportion_list = [0.00, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+similarity_penalty_config_list = ['no_similarity_penalty', 'similarity_penalty']
+frequency_penalty_config_list = ['no_freq_penalty', 'freq_is', 'freq_contains']
+
+# Cache for storing computed encodings to avoid redundancy
+cache = {}
+
+# Function to free GPU memory after each run
+def clear_gpu_cache():
+    torch.cuda.empty_cache()
+
+# Function to compute and cache description encodings
+def compute_and_cache(model, dataset_name):
+    key = (model, dataset_name)
+    if key not in cache:
+        description_encodings = compute_description_encodings(model)
+        label_encodings = compute_label_encodings(model)
+        cache[key] = (description_encodings, label_encodings)
+    return cache[key]
+
+# Function to run the experiment for a single configuration
+def run_experiment(model_size, dataset_name, cut_proportion, similarity_penalty, frequency_penalty):
+    # Initialize hyperparameters
+    hparams = {
+        'model_size': model_size,
+        'dataset': dataset_name,
+        'cut_proportion': cut_proportion,
+        'similarity_penalty_config': similarity_penalty,
+        'frequency_type': frequency_penalty,
+        'device': "cuda" if torch.cuda.is_available() else "cpu",
+        'batch_size': 64,
+        'seed': 1
+    }
     
-def save_results(results, file_path):
-    with open(file_path, 'w') as file:
-        json.dump(results, file, indent=4)
-
-def run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path):
-    results = load_or_initialise_results(results_file_path)
-
-    # Initialize the environment
+    # Set the seed for reproducibility
     seed_everything(hparams['seed'])
-
-    # Prepare the data loader
-    bs = hparams['batch_size']
-    dataloader = DataLoader(dataset, bs, shuffle=False, num_workers=16, pin_memory=True)
-
-    # Load the model and preprocessing
-    print("Loading model...")
-    device = torch.device(hparams['device'])
-    model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
+    
+    # Load model and data
+    model, preprocess = clip.load(hparams['model_size'], device=hparams['device'], jit=False)
     model.eval()
-    model.requires_grad_(False)
+    
+    # Cache the encodings to avoid recomputation
+    description_encodings, label_encodings = compute_and_cache(model, hparams['dataset'])
+    
+    # Metrics initialization
+    overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=len(dataset_classes)).to(hparams['device'])
+    overall_clip_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=len(dataset_classes)).to(hparams['device'])
 
-    # Encode descriptions and labels
-    print("Encoding descriptions...")
-    description_encodings = compute_description_encodings(model)
-    label_encodings = compute_label_encodings(model)
-
-    # Number of classes
-    num_classes = len(dataset.classes)
-
-    # Evaluation metrics for overall and per-class accuracies
-    print("Evaluating...")
-    print(f"Cut Proportion: {cut_proportion}", f"|| Dataset: {dataset_name}", f"|| Sim. Penalty: {similarity_penalty_config}", f"|| Freq. Penalty: {frequency_penalty_type}")
-    overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
-    overall_lang_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
-
-    overall_clip_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
-    overall_clip_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
-
-    # Initialize dictionaries to track class-wise accuracy
-    class_wise_lang_accuracy = {i: torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device) for i in range(num_classes)}
-    class_wise_clip_accuracy = {i: torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device) for i in range(num_classes)}
-
-    for batch_number, (images, labels) in enumerate(tqdm(dataloader)):    
-        images = images.to(device)
-        labels = labels.to(device)
+    # Running the experiment with data loader
+    for images, labels in dataloader:
+        images, labels = images.to(hparams['device']), labels.to(hparams['device'])
         
-        # Encode images
+        # Encode images using the model
         image_encodings = model.encode_image(images)
         image_encodings = F.normalize(image_encodings)
         
-        # Compute similarities and make predictions
+        # Compute similarities
         image_labels_similarity = image_encodings @ label_encodings.T
         clip_predictions = image_labels_similarity.argmax(dim=1)
         
-        # Update overall and class-wise accuracies for CLIP
+        # Update CLIP-based accuracy
         overall_clip_accuracy_metric(image_labels_similarity, labels)
-        overall_clip_accuracy_metric_top5(image_labels_similarity, labels)
-        for i in range(num_classes):
-            class_mask = labels == i
-            if class_mask.any():
-                class_wise_clip_accuracy[i](clip_predictions[class_mask], labels[class_mask])
 
-        # Compute description-based predictions
-        image_description_similarity = [None]*num_classes
-        image_description_similarity_cumulative = [None]*num_classes
-
-        for i, (k, v) in enumerate(description_encodings.items()):
-            dot_product_matrix = image_encodings @ v.T
-            
-            if frequency_penalty_type:
-                for descriptor in gpt_descriptions[k]:
-                    freq = descriptors_freq[frequency_type].get(descriptor, 1)
-                    norm_freq = freq / sum(descriptors_freq[frequency_type].values())
-                    penalty_index = gpt_descriptions[k].index(descriptor)
-                    dot_product_matrix[:, penalty_index] /= norm_freq
-
-            if similarity_penalty_config:
-                class_average_sim = average_cosine_similarities.get(k, 0)  # Default to 0 if not found
-                dot_product_matrix -= class_average_sim
-            
-            image_description_similarity[i] = dot_product_matrix
-            image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
-
-        cumulative_tensor = torch.stack(image_description_similarity_cumulative, dim=1)
+        # Compute description-based similarity and accuracy
+        cumulative_tensor = torch.stack([image_encodings @ desc.T for desc in description_encodings.values()], dim=1)
         descr_predictions = cumulative_tensor.argmax(dim=1)
-        
-        # Update overall and class-wise accuracies for descriptions
         overall_lang_accuracy_metric(cumulative_tensor.softmax(dim=-1), labels)
-        overall_lang_accuracy_metric_top5(cumulative_tensor.softmax(dim=-1), labels)
-        for i in range(num_classes):
-            class_mask = labels == i
-            if class_mask.any():
-                class_wise_lang_accuracy[i](descr_predictions[class_mask], labels[class_mask])
+    
+    # Compute final results
+    lang_accuracy = overall_lang_accuracy_metric.compute().item()
+    clip_accuracy = overall_clip_accuracy_metric.compute().item()
 
-    # Save results for current experiment
-    save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy)
+    # Free GPU memory
+    clear_gpu_cache()
 
-    # Save the updated results
-    save_results(results, results_file_path)
+    # Print results (or store them in a more elaborate result-tracking mechanism)
+    # print(f"Model: {model_size}, Dataset: {dataset_name}, Cut: {cut_proportion}, SimPenalty: {similarity_penalty}, FreqPenalty: {frequency_penalty}")
+    # print(f"Description-based Accuracy: {lang_accuracy * 100:.2f}%, CLIP Accuracy: {clip_accuracy * 100:.2f}%")
 
-def save_experiment_results(results, cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, overall_lang_accuracy_metric, overall_lang_accuracy_metric_top5, overall_clip_accuracy_metric, overall_clip_accuracy_metric_top5, class_wise_lang_accuracy, class_wise_clip_accuracy):
-    class_wise_accuracies = {}
-    differences = {}
-    num_classes = len(class_wise_lang_accuracy)
-    for i in range(num_classes):
-        class_name = dataset.classes[i]
-        desc_accuracy = 100 * class_wise_lang_accuracy[i].compute().item()
-        clip_accuracy = 100 * class_wise_clip_accuracy[i].compute().item()
-        
-        # Calculate the difference between description-based and CLIP-standard accuracies
-        difference = desc_accuracy - clip_accuracy
-        
-        # Store accuracies and their difference in the dictionary
-        class_wise_accuracies[class_name] = {
-            "Description-based Accuracy": desc_accuracy,
-            "CLIP-Standard Accuracy": clip_accuracy,
-            "Difference": difference
-        }
-        
-        # Also store the difference separately for sorting
-        differences[class_name] = difference
+# Function to determine valid permutations based on the new conditions
+def get_valid_permutations():
+    valid_combinations = []
 
-    # Sort classes by the magnitude of difference
-    sorted_classes_by_difference = sorted(differences, key=differences.get, reverse=True)
+    for model_size, dataset_name in product(model_size_list, dataset_name_list):
+        # 1. When `cut_proportion` is varied, both `frequency_penalty` and `similarity_penalty` must be 'no_freq_penalty' and 'no_similarity_penalty'.
+        for cut_proportion in cut_proportion_list:
+            if cut_proportion != 1:
+                valid_combinations.append((model_size, dataset_name, cut_proportion, 'no_similarity_penalty', 'no_freq_penalty'))
 
-    # Reorganize the class-wise accuracies based on the sorted order
-    sorted_class_wise_accuracies = {class_name: class_wise_accuracies[class_name] for class_name in sorted_classes_by_difference}
+        # 2. When `similarity_penalty` is set, `cut_proportion` must be 1 and `frequency_penalty` must be 'no_freq_penalty'.
+        for similarity_penalty in similarity_penalty_config_list:
+            if similarity_penalty != 'no_similarity_penalty':
+                valid_combinations.append((model_size, dataset_name, 1, similarity_penalty, 'no_freq_penalty'))
 
-    # Print overall accuracies
-    experimental_results = {}
-    experimental_results["Class-wise Accuracies and Differences (Top 10)"] = [list(sorted_class_wise_accuracies.keys())[:10]]
-    experimental_results["Class-wise Accuracies and Differences (Bottom 10)"] = [list(sorted_class_wise_accuracies.keys())[-10:]]
-    experimental_results["Class-wise Accuracies and Differences"] = sorted_class_wise_accuracies
-    experimental_results["Total Description-based Top-1 Accuracy: "] = 100 * overall_lang_accuracy_metric.compute().item()
-    experimental_results["Total Description-based Top-5 Accuracy: "] = 100 * overall_lang_accuracy_metric_top5.compute().item()
-    experimental_results["Total CLIP-Standard Top-1 Accuracy: "] = 100 * overall_clip_accuracy_metric.compute().item()
-    experimental_results["Total CLIP-Standard Top-5 Accuracy: "] = 100 * overall_clip_accuracy_metric_top5.compute().item()
+        # 3. When `frequency_penalty` is set, `cut_proportion` must be 1 and `similarity_penalty` must be 'no_similarity_penalty'.
+        for frequency_penalty in frequency_penalty_config_list:
+            if frequency_penalty != 'no_freq_penalty':
+                valid_combinations.append((model_size, dataset_name, 1, 'no_similarity_penalty', frequency_penalty))
 
-    # Ensure the structure 'model_size' > 'dataset' > 'cut_proportion' > 'similarity_penalty_config' > 'frequency_penalty_type'
-    model_size = hparams['model_size']
+    return valid_combinations
 
-    if model_size not in results:
-        results[model_size] = {}
+# Parallel execution of all valid permutations
+def run_all_experiments():
+    # Get valid permutations
+    valid_combinations = get_valid_permutations()
 
-    if dataset_name not in results[model_size]:
-        results[model_size][dataset_name] = {}
+    print(f"Running {len(valid_combinations)} experiments...")
+    
+    # Run experiments in parallel using all available cores
+    Parallel(n_jobs=-1)(
+        delayed(run_experiment)(model_size, dataset_name, cut_proportion, similarity_penalty, frequency_penalty)
+        for model_size, dataset_name, cut_proportion, similarity_penalty, frequency_penalty in valid_combinations
+    )
 
-    if str(cut_proportion) not in results[model_size][dataset_name]:
-        results[model_size][dataset_name][str(cut_proportion)] = {}
-
-    if str(similarity_penalty_config) not in results[model_size][dataset_name][str(cut_proportion)]:
-        results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)] = {}
-
-    if str(frequency_penalty_type) not in results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)]:
-        results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = {}
-
-    # Store results
-    results[model_size][dataset_name][str(cut_proportion)][str(similarity_penalty_config)][str(frequency_penalty_type)] = experimental_results
-
-# Main loop
-results_file_path = 'results/experiment_loop_results.json'
-
-# Example of variable configurations
-cut_proportions = [# 0.00, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
-                   # 0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9,
-                   1.0]
-datasets = ['cub',
-            #*['cub_gpt4_{0}_desc'.format(i) for i in range(1, 9)]
-            ]
-similarity_penalty_configs = [False]
-frequency_penalty_types = [None, 'freq_is', 'freq_contains']
-
-total_experiment_count = len(cut_proportions) * len(datasets) * len(similarity_penalty_configs) * len(frequency_penalty_types)
-
-start_time = time.time()
-
-experiment_tally = 0
-for cut_proportion in cut_proportions:
-    for dataset_name in datasets:
-        for similarity_penalty_config in similarity_penalty_configs:
-            for frequency_penalty_type in frequency_penalty_types:
-                experiment_tally += 1
-                print(f"Running experiment {experiment_tally} of {total_experiment_count}...")
-                run_experiment(cut_proportion, dataset_name, similarity_penalty_config, frequency_penalty_type, results_file_path)
-
-end_time = time.time()
-print(f"Total time taken to run {total_experiment_count} experiments: {end_time - start_time} seconds")
+if __name__ == '__main__':
+    run_all_experiments()
