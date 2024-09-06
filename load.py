@@ -19,7 +19,7 @@ from loading_helpers import *
 hparams = {}
 # hyperparameters
 
-hparams['model_size'] = "ViT-B/32"
+hparams['model_size'] = "ViT-L/14@336px"
 # Options:
 # ['RN50',
 #  'RN101',
@@ -34,6 +34,7 @@ cut_proportion = 1
 hparams['dataset'] = 'imagenetv2'
 # Options:
 # ['imagenet',
+#  'imagenetv2',
 #  'cub',
 #  'cub_reassignment',
 #  'cub_reassignment_threshold',
@@ -50,8 +51,7 @@ hparams['dataset'] = 'imagenetv2'
 #  'places365',
 #  'food101',
 #  'pets',
-#  'dtd',
-#  'imagenetv2']
+#  'dtd']
 
 similarity_penalty_config = False
 
@@ -128,15 +128,15 @@ if hparams['dataset'] == 'imagenet':
             hparams['descriptor_fname'] = 'descriptors_imagenet'
         hparams['after_text'] = hparams['label_after_text'] = '.'
         
-    elif hparams['dataset'] == 'imagenetv2':
-        hparams['dataset_name'] = 'ImageNetV2'
-        dsclass = ImageNetV2
-        hparams['data_dir'] = pathlib.Path(IMAGENETV2_DIR)
-        hparams['analysis_fname'] = 'analysis_imagenetv2'
-        dataset = dsclass(location=str(hparams['data_dir']), transform=tfms)
-        classes_to_load = openai_imagenet_classes
-        hparams['descriptor_fname'] = 'descriptors_imagenet'
-        dataset.classes = classes_to_load
+elif hparams['dataset'] == 'imagenetv2':
+    hparams['dataset_name'] = 'ImageNetV2'
+    dsclass = ImageNetV2
+    hparams['data_dir'] = pathlib.Path(IMAGENETV2_DIR)
+    hparams['analysis_fname'] = 'analysis_imagenet'
+    dataset = dsclass(location=str(hparams['data_dir']), transform=tfms)
+    classes_to_load = openai_imagenet_classes
+    hparams['descriptor_fname'] = 'descriptors_imagenet'
+    dataset_classes = classes_to_load
 
 elif hparams['dataset'] == 'cub':
     hparams['dataset_name'] = 'CUB'
@@ -169,14 +169,6 @@ elif hparams['dataset'].startswith('cub_gpt4'):
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None
     hparams['descriptor_fname'] = f'descriptors_{hparams["dataset"]}riptors'
-
-elif hparams['dataset'] == 'cub_post_noise':
-    hparams['dataset_name'] = 'CUB_post_noise'
-    hparams['data_dir'] = pathlib.Path(CUB_DIR)
-    hparams['analysis_fname'] = 'analysis_cub'
-    dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-    classes_to_load = None #dataset.classes
-    hparams['descriptor_fname'] = 'descriptors_cub_gpt4_post_noise'
     
 # I recommend using VISSL https://github.com/facebookresearch/vissl/blob/main/extra_scripts/README.md to download these
     
@@ -226,6 +218,8 @@ elif hparams['dataset'] == 'dtd':
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
+if 'dataset.classes' in locals():
+    dataset_classes = dataset.classes
     
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
