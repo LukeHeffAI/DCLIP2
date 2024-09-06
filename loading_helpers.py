@@ -4,6 +4,18 @@ import os
 import numpy as np
 import random
 
+cut_proportion = 1
+
+similarity_penalty_config = False
+# Options:
+# [ 'no_similarity_penalty',
+#   'similarity_penalty']
+
+frequency_type = None
+# Options:
+# [ 'no_freq_penalty'
+#   'freq_is',
+#   'freq_contains']
 
 import json
 def load_json(filename):
@@ -94,12 +106,14 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
         When method is 'chr', the proportion is the final number of characters in the output.
         When method is 'len', the proportion is the fraction of the total input characters in the output.
         '''
-        
-        if method == 'chr':
-            cut_len = int(len(label) * proportion / len(label))
-        elif method == 'len':
-            cut_len = int(len(label) * proportion)
-        return label[:cut_len]
+        if frequency_type == 'no_freq_penalty' and similarity_penalty_config == 'no_similarity_penalty':
+            if method == 'chr':
+                cut_len = int(len(label) * proportion / len(label))
+            elif method == 'len':
+                cut_len = int(len(label) * proportion)
+            return label[:cut_len]
+        else:
+            return label
     
     def create_gibberish_descriptions(length):
         import string

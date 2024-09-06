@@ -16,10 +16,10 @@ import clip
 
 from loading_helpers import *
 
-hparams = {}
 # hyperparameters
+hparams = {}
 
-hparams['model_size'] = "ViT-L/14@336px"
+hparams['model_size'] = "ViT-B/16"
 # Options:
 # ['RN50',
 #  'RN101',
@@ -30,8 +30,8 @@ hparams['model_size'] = "ViT-L/14@336px"
 #  'ViT-B/16',
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
-cut_proportion = 1
-hparams['dataset'] = 'imagenetv2'
+
+hparams['dataset'] = 'food101'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
@@ -46,20 +46,11 @@ hparams['dataset'] = 'imagenetv2'
 #  'cub_gpt4_6_desc',
 #  'cub_gpt4_7_desc',
 #  'cub_gpt4_8_desc',
-#  'cub_noise',
 #  'eurosat',
 #  'places365',
 #  'food101',
 #  'pets',
 #  'dtd']
-
-similarity_penalty_config = False
-
-frequency_type = None
-# Options:
-# [ None
-#   'freq_is',
-#   'freq_contains']
 
 hparams['batch_size'] = 64*10
 hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
@@ -99,13 +90,13 @@ hparams['seed'] = 1
 hparams['descriptor_fname'] = None
 
 IMAGENET_DIR = '/home/luke/Documents/GitHub/data/ImageNet/'
-IMAGENETV2_DIR = '/home/luke/Documents/GitHub/data/ImageNetV2/' # TODO: Find ImageNet V2 dataset download somewhere
+IMAGENETV2_DIR = '/home/luke/Documents/GitHub/data/ImageNetV2/'
 CUB_DIR = '/home/luke/Documents/GitHub/data/CUB/CUB_200_2011/'
 EUROSAT_DIR = '/home/luke/Documents/GitHub/data/EuroSAT/2750/'
 FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/' # TODO: Fix shape issue when running main.py
-PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/' # TODO: Images need to be in class folders
+PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/'
 DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
-PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/' # TODO: Expand tar file and check this works
+PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
 ESC_10_DIR = '/home/luke/Documents/GitHub/ImageBind/ESC-50-master/audio/ESC-10'
 
 
@@ -115,18 +106,15 @@ tfms = _transform(hparams['image_size'])
 
 
 if hparams['dataset'] == 'imagenet':
-    if hparams['dataset'] == 'imagenet':
-        hparams['dataset_name'] = 'ImageNet'
-        dsclass = ImageNet        
-        hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
-        hparams['analysis_fname'] = 'analysis_imagenet'
-        # train_ds = ImageNet(hparams['data_dir'], split='val', transform=train_tfms)
-        dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
-        classes_to_load = None
-    
-        if hparams['descriptor_fname'] is None:
-            hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['after_text'] = hparams['label_after_text'] = '.'
+    hparams['dataset_name'] = 'ImageNet'
+    dsclass = ImageNet        
+    hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
+    hparams['analysis_fname'] = 'analysis_imagenet'
+    # train_ds = ImageNet(hparams['data_dir'], split='val', transform=train_tfms)
+    dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
+    classes_to_load = None
+    hparams['descriptor_fname'] = 'descriptors_imagenet'
+    hparams['after_text'] = hparams['label_after_text'] = '.'
         
 elif hparams['dataset'] == 'imagenetv2':
     hparams['dataset_name'] = 'ImageNetV2'
@@ -136,7 +124,6 @@ elif hparams['dataset'] == 'imagenetv2':
     dataset = dsclass(location=str(hparams['data_dir']), transform=tfms)
     classes_to_load = openai_imagenet_classes
     hparams['descriptor_fname'] = 'descriptors_imagenet'
-    dataset_classes = classes_to_load
 
 elif hparams['dataset'] == 'cub':
     hparams['dataset_name'] = 'CUB'
@@ -218,8 +205,10 @@ elif hparams['dataset'] == 'dtd':
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
-if 'dataset.classes' in locals():
+if hparams['dataset'] != 'imagenetv2':
     dataset_classes = dataset.classes
+else:
+    dataset_classes = classes_to_load
     
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
