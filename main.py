@@ -86,7 +86,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
                 penalty_index = gpt_descriptions[k].index(descriptor)
                 dot_product_matrix[:, penalty_index] /= norm_freq
 
-        if similarity_penalty_config: # TODO: test other ways to do this
+        if similarity_penalty_config == 'similarity_penalty':
             class_average_sim = average_cosine_similarities.get(k, 0)  # Default to 0 if not found
             dot_product_matrix -= class_average_sim
         
@@ -194,7 +194,11 @@ results[model_size][dataset_name][frequency_type] = experimental_results
 # Save the updated results
 # save_results(results, results_file_path)
 
-print("\nDataset being tested: ", hparams['dataset'], f"|| Cut Proportion: {cut_proportion}", f"|| Frequency Penalisation Type: {frequency_type}", f"|| Similarity Penalisation Applied: {similarity_penalty_config}")
+print(f"Model: {hparams['model_size']}",
+      f"|| Dataset being tested: {hparams['dataset']}",
+      f"|| Cut Proportion: {cut_proportion}",
+      f"|| Freq. Penalisation Type: {frequency_type}",
+      f"|| Sim. Penalisation: {similarity_penalty_config}")
 print("Total Description-based Top-1 Accuracy: ", 100 * overall_lang_accuracy_metric.compute().item(), "%")
 print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_metric_top5.compute().item(), "%")
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
