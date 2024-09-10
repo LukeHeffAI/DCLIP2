@@ -19,7 +19,7 @@ from loading_helpers import *
 # hyperparameters
 hparams = {}
 
-hparams['model_size'] = "ViT-B/16"
+hparams['model_size'] = "ViT-B/32"
 # Options:
 # ['RN50',
 #  'RN101',
@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/16"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['dataset'] = 'food101'
+hparams['dataset'] = 'cub_gp4_8_desc'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
@@ -85,6 +85,7 @@ hparams['unmodify'] = True
 hparams['label_after_text'] = ''
 # hparams['label_after_text'] = ' which is a type of bird.'
 hparams['seed'] = 1
+seed_everything(hparams['seed'])
 
 # classes_to_load = openai_imagenet_classes
 hparams['descriptor_fname'] = None
@@ -205,7 +206,9 @@ elif hparams['dataset'] == 'dtd':
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
-if hparams['dataset'] != 'imagenetv2':
+print(hparams['dataset'] )
+
+if hparams['dataset'] != 'imagenetv2' or hparams['dataset'].startswith('cub'):
     dataset_classes = dataset.classes
 else:
     dataset_classes = classes_to_load
