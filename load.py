@@ -8,7 +8,7 @@ import pathlib
 
 from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
-from torchvision.datasets import ImageNet, ImageFolder, Places365
+from torchvision.datasets import ImageNet, ImageFolder, Places365, Food101
 from imagenetv2_pytorch import ImageNetV2Dataset as ImageNetV2
 from datasets import _transform, CUBDataset
 from collections import OrderedDict
@@ -19,7 +19,7 @@ from loading_helpers import *
 # hyperparameters
 hparams = {}
 
-hparams['model_size'] = "ViT-B/16"
+hparams['model_size'] = "ViT-B/32"
 # Options:
 # ['RN50',
 #  'RN101',
@@ -93,7 +93,7 @@ IMAGENET_DIR = '/home/luke/Documents/GitHub/data/ImageNet/'
 IMAGENETV2_DIR = '/home/luke/Documents/GitHub/data/ImageNetV2/'
 CUB_DIR = '/home/luke/Documents/GitHub/data/CUB/CUB_200_2011/'
 EUROSAT_DIR = '/home/luke/Documents/GitHub/data/EuroSAT/2750/'
-FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/' # TODO: Fix shape issue when running main.py
+FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/' # TODO: Fix shape issue when running main.py
 PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/'
 DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
 PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
@@ -175,7 +175,8 @@ elif hparams['dataset'] == 'places365':
     hparams['dataset_name'] = 'Places365'
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
     hparams['analysis_fname'] = 'analysis_places365'
-    dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
+    dsclass = Places365
+    dataset = dsclass(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_places365'
     classes_to_load = None
     
@@ -183,8 +184,8 @@ elif hparams['dataset'] == 'food101':
     hparams['dataset_name'] = 'Food101'
     hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
     hparams['analysis_fname'] = 'analysis_food101'
-    dsclass = ImageFolder
-    dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
+    dsclass = Food101
+    dataset = dsclass(str(hparams['data_dir']), split='test', download=True, transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
     classes_to_load = None
 
@@ -209,7 +210,10 @@ if hparams['dataset'] != 'imagenetv2':
     dataset_classes = dataset.classes
 else:
     dataset_classes = classes_to_load
-    
+
+print("Dataset classes: ", dataset_classes)
+print("Number of classes: ", len(dataset_classes))
+
 hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
