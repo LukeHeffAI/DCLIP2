@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['dataset'] = 'cub_gp4_8_desc'
+hparams['dataset'] = 'cub_gpt4_8_desc'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
@@ -206,9 +206,7 @@ elif hparams['dataset'] == 'dtd':
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
 
-print(hparams['dataset'] )
-
-if hparams['dataset'] != 'imagenetv2' or hparams['dataset'].startswith('cub'):
+if hparams['dataset'] != 'imagenetv2':
     dataset_classes = dataset.classes
 else:
     dataset_classes = classes_to_load
