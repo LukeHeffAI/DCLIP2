@@ -38,7 +38,7 @@ description_encodings = compute_description_encodings(model)
 label_encodings = compute_label_encodings(model)
 
 # Number of classes
-num_classes = len(dataset_classes)
+num_classes = n_classes
 
 # Evaluation metrics for overall and per-class accuracies
 print("Evaluating...")
