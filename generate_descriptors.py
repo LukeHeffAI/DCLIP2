@@ -138,6 +138,6 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
 
     return descriptors
 
-filename = f'descriptors/test/descriptors_{hparams['dataset_name']}_test.json'
+filename = f'descriptors/test/descriptors_{hparams['dataset']}_test.json'
 
 obtain_descriptors_and_save(filename=filename)
