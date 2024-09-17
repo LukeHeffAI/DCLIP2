@@ -1,11 +1,11 @@
 {
     "annual crop land": [
-        "vast fields of uniform green or golden crops",
-        "rows of crops with distinct linear patterns",
-        "seasonal variations in color, from bright green in spring to golden brown in harvest",
-        "presence of agricultural machinery or equipment in the landscape",
-        "occasional patches of bare soil or tilled land between crop rows",
-        "surrounding areas may include irrigation systems or fences"
+        "vast fields of uniform green or golden crops, often in neat rows or patterns.",
+        "presence of agricultural machinery or equipment, such as tractors or harvesters.",
+        "seasonal variations in color, with bright green during growth and golden hues during harvest.",
+        "occasional patches of bare soil or tilled land between crop rows.",
+        "distinct boundaries or edges separating different crop types or fields.",
+        "visible irrigation systems or water channels, indicating agricultural practices."
     ],
     "forest": [
         "dense canopy of green leaves with varying shades of green",
@@ -16,67 +16,67 @@
         "moss-covered ground and fallen leaves creating a natural carpet"
     ],
     "brushland or shrubland": [
-        "dense, low-growing vegetation with a mix of shrubs and small trees",
-        "irregular patches of green foliage interspersed with bare ground",
-        "varied textures from coarse, woody stems to soft, leafy branches",
-        "color variations ranging from deep greens to muted browns and yellows",
-        "presence of drought-resistant plants adapted to arid conditions",
-        "often found in hilly or uneven terrain, creating a rugged landscape"
+        "dense clusters of low shrubs and small trees",
+        "varied shades of green and brown foliage",
+        "sparse ground cover with patches of bare soil",
+        "irregularly shaped patches of vegetation",
+        "presence of drought-resistant plants",
+        "open areas interspersed with denser thickets"
     ],
     "highway or road": [
         "long, straight paths with a smooth surface",
-        "distinct lane markings, often with dashed lines",
-        "surrounding vegetation or urban infrastructure visible",
-        "presence of vehicles, such as cars and trucks",
-        "wide expanses with minimal obstructions",
-        "clear horizon line, often with a vanishing point perspective"
+        "distinct lane markings, often with dashed or solid lines",
+        "surrounding vegetation or urban infrastructure visible at the edges",
+        "presence of road signs and traffic signals",
+        "variety of vehicles, including cars, trucks, and motorcycles",
+        "wide expanses with minimal obstructions, allowing for clear visibility"
     ],
     "industrial buildings or commercial buildings": [
         "large, rectangular structures with flat roofs",
         "metallic or concrete exteriors, often with large windows",
         "presence of industrial equipment or machinery visible on-site",
-        "signage indicating business names or logos",
-        "surrounding areas often paved with asphalt or concrete",
-        "distinctive architectural features like loading docks or ventilation systems"
+        "parking lots or loading docks adjacent to the buildings",
+        "signage indicating business names or commercial activities",
+        "distinctive architectural features like smokestacks or ventilation systems"
     ],
     "pasture land": [
         "vast green fields with low-growing grass",
         "scattered patches of wildflowers among the grass",
-        "presence of grazing animals like cows or sheep",
-        "fenced areas or boundaries indicating land use",
-        "occasional trees or shrubs dotting the landscape",
-        "open skies with minimal obstruction, often bright and sunny"
+        "presence of grazing livestock, such as cows or sheep",
+        "fenced areas or boundaries defining the pasture",
+        "occasional trees or shrubs along the edges",
+        "open skies with minimal obstructions, allowing for expansive views"
     ],
     "permanent crop land": [
         "uniform rows of crops with consistent spacing",
         "distinctive green hues indicating healthy vegetation",
         "presence of irrigation systems or water channels",
         "minimal variation in height across the field",
-        "regular geometric patterns created by crop layout",
-        "absence of trees or large structures, emphasizing open land"
+        "regular patterns created by crop planting and harvesting",
+        "absence of large trees or natural vegetation, focusing on cultivated land"
     ],
     "residential buildings or homes or apartments": [
-        "typically features multiple stories with a flat or sloped roof",
-        "often includes balconies or terraces for outdoor space",
-        "commonly has large windows for natural light",
-        "exterior materials may include brick, wood, or stucco",
-        "landscaped yards or gardens surrounding the buildings",
-        "distinct architectural styles reflecting local culture or trends"
+        "typically features multiple stories with a distinct architectural style.",
+        "often includes balconies, porches, or patios that enhance outdoor living space.",
+        "commonly surrounded by landscaped gardens or yards.",
+        "windows are usually large and may have decorative elements like shutters.",
+        "roof styles vary but often include gabled or flat roofs.",
+        "materials used may include brick, wood, or stucco, reflecting local building traditions."
     ],
     "river": [
         "flowing water body with a distinct current",
         "surrounded by banks that may be lush or rocky",
         "reflective surface that changes with light conditions",
         "presence of ripples or waves indicating movement",
-        "vegetation along the edges, such as reeds or trees",
-        "varied widths and depths, often meandering through landscapes"
+        "varied widths, often narrowing or widening along its course",
+        "vegetation along the edges, such as reeds or trees"
     ],
     "lake or sea": [
-        "reflective surface with varying shades of blue and green",
+        "reflective water surface with varying shades of blue and green",
         "presence of ripples or waves indicating movement",
-        "surrounding vegetation such as trees or grasses along the shoreline",
-        "distinct horizon line where water meets the sky",
-        "variations in color intensity based on depth and light conditions",
-        "possible presence of boats or aquatic life, adding dynamic elements"
+        "surrounding vegetation such as trees, grasses, or reeds",
+        "distinct shoreline features like sandy beaches or rocky edges",
+        "sky reflections on the water, often with clouds or sunlight",
+        "possible presence of boats, docks, or other human-made structures"
     ]
 }

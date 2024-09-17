@@ -110,10 +110,11 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
                     try:
                         # Convert response string to JSON
                         json_response = json.loads(response_content)
-                        print(str(json_response.keys()).split("'")[1], "\n\t", json_response[f'{category_name}'])
+                        # print(str(json_response.keys()).split("'")[1], "\n\t", json_response[f'{category_name}'])
 
                         # Append the response to the descriptors dictionary
-                        descriptors[category_name] = json_response.get(category_name, [])
+                        descriptors[category_name] = [descriptor.lower() for descriptor in json_response[f'{category_name}']]
+                        print(category_name, descriptors[category_name])
                     except json.JSONDecodeError as e:
                         print(f"Error decoding JSON: {e}")
                     break  # Exit retry loop if successful
@@ -138,6 +139,6 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
 
     return descriptors
 
-filename = f'descriptors/test/descriptors_{hparams['dataset_name']}_test.json'
+filename = f'descriptors/test/descriptors_{hparams['dataset']}_test.json'
 
 obtain_descriptors_and_save(filename=filename)
