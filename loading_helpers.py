@@ -31,9 +31,6 @@ def load_descriptors_frequency(hparams):
     return None
 
 def compute_class_list(data:dict, sort_config = False):
-    '''
-    Compute the list of all classes in the data.
-    '''
 
     if sort_config:
         data = dict(sorted(data.items()))
@@ -45,15 +42,12 @@ def compute_class_list(data:dict, sort_config = False):
     if sort_config:
         class_list = list(set(class_list))
         class_list = sorted(class_list)
-    else:
-        class_list = list(set(class_list))
+    # else:
+    #     class_list = list(set(class_list))
 
     return class_list
 
 def compute_descriptor_list(data:dict, sort_config = False):
-    '''
-    Compute the list of all descriptors in the data.
-    '''
 
     if sort_config:
         data = dict(sorted(data.items()))
