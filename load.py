@@ -36,7 +36,7 @@ hparams['desc_type'] = 'gpt3'
 # ['gpt3',
 #  'gpt4]
 
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'pets'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
