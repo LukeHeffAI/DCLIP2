@@ -1,0 +1,378 @@
+{
+    "banded": [
+        "distinctive parallel lines or stripes running across the surface",
+        "high contrast between the colors of the bands",
+        "regular spacing and uniform width of the bands",
+        "textured appearance that enhances the visual depth of the bands",
+        "variation in color intensity within the bands",
+        "presence of sharp edges where the bands meet"
+    ],
+    "blotchy": [
+        "irregular, uneven patterns with varying color intensity",
+        "presence of large, distinct patches or splotches",
+        "contrast between light and dark areas creating a mottled effect",
+        "random distribution of colors that do not follow a uniform pattern",
+        "textured appearance that may resemble paint splatters or ink blots",
+        "visual complexity with a chaotic yet intriguing arrangement of shapes"
+    ],
+    "braided": [
+        "interwoven strands creating a textured pattern",
+        "distinctive overlapping lines forming a cohesive design",
+        "visual complexity with a three-dimensional appearance",
+        "curved and twisted shapes that suggest movement",
+        "contrast between light and shadow enhancing depth",
+        "repetitive motifs that create a rhythmic visual flow"
+    ],
+    "bubbly": [
+        "bright and cheerful colors, often with a glossy finish",
+        "round, soft shapes resembling bubbles or spheres",
+        "light and airy textures that convey a sense of buoyancy",
+        "reflective surfaces that create highlights and shimmer",
+        "patterns that include circular motifs or playful designs",
+        "a sense of movement or fluidity, as if the elements are floating"
+    ],
+    "bumpy": [
+        "irregular surface texture with raised areas",
+        "prominent, rounded protrusions creating a tactile feel",
+        "variations in height and depth across the surface",
+        "uneven patterns that disrupt smoothness",
+        "visual contrast between raised and recessed areas",
+        "distinctive shadowing effects due to surface irregularities"
+    ],
+    "chequered": [
+        "pattern of alternating squares or rectangles in contrasting colors",
+        "high contrast between the colors, often black and white or bold colors",
+        "uniform grid layout creating a repetitive visual structure",
+        "distinctive geometric shapes that create a sense of order",
+        "visual texture that can appear flat or slightly raised depending on material",
+        "commonly used in textiles, flooring, and graphic designs"
+    ],
+    "cobwebbed": [
+        "delicate, intricate web-like patterns",
+        "soft, muted color palette with shades of gray and white",
+        "irregular, organic shapes resembling spider webs",
+        "translucent or semi-transparent textures",
+        "subtle variations in light and shadow creating depth",
+        "a sense of fragility and ethereality in the overall appearance"
+    ],
+    "cracked": [
+        "irregular fissures and splits across the surface",
+        "uneven texture with visible gaps and openings",
+        "contrasting colors in the cracks compared to the surrounding area",
+        "fragmented appearance with sharp edges along the cracks",
+        "presence of dust or debris within the cracks",
+        "variability in crack width and depth, creating a chaotic pattern"
+    ],
+    "crosshatched": [
+        "pattern of intersecting lines creating a grid-like texture",
+        "dense, crisscrossed lines that form a series of small squares or diamonds",
+        "contrast between light and dark areas due to overlapping lines",
+        "repetitive and uniform line spacing contributing to a structured appearance",
+        "visual complexity arising from the layering of lines",
+        "distinctive texture that adds depth and dimension to surfaces"
+    ],
+    "crystalline": [
+        "sharp, angular edges and facets",
+        "highly reflective surfaces that create a sparkling effect",
+        "translucent or transparent appearance with light passing through",
+        "geometric patterns and symmetry in structure",
+        "distinctive color variations depending on light and angle",
+        "well-defined, structured forms resembling natural crystals"
+    ],
+    "dotted": [
+        "features a pattern of small, distinct dots evenly spaced across the surface.",
+        "dots can vary in size, creating a sense of depth and texture.",
+        "the background color contrasts with the dot color, enhancing visibility.",
+        "dots may be arranged in a regular grid or random distribution.",
+        "the overall appearance is playful and dynamic, often associated with a whimsical style.",
+        "commonly found in textiles, wallpapers, and graphic designs, adding visual interest."
+    ],
+    "fibrous": [
+        "textured surface with visible fibers or strands",
+        "irregular patterns resembling natural fibers or threads",
+        "soft and pliable appearance, often with a layered look",
+        "color variations that may include earthy tones or muted shades",
+        "a sense of depth created by overlapping fiber structures",
+        "naturalistic feel, often evoking organic materials like wool or cotton"
+    ],
+    "flecked": [
+        "irregular patterns of small spots or dots",
+        "contrasting colors that create a speckled appearance",
+        "varied sizes of flecks that add texture",
+        "random distribution of flecks across the surface",
+        "subtle gradients between the base color and flecks",
+        "visual complexity due to the interplay of light and shadow on the flecks"
+    ],
+    "freckled": [
+        "irregular patterns of small, light brown spots on the skin",
+        "spots are typically concentrated on the face, arms, and shoulders",
+        "contrast between the freckled areas and the surrounding skin tone",
+        "freckles vary in size and shape, often round or oval",
+        "commonly appear in clusters rather than uniformly distributed",
+        "more prominent in lighter skin tones, especially under sunlight"
+    ],
+    "frilly": [
+        "delicate, lace-like edges that create a soft, textured appearance",
+        "layered ruffles that add volume and movement to the fabric",
+        "lightweight and airy materials that enhance the feminine aesthetic",
+        "intricate patterns or designs that complement the frill details",
+        "soft color palettes that evoke a romantic or whimsical feel",
+        "curved lines and shapes that contrast with more structured designs"
+    ],
+    "gauzy": [
+        "translucent appearance with a soft, airy quality",
+        "lightweight texture that allows light to pass through",
+        "delicate and flowing drape, often with a slight sheen",
+        "subtle patterns or colors that are muted and ethereal",
+        "often used in layers to create depth and softness",
+        "typically associated with fabrics like chiffon or organza"
+    ],
+    "grid": [
+        "consists of a series of intersecting lines forming squares or rectangles",
+        "features a repetitive pattern that creates a structured appearance",
+        "often characterized by uniform spacing between lines",
+        "can vary in thickness and color of the lines, affecting visual impact",
+        "may include variations in the size of the squares or rectangles",
+        "typically has a flat, two-dimensional look with minimal depth"
+    ],
+    "grooved": [
+        "surface features with distinct, parallel lines or channels",
+        "textured appearance that creates a sense of depth",
+        "variations in groove width and spacing, contributing to visual complexity",
+        "light and shadow play across the grooves, enhancing three-dimensionality",
+        "contrast between the smooth areas and the grooved sections",
+        "patterns that may suggest movement or flow, adding dynamism to the visual"
+    ],
+    "honeycombed": [
+        "hexagonal pattern resembling a beehive structure",
+        "interconnected cells with a three-dimensional appearance",
+        "light and shadow play creating depth in the surface",
+        "uniformly spaced openings that create a rhythmic visual effect",
+        "textured surface with a slight gloss or sheen",
+        "color variations that mimic natural honey tones"
+    ],
+    "interlaced": [
+        "complex overlapping patterns that create a woven appearance",
+        "distinctive alternating colors or textures that enhance depth",
+        "intertwined lines or shapes that form a cohesive visual structure",
+        "a rhythmic and repetitive design that draws the eye",
+        "contrast between the interlaced elements and the background",
+        "dynamic visual flow that suggests movement or interaction"
+    ],
+    "knitted": [
+        "textured surface with interlocking loops",
+        "soft and flexible material appearance",
+        "visible stitch patterns creating a woven look",
+        "variety of colors and patterns, often vibrant",
+        "warm and cozy aesthetic, suggesting comfort",
+        "distinctive drape and flow, often with a slight stretch"
+    ],
+    "lacelike": [
+        "delicate, intricate patterns resembling lacework",
+        "translucent or semi-transparent textures",
+        "fine, detailed motifs with a repeating structure",
+        "soft, flowing lines that create a sense of elegance",
+        "light, airy appearance with a sense of fragility",
+        "contrasting colors that highlight the lace-like patterns"
+    ],
+    "lined": [
+        "consistent parallel lines running in one direction",
+        "lines may vary in thickness and spacing",
+        "lines create a structured and organized appearance",
+        "color contrast between lines and background enhances visibility",
+        "lines can be straight or slightly curved, but maintain uniformity",
+        "may include variations in line texture, such as smooth or rough"
+    ],
+    "marbled": [
+        "irregular, swirling patterns resembling marble stone",
+        "contrasting colors that blend seamlessly into one another",
+        "glossy or shiny surface texture that reflects light",
+        "variations in color intensity creating depth and dimension",
+        "organic, fluid shapes that evoke a sense of movement",
+        "subtle gradients that transition smoothly between hues"
+    ],
+    "matted": [
+        "dense, tangled texture resembling felt or wool",
+        "irregular surface with visible clumps or knots",
+        "muted color palette with soft, blended hues",
+        "absence of shine or gloss, giving a matte finish",
+        "rough, fibrous appearance that suggests a natural material",
+        "potential for uneven patterns or shapes, enhancing organic feel"
+    ],
+    "meshed": [
+        "intricate patterns formed by interwoven lines or shapes",
+        "translucent or transparent appearance allowing light to pass through",
+        "textured surface with a three-dimensional quality",
+        "regularly spaced openings or gaps creating a grid-like effect",
+        "contrast between solid and void areas enhancing visual complexity",
+        "soft, flowing lines that create a sense of movement and depth"
+    ],
+    "paisley": [
+        "intricate, swirling patterns resembling teardrops",
+        "vibrant colors often including deep blues, reds, and greens",
+        "asymmetrical designs that create a sense of movement",
+        "repeating motifs that vary in size and orientation",
+        "textured appearance that may include fabric-like qualities",
+        "historical influences from persian and indian textile designs"
+    ],
+    "perforated": [
+        "contains numerous small holes or openings throughout the surface",
+        "exhibits a pattern of evenly spaced perforations",
+        "often has a lightweight and airy appearance due to the holes",
+        "can display variations in hole size and shape, contributing to texture",
+        "typically features a contrasting background color that highlights the perforations",
+        "may have a functional aspect, allowing for breathability or drainage"
+    ],
+    "pitted": [
+        "surface features with small indentations or holes",
+        "irregular patterns of depressions scattered across the texture",
+        "variations in depth and size of pits creating a tactile appearance",
+        "contrast between raised areas and the recessed pits",
+        "often appears in organic materials or surfaces that have undergone erosion",
+        "color variations within the pits, highlighting depth and texture"
+    ],
+    "pleated": [
+        "features a series of regular, narrow folds or tucks.",
+        "typically exhibits a structured and textured surface.",
+        "often has a rhythmic pattern created by the folds.",
+        "can vary in depth and spacing of the pleats.",
+        "commonly found in fabrics like polyester, silk, or cotton.",
+        "may have a shiny or matte finish depending on the material."
+    ],
+    "polka-dotted": [
+        "pattern characterized by evenly spaced, circular dots",
+        "contrasting colors between the background and the dots",
+        "dots can vary in size but are typically uniform within a design",
+        "commonly found on fabrics, wallpapers, and various surfaces",
+        "creates a playful and whimsical visual effect",
+        "often associated with retro or vintage styles"
+    ],
+    "porous": [
+        "characterized by a network of small holes or voids",
+        "surface texture appears uneven and irregular",
+        "light can pass through, creating a translucent effect",
+        "often has a rough or grainy appearance",
+        "color variations may indicate different mineral compositions",
+        "typically exhibits a spongy or soft feel when touched"
+    ],
+    "potholed": [
+        "irregular surface with deep depressions",
+        "visible cracks and fissures in the material",
+        "uneven texture with sharp edges around holes",
+        "dirt and debris accumulation within the potholes",
+        "color variations indicating wear and tear",
+        "distorted shapes that disrupt the smoothness of the surface"
+    ],
+    "scaly": [
+        "textured surface with overlapping scales",
+        "irregular patterns resembling reptilian skin",
+        "glossy or matte finish depending on light reflection",
+        "color variations often in greens, browns, or muted tones",
+        "defined edges between scales creating a layered appearance",
+        "surface may exhibit a slight sheen or iridescence"
+    ],
+    "smeared": [
+        "blurry edges with a soft transition between colors",
+        "irregular patterns that appear stretched or distorted",
+        "lack of sharpness, giving a hazy or foggy appearance",
+        "color gradients that blend seamlessly without defined boundaries",
+        "visual artifacts that suggest motion or fluidity",
+        "uneven texture that creates a sense of depth and movement"
+    ],
+    "spiralled": [
+        "features a continuous, twisting pattern that resembles a spiral shape.",
+        "often displays a gradient of colors that enhances the depth of the spiral.",
+        "the edges of the spiral are typically smooth and rounded, creating a flowing appearance.",
+        "patterns may vary in thickness, adding visual interest and complexity.",
+        "can include contrasting colors that highlight the spiral's movement and direction.",
+        "may incorporate variations in texture, such as glossy or matte finishes, to emphasize the spiral effect."
+    ],
+    "sprinkled": [
+        "features small, evenly distributed dots or specks across the surface.",
+        "often has a glossy or shiny appearance due to the coating.",
+        "color variations can include bright, vibrant hues that stand out.",
+        "texture appears uneven or bumpy due to the presence of the sprinkles.",
+        "typically found on desserts, adding a playful and decorative element.",
+        "creates a contrast with the base color of the item it is applied to."
+    ],
+    "stained": [
+        "irregular patterns of discoloration",
+        "uneven color distribution with darker and lighter areas",
+        "presence of splotches or blotches",
+        "faded or washed-out sections",
+        "textured surface with visible marks or stains",
+        "contrast between stained and unstained areas"
+    ],
+    "stratified": [
+        "layered appearance with distinct horizontal bands",
+        "varying colors or patterns in each layer",
+        "clear separation between layers, often with sharp edges",
+        "textured surface that enhances the visual depth",
+        "consistent alignment of layers, creating a structured look",
+        "visual contrast between adjacent layers, emphasizing differences"
+    ],
+    "striped": [
+        "features alternating light and dark lines or bands",
+        "lines can vary in width and spacing",
+        "patterns may be horizontal, vertical, or diagonal",
+        "colors are often contrasting to enhance visibility",
+        "texture may vary, including smooth or rough surfaces",
+        "can appear in various materials, such as fabric, paper, or paint"
+    ],
+    "studded": [
+        "features prominent metallic studs or spikes on the surface",
+        "often has a textured appearance due to the raised studs",
+        "typically associated with a rugged or edgy aesthetic",
+        "can be found on various materials such as leather, fabric, or metal",
+        "studs may vary in size, shape, and arrangement, creating unique patterns",
+        "commonly used in fashion items like jackets, bags, and accessories"
+    ],
+    "swirly": [
+        "curved, flowing patterns that create a sense of movement",
+        "vibrant colors that blend seamlessly into one another",
+        "repetitive spiral motifs that draw the eye inward",
+        "soft, organic shapes that contrast with sharp edges",
+        "fluid transitions between light and shadow",
+        "dynamic textures that evoke a sense of depth and dimension"
+    ],
+    "veined": [
+        "prominent, intricate vein patterns visible on the surface",
+        "contrasting colors between the veins and the background",
+        "textured surface that enhances the visibility of the veins",
+        "veins that may appear raised or indented relative to the surrounding area",
+        "a variety of shapes and sizes of veins, creating a unique visual complexity",
+        "veins that often follow a specific directional flow or pattern"
+    ],
+    "waffled": [
+        "grid-like pattern with raised squares",
+        "textured surface that appears three-dimensional",
+        "contrasting colors in the squares create a checkerboard effect",
+        "soft, fluffy interior visible through the openings",
+        "edges of the squares are well-defined and crisp",
+        "uniformity in the size and shape of the squares"
+    ],
+    "woven": [
+        "interlaced threads creating a textured surface",
+        "visible patterns formed by the crossing of fibers",
+        "soft and flexible material with a distinct weave",
+        "variety of colors and patterns that can be intricate",
+        "often has a slightly raised texture compared to flat fabrics",
+        "typically used in textiles, showcasing craftsmanship"
+    ],
+    "wrinkled": [
+        "irregular surface texture with prominent folds and creases",
+        "variations in depth and shadowing due to the uneven surface",
+        "soft, often organic appearance that suggests age or wear",
+        "contrast between raised and recessed areas creating a dynamic visual effect",
+        "subtle color variations within the folds enhancing the three-dimensionality",
+        "presence of fine lines and patterns that contribute to the overall wrinkled look"
+    ],
+    "zigzagged": [
+        "sharp, angular patterns creating a zigzag effect",
+        "high contrast between adjacent zigzag lines",
+        "repetitive, alternating peaks and valleys",
+        "dynamic movement suggested by the zigzag shape",
+        "vivid colors accentuating the zigzag pattern",
+        "textured surfaces enhancing the visual complexity of the zigzag"
+    ]
+}

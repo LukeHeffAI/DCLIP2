@@ -1,0 +1,82 @@
+{
+    "annual crop land": [
+        "vast fields of uniform green or golden crops",
+        "rows of crops with distinct linear patterns",
+        "seasonal variations in color, from bright green in spring to golden brown in harvest",
+        "presence of agricultural machinery or equipment in the landscape",
+        "occasional patches of bare soil or tilled land between crop rows",
+        "surrounding areas may include irrigation systems or fences"
+    ],
+    "forest": [
+        "dense canopy of green leaves with varying shades of green",
+        "tall, straight tree trunks with rough bark texture",
+        "understory vegetation including ferns and shrubs",
+        "dappled sunlight filtering through the leaves",
+        "rich biodiversity with visible wildlife such as birds and insects",
+        "moss-covered ground and fallen leaves creating a natural carpet"
+    ],
+    "brushland or shrubland": [
+        "dense, low-growing vegetation with a mix of shrubs and small trees",
+        "irregular patches of green foliage interspersed with bare ground",
+        "varied textures from coarse, woody stems to soft, leafy branches",
+        "color variations ranging from deep greens to muted browns and yellows",
+        "presence of drought-resistant plants adapted to arid conditions",
+        "often found in hilly or uneven terrain, creating a rugged landscape"
+    ],
+    "highway or road": [
+        "long, straight paths with a smooth surface",
+        "distinct lane markings, often with dashed lines",
+        "surrounding vegetation or urban infrastructure visible",
+        "presence of vehicles, such as cars and trucks",
+        "wide expanses with minimal obstructions",
+        "clear horizon line, often with a vanishing point perspective"
+    ],
+    "industrial buildings or commercial buildings": [
+        "large, rectangular structures with flat roofs",
+        "metallic or concrete exteriors, often with large windows",
+        "presence of industrial equipment or machinery visible on-site",
+        "signage indicating business names or logos",
+        "surrounding areas often paved with asphalt or concrete",
+        "distinctive architectural features like loading docks or ventilation systems"
+    ],
+    "pasture land": [
+        "vast green fields with low-growing grass",
+        "scattered patches of wildflowers among the grass",
+        "presence of grazing animals like cows or sheep",
+        "fenced areas or boundaries indicating land use",
+        "occasional trees or shrubs dotting the landscape",
+        "open skies with minimal obstruction, often bright and sunny"
+    ],
+    "permanent crop land": [
+        "uniform rows of crops with consistent spacing",
+        "distinctive green hues indicating healthy vegetation",
+        "presence of irrigation systems or water channels",
+        "minimal variation in height across the field",
+        "regular geometric patterns created by crop layout",
+        "absence of trees or large structures, emphasizing open land"
+    ],
+    "residential buildings or homes or apartments": [
+        "typically features multiple stories with a flat or sloped roof",
+        "often includes balconies or terraces for outdoor space",
+        "commonly has large windows for natural light",
+        "exterior materials may include brick, wood, or stucco",
+        "landscaped yards or gardens surrounding the buildings",
+        "distinct architectural styles reflecting local culture or trends"
+    ],
+    "river": [
+        "flowing water body with a distinct current",
+        "surrounded by banks that may be lush or rocky",
+        "reflective surface that changes with light conditions",
+        "presence of ripples or waves indicating movement",
+        "vegetation along the edges, such as reeds or trees",
+        "varied widths and depths, often meandering through landscapes"
+    ],
+    "lake or sea": [
+        "reflective surface with varying shades of blue and green",
+        "presence of ripples or waves indicating movement",
+        "surrounding vegetation such as trees or grasses along the shoreline",
+        "distinct horizon line where water meets the sky",
+        "variations in color intensity based on depth and light conditions",
+        "possible presence of boats or aquatic life, adding dynamic elements"
+    ]
+}
