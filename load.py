@@ -31,7 +31,12 @@ hparams['model_size'] = "ViT-B/16"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['dataset'] = 'food101'
+hparams['desc_type'] = 'gpt3'
+# Options:
+# ['gpt3',
+#  'gpt4]
+
+hparams['dataset'] = 'cub'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
@@ -189,7 +194,7 @@ elif hparams['dataset'] == 'food101':
     classes_to_load = None
 
 elif hparams['dataset'] == 'pets':
-    hparams['dataset_name'] = 'Pets'
+    hparams['dataset_name'] = 'Oxford Pets'
     hparams['data_dir'] = pathlib.Path(PETS_DIR)
     hparams['analysis_fname'] = 'analysis_pets'
     dsclass = ImageFolder
@@ -210,7 +215,7 @@ if hparams['dataset'] != 'imagenetv2':
 else:
     dataset_classes = classes_to_load
     
-hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
+hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
     
