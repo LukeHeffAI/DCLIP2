@@ -82,7 +82,8 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
         with open(filename, 'r') as fp:
             descriptors = json.load(fp)  # Load existing data
     except FileNotFoundError:
-        print(f"File not found: {filename}")
+        print(f"File not found: {filename}, creating new file")
+        descriptors = {}
     
     dataset = load_json(hparams['descriptor_fname'])
     class_list = compute_class_list(dataset)
@@ -105,10 +106,11 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
                         }
                     )
 
-                    response_content = str(response.choices[0].message.content).lower()
+                    response_content = str(response.choices[0].message.content)
                     try:
                         # Convert response string to JSON
                         json_response = json.loads(response_content)
+                        print(str(json_response.keys()).split("'")[1], "\n\t", json_response[f'{category_name}'])
 
                         # Append the response to the descriptors dictionary
                         descriptors[category_name] = json_response.get(category_name, [])
@@ -136,6 +138,6 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
 
     return descriptors
 
-filename = f'descriptors/test/{hparams['dataset_name']}_generator_test.json'
+filename = f'descriptors/test/descriptors_{hparams['dataset_name']}_test.json'
 
 obtain_descriptors_and_save(filename=filename)
