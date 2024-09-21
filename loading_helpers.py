@@ -145,6 +145,8 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 # build_descriptor_string = lambda item: f"{word_to_add}"
                 # Class name, plus
                 # build_descriptor_string = lambda item: f"{word_to_add}{', '}{create_gibberish_descriptions(2)}"
+                # Recreate WaffleCLIP approach
+                # build_descriptor_string = lambda item: f"{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(create_gibberish_descriptions(10), hparams['apply_descriptor_modification'], hparams), cut_proportion)}"
                 # # Ascend taxonomic class
                 # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add.split(' ')[-1]}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
                 # # Class name, repetition
