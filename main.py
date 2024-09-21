@@ -79,7 +79,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
         
-        if frequency_type:
+        if frequency_type == 'freq_is' or frequency_type == 'freq_contains':
             for descriptor in gpt_descriptions[k]:
                 freq = descriptors_freq[frequency_type].get(descriptor, 1)
                 norm_freq = freq / max(descriptors_freq[frequency_type].values())
