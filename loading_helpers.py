@@ -6,15 +6,14 @@ import random
 
 cut_proportion = 1
 
-similarity_penalty_config = 'no_similarity_penalty'
+similarity_penalty_config = None
 # Options:
-# [ 'no_similarity_penalty',
-#   'similarity_penalty',
-#   None]
+# [ None,
+#   'similarity_penalty']
 
-frequency_type = 'no_freq_penalty'
+frequency_type = None
 # Options:
-# [ 'no_freq_penalty'
+# [ None,
 #   'freq_is',
 #   'freq_contains']
 
