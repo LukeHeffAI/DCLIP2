@@ -100,7 +100,7 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
         When method is 'chr', the proportion is the final number of characters in the output.
         When method is 'len', the proportion is the fraction of the total input characters in the output.
         '''
-        if frequency_type == 'no_freq_penalty' and similarity_penalty_config == 'no_similarity_penalty':
+        if frequency_type == None and similarity_penalty_config == None:
             if method == 'chr':
                 cut_len = int(len(label) * proportion / len(label))
             elif method == 'len':
