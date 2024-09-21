@@ -77,7 +77,7 @@ def partition(lst, size):
     for i in range(0, len(lst), size):
         yield list(itertools.islice(lst, i, i + size))
 
-def obtain_descriptors_and_save(filename, model="gpt-4o-mini"): 
+def obtain_descriptors_and_save(filename, model="gpt-4o"): 
     try:
         with open(filename, 'r') as fp:
             descriptors = json.load(fp)  # Load existing data
@@ -91,6 +91,7 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
     # Generate prompts along with corresponding class names
     prompts = [generate_api_content(model=model, category_name=category.replace('_', ' ')) for category in class_list]
 
+    count = 0
     for prompt_partition in partition(prompts, 20):
         for prompt, category_name in prompt_partition:  # Unpacking the tuple (messages, category_name)
             for attempt in range(4):  # Retry up to 4 times
@@ -107,6 +108,7 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
                     )
 
                     response_content = str(response.choices[0].message.content)
+                    count += 1
                     try:
                         # Convert response string to JSON
                         json_response = json.loads(response_content)
@@ -114,7 +116,7 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
 
                         # Append the response to the descriptors dictionary
                         descriptors[category_name] = [descriptor.lower() for descriptor in json_response[f'{category_name}']]
-                        print(category_name, descriptors[category_name])
+                        print(f'Class {count}: ', category_name, descriptors[category_name])
                     except json.JSONDecodeError as e:
                         print(f"Error decoding JSON: {e}")
                     break  # Exit retry loop if successful
@@ -133,12 +135,8 @@ def obtain_descriptors_and_save(filename, model="gpt-4o-mini"):
     with open(filename, 'w') as fp:
         json.dump(descriptors, fp, indent=4)
 
-    # Save descriptors to JSON file
-
-    print(descriptors.keys())
-
     return descriptors
 
-filename = f'descriptors/test/descriptors_{hparams['dataset']}_test.json'
+filename = f'descriptors/gpt4o/descriptors_{hparams['dataset']}.json'
 
 obtain_descriptors_and_save(filename=filename)
