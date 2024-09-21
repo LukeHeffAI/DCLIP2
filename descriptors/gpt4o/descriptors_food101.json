@@ -1,0 +1,810 @@
+{
+    "apple pie": [
+        "golden-brown flaky crust",
+        "visible lattice or solid top crust",
+        "slices of apple filling",
+        "cinnamon and sugar dusting",
+        "round pie shape",
+        "juicy, caramelized apple pieces"
+    ],
+    "baby back ribs": [
+        "grilled or smoked meat with a glossy, caramelized surface",
+        "rows of small, curved bones with meat in between",
+        "dark brown or reddish-brown color from barbecue sauce",
+        "visible char marks or grill lines on the meat",
+        "juicy and tender texture with a slight crisp on the edges",
+        "often served with a side of sauce or garnished with herbs"
+    ],
+    "baklava": [
+        "golden brown layers of flaky pastry",
+        "visible chopped nuts, often pistachios or walnuts",
+        "glossy, syrup-coated surface",
+        "rectangular or diamond-shaped pieces",
+        "thin, crisp layers interspersed with nut filling",
+        "occasional dusting of powdered sugar or ground nuts on top"
+    ],
+    "beef carpaccio": [
+        "thinly sliced raw beef",
+        "red, marbled meat",
+        "arranged in a circular pattern",
+        "garnished with arugula or other greens",
+        "drizzled with olive oil",
+        "sprinkled with parmesan cheese shavings"
+    ],
+    "beef tartare": [
+        "raw minced beef",
+        "red meat color",
+        "egg yolk on top",
+        "capers and onions",
+        "parsley garnish",
+        "served on a plate"
+    ],
+    "beet salad": [
+        "vibrant red and purple beet slices",
+        "fresh green leafy garnish",
+        "crumbled white cheese topping",
+        "drizzled with light vinaigrette",
+        "mixed with orange or yellow citrus segments",
+        "served on a white or clear plate"
+    ],
+    "beignets": [
+        "golden brown exterior",
+        "powdered sugar coating",
+        "puffy and irregular shape",
+        "fried dough texture",
+        "light and airy interior",
+        "small to medium size"
+    ],
+    "bibimbap": [
+        "colorful assortment of vegetables",
+        "rice base",
+        "topped with a fried egg",
+        "served in a bowl",
+        "mix of textures from crunchy to soft",
+        "often includes sliced meat or tofu"
+    ],
+    "bread pudding": [
+        "golden brown crust",
+        "moist and dense texture",
+        "chunks of bread visible",
+        "sprinkled with powdered sugar",
+        "often topped with a caramel or vanilla sauce",
+        "baked in a rectangular or square dish"
+    ],
+    "breakfast burrito": [
+        "wrapped in a flour tortilla",
+        "filled with scrambled eggs",
+        "contains sausage or bacon",
+        "includes cheese",
+        "often has potatoes",
+        "may have salsa or hot sauce"
+    ],
+    "bruschetta": [
+        "toasted bread slices",
+        "topped with diced tomatoes",
+        "garnished with fresh basil",
+        "drizzled with olive oil",
+        "sprinkled with garlic",
+        "often includes a balsamic glaze"
+    ],
+    "caesar salad": [
+        "crisp romaine lettuce",
+        "creamy dressing",
+        "grated parmesan cheese",
+        "croutons",
+        "lemon wedges",
+        "anchovy fillets"
+    ],
+    "cannoli": [
+        "tube-shaped pastry shell",
+        "golden-brown crispy exterior",
+        "filled with creamy ricotta cheese",
+        "dusting of powdered sugar on top",
+        "ends often dipped in chocolate or nuts",
+        "visible small chocolate chips or candied fruit pieces in filling"
+    ],
+    "caprese salad": [
+        "slices of fresh tomatoes",
+        "slices of fresh mozzarella cheese",
+        "fresh basil leaves",
+        "drizzled with olive oil",
+        "sprinkled with salt and pepper",
+        "often garnished with balsamic vinegar"
+    ],
+    "carrot cake": [
+        "moist texture with visible grated carrots",
+        "brownish-orange color with specks of orange",
+        "layered structure often with cream cheese frosting",
+        "decorative elements like nuts or carrot-shaped icing on top",
+        "dense crumb with occasional raisins or nuts",
+        "frosting typically white or off-white, smooth and creamy"
+    ],
+    "ceviche": [
+        "fresh raw fish pieces",
+        "citrus-marinated appearance",
+        "colorful mix of ingredients",
+        "garnished with cilantro",
+        "served with sliced onions",
+        "often includes diced tomatoes"
+    ],
+    "cheese plate": [
+        "variety of cheeses arranged on a plate",
+        "different shapes and colors of cheese",
+        "accompanied by crackers or bread",
+        "garnished with fruits like grapes or berries",
+        "cheese slices or wedges with distinct textures",
+        "often includes nuts or dried fruits as decoration"
+    ],
+    "cheesecake": [
+        "creamy texture",
+        "golden brown crust",
+        "smooth, dense filling",
+        "often topped with fruit or sauce",
+        "round shape",
+        "crumbly base"
+    ],
+    "chicken curry": [
+        "rich, golden-brown sauce",
+        "chunks of tender chicken",
+        "visible spices and herbs",
+        "thick, creamy texture",
+        "garnished with cilantro",
+        "served with rice or naan"
+    ],
+    "chicken quesadilla": [
+        "grilled tortilla with golden brown spots",
+        "melted cheese oozing out from the edges",
+        "visible chunks of seasoned chicken",
+        "crispy and slightly charred exterior",
+        "layered with vegetables like bell peppers and onions",
+        "cut into triangular slices with a stuffed appearance"
+    ],
+    "chicken wings": [
+        "crispy golden-brown exterior",
+        "glazed with a sticky sauce",
+        "served with visible bone",
+        "often garnished with sesame seeds or herbs",
+        "juicy and tender meat inside",
+        "sometimes accompanied by dipping sauces"
+    ],
+    "chocolate cake": [
+        "rich, dark brown color",
+        "moist and dense texture",
+        "layered with chocolate frosting",
+        "decorated with chocolate shavings or sprinkles",
+        "often topped with a glossy ganache",
+        "may have a dusting of powdered sugar or cocoa powder"
+    ],
+    "chocolate mousse": [
+        "smooth and creamy texture",
+        "rich dark brown color",
+        "light and airy consistency",
+        "often topped with whipped cream",
+        "served in small cups or bowls",
+        "garnished with chocolate shavings or cocoa powder"
+    ],
+    "churros": [
+        "golden brown color",
+        "long, ridged shape",
+        "sprinkled with sugar",
+        "crispy exterior",
+        "soft interior",
+        "often served with chocolate dipping sauce"
+    ],
+    "clam chowder": [
+        "creamy white soup",
+        "chunks of clams",
+        "diced potatoes",
+        "specks of herbs",
+        "thick consistency",
+        "served in a bowl"
+    ],
+    "club sandwich": [
+        "layered sandwich with multiple slices of bread",
+        "filled with sliced turkey or chicken",
+        "includes crispy bacon strips",
+        "contains fresh lettuce and tomato slices",
+        "often has mayonnaise spread",
+        "cut into quarters and held together with toothpicks"
+    ],
+    "crab cakes": [
+        "golden-brown crust",
+        "round, patty-like shape",
+        "visible chunks of crab meat",
+        "crispy exterior",
+        "moist and flaky interior",
+        "often garnished with herbs or lemon slices"
+    ],
+    "creme brulee": [
+        "golden caramelized sugar crust",
+        "smooth, creamy custard base",
+        "light brown to dark amber top layer",
+        "small, uniform bubbles on the surface",
+        "served in a shallow, round ramekin",
+        "contrast between crunchy top and soft interior"
+    ],
+    "croque madame": [
+        "toasted sandwich with golden brown crust",
+        "melted cheese oozing from the sides",
+        "fried egg with a runny yolk on top",
+        "ham slices visible between bread layers",
+        "sprinkling of herbs or pepper on the egg",
+        "cheese slightly browned and bubbly"
+    ],
+    "cup cakes": [
+        "small, individual-sized cakes",
+        "typically topped with frosting or icing",
+        "often decorated with sprinkles or other toppings",
+        "presented in paper or foil liners",
+        "variety of colors and designs",
+        "moist and fluffy texture"
+    ],
+    "deviled eggs": [
+        "halved hard-boiled eggs",
+        "yellow creamy filling",
+        "sprinkled with paprika",
+        "smooth, glossy egg white",
+        "garnished with herbs",
+        "neatly arranged on a plate"
+    ],
+    "donuts": [
+        "round shape with a hole in the center",
+        "golden-brown fried exterior",
+        "often topped with colorful icing or glaze",
+        "sprinkles or other toppings on the surface",
+        "soft and fluffy interior texture",
+        "variety of fillings such as cream or jelly"
+    ],
+    "dumplings": [
+        "small, round or crescent-shaped dough pockets",
+        "golden-brown or steamed white exterior",
+        "often pleated or crimped edges",
+        "filled with meat, vegetables, or a combination",
+        "served with dipping sauces",
+        "steamed, boiled, or pan-fried texture"
+    ],
+    "edamame": [
+        "bright green color",
+        "small, oval-shaped pods",
+        "smooth, slightly shiny surface",
+        "clustered arrangement in pods",
+        "visible seams along the edges of pods",
+        "often served with a sprinkle of salt"
+    ],
+    "eggs benedict": [
+        "poached eggs with runny yolk",
+        "english muffin base",
+        "hollandaise sauce topping",
+        "canadian bacon or ham slice",
+        "garnished with chives or parsley",
+        "golden brown muffin edges"
+    ],
+    "escargots": [
+        "shell-like appearance",
+        "brown and beige coloration",
+        "spiral shell pattern",
+        "glossy texture",
+        "small, round shape",
+        "served with garlic butter"
+    ],
+    "falafel": [
+        "golden-brown crispy exterior",
+        "round or slightly oval shape",
+        "rough, textured surface",
+        "deep-fried appearance",
+        "often served with pita bread",
+        "accompanied by fresh vegetables or sauces"
+    ],
+    "filet mignon": [
+        "thick, round cut of beef",
+        "grilled or pan-seared surface",
+        "juicy, tender texture",
+        "medium-rare to medium doneness",
+        "minimal marbling",
+        "served with a light char or crust"
+    ],
+    "fish and chips": [
+        "golden-brown battered fish fillets",
+        "crispy texture on the fish coating",
+        "thick-cut potato fries",
+        "lightly browned and crispy fries",
+        "served with lemon wedges",
+        "often accompanied by tartar sauce"
+    ],
+    "foie gras": [
+        "smooth, creamy texture",
+        "golden-brown seared exterior",
+        "rich, buttery appearance",
+        "served in thick slices or small portions",
+        "often garnished with herbs or fruit",
+        "luxurious, high-fat content"
+    ],
+    "french fries": [
+        "golden brown color",
+        "thin and elongated shape",
+        "crispy texture",
+        "often served in a pile",
+        "sprinkled with salt",
+        "accompanied by ketchup or other dipping sauces"
+    ],
+    "french onion soup": [
+        "golden-brown caramelized onions",
+        "rich, dark broth",
+        "melted cheese topping",
+        "crusty bread or croutons",
+        "bubbling, gratin\u00e9ed surface",
+        "deep, savory color"
+    ],
+    "french toast": [
+        "golden-brown slices of bread",
+        "powdered sugar dusting",
+        "thick, fluffy texture",
+        "egg-coated surface",
+        "topped with fresh fruits or syrup",
+        "crispy edges with a soft center"
+    ],
+    "fried calamari": [
+        "golden brown rings",
+        "crispy texture",
+        "lightly breaded coating",
+        "served with lemon wedges",
+        "often accompanied by dipping sauce",
+        "circular or semi-circular shapes"
+    ],
+    "fried rice": [
+        "golden brown rice grains",
+        "mixed vegetables like peas and carrots",
+        "small pieces of scrambled egg",
+        "chunks of meat or shrimp",
+        "soy sauce coating",
+        "garnished with green onions"
+    ],
+    "frozen yogurt": [
+        "creamy texture",
+        "swirled or scooped appearance",
+        "often served in a cup or cone",
+        "variety of colors depending on flavor",
+        "topped with fruits, nuts, or syrups",
+        "smooth and glossy surface"
+    ],
+    "garlic bread": [
+        "golden brown crust",
+        "buttery texture",
+        "sprinkled with minced garlic",
+        "topped with parsley or herbs",
+        "sliced into pieces",
+        "often served with a side of marinara sauce"
+    ],
+    "gnocchi": [
+        "small, round dumplings",
+        "pale yellow or white color",
+        "soft, pillowy texture",
+        "often served with sauce",
+        "smooth surface with slight ridges",
+        "typically garnished with herbs or cheese"
+    ],
+    "greek salad": [
+        "colorful mix of vegetables",
+        "chunks of feta cheese",
+        "sliced cucumbers",
+        "red onion rings",
+        "black olives",
+        "diced tomatoes"
+    ],
+    "grilled cheese sandwich": [
+        "golden brown toasted bread",
+        "melted cheese oozing out",
+        "crispy edges",
+        "visible grill marks",
+        "cheese pull when separated",
+        "buttery surface"
+    ],
+    "grilled salmon": [
+        "pinkish-orange flesh",
+        "charred grill marks",
+        "flaky texture",
+        "moist interior",
+        "crispy skin",
+        "served with lemon slices"
+    ],
+    "guacamole": [
+        "green color",
+        "chunky texture",
+        "presence of avocado pieces",
+        "mixed with diced tomatoes",
+        "specks of cilantro",
+        "smooth and creamy consistency"
+    ],
+    "gyoza": [
+        "golden-brown crispy edges",
+        "pleated, crescent-shaped dumplings",
+        "lightly browned bottom surface",
+        "thin, translucent dough",
+        "visible filling through the dough",
+        "often served with dipping sauce"
+    ],
+    "hamburger": [
+        "round, grilled beef patty",
+        "golden-brown sesame seed bun",
+        "fresh green lettuce leaves",
+        "slices of red tomato",
+        "melted yellow cheese",
+        "crispy bacon strips"
+    ],
+    "hot and sour soup": [
+        "dark brown broth",
+        "chunks of tofu",
+        "shredded vegetables",
+        "mushroom slices",
+        "sprinkled green onions",
+        "thick, slightly cloudy consistency"
+    ],
+    "hot dog": [
+        "long, cylindrical sausage",
+        "served in a sliced bun",
+        "topped with mustard and ketchup",
+        "often includes relish or onions",
+        "grilled or boiled sausage",
+        "bun is soft and slightly toasted"
+    ],
+    "huevos rancheros": [
+        "sunny-side up eggs with bright yellow yolks",
+        "red tomato salsa spread over the eggs",
+        "crispy, golden-brown tortillas as a base",
+        "green cilantro garnish on top",
+        "white crumbled cheese sprinkled over the dish",
+        "beans or refried beans on the side"
+    ],
+    "hummus": [
+        "creamy texture",
+        "light beige color",
+        "smooth consistency",
+        "often garnished with olive oil",
+        "served with pita bread or vegetables",
+        "presented in a shallow bowl"
+    ],
+    "ice cream": [
+        "creamy texture",
+        "cold and frozen",
+        "often served in scoops",
+        "variety of colors and flavors",
+        "topped with sprinkles or syrup",
+        "served in cones or bowls"
+    ],
+    "lasagna": [
+        "layered pasta sheets",
+        "rich tomato sauce",
+        "melted cheese topping",
+        "ground meat filling",
+        "golden brown crust",
+        "visible layers of ingredients"
+    ],
+    "lobster bisque": [
+        "creamy orange soup",
+        "chunks of lobster meat",
+        "smooth and velvety texture",
+        "garnished with herbs",
+        "served in a bowl",
+        "rich and thick consistency"
+    ],
+    "lobster roll sandwich": [
+        "buttered and toasted split-top bun",
+        "chunks of lobster meat",
+        "creamy mayonnaise dressing",
+        "chopped celery pieces",
+        "sprinkling of fresh herbs like chives or parsley",
+        "served with a side of fries or chips"
+    ],
+    "macaroni and cheese": [
+        "creamy yellow cheese sauce",
+        "elbow-shaped pasta",
+        "baked golden crust on top",
+        "cheese strings when pulled apart",
+        "smooth and thick consistency",
+        "visible seasoning or herbs on top"
+    ],
+    "macarons": [
+        "colorful round shells",
+        "smooth, glossy surface",
+        "sandwich-like structure",
+        "cream or ganache filling",
+        "delicate, airy texture",
+        "often presented in assorted colors"
+    ],
+    "miso soup": [
+        "light brown broth",
+        "small tofu cubes",
+        "green seaweed pieces",
+        "chopped green onions",
+        "floating sesame seeds",
+        "clear, slightly cloudy appearance"
+    ],
+    "mussels": [
+        "shells are dark blue or black",
+        "oval-shaped shells with a smooth surface",
+        "often served in a bowl or on a plate",
+        "typically accompanied by a broth or sauce",
+        "shells are usually open, revealing the orange or yellow flesh inside",
+        "often garnished with herbs or lemon slices"
+    ],
+    "nachos": [
+        "crispy tortilla chips",
+        "melted cheese topping",
+        "scattered jalapeno slices",
+        "dollops of sour cream",
+        "chunks of diced tomatoes",
+        "sprinkled green onions"
+    ],
+    "omelette": [
+        "golden yellow color",
+        "fluffy texture",
+        "folded or rolled shape",
+        "speckled with herbs or vegetables",
+        "smooth surface with slight browning",
+        "oval or circular form"
+    ],
+    "onion rings": [
+        "golden brown color",
+        "crispy and crunchy texture",
+        "circular ring shape",
+        "visible onion layers inside",
+        "often served in a pile",
+        "sometimes accompanied by dipping sauce"
+    ],
+    "oysters": [
+        "rough, irregularly shaped shells",
+        "grayish to brownish outer shell color",
+        "smooth, shiny inner shell with a pearly luster",
+        "moist, plump flesh inside the shell",
+        "creamy to light gray flesh color",
+        "often served on a bed of ice with lemon wedges"
+    ],
+    "pad thai": [
+        "stir-fried noodles",
+        "bean sprouts",
+        "crushed peanuts",
+        "shrimp or chicken pieces",
+        "lime wedges",
+        "green onions"
+    ],
+    "paella": [
+        "yellow saffron rice",
+        "mixed seafood including shrimp and mussels",
+        "red bell peppers",
+        "green peas",
+        "lemon wedges on the side",
+        "large shallow pan presentation"
+    ],
+    "pancakes": [
+        "golden brown color",
+        "round and flat shape",
+        "stacked presentation",
+        "fluffy texture",
+        "syrup drizzled on top",
+        "butter pat on top"
+    ],
+    "panna cotta": [
+        "smooth, creamy texture",
+        "pale, off-white color",
+        "served in a small, round mold",
+        "often topped with fruit or sauce",
+        "garnished with fresh berries or mint",
+        "jiggly, custard-like consistency"
+    ],
+    "peking duck": [
+        "crispy, golden-brown skin",
+        "thinly sliced meat",
+        "served with hoisin sauce",
+        "accompanied by thin pancakes",
+        "garnished with green onions",
+        "juicy and tender interior"
+    ],
+    "pho": [
+        "clear broth with a light brown hue",
+        "thin, flat rice noodles",
+        "slices of beef or chicken",
+        "fresh herbs like cilantro and basil",
+        "bean sprouts",
+        "lime wedges and chili slices"
+    ],
+    "pizza": [
+        "round shape with a golden-brown crust",
+        "topped with melted cheese",
+        "visible tomato sauce beneath the cheese",
+        "various toppings like pepperoni, vegetables, or olives",
+        "slices often cut into triangular pieces",
+        "cheese may appear bubbly and slightly browned"
+    ],
+    "pork chop": [
+        "grilled or pan-fried meat",
+        "bone-in or boneless cut",
+        "golden-brown crust",
+        "juicy, tender interior",
+        "visible grill marks or sear",
+        "served with sides like vegetables or potatoes"
+    ],
+    "poutine": [
+        "crispy golden fries",
+        "thick brown gravy",
+        "melted cheese curds",
+        "layered presentation",
+        "rich and savory appearance",
+        "combination of textures"
+    ],
+    "prime rib": [
+        "thick, juicy cut of beef",
+        "rich, marbled texture",
+        "dark brown, crispy crust",
+        "pink to red center",
+        "served with bone-in or boneless",
+        "often garnished with herbs or au jus"
+    ],
+    "pulled pork sandwich": [
+        "shredded pork meat",
+        "barbecue sauce coating",
+        "soft sandwich bun",
+        "juicy and tender texture",
+        "often accompanied by coleslaw",
+        "brown and reddish hues"
+    ],
+    "ramen": [
+        "curly or wavy noodles",
+        "rich, flavorful broth",
+        "toppings like sliced pork, boiled egg, and green onions",
+        "colorful presentation with various ingredients",
+        "steam rising from hot soup",
+        "chopsticks often present in the image"
+    ],
+    "ravioli": [
+        "square or circular pasta pockets",
+        "filled with cheese, meat, or vegetables",
+        "edges often crimped or sealed with a fork",
+        "typically served with tomato or cream sauce",
+        "golden brown or light yellow pasta color",
+        "visible filling through thin pasta layer"
+    ],
+    "red velvet cake": [
+        "deep red sponge layers",
+        "cream cheese frosting",
+        "moist and dense texture",
+        "white frosting contrast",
+        "crumbly cake edges",
+        "layered cake structure"
+    ],
+    "risotto": [
+        "creamy texture",
+        "golden yellow color",
+        "visible grains of rice",
+        "mixed with vegetables or seafood",
+        "garnished with herbs",
+        "served in a shallow bowl"
+    ],
+    "samosa": [
+        "triangular shape",
+        "golden-brown crispy exterior",
+        "visible flaky layers",
+        "filled with spiced potatoes and peas",
+        "often served with green chutney",
+        "deep-fried texture"
+    ],
+    "sashimi": [
+        "thinly sliced raw fish",
+        "bright, vibrant colors",
+        "served on a flat plate",
+        "accompanied by garnishes like wasabi and pickled ginger",
+        "often arranged in a neat, artistic presentation",
+        "translucent texture of the fish slices"
+    ],
+    "scallops": [
+        "round, flat shellfish with a fan-like shape",
+        "creamy white to light beige color",
+        "smooth, slightly translucent texture",
+        "often presented seared with a golden-brown crust",
+        "typically small to medium-sized, about 1-2 inches in diameter",
+        "frequently garnished with herbs or served on a bed of greens"
+    ],
+    "seaweed salad": [
+        "dark green, glossy seaweed strands",
+        "thin, stringy texture",
+        "often garnished with sesame seeds",
+        "served in small portions, typically in a bowl",
+        "shiny, slightly wet appearance",
+        "mixed with light, translucent dressing"
+    ],
+    "shrimp and grits": [
+        "plump, pink shrimp",
+        "creamy, yellow grits",
+        "garnished with green herbs",
+        "rich, buttery sauce",
+        "chunks of bacon or sausage",
+        "served in a bowl or deep plate"
+    ],
+    "spaghetti bolognese": [
+        "long, thin pasta strands",
+        "rich, red tomato sauce",
+        "ground meat mixed into the sauce",
+        "sprinkling of grated cheese on top",
+        "visible herbs like basil or parsley",
+        "sauce coating the pasta evenly"
+    ],
+    "spaghetti carbonara": [
+        "creamy white sauce",
+        "long, thin spaghetti noodles",
+        "crispy pancetta or bacon pieces",
+        "sprinkled with grated parmesan cheese",
+        "specks of black pepper",
+        "garnished with parsley or herbs"
+    ],
+    "spring rolls": [
+        "golden brown crispy exterior",
+        "cylindrical shape",
+        "visible vegetable filling",
+        "thin, flaky wrapper",
+        "often served with dipping sauce",
+        "light and airy texture"
+    ],
+    "steak": [
+        "grilled or seared surface with char marks",
+        "juicy, reddish-brown interior",
+        "visible marbling of fat",
+        "thick, rectangular or oval shape",
+        "served with sides like vegetables or potatoes",
+        "often garnished with herbs or sauce"
+    ],
+    "strawberry shortcake": [
+        "layered cake with visible strawberries",
+        "whipped cream topping",
+        "bright red strawberry slices",
+        "golden-brown cake layers",
+        "powdered sugar dusting",
+        "juicy, fresh strawberries"
+    ],
+    "sushi": [
+        "small, bite-sized pieces",
+        "wrapped in seaweed (nori)",
+        "topped with raw fish or seafood",
+        "served with rice",
+        "garnished with sesame seeds or roe",
+        "accompanied by wasabi and pickled ginger"
+    ],
+    "tacos": [
+        "crispy or soft tortilla shell",
+        "filled with seasoned meat or vegetables",
+        "topped with shredded lettuce",
+        "garnished with diced tomatoes",
+        "sprinkled with grated cheese",
+        "often accompanied by salsa or guacamole"
+    ],
+    "takoyaki": [
+        "round, ball-shaped",
+        "golden-brown exterior",
+        "crispy outside, soft inside",
+        "topped with bonito flakes",
+        "drizzled with mayonnaise and takoyaki sauce",
+        "contains visible pieces of octopus"
+    ],
+    "tiramisu": [
+        "layered dessert with alternating light and dark layers",
+        "top layer dusted with cocoa powder",
+        "creamy mascarpone cheese filling",
+        "moist coffee-soaked ladyfingers",
+        "rectangular or square slices",
+        "decorative chocolate shavings or cocoa powder on top"
+    ],
+    "tuna tartare": [
+        "raw, finely diced tuna",
+        "bright red or pink color",
+        "served in a round or square mold",
+        "often garnished with herbs or microgreens",
+        "accompanied by avocado or cucumber slices",
+        "presented on a white plate or in a small bowl"
+    ],
+    "waffles": [
+        "golden brown color",
+        "grid-like pattern with square indentations",
+        "crispy edges",
+        "soft and fluffy interior",
+        "often topped with syrup or fruit",
+        "irregular, slightly uneven surface texture"
+    ]
+}
