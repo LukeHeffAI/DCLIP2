@@ -6,16 +6,16 @@ import random
 
 cut_proportion = 1
 
-similarity_penalty_config = None
-# Options:
-# [ None,
-#   'similarity_penalty']
-
 frequency_type = None
 # Options:
 # [ None,
 #   'freq_is',
 #   'freq_contains']
+
+similarity_penalty_config = None
+# Options:
+# [ None,
+#   'similarity_penalty']
 
 import json
 def load_json(filename):
