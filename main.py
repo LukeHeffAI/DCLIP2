@@ -194,7 +194,8 @@ results[model_size][dataset_name][frequency_type] = experimental_results
 # Save the updated results
 # save_results(results, results_file_path)
 
-print(f"Model: {hparams['model_size']}",
+print(f"CLIP Model: {hparams['model_size']}",
+      f"|| Desc. Source: {hparams['desc_type']}",
       f"|| Dataset being tested: {hparams['dataset']}",
       f"|| Cut Proportion: {cut_proportion}",
       f"|| Freq. Penalisation Type: {frequency_type}",
