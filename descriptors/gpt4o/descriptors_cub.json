@@ -1,0 +1,1602 @@
+{
+    "Black-footed Albatross": [
+        "large seabird with long wings",
+        "dark brown plumage overall",
+        "black feet and legs",
+        "white ring around the base of the bill",
+        "long, hooked bill with a dark tip",
+        "glides effortlessly over the ocean"
+    ],
+    "Laysan Albatross": [
+        "large white body",
+        "dark gray wings",
+        "black tail",
+        "white head with dark eye patch",
+        "long, yellowish beak",
+        "webbed feet"
+    ],
+    "Sooty Albatross": [
+        "dark sooty-brown plumage",
+        "long, slender wings",
+        "white crescent above the eyes",
+        "hooked, black bill",
+        "grayish-black legs and feet",
+        "streamlined body shape"
+    ],
+    "Groove-billed Ani": [
+        "black plumage",
+        "long tail",
+        "curved bill with grooves",
+        "dark eyes",
+        "medium-sized bird",
+        "glossy feathers"
+    ],
+    "Crested Auklet": [
+        "small seabird with a distinctive crest on its head",
+        "dark plumage with a slight bluish tint",
+        "bright orange bill",
+        "white facial plumes extending from the eyes",
+        "compact body with short wings",
+        "webbed feet adapted for swimming"
+    ],
+    "Least Auklet": [
+        "small size",
+        "dark gray plumage",
+        "white belly",
+        "short, stubby bill",
+        "white facial markings",
+        "compact body"
+    ],
+    "Parakeet Auklet": [
+        "small seabird with a stout body",
+        "short, thick orange bill",
+        "black upperparts and white underparts",
+        "distinctive white facial plumes",
+        "dark eyes with a white eye-ring",
+        "short, rounded wings and tail"
+    ],
+    "Rhinoceros Auklet": [
+        "medium-sized seabird",
+        "dark gray plumage",
+        "white facial plumes",
+        "thick orange bill with a horn-like extension",
+        "short tail",
+        "webbed feet"
+    ],
+    "Brewer Blackbird": [
+        "glossy black plumage",
+        "bright yellow eyes",
+        "medium-sized bird",
+        "straight, pointed bill",
+        "long legs",
+        "iridescent sheen on feathers"
+    ],
+    "Red-winged Blackbird": [
+        "black body",
+        "bright red shoulder patches",
+        "yellow wing bar below red patch",
+        "pointed black bill",
+        "medium-sized songbird",
+        "glossy black feathers"
+    ],
+    "Rusty Blackbird": [
+        "medium-sized blackbird with rusty edges on feathers",
+        "dark, glossy black plumage with a rusty tinge",
+        "yellow eyes contrasting with dark feathers",
+        "straight, slender bill",
+        "short tail with a slightly rounded tip",
+        "legs and feet are black"
+    ],
+    "Yellow-headed Blackbird": [
+        "bright yellow head and chest",
+        "black body and wings",
+        "white wing patches visible in flight",
+        "sharp, pointed black beak",
+        "medium-sized bird with a robust build",
+        "long, rounded tail"
+    ],
+    "Bobolink": [
+        "black head and upper body",
+        "white back and rump",
+        "buff-colored nape",
+        "streaked brown and black wings",
+        "short, conical bill",
+        "pale yellow underparts"
+    ],
+    "Indigo Bunting": [
+        "bright blue plumage",
+        "small, finch-like body",
+        "short, conical bill",
+        "black wings with blue edges",
+        "blue tail",
+        "dark eyes"
+    ],
+    "Lazuli Bunting": [
+        "bright blue head and back",
+        "orange-brown chest",
+        "white belly",
+        "short, conical bill",
+        "black wings with white wing bars",
+        "small size and slender build"
+    ],
+    "Painted Bunting": [
+        "bright blue head",
+        "green back",
+        "red underparts",
+        "dark wings",
+        "short, conical bill",
+        "medium-sized songbird"
+    ],
+    "Cardinal": [
+        "bright red plumage",
+        "black face mask",
+        "stout, conical beak",
+        "crested head",
+        "medium-sized songbird",
+        "brownish wings and tail"
+    ],
+    "Spotted Catbird": [
+        "green plumage with white spots",
+        "medium-sized bird",
+        "short, stout beak",
+        "bright red eyes",
+        "olive-green wings and tail",
+        "white underparts with dark spots"
+    ],
+    "Gray Catbird": [
+        "gray plumage",
+        "black cap on head",
+        "dark eyes",
+        "slender black bill",
+        "long tail",
+        "reddish-brown undertail coverts"
+    ],
+    "Yellow-breasted Chat": [
+        "bright yellow breast",
+        "olive-green upperparts",
+        "white belly",
+        "long tail with white edges",
+        "thick, dark bill",
+        "white spectacles around eyes"
+    ],
+    "Eastern Towhee": [
+        "black head and upper body",
+        "white belly",
+        "reddish-brown flanks",
+        "long, dark tail with white edges",
+        "thick, conical bill",
+        "bright red eyes"
+    ],
+    "Chuck-will Widow": [
+        "brown mottled plumage",
+        "large, rounded head",
+        "short, broad bill",
+        "long, rounded wings",
+        "white throat patch",
+        "dark, streaked underparts"
+    ],
+    "Brandt Cormorant": [
+        "black plumage",
+        "long neck",
+        "hooked bill",
+        "blue throat patch",
+        "webbed feet",
+        "white facial tufts"
+    ],
+    "Red-faced Cormorant": [
+        "dark, glossy black plumage",
+        "bright red facial skin around the eyes",
+        "long, slender neck",
+        "thin, pointed bill",
+        "white patch on the flanks",
+        "webbed feet"
+    ],
+    "Pelagic Cormorant": [
+        "glossy black plumage",
+        "long, slender neck",
+        "thin, pointed bill",
+        "white patches on flanks during breeding season",
+        "greenish sheen on feathers",
+        "red facial skin around the eyes"
+    ],
+    "Bronzed Cowbird": [
+        "glossy black plumage",
+        "iridescent bronze sheen",
+        "short, thick bill",
+        "red eyes",
+        "medium-sized body",
+        "short tail"
+    ],
+    "Shiny Cowbird": [
+        "glossy black plumage",
+        "iridescent sheen on feathers",
+        "medium-sized bird",
+        "short, conical bill",
+        "dark eyes",
+        "slightly rounded tail"
+    ],
+    "Brown Creeper": [
+        "brown streaked plumage",
+        "white underparts",
+        "downward curved bill",
+        "long tail with stiff feathers",
+        "small size",
+        "camouflaged against tree bark"
+    ],
+    "American Crow": [
+        "glossy black plumage",
+        "thick, straight black bill",
+        "broad wings with rounded tips",
+        "fan-shaped tail",
+        "dark eyes",
+        "robust body"
+    ],
+    "Fish Crow": [
+        "glossy black plumage",
+        "short, square tail",
+        "medium-sized crow",
+        "dark, stout bill",
+        "blue-green iridescence on wings",
+        "dark legs and feet"
+    ],
+    "Black-billed Cuckoo": [
+        "medium-sized bird with slender body",
+        "brown upperparts and white underparts",
+        "long, graduated tail with white tips",
+        "black, slightly curved bill",
+        "red eye ring",
+        "subtle, indistinct streaking on the throat"
+    ],
+    "Mangrove Cuckoo": [
+        "grayish-brown upperparts",
+        "pale underparts",
+        "distinct black mask through the eyes",
+        "long tail with white tips",
+        "yellowish bill",
+        "white belly with buffy flanks"
+    ],
+    "Yellow-billed Cuckoo": [
+        "medium-sized bird with slender body",
+        "long tail with white spots on the underside",
+        "yellow, slightly curved bill",
+        "brownish upperparts with a grayish tint",
+        "white underparts with a clean, crisp appearance",
+        "distinctive yellow eye-ring"
+    ],
+    "Gray-crowned-Rosy Finch": [
+        "gray crown",
+        "rosy pink underparts",
+        "brownish back",
+        "blackish wings",
+        "short conical bill",
+        "medium-sized finch"
+    ],
+    "Purple Finch": [
+        "small to medium-sized bird",
+        "reddish-purple plumage on head and chest",
+        "brown streaks on back and wings",
+        "short, conical beak",
+        "white belly with light streaks",
+        "forked tail"
+    ],
+    "Northern Flicker": [
+        "brown and black barred back",
+        "spotted underparts",
+        "red nape crescent",
+        "white rump patch",
+        "black bib on chest",
+        "yellow or red underwing linings"
+    ],
+    "Acadian Flycatcher": [
+        "olive-green upperparts",
+        "whitish underparts",
+        "two white wing bars",
+        "short, thin bill",
+        "pale eye ring",
+        "small crest on head"
+    ],
+    "Great-Crested Flycatcher": [
+        "olive-brown upperparts",
+        "bright yellow belly",
+        "gray throat and chest",
+        "reddish-brown tail",
+        "crested head",
+        "white wing bars"
+    ],
+    "Least Flycatcher": [
+        "small size",
+        "olive-gray upperparts",
+        "white underparts",
+        "short, thin bill",
+        "white eye ring",
+        "two white wing bars"
+    ],
+    "Olive-sided Flycatcher": [
+        "dark olive-brown upperparts",
+        "white underparts with dark streaks",
+        "distinctive white tufts on sides of rump",
+        "short, slightly hooked bill",
+        "medium-sized with a robust body",
+        "long wings and tail"
+    ],
+    "Scissor-tailed Flycatcher": [
+        "long, forked tail",
+        "pale gray head and back",
+        "white underparts",
+        "black wings with white edges",
+        "pinkish flanks and sides",
+        "small, pointed beak"
+    ],
+    "Vermilion Flycatcher": [
+        "bright red plumage on head and underparts",
+        "black wings and tail",
+        "small, slender body",
+        "short, thin beak",
+        "dark eyes",
+        "perches on low branches or wires"
+    ],
+    "Yellow-bellied Flycatcher": [
+        "small size",
+        "olive-green upperparts",
+        "bright yellow underparts",
+        "short, thin bill",
+        "white eye-ring",
+        "two white wing bars"
+    ],
+    "Frigatebird": [
+        "large black body",
+        "long, deeply forked tail",
+        "hooked beak",
+        "red throat pouch in males",
+        "long, slender wings",
+        "white patches on underwings"
+    ],
+    "Northern Fulmar": [
+        "medium-sized seabird with a robust body",
+        "short, thick yellow bill with a tube-like structure on top",
+        "pale grey upperparts and white underparts",
+        "dark grey wings with a distinctive white patch near the base",
+        "short, rounded tail with a white tip",
+        "dark eyes set in a white face"
+    ],
+    "Gadwall": [
+        "gray-brown body with fine speckling",
+        "white belly and underparts",
+        "black rear end",
+        "distinctive white wing patch visible in flight",
+        "dark bill with slight orange edges",
+        "rounded head with a slightly sloping forehead"
+    ],
+    "American Goldfinch": [
+        "bright yellow body",
+        "black wings with white markings",
+        "black forehead",
+        "short, conical bill",
+        "white rump",
+        "notched tail"
+    ],
+    "European Goldfinch": [
+        "bright red face",
+        "black and white head",
+        "yellow wing patches",
+        "brown and white body",
+        "black tail with white spots",
+        "conical beak"
+    ],
+    "Boat-tailed Grackle": [
+        "glossy black plumage",
+        "long, keel-shaped tail",
+        "iridescent blue and purple sheen",
+        "sharp, pointed bill",
+        "yellow eyes",
+        "large size compared to other blackbirds"
+    ],
+    "Eared Grebe": [
+        "black head with golden ear tufts",
+        "red eyes",
+        "slender, pointed black bill",
+        "dark brown back and wings",
+        "white underbelly",
+        "reddish-brown neck and chest"
+    ],
+    "Horned Grebe": [
+        "black head with distinctive golden tufts",
+        "red eyes",
+        "dark brown back and wings",
+        "white underparts",
+        "short, straight bill",
+        "reddish neck and chest"
+    ],
+    "Pied-billed Grebe": [
+        "small waterbird with a compact body",
+        "short, thick bill with a black band",
+        "brownish body with darker upperparts",
+        "white throat and undertail coverts",
+        "pale eye with a dark ring",
+        "short, rounded wings"
+    ],
+    "Western Grebe": [
+        "long, slender neck",
+        "sharp, pointed bill",
+        "black and white plumage",
+        "red eyes",
+        "dark cap extending below eyes",
+        "white underparts"
+    ],
+    "Blue Grosbeak": [
+        "deep blue plumage",
+        "thick, conical bill",
+        "black wings with two brown wing bars",
+        "short tail",
+        "robust body",
+        "dark eyes"
+    ],
+    "Evening Grosbeak": [
+        "large, thick bill",
+        "bright yellow body",
+        "black wings with white patches",
+        "yellow forehead",
+        "short tail",
+        "stout, robust build"
+    ],
+    "Pine Grosbeak": [
+        "large, plump body",
+        "bright red plumage on males",
+        "grayish wings with white wing bars",
+        "thick, conical bill",
+        "black tail with white edges",
+        "females and juveniles have yellowish or olive-green plumage"
+    ],
+    "Rose-breasted Grosbeak": [
+        "black head and back",
+        "bright red patch on the chest",
+        "white underparts",
+        "thick, pale bill",
+        "black wings with white patches",
+        "medium-sized songbird"
+    ],
+    "Pigeon Guillemot": [
+        "black body plumage",
+        "white wing patches",
+        "bright red feet",
+        "thin, pointed black bill",
+        "red inside of mouth",
+        "medium-sized seabird"
+    ],
+    "California Gull": [
+        "medium-sized gull with gray wings",
+        "white head and underparts",
+        "yellow bill with a black ring near the tip",
+        "yellow legs",
+        "dark eyes",
+        "black wingtips with white spots"
+    ],
+    "Glaucous-winged Gull": [
+        "medium to large size with a robust body",
+        "pale gray wings with white tips",
+        "white head and underparts",
+        "yellow bill with a red spot near the tip",
+        "pink legs and feet",
+        "dark eyes with a white eye-ring"
+    ],
+    "Heermann Gull": [
+        "medium-sized seabird",
+        "gray body plumage",
+        "white head",
+        "black-tipped wings",
+        "red bill with black tip",
+        "dark legs"
+    ],
+    "Herring Gull": [
+        "white head and underparts",
+        "gray wings and back",
+        "yellow bill with red spot",
+        "pink legs",
+        "black wingtips with white spots",
+        "medium to large size"
+    ],
+    "Ivory Gull": [
+        "white plumage",
+        "black eyes",
+        "yellow-tipped bill",
+        "short legs",
+        "medium-sized body",
+        "rounded wings"
+    ],
+    "Ring-billed Gull": [
+        "white head and underparts",
+        "gray wings with black tips",
+        "yellow legs",
+        "yellow bill with a black ring near the tip",
+        "medium-sized seabird",
+        "white tail with a black band"
+    ],
+    "Slaty-backed Gull": [
+        "medium to large size",
+        "slate-gray back and wings",
+        "white head and underparts",
+        "yellow bill with red spot near the tip",
+        "pink legs",
+        "dark wingtips with white spots"
+    ],
+    "Western Gull": [
+        "medium to large size",
+        "white head and underparts",
+        "gray wings and back",
+        "yellow bill with red spot",
+        "pink legs",
+        "dark wingtips with white spots"
+    ],
+    "Anna Hummingbird": [
+        "iridescent green back",
+        "bright red crown and throat",
+        "small size with slender body",
+        "long, straight bill",
+        "grayish underparts",
+        "rapid wing beats"
+    ],
+    "Ruby-throated Hummingbird": [
+        "bright red throat patch",
+        "iridescent green back",
+        "small size and slender body",
+        "long, thin bill",
+        "rapid wing beats",
+        "white underparts"
+    ],
+    "Rufous Hummingbird": [
+        "bright rufous-colored back and flanks",
+        "white chest and belly",
+        "iridescent red throat patch",
+        "small size with slender, slightly curved bill",
+        "greenish crown and upperparts",
+        "rapid wing beats and hovering flight"
+    ],
+    "Green Violetear": [
+        "bright green plumage",
+        "iridescent blue throat patch",
+        "medium-sized hummingbird",
+        "violet ear patches",
+        "forked tail",
+        "slightly curved black bill"
+    ],
+    "Long-tailed Jaeger": [
+        "medium-sized seabird with long, pointed wings",
+        "distinctive long, central tail feathers",
+        "dark cap on head with white cheeks",
+        "grayish-brown upperparts and white underparts",
+        "black bill with a hooked tip",
+        "pale yellowish or white neck and chest"
+    ],
+    "Pomarine Jaeger": [
+        "medium-sized seabird with robust body",
+        "dark brown plumage with lighter underparts",
+        "distinctive white wing patches visible in flight",
+        "short, thick neck and strong, hooked bill",
+        "rounded tail with central feathers extending slightly",
+        "yellowish or pale brown nape and crown"
+    ],
+    "Blue Jay": [
+        "bright blue upperparts",
+        "white underparts",
+        "black necklace across the chest",
+        "blue crest on the head",
+        "black and white wing bars",
+        "long blue tail with white tips"
+    ],
+    "Florida Jay": [
+        "blue upperparts",
+        "grayish-white underparts",
+        "blue head with a white forehead",
+        "blue wings and tail",
+        "grayish-blue back",
+        "medium-sized bird with a stout bill"
+    ],
+    "Green Jay": [
+        "bright green upperparts",
+        "yellowish-green underparts",
+        "black bib and face mask",
+        "blue crown and nape",
+        "long tail with blue and green feathers",
+        "strong, stout bill"
+    ],
+    "Dark-eyed Junco": [
+        "small, round-bodied bird",
+        "slate-gray upperparts",
+        "white belly and undertail coverts",
+        "short, conical pink bill",
+        "dark eyes",
+        "distinctive white outer tail feathers"
+    ],
+    "Tropical Kingbird": [
+        "bright yellow underparts",
+        "grayish head",
+        "olive-green back",
+        "forked tail",
+        "dark wings with pale edges",
+        "white throat"
+    ],
+    "Gray Kingbird": [
+        "gray upperparts",
+        "white underparts",
+        "black mask through eyes",
+        "sturdy black bill",
+        "long tail with dark edges",
+        "pale gray throat and chest"
+    ],
+    "Belted Kingfisher": [
+        "blue-gray plumage",
+        "white collar around neck",
+        "large head with shaggy crest",
+        "long, thick bill",
+        "white underparts with blue-gray band",
+        "rufous flanks and sides"
+    ],
+    "Green Kingfisher": [
+        "small size",
+        "green upperparts",
+        "white underparts",
+        "short tail",
+        "long, straight bill",
+        "white collar around neck"
+    ],
+    "Pied Kingfisher": [
+        "black and white plumage",
+        "distinctive black mask around eyes",
+        "white underparts with black band across chest",
+        "long, straight, and pointed bill",
+        "black and white barred wings",
+        "crested head with black and white pattern"
+    ],
+    "Ringed Kingfisher": [
+        "large blue-gray body",
+        "reddish-brown underparts",
+        "white collar around neck",
+        "long, heavy bill",
+        "distinctive white throat",
+        "dark blue wings and tail"
+    ],
+    "White-breasted Kingfisher": [
+        "bright blue wings and back",
+        "white throat and breast",
+        "reddish-brown head and belly",
+        "long, thick red bill",
+        "short, stubby tail",
+        "dark brown eyes"
+    ],
+    "Red-legged Kittiwake": [
+        "medium-sized seabird with white plumage",
+        "distinctive bright red legs",
+        "gray wings with black tips",
+        "short, black bill",
+        "dark eyes with a small white eye-ring",
+        "white tail with a slight fork"
+    ],
+    "Horned Lark": [
+        "small bird with a pale brown back",
+        "distinctive black mask and throat patch",
+        "yellow face and throat",
+        "white underparts with some streaking on the sides",
+        "short, conical bill",
+        "black 'horns' or feather tufts on the head"
+    ],
+    "Pacific Loon": [
+        "medium-sized waterbird",
+        "smooth, rounded head",
+        "straight, sharp bill",
+        "dark gray back and wings",
+        "white underparts",
+        "distinctive black-and-white checkered pattern on the back during breeding season"
+    ],
+    "Mallard": [
+        "green head",
+        "yellow bill",
+        "brown chest",
+        "gray body",
+        "white neck ring",
+        "blue speculum on wings"
+    ],
+    "Western Meadowlark": [
+        "bright yellow underparts",
+        "black v-shaped band on chest",
+        "brown and white streaked upperparts",
+        "long, pointed bill",
+        "white outer tail feathers",
+        "short, rounded wings"
+    ],
+    "Hooded Merganser": [
+        "black and white crest on head",
+        "golden yellow eyes",
+        "brownish-black back",
+        "white breast with black stripes",
+        "brown flanks",
+        "thin, serrated bill"
+    ],
+    "Red-breasted Merganser": [
+        "long, thin, serrated bill",
+        "distinctive red eyes",
+        "shaggy crest on the head",
+        "white neck ring",
+        "rusty-red breast",
+        "black and white patterned wings"
+    ],
+    "Mockingbird": [
+        "grayish-brown upperparts",
+        "pale underparts",
+        "long tail with white outer feathers",
+        "distinct white wing patches",
+        "slender, slightly curved bill",
+        "medium-sized songbird"
+    ],
+    "Nighthawk": [
+        "mottled brown and gray plumage",
+        "long, pointed wings",
+        "white wing patches visible in flight",
+        "short, slightly forked tail",
+        "large, dark eyes",
+        "small, slightly curved beak"
+    ],
+    "Clark Nutcracker": [
+        "medium-sized bird with a stout body",
+        "pale gray plumage overall",
+        "black wings with white patches",
+        "short, black tail with white edges",
+        "long, pointed black bill",
+        "dark eyes contrasting with light face"
+    ],
+    "White-breasted Nuthatch": [
+        "white underparts",
+        "blue-gray upperparts",
+        "black cap and nape",
+        "white face and throat",
+        "short tail with white corners",
+        "long, slightly upturned bill"
+    ],
+    "Baltimore Oriole": [
+        "bright orange underparts",
+        "black head and upper back",
+        "white wing bars",
+        "pointed black beak",
+        "medium-sized songbird",
+        "orange tail with black edges"
+    ],
+    "Hooded Oriole": [
+        "bright yellow-orange body",
+        "black wings with white wing bars",
+        "black tail",
+        "black face and throat",
+        "long, slightly curved bill",
+        "medium-sized songbird"
+    ],
+    "Orchard Oriole": [
+        "small songbird with a slender body",
+        "distinctive black head and upper back",
+        "bright chestnut-colored underparts and rump",
+        "sharp, pointed bill",
+        "white wing bars on black wings",
+        "short tail with a slight fork"
+    ],
+    "Scott Oriole": [
+        "bright yellow body",
+        "black head and throat",
+        "black wings with white wing bars",
+        "yellow tail with black edges",
+        "medium-sized songbird",
+        "sharp, pointed bill"
+    ],
+    "Ovenbird": [
+        "olive-brown upperparts",
+        "white underparts with dark streaks",
+        "bold white eye-ring",
+        "orange crown bordered by black stripes",
+        "pinkish legs",
+        "short tail"
+    ],
+    "Brown Pelican": [
+        "large body with brown and gray plumage",
+        "long, flat bill with a large throat pouch",
+        "white head with a yellowish crown",
+        "dark brown neck and chest",
+        "grayish-brown wings with darker flight feathers",
+        "webbed feet and a long, broad tail"
+    ],
+    "White Pelican": [
+        "large white body",
+        "long orange bill",
+        "black wingtips",
+        "yellowish legs",
+        "pouch under bill",
+        "short tail"
+    ],
+    "Western-Wood Pewee": [
+        "grayish-brown upperparts",
+        "pale underparts",
+        "short crest on head",
+        "two white wing bars",
+        "small, thin bill",
+        "dark eye with white eye-ring"
+    ],
+    "Sayornis": [
+        "grayish-brown upperparts",
+        "whitish underparts",
+        "dark wings and tail",
+        "small, slender bill",
+        "rounded head",
+        "medium-sized songbird"
+    ],
+    "American Pipit": [
+        "brownish upperparts with streaked back",
+        "pale underparts with fine streaks on the breast",
+        "white outer tail feathers",
+        "thin, pointed bill",
+        "long legs with a slender build",
+        "distinctive walking behavior on the ground"
+    ],
+    "Whip-poor Will": [
+        "mottled brown and gray plumage",
+        "short, rounded wings",
+        "long, rounded tail with white tips",
+        "large, flat head with a small bill",
+        "dark, streaked crown and back",
+        "white throat patch"
+    ],
+    "Horned Puffin": [
+        "black back and wings",
+        "white face with distinctive black mask",
+        "bright orange, large triangular bill",
+        "small, rounded body",
+        "short, stubby tail",
+        "white underparts with a slight yellowish tint"
+    ],
+    "Common Raven": [
+        "large black bird",
+        "thick, curved bill",
+        "shiny, iridescent feathers",
+        "wedge-shaped tail",
+        "heavy, shaggy throat feathers",
+        "broad wings with fingered tips"
+    ],
+    "White-necked Raven": [
+        "black plumage",
+        "white patch on the back of the neck",
+        "thick, slightly curved bill",
+        "robust body",
+        "dark eyes",
+        "strong legs and feet"
+    ],
+    "American Redstart": [
+        "black head and upper body",
+        "bright orange patches on wings and tail",
+        "white belly and undertail",
+        "small, slender body",
+        "pointed beak",
+        "short, rounded wings"
+    ],
+    "Geococcyx": [
+        "long tail with white tips",
+        "brown and white streaked plumage",
+        "crest of feathers on head",
+        "strong, long legs",
+        "blue and orange skin around eyes",
+        "slender, curved beak"
+    ],
+    "Loggerhead Shrike": [
+        "gray upperparts",
+        "white underparts",
+        "black mask across eyes",
+        "hooked bill",
+        "black wings with white patches",
+        "long tail with white edges"
+    ],
+    "Great-Grey Shrike": [
+        "medium-sized bird with a robust body",
+        "predominantly grey plumage with a lighter underbelly",
+        "distinctive black mask around the eyes",
+        "strong, hooked beak",
+        "white patches on the wings",
+        "long tail with black and white pattern"
+    ],
+    "Baird Sparrow": [
+        "brown streaked back",
+        "buffy eye-ring",
+        "pale central crown stripe",
+        "streaked breast with dark spots",
+        "short, conical bill",
+        "white belly"
+    ],
+    "Black-throated Sparrow": [
+        "black throat patch",
+        "grayish-brown upperparts",
+        "white underparts",
+        "distinct white eyebrow stripe",
+        "black streaks on the sides",
+        "short, conical bill"
+    ],
+    "Brewer Sparrow": [
+        "small size",
+        "brown streaked back",
+        "grayish head",
+        "white underparts",
+        "thin, pointed bill",
+        "distinctive facial pattern with a white eye-ring"
+    ],
+    "Chipping Sparrow": [
+        "small bird with a slender body",
+        "rusty cap on the head",
+        "white eyebrow stripe",
+        "grayish underparts",
+        "brown streaked back",
+        "black line through the eye"
+    ],
+    "Clay-colored Sparrow": [
+        "small size",
+        "pale brown upperparts",
+        "grayish crown with a central stripe",
+        "whitish underparts",
+        "distinctive clay-colored nape",
+        "short, conical bill"
+    ],
+    "House Sparrow": [
+        "small size",
+        "brown and gray plumage",
+        "black bib on males",
+        "white cheeks",
+        "short, stout bill",
+        "streaked back"
+    ],
+    "Field Sparrow": [
+        "small size",
+        "brown upperparts with streaks",
+        "grayish face with a white eye ring",
+        "pinkish bill",
+        "buffy breast with no streaks",
+        "short tail with a notched tip"
+    ],
+    "Fox Sparrow": [
+        "brownish upperparts with streaked back",
+        "rusty red tail",
+        "heavily streaked breast with dark spots",
+        "grayish face with a distinct eye ring",
+        "short, conical bill",
+        "medium-sized, plump body"
+    ],
+    "Grasshopper Sparrow": [
+        "small, stocky bird",
+        "short tail",
+        "flat head",
+        "buffy breast with fine streaks",
+        "pale, unstreaked belly",
+        "yellowish face with a distinct eye-ring"
+    ],
+    "Harris Sparrow": [
+        "brown-streaked back",
+        "black crown and face",
+        "white belly",
+        "pink bill",
+        "gray nape",
+        "black bib"
+    ],
+    "Henslow Sparrow": [
+        "small size",
+        "olive-green head",
+        "streaked brown back",
+        "buff-colored breast",
+        "short tail",
+        "pale eye ring"
+    ],
+    "Le-Conte Sparrow": [
+        "small size",
+        "buffy orange face",
+        "gray nape",
+        "streaked brown back",
+        "white belly",
+        "short tail"
+    ],
+    "Lincoln Sparrow": [
+        "brown streaked plumage",
+        "grayish face with a thin eye ring",
+        "buffy breast with fine streaks",
+        "short, conical bill",
+        "rusty crown with a central gray stripe",
+        "white belly with minimal streaking"
+    ],
+    "Nelson-Sharp-tailed Sparrow": [
+        "small size",
+        "brown streaked back",
+        "grayish face with a distinct white eye ring",
+        "buffy breast with fine streaks",
+        "sharp, pointed tail",
+        "short, conical bill"
+    ],
+    "Savannah Sparrow": [
+        "small size",
+        "brown-streaked back",
+        "yellowish eyebrow stripe",
+        "short tail",
+        "pale underparts with streaks",
+        "pinkish legs"
+    ],
+    "Seaside Sparrow": [
+        "grayish-brown upperparts with streaks",
+        "yellow lores and supercilium",
+        "white throat with dark streaks",
+        "buffy underparts with streaks",
+        "short, conical bill",
+        "medium-length tail with slight notch"
+    ],
+    "Song Sparrow": [
+        "brown streaked plumage",
+        "white underparts with dark streaks",
+        "short, conical bill",
+        "long, rounded tail",
+        "grayish face with a brown crown",
+        "distinctive central breast spot"
+    ],
+    "Tree Sparrow": [
+        "small brown bird",
+        "distinctive black cheek spot",
+        "chestnut crown",
+        "white underparts",
+        "short, conical beak",
+        "black bib on throat"
+    ],
+    "Vesper Sparrow": [
+        "brown streaked plumage",
+        "white eye ring",
+        "pale underparts",
+        "rufous lesser coverts",
+        "long tail with white edges",
+        "small, conical bill"
+    ],
+    "White-crowned Sparrow": [
+        "white crown with black stripes",
+        "gray face and throat",
+        "brown streaked back",
+        "pale underparts",
+        "pinkish bill",
+        "medium-sized sparrow with long tail"
+    ],
+    "White-throated Sparrow": [
+        "white throat patch",
+        "brown and black streaked back",
+        "yellow lores",
+        "grayish underparts",
+        "white wing bars",
+        "black and white striped crown"
+    ],
+    "Cape-Glossy Starling": [
+        "iridescent blue-green plumage",
+        "bright yellow eyes",
+        "glossy metallic sheen",
+        "medium-sized bird",
+        "short, straight black bill",
+        "long, pointed tail feathers"
+    ],
+    "Bank Swallow": [
+        "small size",
+        "brown upperparts",
+        "white underparts",
+        "distinct dark breast band",
+        "forked tail",
+        "pointed wings"
+    ],
+    "Barn Swallow": [
+        "glossy blue-black upperparts",
+        "reddish-brown throat and forehead",
+        "long, deeply forked tail",
+        "white to light brown underparts",
+        "streamlined body shape",
+        "pointed wings"
+    ],
+    "Cliff Swallow": [
+        "small bird with a square tail",
+        "dark blue upperparts with a metallic sheen",
+        "creamy white underparts",
+        "rusty red throat and forehead",
+        "white patch on the forehead",
+        "short, conical bill"
+    ],
+    "Tree Swallow": [
+        "iridescent blue-green upperparts",
+        "white underparts",
+        "small, streamlined body",
+        "short, slightly forked tail",
+        "pointed wings",
+        "small, black bill"
+    ],
+    "Scarlet Tanager": [
+        "bright red plumage",
+        "black wings",
+        "black tail",
+        "medium-sized songbird",
+        "pointed bill",
+        "short, rounded wings"
+    ],
+    "Summer Tanager": [
+        "bright red plumage in males",
+        "yellowish-green plumage in females",
+        "medium-sized songbird",
+        "thick, blunt bill",
+        "unmarked wings and tail",
+        "prefers open woodlands and forest edges"
+    ],
+    "Artic Tern": [
+        "white body with light grey wings",
+        "black cap on head",
+        "long, slender, pointed wings",
+        "deeply forked tail",
+        "bright red bill",
+        "short red legs"
+    ],
+    "Black Tern": [
+        "small size",
+        "black head and neck",
+        "dark gray wings and back",
+        "white underparts",
+        "short, forked tail",
+        "slender, pointed bill"
+    ],
+    "Caspian Tern": [
+        "large white body",
+        "black cap on head",
+        "bright red-orange bill",
+        "gray wings with black tips",
+        "short, forked tail",
+        "dark eyes"
+    ],
+    "Common Tern": [
+        "white body",
+        "black cap on head",
+        "gray wings",
+        "forked tail",
+        "red legs",
+        "pointed red bill with black tip"
+    ],
+    "Elegant Tern": [
+        "slender orange bill",
+        "white body with light gray wings",
+        "black cap on head",
+        "long, forked tail",
+        "black legs and feet",
+        "streamlined body shape"
+    ],
+    "Forsters Tern": [
+        "white body with light gray wings",
+        "black cap on head during breeding season",
+        "long, slender, orange bill with a black tip",
+        "forked tail with long outer feathers",
+        "black eye patch in non-breeding plumage",
+        "short legs with orange coloration"
+    ],
+    "Least Tern": [
+        "small size",
+        "white underparts",
+        "gray upperparts",
+        "black cap on head",
+        "yellow bill",
+        "black-tipped wings"
+    ],
+    "Green-tailed Towhee": [
+        "olive-green upperparts",
+        "bright green tail",
+        "gray head with a rufous crown",
+        "white throat",
+        "pale gray underparts",
+        "small, stout bill"
+    ],
+    "Brown Thrasher": [
+        "brown upperparts with streaked pattern",
+        "long tail with reddish-brown color",
+        "pale underparts with dark streaks",
+        "yellow eyes",
+        "curved bill",
+        "white wing bars"
+    ],
+    "Sage Thrasher": [
+        "grayish-brown upperparts with streaked pattern",
+        "pale underparts with dark streaks",
+        "long, slightly curved bill",
+        "white eye-ring",
+        "long tail with white edges",
+        "medium-sized songbird with slender build"
+    ],
+    "Black-capped Vireo": [
+        "small songbird with a black cap",
+        "white eye ring and lores",
+        "olive-green upperparts",
+        "white underparts with faint streaks",
+        "short, stout bill",
+        "black wings with white wing bars"
+    ],
+    "Blue-headed Vireo": [
+        "blue head",
+        "white eye ring",
+        "olive-green back",
+        "yellowish flanks",
+        "white underparts",
+        "short, thick bill"
+    ],
+    "Philadelphia Vireo": [
+        "olive-green upperparts",
+        "yellowish underparts",
+        "white wing bars",
+        "short, thick bill",
+        "grayish head",
+        "dark eyes with white eye-ring"
+    ],
+    "Red-eyed Vireo": [
+        "olive-green upperparts",
+        "white underparts",
+        "red eyes",
+        "gray crown",
+        "white eyebrow stripe",
+        "short, thick bill"
+    ],
+    "Warbling Vireo": [
+        "olive-gray upperparts",
+        "white underparts",
+        "faint white eyebrow",
+        "short, thick bill",
+        "pale yellow wash on sides",
+        "dark eyes with white eye-ring"
+    ],
+    "White-eyed Vireo": [
+        "small songbird with olive-green upperparts",
+        "white underparts with yellow flanks",
+        "distinctive white eye ring and lores",
+        "short, thick bill with a slight hook",
+        "wings with two white wing bars",
+        "tail is relatively short and slightly rounded"
+    ],
+    "Yellow-throated Vireo": [
+        "bright yellow throat",
+        "olive-green upperparts",
+        "white belly",
+        "two white wing bars",
+        "dark eyes with yellow spectacles",
+        "short, thick bill"
+    ],
+    "Bay-breasted Warbler": [
+        "chestnut-brown crown",
+        "buffy flanks",
+        "black face mask",
+        "white wing bars",
+        "olive-green back",
+        "short, pointed bill"
+    ],
+    "Black-and-white Warbler": [
+        "black and white striped plumage",
+        "small size with slender body",
+        "distinctive black streaks on white underparts",
+        "white wing bars on black wings",
+        "black crown and nape",
+        "white eyebrow stripe"
+    ],
+    "Black-throated-Blue Warbler": [
+        "small songbird with a distinctive black throat",
+        "blue upperparts with a glossy sheen",
+        "white underparts with a clean, crisp appearance",
+        "black face mask extending from the beak to the eyes",
+        "short, thin bill suited for insect feeding",
+        "white wing patches visible in flight"
+    ],
+    "Blue-winged Warbler": [
+        "bright yellow body",
+        "blue-gray wings",
+        "white wing bars",
+        "black eye line",
+        "small pointed bill",
+        "olive-green back"
+    ],
+    "Canada Warbler": [
+        "bright yellow underparts",
+        "olive-green upperparts",
+        "distinctive black necklace of streaks across the chest",
+        "white eye-ring",
+        "gray head with a contrasting yellow throat",
+        "thin, pointed bill"
+    ],
+    "Cape-May Warbler": [
+        "yellow underparts with dark streaks",
+        "olive-green back",
+        "chestnut cheek patch",
+        "white wing bars",
+        "thin, slightly curved bill",
+        "yellow rump"
+    ],
+    "Cerulean Warbler": [
+        "small size",
+        "bright blue upperparts",
+        "white underparts",
+        "black streaks on back",
+        "short, thin bill",
+        "white wing bars"
+    ],
+    "Chestnut-sided Warbler": [
+        "olive-green back",
+        "white underparts",
+        "chestnut-colored flanks",
+        "yellow crown",
+        "black eye stripe",
+        "thin, pointed bill"
+    ],
+    "Golden-winged Warbler": [
+        "small songbird with a slender body",
+        "bright yellow crown and wing patches",
+        "gray upperparts and white underparts",
+        "distinctive black mask and throat patch",
+        "thin, pointed bill",
+        "short tail with white edges"
+    ],
+    "Hooded Warbler": [
+        "bright yellow face",
+        "black hood covering head and throat",
+        "olive-green upperparts",
+        "yellow underparts",
+        "white tail spots",
+        "small, pointed bill"
+    ],
+    "Kentucky Warbler": [
+        "olive-green upperparts",
+        "bright yellow underparts",
+        "black mask around eyes",
+        "yellow eye-ring",
+        "short tail",
+        "thin, pointed bill"
+    ],
+    "Magnolia Warbler": [
+        "bright yellow underparts",
+        "black streaks on the chest",
+        "olive-green back",
+        "white wing bars",
+        "black mask around the eyes",
+        "thin, pointed bill"
+    ],
+    "Mourning Warbler": [
+        "olive-green back",
+        "gray hood",
+        "yellow belly",
+        "black patch on chest",
+        "thin, pointed bill",
+        "medium-sized songbird"
+    ],
+    "Myrtle Warbler": [
+        "yellow rump",
+        "gray upperparts",
+        "white underparts",
+        "black streaks on sides",
+        "white eye ring",
+        "yellow patches on sides"
+    ],
+    "Nashville Warbler": [
+        "small songbird with olive-green upperparts",
+        "bright yellow underparts",
+        "gray head with a white eye-ring",
+        "short, thin bill",
+        "two white wing bars",
+        "short tail with olive-green edges"
+    ],
+    "Orange-crowned Warbler": [
+        "olive-green upperparts",
+        "yellowish underparts",
+        "faint orange crown patch",
+        "thin, pointed bill",
+        "grayish wings with no wing bars",
+        "small, slender body"
+    ],
+    "Palm Warbler": [
+        "olive-brown upperparts",
+        "yellow underparts",
+        "rusty cap",
+        "white belly",
+        "streaked breast",
+        "thin, pointed bill"
+    ],
+    "Pine Warbler": [
+        "olive-green upperparts",
+        "bright yellow throat and breast",
+        "white belly and undertail coverts",
+        "two white wing bars",
+        "dark streaks on the sides",
+        "thin, pointed bill"
+    ],
+    "Prairie Warbler": [
+        "bright yellow underparts",
+        "olive-green upperparts",
+        "distinct black streaks on sides",
+        "thin black eye line",
+        "white wing bars",
+        "short, thin bill"
+    ],
+    "Prothonotary Warbler": [
+        "bright yellow body",
+        "olive-green back",
+        "blue-gray wings",
+        "white underbelly",
+        "black beak",
+        "dark eyes"
+    ],
+    "Swainson Warbler": [
+        "olive-brown upperparts",
+        "pale yellowish underparts",
+        "long, slightly curved bill",
+        "whitish eyebrow stripe",
+        "short tail",
+        "dark legs"
+    ],
+    "Tennessee Warbler": [
+        "olive-green upperparts",
+        "white underparts",
+        "small, thin bill",
+        "grayish head",
+        "short tail",
+        "white eye-ring"
+    ],
+    "Wilson Warbler": [
+        "bright yellow underparts",
+        "olive-green upperparts",
+        "small black cap on head",
+        "thin, pointed bill",
+        "short, rounded wings",
+        "long, thin tail"
+    ],
+    "Worm-eating Warbler": [
+        "olive-brown upperparts",
+        "buff-colored underparts",
+        "distinctive black and buff head stripes",
+        "thin, pointed bill",
+        "short, rounded wings",
+        "pale legs and feet"
+    ],
+    "Yellow Warbler": [
+        "bright yellow plumage",
+        "olive-green wings and back",
+        "thin, pointed beak",
+        "small size, around 12 cm in length",
+        "dark eyes with a noticeable eye ring",
+        "subtle streaks on the breast"
+    ],
+    "Northern Waterthrush": [
+        "brown-streaked upperparts",
+        "white underparts with dark streaks",
+        "pale eyebrow stripe",
+        "long legs",
+        "short tail",
+        "thin, pointed bill"
+    ],
+    "Louisiana Waterthrush": [
+        "brown upperparts with streaked back",
+        "white underparts with dark streaks",
+        "white eyebrow stripe",
+        "pinkish legs",
+        "long, slightly curved bill",
+        "tail often bobbed up and down"
+    ],
+    "Bohemian Waxwing": [
+        "grayish-brown body",
+        "crested head with a pointed tip",
+        "black mask around eyes",
+        "yellow-tipped tail",
+        "red tips on wing feathers",
+        "white wing patches"
+    ],
+    "Cedar Waxwing": [
+        "brownish-gray body",
+        "black mask around eyes",
+        "yellow-tipped tail",
+        "crested head",
+        "red wax-like wing tips",
+        "pale yellow belly"
+    ],
+    "American-Three-toed Woodpecker": [
+        "black and white barred back",
+        "white underparts",
+        "black wings with white spots",
+        "yellow crown on males",
+        "three toes on each foot",
+        "white facial stripes"
+    ],
+    "Pileated Woodpecker": [
+        "large size with a prominent red crest",
+        "black body with white stripes on the face and neck",
+        "long, chisel-like bill",
+        "white underwings visible in flight",
+        "black wings with white linings",
+        "distinctive loud, drumming call"
+    ],
+    "Red-bellied Woodpecker": [
+        "red cap extending from forehead to nape",
+        "pale, lightly barred back and wings",
+        "white underparts with a faint red wash on the belly",
+        "black and white striped pattern on the back",
+        "long, chisel-like bill",
+        "white patches near the base of the wings"
+    ],
+    "Red-cockaded Woodpecker": [
+        "black and white barred back",
+        "white cheek patches",
+        "black cap and nape",
+        "small red patch on the side of the head",
+        "white underparts with black spots",
+        "medium-sized woodpecker with a sturdy bill"
+    ],
+    "Red-headed Woodpecker": [
+        "bright red head",
+        "black and white wings",
+        "white underparts",
+        "black tail",
+        "medium-sized woodpecker",
+        "straight, chisel-like bill"
+    ],
+    "Downy Woodpecker": [
+        "small size",
+        "black and white plumage",
+        "white underparts",
+        "black wings with white spots",
+        "red patch on the back of the head (males)",
+        "short, chisel-like bill"
+    ],
+    "Bewick Wren": [
+        "small brown bird",
+        "long, slightly curved bill",
+        "white eyebrow stripe",
+        "brown upperparts with faint streaks",
+        "pale underparts",
+        "long tail often held upright"
+    ],
+    "Cactus Wren": [
+        "brown and white streaked plumage",
+        "long, slightly curved bill",
+        "white eye stripe extending from bill to nape",
+        "spotted breast with black markings",
+        "short, rounded wings",
+        "long tail with white tips"
+    ],
+    "Carolina Wren": [
+        "small, plump bird",
+        "reddish-brown upperparts",
+        "buff-colored underparts",
+        "distinctive white eyebrow stripe",
+        "long, slightly curved bill",
+        "short, rounded wings"
+    ],
+    "House Wren": [
+        "small brown bird",
+        "short tail often held upright",
+        "thin, slightly curved bill",
+        "lightly streaked underparts",
+        "pale eyebrow stripe",
+        "dark barring on wings and tail"
+    ],
+    "Marsh Wren": [
+        "small brown bird",
+        "white eyebrow stripe",
+        "dark brown back with streaks",
+        "buff-colored underparts",
+        "short, thin bill",
+        "upright tail often cocked"
+    ],
+    "Rock Wren": [
+        "small bird with a slender, slightly curved bill",
+        "grayish-brown upperparts with fine streaks",
+        "pale underparts with faint streaking on the breast",
+        "short tail with dark bars and white outer feathers",
+        "white eyebrow stripe above the eye",
+        "long legs with a distinctive hopping gait"
+    ],
+    "Winter Wren": [
+        "small, round body",
+        "brown upperparts with darker barring",
+        "pale underparts with fine streaks",
+        "short, stubby tail often held upright",
+        "thin, slightly curved bill",
+        "white eyebrow stripe"
+    ],
+    "Common Yellowthroat": [
+        "bright yellow throat",
+        "olive green back",
+        "black mask across eyes",
+        "white belly",
+        "small, pointed beak",
+        "short, rounded wings"
+    ]
+}

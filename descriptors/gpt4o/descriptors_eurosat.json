@@ -1,0 +1,82 @@
+{
+    "annual crop land": [
+        "regularly spaced rows of crops",
+        "uniform green patches",
+        "clear boundaries between fields",
+        "visible soil between crop rows",
+        "consistent texture across the field",
+        "seasonal variations in crop color"
+    ],
+    "forest": [
+        "dense tree coverage",
+        "various shades of green",
+        "irregular canopy patterns",
+        "presence of shadows from trees",
+        "minimal visible ground",
+        "natural, unstructured layout"
+    ],
+    "brushland or shrubland": [
+        "sparse vegetation",
+        "low-lying shrubs",
+        "dry, arid soil",
+        "scattered bushes",
+        "brown and green color palette",
+        "open, uncultivated land"
+    ],
+    "highway or road": [
+        "long, linear stretches",
+        "paved surfaces",
+        "marked lanes",
+        "adjacent green areas or fields",
+        "vehicles or traffic",
+        "intersections or junctions"
+    ],
+    "industrial buildings or commercial buildings": [
+        "large rectangular structures",
+        "flat rooftops with hvac units",
+        "adjacent parking lots",
+        "sparse vegetation around buildings",
+        "grid-like road patterns",
+        "uniform building colors, often grey or white"
+    ],
+    "pasture land": [
+        "large expanses of green fields",
+        "sparse tree coverage",
+        "uniform grassy texture",
+        "presence of grazing animals",
+        "clear demarcation of land plots",
+        "occasional dirt paths or tracks"
+    ],
+    "permanent crop land": [
+        "regularly spaced rows of crops",
+        "uniform green patches",
+        "visible irrigation patterns",
+        "consistent texture across the field",
+        "clear boundaries separating different crop types",
+        "absence of large buildings or urban structures"
+    ],
+    "residential buildings or homes or apartments": [
+        "clustered structures with varied roof colors",
+        "presence of roads and pathways between buildings",
+        "green spaces such as lawns and gardens",
+        "rectangular and square building shapes",
+        "multiple stories with visible windows",
+        "surrounding infrastructure like driveways and parking areas"
+    ],
+    "river": [
+        "flowing water body",
+        "meandering path",
+        "surrounded by vegetation",
+        "reflective surface",
+        "varying widths",
+        "natural banks"
+    ],
+    "lake or sea": [
+        "large body of water",
+        "blue or greenish hue",
+        "smooth surface texture",
+        "surrounded by land or coastline",
+        "reflective water surface",
+        "sparse or no vegetation in the water"
+    ]
+}
