@@ -217,7 +217,7 @@ if hparams['dataset'] != 'imagenetv2':
 else:
     dataset_classes = classes_to_load
     
-# hparams['after_text'] = f', as an image from the {hparams["dataset_name"]} dataset.'
+# hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
 hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
