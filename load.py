@@ -218,6 +218,7 @@ else:
     dataset_classes = classes_to_load
     
 # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
+hparams['before_text'] = f'From the {hparams["dataset_name"]} dataset, the '
 hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
