@@ -88,7 +88,7 @@ hparams['after_text'] = ''
 # hparams['between_text'] = ''
 hparams['unmodify'] = True
 # hparams['after_text'] = '.'
-# hparams['after_text'] = ' which is a type of bird.'
+# hparams['after_text'] = ', which is a type of bird.'
 hparams['label_after_text'] = ''
 # hparams['label_after_text'] = ' which is a type of bird.'
 hparams['seed'] = 1
@@ -133,7 +133,7 @@ elif hparams['dataset'] == 'imagenetv2':
     hparams['descriptor_fname'] = 'descriptors_imagenet'
 
 elif hparams['dataset'] == 'cub':
-    hparams['dataset_name'] = 'CUB'
+    hparams['dataset_name'] = 'Caltech-UCSD Birds 200 (CUB-200)'
     hparams['data_dir'] = pathlib.Path(CUB_DIR)
     hparams['analysis_fname'] = 'analysis_cub'
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
