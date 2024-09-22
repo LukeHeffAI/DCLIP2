@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['desc_type'] = 'gpt4o'
+hparams['desc_type'] = 'gpt3'
 # Options:
 # ['gpt3',
 #  'gpt4,
