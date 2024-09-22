@@ -1,5 +1,5 @@
 import torch
-import json
+import torch.nn.functional as F
 from tqdm import tqdm
 from load import *
 
@@ -16,7 +16,6 @@ def compute_freq_is(data):
             descriptor_frequencies[entry] += 1
 
     return descriptor_frequencies
-
 
 def compute_freq_contains(data):
     '''
@@ -36,6 +35,15 @@ def compute_freq_contains(data):
 
     return descriptor_frequencies
 
+def load_clip():
+
+    device = torch.device(hparams['device'])
+    model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
+    model.eval()
+    model.requires_grad_(False)
+
+    return model, device
+
 def tokenise_descriptor(descriptor, model):
     """
     Tokenize and encode a single descriptor using the provided CLIP model.
@@ -47,28 +55,54 @@ def tokenise_descriptor(descriptor, model):
     Returns:
         torch.Tensor: The normalized encoding of the descriptor.
     """
-    # Assuming your CLIP model has a tokenize method as part of its interface
-    tokens = clip.tokenize([descriptor]).to(hparams['device'])  # Convert descriptor into a format suitable for the model
+    tokens = clip.tokenize([descriptor]).to(hparams['device'])
     with torch.no_grad():
-        # Encode text tokens and normalize
         encoded_text = model.encode_text(tokens)
         normalised_text_encoding = torch.nn.functional.normalize(encoded_text, dim=1)
     return normalised_text_encoding
+
+def compute_descriptor_uniqueness_score_from_sim(data):
+    """
+    Compute the uniqueness score of each descriptor based on the sum of the normalised cosine similarities between the descriptor and all other descriptors.
+    This optimized version encodes all descriptors in a batch to take advantage of parallel GPU operations.
+    """
+    model, device = load_clip()
+    
+    descriptor_list = compute_descriptor_list(data, sort_config=True)
+
+    descriptor_tensors = []
+    for desc in tqdm(descriptor_list, desc="Tokenizing Descriptors"):
+        desc_tensor = tokenise_descriptor(desc, model)
+        descriptor_tensors.append(desc_tensor)
+
+    # Stack the descriptor tensors into a single tensor for parallel computation
+    descriptor_tensors = torch.cat(descriptor_tensors, dim=0).to(device)
+
+    with torch.no_grad():
+        similarity_matrix = descriptor_tensors @ descriptor_tensors.T
+        similarity_matrix.fill_diagonal_(0)  # Exclude self-similarity by setting the diagonal to 0
+
+    # Sum similarities for each descriptor
+    descriptor_sums = similarity_matrix.sum(dim=1).cpu().numpy()
+
+    # Normalize the sums
+    max_sum = max(descriptor_sums)
+    descriptor_normalised_sums = {desc: float(descriptor_sums[i] / max_sum) for i, desc in enumerate(descriptor_list)}
+
+    return descriptor_normalised_sums
 
 def compute_text_image_cosine_similarity(data):
     """
     Compute the cosine similarity between each descriptor and all images,
     normalize these values, and save the results in JSON format.
     """
-    device = torch.device(hparams['device'])
-    model, preprocess = clip.load(hparams['model_size'], device=device, jit=False)
-    model.eval()
+    
+    model, device = load_clip()
 
     descriptor_list = compute_descriptor_list(data, sort_config=True)
-    descriptor_list = descriptor_list # During testing, only use the first 5 descriptors
     dataloader = DataLoader(dataset, batch_size=hparams['batch_size'], shuffle=False, num_workers=16, pin_memory=True)
 
-    descriptor_sums = {desc: 0 for desc in descriptor_list}
+    descriptor_sums = {desc: 0.0 for desc in descriptor_list}
     for desc in tqdm(descriptor_list, desc="Processing Descriptors"):
         desc_tensor = tokenise_descriptor(desc, model)
         with torch.no_grad():
@@ -86,7 +120,6 @@ def compute_text_image_cosine_similarity(data):
 
     return descriptor_normalised_sums
 
-
 descriptor_file_path = hparams['descriptor_fname']
 
 # for json_path in descriptor_file:
@@ -94,15 +127,19 @@ analysis = load_json(descriptor_file_path)
 
 freq_is = compute_freq_is(analysis)
 freq_contains = compute_freq_contains(analysis)
-similarity = compute_text_image_cosine_similarity(analysis)
+descriptor_self_similarity = compute_descriptor_uniqueness_score_from_sim(analysis)
+# text_image_similarity = compute_text_image_cosine_similarity(analysis)
 
 analysis_dict = {"freq_is": freq_is,
         "freq_contains": freq_contains,
-        "text-image-similarity": similarity
+        "descriptor-self-similarity": descriptor_self_similarity,
+        # "text-image-similarity": text_image_similarity,
         }
     
-print(analysis_dict['text-image-similarity'])
+# print(analysis_dict['descriptor-self-similarity'])
 output_path_name = descriptor_file_path.split("/")[-1].split(".")[0].split("_")[-1]
 json_output_path = f'descriptor_analysis/descriptors_analysis_{output_path_name}.json'
+
+print(f'Saving analysis to {json_output_path}')
 with open(json_output_path, 'w') as f:
     json.dump(analysis_dict, f, indent=4)
