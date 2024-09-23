@@ -9,8 +9,8 @@ cut_proportion = 1
 frequency_type = None
 # Options:
 # [ None,
-#   'freq_is',
-#   'freq_contains']
+#   'freq_exact',
+#   'freq_approx']
 
 similarity_penalty_config = None
 # Options:
@@ -40,10 +40,7 @@ def compute_class_list(data:dict, sort_config = False):
         class_list.append(k)
 
     if sort_config:
-        class_list = list(set(class_list))
         class_list = sorted(class_list)
-    # else:
-    #     class_list = list(set(class_list))
 
     return class_list
 
@@ -57,10 +54,7 @@ def compute_descriptor_list(data:dict, sort_config = False):
         descriptor_list.extend(v)
 
     if sort_config:
-        descriptor_list = list(set(descriptor_list))
         descriptor_list = sorted(descriptor_list)
-    else:
-        descriptor_list = list(set(descriptor_list))
     
     return descriptor_list
     
