@@ -229,19 +229,26 @@ gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load
 label_to_classname = list(gpt_descriptions.keys())
 
 print("Creating descriptor frequencies...")
-descriptors_freq = load_descriptors_frequency(hparams)
+# descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 
-total_descriptors_is = sum(descriptors_freq['freq_is'].values())
-total_descriptors_contains = sum(descriptors_freq['freq_contains'].values())
-frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptors_freq['freq_is'].items()}
-frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptors_freq['freq_contains'].items()}
+# TODO: Fix the implementation of frequency and semantic penalisation
+# frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptors_freq['freq_exact'].items()}
+# frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptors_freq['freq_approx'].items()}
 
-if similarity_penalty_config:
-    class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
-    class_list = compute_class_list(class_similarity_dict, sort_config=True)
-    average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
+# if similarity_penalty_config:
+#     class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
+#     class_list = compute_class_list(class_similarity_dict, sort_config=True)
+#     average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
+
+# Redo the penalty methods
+descriptors_stats = load_json(hparams['descriptor_analysis_fname'] + '.json')
+freq_exact = descriptors_stats['freq_exact']
+freq_contains = descriptors_stats['freq_approx']
+descriptor_self_similarity = descriptors_stats['descriptor-self-similarity']
+
+
 
 def compute_description_encodings(model, batch_size=32):
     description_encodings = OrderedDict()
