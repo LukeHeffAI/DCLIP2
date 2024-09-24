@@ -12,7 +12,7 @@ frequency_type = None
 #   'freq_exact',
 #   'freq_approx']
 
-similarity_penalty_config = None
+similarity_penalty_config = 'similarity_penalty'
 # Options:
 # [ None,
 #   'similarity_penalty']
@@ -84,31 +84,31 @@ def modify_descriptor(descriptor, apply_changes, hparams):
         return make_descriptor_sentence(descriptor, hparams)
     return descriptor
 
+def truncate_label(label, proportion, method='len'):
+    '''
+    Truncate the label to a certain proportion of its length.
+    When method is 'chr', the proportion is the final number of characters in the output.
+    When method is 'len', the proportion is the fraction of the total input characters in the output.
+    '''
+    if frequency_type == None and similarity_penalty_config == None:
+        if method == 'chr':
+            cut_len = int(len(label) * proportion / len(label))
+        elif method == 'len':
+            cut_len = int(len(label) * proportion)
+        return label[:cut_len]
+    else:
+        return label
+
+def create_gibberish_descriptions(length):
+    import string
+    import random
+
+    gibberish_descriptions = string.ascii_letters + ' '
+    return ''.join(random.choices(gibberish_descriptions, k=length))
+
 def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
     unmodify_dict = {}
-
-    def truncate_label(label, proportion, method='len'):
-        '''
-        Truncate the label to a certain proportion of its length.
-        When method is 'chr', the proportion is the final number of characters in the output.
-        When method is 'len', the proportion is the fraction of the total input characters in the output.
-        '''
-        if frequency_type == None and similarity_penalty_config == None:
-            if method == 'chr':
-                cut_len = int(len(label) * proportion / len(label))
-            elif method == 'len':
-                cut_len = int(len(label) * proportion)
-            return label[:cut_len]
-        else:
-            return label
-    
-    def create_gibberish_descriptions(length):
-        import string
-        import random
-
-        gibberish_descriptions = string.ascii_letters + ' ' * 5
-        return ''.join(random.choices(gibberish_descriptions, k=length))
 
     if classes_to_load is not None: 
         gpt_descriptions = {c: gpt_descriptions_unordered[c] for c in classes_to_load}
