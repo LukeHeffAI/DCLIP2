@@ -12,7 +12,7 @@ frequency_type = None
 #   'freq_exact',
 #   'freq_approx']
 
-similarity_penalty_config = 'similarity_penalty'
+similarity_penalty_config = None
 # Options:
 # [ None,
 #   'similarity_penalty']
