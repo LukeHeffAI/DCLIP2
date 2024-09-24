@@ -99,12 +99,15 @@ def truncate_label(label, proportion, method='len'):
     else:
         return label
 
-def create_gibberish_descriptions(length):
+def create_gibberish_descriptions(length, repeat=1):
     import string
     import random
 
-    gibberish_descriptions = string.ascii_letters + ' '
-    return ''.join(random.choices(gibberish_descriptions, k=length))
+    character_array = string.ascii_letters + string.digits
+    gibberish_descriptions = ''
+    gibberish_descriptions = gibberish_descriptions.join(random.choices(character_array, k=length))
+
+    return gibberish_descriptions
 
 def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
@@ -137,14 +140,22 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 # build_descriptor_string = lambda item: f"{item.capitalize()}"
                 # # Class name only
                 # build_descriptor_string = lambda item: f"{word_to_add}"
+                # Class name with dataset name
+                # build_descriptor_string = lambda item: f"{word_to_add}{f', from {hparams['dataset_name']} dataset'}"
                 # Class name, plus
                 # build_descriptor_string = lambda item: f"{word_to_add}{', '}{create_gibberish_descriptions(2)}"
+                # Recreate CLIP paper approach
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}"
                 # Recreate WaffleCLIP approach
-                # build_descriptor_string = lambda item: f"{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(create_gibberish_descriptions(10), hparams['apply_descriptor_modification'], hparams), cut_proportion)}"
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
                 # # Ascend taxonomic class
                 # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add.split(' ')[-1]}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
                 # # Class name, repetition
                 # build_descriptor_string = lambda item: f"{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(word_to_add, hparams['apply_descriptor_modification'], hparams), cut_proportion)}"
+                # lol test (works well for EuroSAT)
+                # build_descriptor_string = lambda item: f'{word_to_add}{' lol'}{hparams['after_text']}'
+                # Consistency test
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']} image"
             else:
                 build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)
 
