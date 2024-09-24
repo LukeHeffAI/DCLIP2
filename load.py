@@ -38,7 +38,7 @@ hparams['desc_type'] = 'gpt3'
 #  'gpt4o',
 #  'test']
 
-hparams['dataset'] = 'cub'
+hparams['dataset'] = 'pets'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
@@ -213,12 +213,13 @@ if hparams['dataset'] != 'imagenetv2':
 else:
     dataset_classes = classes_to_load
 
-# hparams['before_text'] = "An image of a "
+# hparams['before_text'] = "A photo of a "
 hparams['before_text'] = ""
 hparams['label_before_text'] = ""
 hparams['between_text'] = ', '
-hparams['after_text'] = ''
-# hparams['after_text'] = f', from the {hparams['dataset_name']} dataset.'
+hparams['after_text'] = f', from a dataset.'
+# hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
+# hparams['after_text'] = ''
 # hparams['between_text'] = ' '
 # hparams['between_text'] = ''
 hparams['unmodify'] = True
