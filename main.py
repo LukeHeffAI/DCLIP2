@@ -79,16 +79,18 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
         
-        if frequency_type == 'freq_exact' or frequency_type == 'freq_approx':
+        # Penalise the dot product matrix based on the frequency of the descriptor
+        if frequency_type == 'freq_exact':
+            for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
+                dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
+        elif frequency_type == 'freq_approx':
             for descriptor in gpt_descriptions[k]:
-                freq = descriptors_freq[frequency_type].get(descriptor, 1)
-                norm_freq = freq / max(descriptors_freq[frequency_type].values())
-                penalty_index = gpt_descriptions[k].index(descriptor)
-                dot_product_matrix[:, penalty_index] /= norm_freq
+                dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
 
+        # Penalise the dot product matrix based on the normalised cosine similarity of the descriptor to all other descriptors
         if similarity_penalty_config == 'similarity_penalty':
-            class_average_sim = average_cosine_similarities.get(k, 0)  # Default to 0 if not found
-            dot_product_matrix -= class_average_sim
+            for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
+                dot_product_matrix /= descriptor_self_similarity[unmodify_dict[k][descriptor]]
         
         image_description_similarity[i] = dot_product_matrix
         image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
