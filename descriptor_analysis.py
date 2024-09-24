@@ -33,7 +33,6 @@ def compute_freq_exact(data):
     
     return descriptor_normalised_frequencies
 
-
 def compute_freq_approx(data):
     """
     Compute a normalised frequency score for each descriptor based on both exact matches and
