@@ -80,17 +80,6 @@ elif hparams['model_size'] == 'RN50x64' and hparams['image_size'] != 448:
     print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 288.')
     hparams['image_size'] = 448
 
-hparams['before_text'] = ""
-hparams['label_before_text'] = ""
-hparams['between_text'] = ', '
-hparams['after_text'] = ''
-# hparams['between_text'] = ' '
-# hparams['between_text'] = ''
-hparams['unmodify'] = True
-# hparams['after_text'] = '.'
-# hparams['after_text'] = ', which is a type of bird.'
-hparams['label_after_text'] = ''
-# hparams['label_after_text'] = ' which is a type of bird.'
 hparams['seed'] = 1
 
 # classes_to_load = openai_imagenet_classes
@@ -121,7 +110,7 @@ if hparams['dataset'] == 'imagenet':
     dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
     classes_to_load = None
     hparams['descriptor_fname'] = 'descriptors_imagenet'
-    hparams['after_text'] = hparams['label_after_text'] = '.'
+    hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
         
 elif hparams['dataset'] == 'imagenetv2':
     hparams['dataset_name'] = 'ImageNetV2'
@@ -131,6 +120,7 @@ elif hparams['dataset'] == 'imagenetv2':
     dataset = dsclass(location=str(hparams['data_dir']), transform=tfms)
     classes_to_load = openai_imagenet_classes
     hparams['descriptor_fname'] = 'descriptors_imagenet'
+    hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
 
 elif hparams['dataset'] == 'cub':
     hparams['dataset_name'] = 'Caltech-UCSD Birds 200 (CUB-200)'
@@ -139,6 +129,7 @@ elif hparams['dataset'] == 'cub':
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of bird images.'
 
 elif hparams['dataset'] == 'cub_reassignment':
     hparams['dataset_name'] = 'CUB_reassignment'
@@ -177,14 +168,16 @@ elif hparams['dataset'] == 'eurosat':
     dataset = dsclass(str(hparams['data_dir']), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_eurosat'
     classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of satellite images of land use across European regions.'
     
 elif hparams['dataset'] == 'places365':
-    hparams['dataset_name'] = 'Places365'
+    hparams['dataset_name'] = 'Places365 Scene Recognition'
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
     hparams['analysis_fname'] = 'analysis_places365'
     dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_places365'
     classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing diverse scene images for environmental classification tasks.'
     
 elif hparams['dataset'] == 'food101':
     hparams['dataset_name'] = 'Food101'
@@ -194,6 +187,7 @@ elif hparams['dataset'] == 'food101':
     dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
     classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories with 1,000 images each.'
 
 elif hparams['dataset'] == 'pets':
     hparams['dataset_name'] = 'Oxford Pets'
@@ -203,22 +197,38 @@ elif hparams['dataset'] == 'pets':
     dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
     classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of 37 cat and dog breeds.'
     
 elif hparams['dataset'] == 'dtd':
-    hparams['dataset_name'] = 'DTD'
+    hparams['dataset_name'] = 'Desribable Textures Dataset (DTD)'
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
     hparams['analysis_fname'] = 'analysis_dtd'
     dataset = ImageFolder(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images categorized by visual textures.'
 
 if hparams['dataset'] != 'imagenetv2':
     dataset_classes = dataset.classes
 else:
     dataset_classes = classes_to_load
-    
+
+# hparams['before_text'] = "An image of a "
+hparams['before_text'] = ""
+hparams['label_before_text'] = ""
+hparams['between_text'] = ', '
+hparams['after_text'] = ''
+# hparams['after_text'] = f', from the {hparams['dataset_name']} dataset.'
+# hparams['between_text'] = ' '
+# hparams['between_text'] = ''
+hparams['unmodify'] = True
+# hparams['after_text'] = '.'
+# hparams['after_text'] = ', which is a type of bird.'
+hparams['label_after_text'] = ''
+# hparams['label_after_text'] = ' which is a type of bird.'
 # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
 # hparams['before_text'] = f'From the {hparams["dataset_name"]} dataset, the '
+
 hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
@@ -229,24 +239,17 @@ gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load
 label_to_classname = list(gpt_descriptions.keys())
 
 print("Creating descriptor frequencies...")
-# descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 
 # TODO: Fix the implementation of frequency and semantic penalisation
-# frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptors_freq['freq_exact'].items()}
-# frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptors_freq['freq_approx'].items()}
-
-# if similarity_penalty_config:
-#     class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
-#     class_list = compute_class_list(class_similarity_dict, sort_config=True)
-#     average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
 
 # Redo the penalty methods
-descriptors_stats = load_json(hparams['descriptor_analysis_fname'] + '.json')
-freq_exact = descriptors_stats['freq_exact']
-freq_contains = descriptors_stats['freq_approx']
-descriptor_self_similarity = descriptors_stats['descriptor-self-similarity']
+if frequency_type == 'freq_exact' or frequency_type == 'freq_approx' or similarity_penalty_config == 'similarity_penalty':
+    descriptors_stats = load_json(hparams['descriptor_analysis_fname'] + '.json')
+    freq_exact = descriptors_stats['freq_exact']
+    freq_approx = descriptors_stats['freq_approx']
+    descriptor_self_similarity = descriptors_stats['descriptor-self-similarity']
 
 
 
