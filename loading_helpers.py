@@ -138,8 +138,6 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
 
             word_to_add = wordify(k)
             for subcategory, classes in subcategory_dict.items():
-                # classes are lists of class names
-                # if the class is in the list of classes for a subcategory, establish the subcategory as a new variable, "subcategory_to_add"
                 if k in classes:
                     subcategory_to_add = subcategory
                     break
@@ -148,9 +146,9 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['between_text']}{word_to_add}"
             elif (hparams['category_name_inclusion'] == 'prepend'):
                 # Base structure
-                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
                 # Base structure, with subcategory
-                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add} "}"
+                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add} "}{hparams['after_text']}"
                 # Descriptor only
                 # build_descriptor_string = lambda item: f"{item.capitalize()}"
                 # # Class name only
