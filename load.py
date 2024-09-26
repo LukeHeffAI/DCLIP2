@@ -232,12 +232,18 @@ hparams['label_after_text'] = ''
 
 hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
-hparams['class_analysis_fname'] = './class_analysis/class_' + hparams['analysis_fname']
+hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
+
+print("Loading class subcategories...")
+with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
+    class_subcategories = json.load(f)
     
 print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
 gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load, cut_proportion=cut_proportion)
 label_to_classname = list(gpt_descriptions.keys())
+
+# If the 
 
 print("Creating descriptor frequencies...")
 
