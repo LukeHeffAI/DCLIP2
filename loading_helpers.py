@@ -65,9 +65,7 @@ def wordify(string):
 
 def make_descriptor_sentence(descriptor, hparams):
     if (hparams['category_name_inclusion'] == 'prepend'):
-        if descriptor.startswith('a ') or descriptor.startswith('an'):
-            return f"which is {descriptor}"
-        elif descriptor.startswith('the '):
+        if descriptor.startswith('a ') or descriptor.startswith('an ') or descriptor.startswith('the '):
             return f"which is {descriptor}"
         elif descriptor.startswith('a') or descriptor.startswith('e') or descriptor.startswith('i') or descriptor.startswith('o') or descriptor.startswith('u'):
             return f"which is an {descriptor}"
@@ -147,8 +145,20 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
             elif (hparams['category_name_inclusion'] == 'prepend'):
                 # Base structure
                 # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
-                # Base structure, with subcategory
-                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add} "}{hparams['after_text']}"
+                # Base structure, with ImageNet subcategory. Best (63.24%): "A photo of an tench, which is a freshwater fish, which is a type of fish" 
+                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add}"}{hparams['after_text']}"
+                # Base structure, with Food101 subcategory. Best (81.26%): "apple pie, which is a pie dish, which would be found on a menu under "desserts""
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which would be found on a menu under "{subcategory_to_add}"'}{hparams['after_text']}"
+                # Base structure, with EuroSAT subcategory. Best (57.22%): "annual crop land, which has large, open fields, which is a type of agricultural area, from the EuroSAT dataset."
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of {subcategory_to_add}'}{hparams['after_text']}"
+                # Base structure, with Oxford Pets subcategory. Best (87.48%): "A photo of a Abyssinian, which has black, grey, or brown fur, which is a breed of short-haired cats, from a dataset containing images of dog and cat breeds."
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a breed of {subcategory_to_add}'}{hparams['after_text']}"
+                # Base structure, with Describable Textures subcategory. Best (45.88%): "banded, which is a repeating pattern of light and dark bands, which is described as a {subcategory} texture"
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'}{hparams['after_text']}"
+                # Base structure, with CUB subcategory. Best (54.02%): "Black-footed Albatross, which is a seabird, which belongs to the genus of albatrosses"
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which belongs to the genus of {subcategory_to_add}'}{hparams['after_text']}"
+                # Base structure, with Places365 subcategory. Best (40.27%): "airfield, which is an airport, which is a type of air transportation" (note: "A photo of an airfield, which is an airport, which is a type of air transportation" achieved 41.09%)
+                # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f'; a type of location used for {subcategory_to_add}'}{hparams['after_text']}"
                 # Descriptor only
                 # build_descriptor_string = lambda item: f"{item.capitalize()}"
                 # # Class name only
