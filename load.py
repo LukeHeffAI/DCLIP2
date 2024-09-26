@@ -31,7 +31,7 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['desc_type'] = 'gpt3'
+hparams['desc_type'] = 'gpt4o'
 # Options:
 # ['gpt3',
 #  'gpt4,
@@ -89,7 +89,7 @@ IMAGENET_DIR = '/home/luke/Documents/GitHub/data/ImageNet/'
 IMAGENETV2_DIR = '/home/luke/Documents/GitHub/data/ImageNetV2/'
 CUB_DIR = '/home/luke/Documents/GitHub/data/CUB/CUB_200_2011/'
 EUROSAT_DIR = '/home/luke/Documents/GitHub/data/EuroSAT/2750/'
-FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/' # TODO: Fix shape issue when running main.py
+FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/'
 PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/'
 DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
 PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
@@ -197,7 +197,7 @@ elif hparams['dataset'] == 'pets':
     dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
     classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of 37 cat and dog breeds.'
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of dog and cat breeds.'
     
 elif hparams['dataset'] == 'dtd':
     hparams['dataset_name'] = 'Desribable Textures Dataset (DTD)'
@@ -213,11 +213,11 @@ if hparams['dataset'] != 'imagenetv2':
 else:
     dataset_classes = classes_to_load
 
-hparams['before_text'] = "A photo of a "
-# hparams['before_text'] = ""
+# hparams['before_text'] = "A photo of an "
+hparams['before_text'] = ""
 hparams['label_before_text'] = ""
 hparams['between_text'] = ', '
-hparams['after_text'] = f', from a dataset.'
+# hparams['after_text'] = f', from a dataset.'
 # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
 hparams['after_text'] = ''
 # hparams['between_text'] = ' '
