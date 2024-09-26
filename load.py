@@ -38,7 +38,7 @@ hparams['desc_type'] = 'gpt3'
 #  'gpt4o',
 #  'test']
 
-hparams['dataset'] = 'pets'
+hparams['dataset'] = 'places365'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
@@ -232,7 +232,7 @@ hparams['label_after_text'] = ''
 
 hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
-hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
+hparams['class_analysis_fname'] = './class_analysis/class_' + hparams['analysis_fname']
     
 print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
