@@ -61,8 +61,20 @@
 
 #     return messages
 
-category_name = "Black-footed Albatross"
+# category_name = "Black-footed Albatross"
 
-print(
-"""I am a researcher working on updating the experiments performed in the research paper Visual Classification via Description by Menon et al. 2023. Explain the processes and reasoning by which descriptors are generated for each data class in this experiment. Keep the explanation brief and only address the request, do not give extra information."""
-)
+# print(
+# """I am a researcher working on updating the experiments performed in the research paper Visual Classification via Description by Menon et al. 2023. Explain the processes and reasoning by which descriptors are generated for each data class in this experiment. Keep the explanation brief and only address the request, do not give extra information."""
+# )
+
+from loading_helpers import compute_class_list, compute_descriptor_list
+import json
+
+filename = 'descriptors/gpt3/descriptors_imagenet.json'
+
+with open(filename, 'r') as f:
+    data = json.load(f)
+
+class_list = compute_class_list(data, sort_config=False)
+
+print(class_list)
