@@ -145,7 +145,8 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
             elif (hparams['category_name_inclusion'] == 'prepend'):
                 # Base structure
                 # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
-                # Base structure, with ImageNet subcategory. Best (63.24%): "A photo of an tench, which is a freshwater fish, which is a type of fish" 
+                # Base structure, with ImageNet subcategory. Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
+                # Base structure, with ImageNetv2 subcategory. Best (55.90%): "tench, which is a freshwater fish, which is a type of freshwater fish"
                 build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add}"}{hparams['after_text']}"
                 # Base structure, with Food101 subcategory. Best (81.26%): "apple pie, which is a pie dish, which would be found on a menu under "desserts""
                 # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which would be found on a menu under "{subcategory_to_add}"'}{hparams['after_text']}"
