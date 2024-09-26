@@ -65,8 +65,12 @@ def wordify(string):
 
 def make_descriptor_sentence(descriptor, hparams):
     if (hparams['category_name_inclusion'] == 'prepend'):
-        if descriptor.startswith('a') or descriptor.startswith('an'):
+        if descriptor.startswith('a ') or descriptor.startswith('an'):
             return f"which is {descriptor}"
+        elif descriptor.startswith('the '):
+            return f"which is {descriptor}"
+        elif descriptor.startswith('a') or descriptor.startswith('e') or descriptor.startswith('i') or descriptor.startswith('o') or descriptor.startswith('u'):
+            return f"which is an {descriptor}"
         elif descriptor.startswith('has') or descriptor.startswith('often') or descriptor.startswith('typically') or descriptor.startswith('may') or descriptor.startswith('can'):
             return f"which {descriptor}"
         elif descriptor.startswith('used'):
@@ -133,12 +137,20 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 v = ['']
 
             word_to_add = wordify(k)
+            for subcategory, classes in subcategory_dict.items():
+                # classes are lists of class names
+                # if the class is in the list of classes for a subcategory, establish the subcategory as a new variable, "subcategory_to_add"
+                if k in classes:
+                    subcategory_to_add = subcategory
+                    break
 
             if (hparams['category_name_inclusion'] == 'append'):
                 build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['between_text']}{word_to_add}"
             elif (hparams['category_name_inclusion'] == 'prepend'):
                 # Base structure
                 build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
+                # Base structure, with subcategory
+                build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add} "}"
                 # Descriptor only
                 # build_descriptor_string = lambda item: f"{item.capitalize()}"
                 # # Class name only
