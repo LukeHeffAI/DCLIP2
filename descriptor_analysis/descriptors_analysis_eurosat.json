@@ -53,7 +53,7 @@
         "typically have a rectangular or square shape": 0.5,
         "uninterrupted spaces": 0.5
     },
-    "descriptor-self-similarity": {
+    "descriptor_self_similarity": {
         "a large area of trees": 0.91943359375,
         "a long, straight, or gently curved line": 0.95166015625,
         "a long, thin line of water": 0.9658203125,
@@ -80,17 +80,17 @@
         "typically have a rectangular or square shape": 0.99755859375,
         "uninterrupted spaces": 0.96240234375
     },
-    "class-self-similarity": {
-        "annual crop land": 0.841796875,
-        "brushland or shrubland": 0.771484375,
-        "forest": 0.8154296875,
-        "highway or road": 0.8193359375,
-        "industrial buildings or commercial buildings": 0.79931640625,
+    "class_self_similarity": {
+        "annual crop land": 0.8420138888888888,
+        "brushland or shrubland": 0.7717013888888888,
+        "forest": 0.8155381944444444,
+        "highway or road": 0.8194444444444444,
+        "industrial buildings or commercial buildings": 0.7994791666666666,
         "lake or sea": 0.81640625,
-        "pasture land": 0.8291015625,
-        "permanent crop land": 0.84326171875,
-        "residential buildings or homes or apartments": 0.8271484375,
+        "pasture land": 0.8289930555555556,
+        "permanent crop land": 0.8433159722222222,
+        "residential buildings or homes or apartments": 0.8272569444444444,
         "river": 0.81640625
     },
-    "class-self-similarity-total": 0.81787109375
+    "class_self_similarity_total": 0.8180555555555555
 }
