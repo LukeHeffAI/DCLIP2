@@ -1,6 +1,7 @@
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm
+import numpy as np
 import clip
 from load import hparams, dataset
 from loading_helpers import compute_descriptor_list, compute_class_list, load_json
@@ -165,13 +166,16 @@ def compute_class_sim_uniqueness_score(data):
     # Sum similarities for each descriptor
     class_sums = similarity_matrix.sum(dim=1).cpu().numpy()
 
+    # Convert to higher precision (float64) to avoid overflow
+    class_sums = class_sums.astype(np.float64)
+
     # Normalize the sums by the number of other classes
     class_list_length = len(class_list)
     class_normalised_sums = {class_item: float(class_sums[i] / (class_list_length - 1))  # Normalize by number of other classes
                              for i, class_item in enumerate(class_list)}
 
-    # Compute the overall average similarity for the dataset
-    overall_avg_similarity = class_sums.sum() / (class_list_length * (class_list_length - 1))
+    # Compute the overall average similarity for the dataset, using high precision
+    overall_avg_similarity = np.sum(class_sums) / (class_list_length * (class_list_length - 1))
 
     return class_normalised_sums, overall_avg_similarity
 
@@ -217,9 +221,9 @@ class_self_similarity, class_self_similarity_total = compute_class_sim_uniquenes
 
 analysis_dict = {"freq_exact": freq_exact,
         "freq_approx": freq_contains,
-        "descriptor-self-similarity": descriptor_self_similarity,
-        "class-self-similarity": class_self_similarity,
-        "class-self-similarity-total": float(class_self_similarity_total),
+        "descriptor_self_similarity": descriptor_self_similarity,
+        "class_self_similarity": class_self_similarity,
+        "class_self_similarity_total": float(class_self_similarity_total),
         # "text-image-similarity": text_image_similarity,
         }
     
