@@ -118,6 +118,9 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     else:
         gpt_descriptions = gpt_descriptions_unordered
 
+    if hparams['class_analysis_fname'] is not None:
+        subcategory_dict = load_json(hparams['class_analysis_fname'])
+
     if hparams['category_name_inclusion'] is not None:
         if classes_to_load is not None:
             keys_to_remove = [k for k in gpt_descriptions.keys() if k not in classes_to_load]
