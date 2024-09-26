@@ -31,14 +31,14 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['desc_type'] = 'gpt4o'
+hparams['desc_type'] = 'gpt3'
 # Options:
 # ['gpt3',
 #  'gpt4,
 #  'gpt4o',
 #  'test']
 
-hparams['dataset'] = 'imagenet'
+hparams['dataset'] = 'imagenetv2'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
@@ -213,13 +213,13 @@ if hparams['dataset'] != 'imagenetv2':
 else:
     dataset_classes = classes_to_load
 
-# hparams['before_text'] = "A photo of a "
-hparams['before_text'] = ""
+hparams['before_text'] = "A photo of a "
+# hparams['before_text'] = ""
 hparams['label_before_text'] = ""
 hparams['between_text'] = ', '
 hparams['after_text'] = f', from a dataset.'
 # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
-# hparams['after_text'] = ''
+hparams['after_text'] = ''
 # hparams['between_text'] = ' '
 # hparams['between_text'] = ''
 hparams['unmodify'] = True
