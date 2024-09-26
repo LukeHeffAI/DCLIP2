@@ -1,0 +1,125 @@
+{
+    "desserts": [
+        "apple pie",
+        "baklava",
+        "beignets",
+        "bread pudding",
+        "cannoli",
+        "carrot cake",
+        "cheesecake",
+        "chocolate cake",
+        "chocolate mousse",
+        "churros",
+        "creme brulee",
+        "cup cakes",
+        "donuts",
+        "frozen yogurt",
+        "ice cream",
+        "macarons",
+        "panna cotta",
+        "red velvet cake",
+        "strawberry shortcake",
+        "tiramisu"
+    ],
+    "meat dishes": [
+        "baby back ribs",
+        "beef carpaccio",
+        "beef tartare",
+        "chicken curry",
+        "chicken wings",
+        "filet mignon",
+        "foie gras",
+        "pork chop",
+        "poutine",
+        "prime rib",
+        "steak"
+    ],
+    "salads": [
+        "beet salad",
+        "caesar salad",
+        "caprese salad",
+        "greek salad",
+        "seaweed salad"
+    ],
+    "asian cuisine": [
+        "bibimbap",
+        "dumplings",
+        "fried rice",
+        "gyoza",
+        "pad thai",
+        "peking duck",
+        "pho",
+        "ramen",
+        "samosa",
+        "sashimi",
+        "spring rolls",
+        "sushi",
+        "takoyaki"
+    ],
+    "breakfast foods": [
+        "breakfast burrito",
+        "eggs benedict",
+        "french toast",
+        "huevos rancheros",
+        "omelette",
+        "pancakes",
+        "waffles"
+    ],
+    "appetizers and snacks": [
+        "bruschetta",
+        "cheese plate",
+        "deviled eggs",
+        "french fries",
+        "garlic bread",
+        "guacamole",
+        "hummus",
+        "nachos",
+        "onion rings"
+    ],
+    "seafood": [
+        "ceviche",
+        "crab cakes",
+        "escargots",
+        "fish and chips",
+        "fried calamari",
+        "grilled salmon",
+        "mussels",
+        "oysters",
+        "paella",
+        "scallops",
+        "shrimp and grits",
+        "tuna tartare"
+    ],
+    "sandwiches": [
+        "chicken quesadilla",
+        "club sandwich",
+        "croque madame",
+        "grilled cheese sandwich",
+        "hamburger",
+        "hot dog",
+        "lobster roll sandwich",
+        "pizza",
+        "pulled pork sandwich",
+        "tacos"
+    ],
+    "soups": [
+        "clam chowder",
+        "french onion soup",
+        "hot and sour soup",
+        "lobster bisque",
+        "miso soup"
+    ],
+    "vegetarian dishes": [
+        "edamame",
+        "falafel"
+    ],
+    "pasta and noodles": [
+        "gnocchi",
+        "lasagna",
+        "macaroni and cheese",
+        "ravioli",
+        "risotto",
+        "spaghetti bolognese",
+        "spaghetti carbonara"
+    ]
+}
