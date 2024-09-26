@@ -31,14 +31,14 @@ hparams['model_size'] = "ViT-B/32"
 #  'ViT-L/14',
 #  'ViT-L/14@336px']
 
-hparams['desc_type'] = 'gpt3'
+hparams['desc_type'] = 'gpt4o'
 # Options:
 # ['gpt3',
 #  'gpt4,
 #  'gpt4o',
 #  'test']
 
-hparams['dataset'] = 'places365'
+hparams['dataset'] = 'imagenet'
 # Options:
 # ['imagenet',
 #  'imagenetv2',
