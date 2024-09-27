@@ -137,6 +137,6 @@ def obtain_descriptors_and_save(filename, model="gpt-4o"):
 
     return descriptors
 
-filename = f'descriptors/gpt4o/descriptors_{hparams['dataset']}.json'
+filename = f'descriptors/{hparams['desc_type']}/descriptors_{hparams['dataset']}.json'
 
-obtain_descriptors_and_save(filename=filename)
+obtain_descriptors_and_save(filename=filename, model="davinci-002")
