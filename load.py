@@ -8,7 +8,7 @@ import pathlib
 
 from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
-from torchvision.datasets import ImageNet, ImageFolder, Places365
+from torchvision.datasets import ImageNet, ImageFolder, Places365, CIFAR10, CIFAR100, FGVCAircraft, StanfordCars, Flowers102
 from imagenetv2_pytorch import ImageNetV2Dataset as ImageNetV2
 from datasets import _transform, CUBDataset
 from collections import OrderedDict
@@ -93,12 +93,15 @@ FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/'
 PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/'
 DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
 PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
-ESC_10_DIR = '/home/luke/Documents/GitHub/ImageBind/ESC-50-master/audio/ESC-10'
+CIFAR10_DIR = '/home/luke/Documents/GitHub/data/CIFAR10/' # TODO: Add CIFAR10
+CIFAR100_DIR = '/home/luke/Documents/GitHub/data/CIFAR100/' # TODO: Add CIFAR100
+AIRCRAFT_DIR = '/home/luke/Documents/GitHub/data/FGVC-aircraft-2013b/data/' # TODO: Add FGVC Aircraft
+CARS_DIR = '/home/luke/Documents/GitHub/data/stanford_cars/' # TODO: Add Stanford Cars
+FLOWERS_DIR = '/home/luke/Documents/GitHub/data/Oxford_flowers/' # TODO: Add Oxford Flowers
 
 
 # PyTorch datasets
 tfms = _transform(hparams['image_size'])
-
 
 
 if hparams['dataset'] == 'imagenet':
@@ -155,8 +158,6 @@ elif hparams['dataset'].startswith('cub_gpt4'):
     classes_to_load = None
     hparams['descriptor_fname'] = f'descriptors_{hparams["dataset"]}riptors'
     
-# I recommend using VISSL https://github.com/facebookresearch/vissl/blob/main/extra_scripts/README.md to download these
-    
 elif hparams['dataset'] == 'eurosat':
     hparams['dataset_name'] = 'EuroSAT'
     # from extra_datasets.patching.eurosat import EuroSATVal
@@ -208,12 +209,58 @@ elif hparams['dataset'] == 'dtd':
     classes_to_load = None
     hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images categorized by visual textures.'
 
+elif hparams['dataset'] == 'cifar10':
+    hparams['dataset_name'] = 'CIFAR-10'
+    hparams['data_dir'] = pathlib.Path(CIFAR10_DIR)
+    hparams['analysis_fname'] = 'analysis_cifar10'
+    dataset = CIFAR10(hparams['data_dir'], train=False, transform=tfms, download=True)
+    hparams['descriptor_fname'] = 'descriptors_cifar10'
+    classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of 10 different classes.'
+
+elif hparams['dataset'] == 'cifar100':
+    hparams['dataset_name'] = 'CIFAR-100'
+    hparams['data_dir'] = pathlib.Path(CIFAR100_DIR)
+    hparams['analysis_fname'] = 'analysis_cifar100'
+    dataset = CIFAR100(hparams['data_dir'], train=False, transform=tfms, download=True)
+    hparams['descriptor_fname'] = 'descriptors_cifar100'
+    classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of 100 different classes.'
+
+elif hparams['dataset'] == 'aircraft':
+    hparams['dataset_name'] = 'FGVC Aircraft'
+    hparams['data_dir'] = pathlib.Path(AIRCRAFT_DIR)
+    hparams['analysis_fname'] = 'analysis_aircraft'
+    dataset = FGVCAircraft(hparams['data_dir'], split='val', transform=tfms)
+    hparams['descriptor_fname'] = 'descriptors_aircraft'
+    classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of aircrafts.'
+
+elif hparams['dataset'] == 'cars':
+    hparams['dataset_name'] = 'Stanford Cars'
+    hparams['data_dir'] = pathlib.Path(CARS_DIR)
+    hparams['analysis_fname'] = 'analysis_cars'
+    dataset = StanfordCars(hparams['data_dir'], split='val', transform=tfms)
+    hparams['descriptor_fname'] = 'descriptors_cars'
+    classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of cars.'
+
+elif hparams['dataset'] == 'flowers':
+    hparams['dataset_name'] = 'Oxford Flowers'
+    hparams['data_dir'] = pathlib.Path(FLOWERS_DIR)
+    hparams['analysis_fname'] = 'analysis_flowers'
+    dataset = Flowers102(str(hparams['data_dir'] / 'jpg'), transform=tfms)
+    hparams['descriptor_fname'] = 'descriptors_flowers'
+    classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of flowers.'
+
+
 if hparams['dataset'] != 'imagenetv2':
     dataset_classes = dataset.classes
 else:
     dataset_classes = classes_to_load
 
-# hparams['before_text'] = "A photo of an "
+# hparams['before_text'] = "An image of a "
 hparams['before_text'] = ""
 hparams['label_before_text'] = ""
 hparams['between_text'] = ', '
