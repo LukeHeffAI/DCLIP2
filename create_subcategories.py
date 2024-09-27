@@ -1,8 +1,13 @@
+import time
+
+time.sleep(60*5)
+
 from loading_helpers import compute_class_list
 import json
 from openai import OpenAI
+import openai
 from load import hparams
-import time
+import concurrent.futures
 
 time_start = time.time()
 
@@ -20,11 +25,11 @@ class_list = class_list
 classes_assigned_to_subcategories = {}
 count = 0
 
-# Create a number of subcategories such that the maximum number of classes per subcategory is 20
 n_classes = len(class_list)
 
+# Create an estimate for the minimum number of subcategories to create. The LLM won't be able to accurately process this number anyway, but it usually gets close.
 if n_classes < 20:
-    min_subcategories = 1
+    min_subcategories = 2
 else:
     min_subcategories = int(n_classes / 10) + 1
 
@@ -50,8 +55,8 @@ def generate_subcategories_from(class_list, context_prompt):
         temperature=0.2,
         max_tokens=min_subcategories*20,
         top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0,
+        frequency_penalty=0.2,
+        presence_penalty=0.2,
         response_format={
             "type": "text"
         }
@@ -117,7 +122,7 @@ def refine_subcategories_from(class_list, category_list):
 
     return subcategories_list
 
-def allocate_classes_to(subcategories_list, context_prompt):
+def allocate_classes_to(class_name, subcategories_list, context_prompt):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
@@ -144,12 +149,12 @@ def allocate_classes_to(subcategories_list, context_prompt):
             "content": [
                 {
                 "type": "text",
-                "text": f"Which of the subcategories in the above Python list should '{class_name}' be assigned to? It must be one of the subcategories in the list, not a new one. If a class could belong to multiple subcategories, assign it to the most unique/least likely subcategory. Respond with only the subcategory name."
+                "text": f"Which of the subcategories in the above Python list should '{class_name}' be assigned to? It must be one of the subcategories in the list, not a new one. If a class could belong to multiple subcategories, assign it to the most unique/least likely subcategory to increase the differentiation of classes. Respond with only the subcategory name."
                 }
             ]
             }
         ],
-        temperature=0.4,
+        temperature=0.2,
         max_tokens=40,
         top_p=1,
         frequency_penalty=0,
@@ -168,21 +173,71 @@ subcategories_list = generate_subcategories_from(class_list, context_prompt)
 
 time_broad_subcategories = time.time()
 
-if len(class_list) > 300:
+while len(class_list) > 100 and len(subcategories_list) < (len(class_list) / 10) + 1:
     subcategories_list = refine_subcategories_from(class_list, subcategories_list)
 
 time_fine_subcategories = time.time()
 
-for class_name in class_list:
-    subcategory = allocate_classes_to(subcategories_list, context_prompt)
+failed_classes = []
 
-    count += 1
-    print(f"Class number {count} of {len(class_list)}: ", subcategory)
+def process_class(class_name, subcategories_list, context_prompt, max_retries=10, initial_delay=3):
+    retries = 0
+    delay = initial_delay
+    while retries < max_retries:
+        try:
+            subcategory = allocate_classes_to(class_name, subcategories_list, context_prompt)
+            return class_name, subcategory
+        except openai.RateLimitError as e:
+            retries += 1
+            print(f"Rate limit hit for {class_name}. Retrying in {delay} seconds... (Attempt {retries} of {max_retries})")
+            time.sleep(delay)
+            delay *= 2
+        except Exception as e:
+            print(f"Error processing {class_name}: {e}")
+            return class_name, None
+    return class_name, None
 
-    if subcategory in classes_assigned_to_subcategories:
-        classes_assigned_to_subcategories[subcategory].append(class_name)
-    else:
-        classes_assigned_to_subcategories[subcategory] = [class_name]
+
+with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+    future_to_class = {executor.submit(process_class, class_name, subcategories_list, context_prompt): class_name for class_name in class_list}
+    
+    count = 0
+    for future in concurrent.futures.as_completed(future_to_class):
+        class_name, subcategory = future.result()
+
+        if subcategory:  # Only add to dictionary if subcategory is valid
+            count += 1
+            print(f"Class number {count} of {len(class_list)}: ", subcategory)
+
+            if subcategory in classes_assigned_to_subcategories:
+                classes_assigned_to_subcategories[subcategory].append(class_name)
+            else:
+                classes_assigned_to_subcategories[subcategory] = [class_name]
+        else:
+            # Log the failed class
+            print(f"Failed to process class {class_name} after retries.")
+            failed_classes.append(class_name)  # Track failed classes
+
+# Wait for 10 seconds before retrying failed classes
+if failed_classes:
+    print("Waiting for 10 seconds before retrying failed classes...")
+    time.sleep(120)
+    print(f"Retrying {len(failed_classes)} failed classes...")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        future_to_class_retry = {executor.submit(process_class, class_name, subcategories_list, context_prompt): class_name for class_name in failed_classes}
+        
+        for future in concurrent.futures.as_completed(future_to_class_retry):
+            class_name, subcategory = future.result()
+
+            if subcategory:  # Only add to dictionary if subcategory is valid
+                print(f"Successfully retried class: {class_name}")
+
+                if subcategory in classes_assigned_to_subcategories:
+                    classes_assigned_to_subcategories[subcategory].append(class_name)
+                else:
+                    classes_assigned_to_subcategories[subcategory] = [class_name]
+            else:
+                print(f"Class {class_name} still failed after retries.")
 
 time_assigned = time.time()
 
@@ -190,6 +245,13 @@ print(classes_assigned_to_subcategories)
 
 class_filename = f'class_analysis/json/class_analysis_{hparams['dataset']}.json'
 print(f"Saving subcategories to {class_filename}")
+
+if failed_classes:
+    failed_classes_filename = f'class_analysis/json/failed_classes_{hparams["dataset"]}.json'
+    print(f"Saving failed classes to {failed_classes_filename}")
+
+    with open(failed_classes_filename, 'w') as f:
+        json.dump(failed_classes, f, indent=4)
 
 with open(class_filename, 'w') as f:
     json.dump(classes_assigned_to_subcategories, f, indent=4)
