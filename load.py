@@ -21,43 +21,21 @@ hparams = {}
 
 hparams['model_size'] = "ViT-B/32"
 # Options:
-# ['RN50',
-#  'RN101',
-#  'RN50x4',
-#  'RN50x16',
-#  'RN50x64',
-#  'ViT-B/32',
-#  'ViT-B/16',
-#  'ViT-L/14',
-#  'ViT-L/14@336px']
+# ['RN50', 'RN101', 'RN50x4', 'RN50x16', 'RN50x64', 'ViT-B/32', 'ViT-B/16', 'ViT-L/14', 'ViT-L/14@336px']
 
-hparams['desc_type'] = 'gpt4o'
+hparams['desc_type'] = 'gpt3'
 # Options:
-# ['gpt3',
-#  'gpt4,
-#  'gpt4o',
-#  'test']
+# ['gpt3', 'gpt4', 'gpt4o', 'test']
 
-hparams['dataset'] = 'imagenetv2'
+hparams['dataset'] = 'places365'
 # Options:
-# ['imagenet',
-#  'imagenetv2',
-#  'cub',
-#  'cub_reassignment',
-#  'cub_reassignment_threshold',
-#  'cub_gpt4_1_desc',
-#  'cub_gpt4_2_desc',
-#  'cub_gpt4_3_desc',
-#  'cub_gpt4_4_desc',
-#  'cub_gpt4_5_desc',
-#  'cub_gpt4_6_desc',
-#  'cub_gpt4_7_desc',
-#  'cub_gpt4_8_desc',
-#  'eurosat',
-#  'places365',
-#  'food101',
-#  'pets',
-#  'dtd']
+# ['imagenet', 'imagenetv2', 'cub', 'cub_reassignment', 'cub_reassignment_threshold', 'cub_gpt4_{n}_desc', 'eurosat', 'places365', 'food101', 'pets', 'dtd', 'cifar10', 'cifar100', 'aircraft', 'cars', 'flowers']
+
+hparams['use_subcategories'] = False
+# Options:
+# [True, False]
+
+
 
 hparams['batch_size'] = 64*10
 hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
@@ -212,7 +190,7 @@ elif hparams['dataset'] == 'dtd':
 elif hparams['dataset'] == 'cifar10':
     hparams['dataset_name'] = 'CIFAR-10'
     hparams['data_dir'] = pathlib.Path(CIFAR10_DIR)
-    hparams['analysis_fname'] = 'analysis_cifar10'
+    # hparams['analysis_fname'] = 'analysis_cifar10'
     dataset = CIFAR10(hparams['data_dir'], train=False, transform=tfms, download=True)
     hparams['descriptor_fname'] = 'descriptors_cifar10'
     classes_to_load = None
@@ -221,7 +199,7 @@ elif hparams['dataset'] == 'cifar10':
 elif hparams['dataset'] == 'cifar100':
     hparams['dataset_name'] = 'CIFAR-100'
     hparams['data_dir'] = pathlib.Path(CIFAR100_DIR)
-    hparams['analysis_fname'] = 'analysis_cifar100'
+    # hparams['analysis_fname'] = 'analysis_cifar100'
     dataset = CIFAR100(hparams['data_dir'], train=False, transform=tfms, download=True)
     hparams['descriptor_fname'] = 'descriptors_cifar100'
     classes_to_load = None
@@ -230,7 +208,7 @@ elif hparams['dataset'] == 'cifar100':
 elif hparams['dataset'] == 'aircraft':
     hparams['dataset_name'] = 'FGVC Aircraft'
     hparams['data_dir'] = pathlib.Path(AIRCRAFT_DIR)
-    hparams['analysis_fname'] = 'analysis_aircraft'
+    # hparams['analysis_fname'] = 'analysis_aircraft'
     dataset = FGVCAircraft(hparams['data_dir'], split='val', transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_aircraft'
     classes_to_load = None
@@ -239,8 +217,8 @@ elif hparams['dataset'] == 'aircraft':
 elif hparams['dataset'] == 'cars':
     hparams['dataset_name'] = 'Stanford Cars'
     hparams['data_dir'] = pathlib.Path(CARS_DIR)
-    hparams['analysis_fname'] = 'analysis_cars'
-    dataset = StanfordCars(hparams['data_dir'], split='val', transform=tfms)
+    # hparams['analysis_fname'] = 'analysis_cars'
+    dataset = StanfordCars(hparams['data_dir'], split='test', transform=tfms, download=True)
     hparams['descriptor_fname'] = 'descriptors_cars'
     classes_to_load = None
     hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of cars.'
@@ -248,7 +226,7 @@ elif hparams['dataset'] == 'cars':
 elif hparams['dataset'] == 'flowers':
     hparams['dataset_name'] = 'Oxford Flowers'
     hparams['data_dir'] = pathlib.Path(FLOWERS_DIR)
-    hparams['analysis_fname'] = 'analysis_flowers'
+    # hparams['analysis_fname'] = 'analysis_flowers'
     dataset = Flowers102(str(hparams['data_dir'] / 'jpg'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_flowers'
     classes_to_load = None
@@ -260,7 +238,7 @@ if hparams['dataset'] != 'imagenetv2':
 else:
     dataset_classes = classes_to_load
 
-# hparams['before_text'] = "An image of a "
+# hparams['before_text'] = "An photo of a "
 hparams['before_text'] = ""
 hparams['label_before_text'] = ""
 hparams['between_text'] = ', '
