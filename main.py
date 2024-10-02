@@ -199,6 +199,7 @@ results[model_size][dataset_name][frequency_type] = experimental_results
 print(f"CLIP Model: {hparams['model_size']}",
       f"|| Desc. Source: {hparams['desc_type']}",
       f"|| Dataset being tested: {hparams['dataset']}",
+      f"|| Method: {hparams['method']}",
       f"|| Cut Proportion: {cut_proportion}",
       f"|| Freq. Penalisation Type: {frequency_type}",
       f"|| Sim. Penalisation: {similarity_penalty_config}")
