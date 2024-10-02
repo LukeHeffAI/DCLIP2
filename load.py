@@ -8,7 +8,7 @@ import pathlib
 
 from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
-from torchvision.datasets import ImageNet, ImageFolder, Places365, CIFAR10, CIFAR100, FGVCAircraft, StanfordCars, Flowers102
+from torchvision.datasets import ImageNet, ImageFolder, Places365, CIFAR10, CIFAR100, FGVCAircraft, StanfordCars, Flowers102, SUN397, Caltech101
 from imagenetv2_pytorch import ImageNetV2Dataset as ImageNetV2
 from datasets import _transform, CUBDataset
 from collections import OrderedDict
@@ -27,14 +27,13 @@ hparams['desc_type'] = 'gpt3'
 # Options:
 # ['gpt3', 'gpt4', 'gpt4o', 'test']
 
-hparams['dataset'] = 'places365'
+hparams['dataset'] = 'cub'
 # Options:
-# ['imagenet', 'imagenetv2', 'cub', 'cub_reassignment', 'cub_reassignment_threshold', 'cub_gpt4_{n}_desc', 'eurosat', 'places365', 'food101', 'pets', 'dtd', 'cifar10', 'cifar100', 'aircraft', 'cars', 'flowers']
+# ['imagenet', 'imagenetv2', 'cub', 'cub_reassignment', 'cub_reassignment_threshold', 'cub_gpt4_{n}_desc', 'eurosat', 'places365', 'food101', 'pets', 'dtd', 'cifar10', 'cifar100', 'aircraft', 'cars', 'flowers', 'sun397', 'caltech101']
 
-hparams['use_subcategories'] = False
+hparams['method'] = 'e-clip'
 # Options:
-# [True, False]
-
+# ['clip', 'e-clip', 'd-clip', 'waffleclip', 'defntaxs', 'other']
 
 
 hparams['batch_size'] = 64*10
@@ -71,11 +70,13 @@ FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/'
 PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/'
 DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
 PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
-CIFAR10_DIR = '/home/luke/Documents/GitHub/data/CIFAR10/' # TODO: Add CIFAR10
-CIFAR100_DIR = '/home/luke/Documents/GitHub/data/CIFAR100/' # TODO: Add CIFAR100
-AIRCRAFT_DIR = '/home/luke/Documents/GitHub/data/FGVC-aircraft-2013b/data/' # TODO: Add FGVC Aircraft
+CIFAR10_DIR = '/home/luke/Documents/GitHub/data/CIFAR10/'
+CIFAR100_DIR = '/home/luke/Documents/GitHub/data/CIFAR100/'
+AIRCRAFT_DIR = '/home/luke/Documents/GitHub/data/FGVC-aircraft-2013b/data/'
 CARS_DIR = '/home/luke/Documents/GitHub/data/stanford_cars/' # TODO: Add Stanford Cars
-FLOWERS_DIR = '/home/luke/Documents/GitHub/data/Oxford_flowers/' # TODO: Add Oxford Flowers
+FLOWERS_DIR = '/home/luke/Documents/GitHub/data/Oxford_flowers/'
+SUN397_DIR = '/home/luke/Documents/GitHub/data/SUN397/'
+CALTECH101_DIR = '/home/luke/Documents/GitHub/data/Caltech101/'
 
 
 # PyTorch datasets
@@ -209,12 +210,12 @@ elif hparams['dataset'] == 'aircraft':
     hparams['dataset_name'] = 'FGVC Aircraft'
     hparams['data_dir'] = pathlib.Path(AIRCRAFT_DIR)
     # hparams['analysis_fname'] = 'analysis_aircraft'
-    dataset = FGVCAircraft(hparams['data_dir'], split='val', transform=tfms)
+    dataset = FGVCAircraft(hparams['data_dir'], split='val', transform=tfms, download=False)
     hparams['descriptor_fname'] = 'descriptors_aircraft'
     classes_to_load = None
     hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of aircrafts.'
 
-elif hparams['dataset'] == 'cars':
+elif hparams['dataset'] == 'cars': # TODO: Add Stanford Cars, download from https://github.com/pytorch/vision/issues/7545#issuecomment-1631441616
     hparams['dataset_name'] = 'Stanford Cars'
     hparams['data_dir'] = pathlib.Path(CARS_DIR)
     # hparams['analysis_fname'] = 'analysis_cars'
@@ -227,11 +228,28 @@ elif hparams['dataset'] == 'flowers':
     hparams['dataset_name'] = 'Oxford Flowers'
     hparams['data_dir'] = pathlib.Path(FLOWERS_DIR)
     # hparams['analysis_fname'] = 'analysis_flowers'
-    dataset = Flowers102(str(hparams['data_dir'] / 'jpg'), transform=tfms)
+    dataset = Flowers102(str(hparams['data_dir'] / 'jpg'), split='test', transform=tfms, download=False)
     hparams['descriptor_fname'] = 'descriptors_flowers'
     classes_to_load = None
     hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of flowers.'
 
+elif hparams['dataset'] == 'sun397':
+    hparams['dataset_name'] = 'SUN397'
+    hparams['data_dir'] = pathlib.Path(SUN397_DIR)
+    # hparams['analysis_fname'] = 'analysis_sun397'
+    dataset = SUN397(hparams['data_dir'], transform=tfms, download=True)
+    hparams['descriptor_fname'] = 'descriptors_sun397'
+    classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of scenes and places.'
+
+elif hparams['dataset'] == 'caltech101':
+    hparams['dataset_name'] = 'Caltech101'
+    hparams['data_dir'] = pathlib.Path(CALTECH101_DIR)
+    # hparams['analysis_fname'] = 'analysis_caltech101'
+    dataset = Caltech101(hparams['data_dir'], transform=tfms, download=True)
+    hparams['descriptor_fname'] = 'descriptors_caltech101'
+    classes_to_load = None
+    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of objects from 101 categories.'
 
 if hparams['dataset'] != 'imagenetv2':
     dataset_classes = dataset.classes
