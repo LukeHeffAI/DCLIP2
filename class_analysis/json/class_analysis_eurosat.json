@@ -1,0 +1,20 @@
+{
+    "agricultural area": [
+        "annual crop land",
+        "pasture land",
+        "permanent crop land"
+    ],
+    "natural landscape": [
+        "forest",
+        "brushland or shrubland"
+    ],
+    "urban area": [
+        "highway or road",
+        "industrial buildings or commercial buildings",
+        "residential buildings or homes or apartments"
+    ],
+    "body of water": [
+        "river",
+        "lake or sea"
+    ]
+}
