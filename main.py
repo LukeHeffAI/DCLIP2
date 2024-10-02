@@ -15,6 +15,12 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
+# Set the hyperparameters
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt3', dataset='cub', method='d-clip')
+
+# Update the hyperparameters
+hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+
 results_file_path = 'results/experiment_results.json'
 results = load_or_initialise_results(results_file_path)
 
@@ -34,8 +40,8 @@ model.requires_grad_(False)
 
 # Encode descriptions and labels
 print("Encoding descriptions...")
-description_encodings = compute_description_encodings(model)
-label_encodings = compute_label_encodings(model)
+description_encodings = compute_description_encodings(model, gpt_descriptions, hparams)
+label_encodings = compute_label_encodings(model, hparams)
 
 # Number of classes
 num_classes = len(dataset_classes)
@@ -61,7 +67,9 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     image_encodings = F.normalize(image_encodings)
     
     # Compute similarities and make predictions
+    print(image_encodings.shape, label_encodings.shape)
     image_labels_similarity = image_encodings @ label_encodings.T
+    print(image_labels_similarity.shape)
     clip_predictions = image_labels_similarity.argmax(dim=1)
     
     # Update overall and class-wise accuracies for CLIP
@@ -79,18 +87,18 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
         
-        # Penalise the dot product matrix based on the frequency of the descriptor
-        if frequency_type == 'freq_exact':
-            for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
-                dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
-        elif frequency_type == 'freq_approx':
-            for descriptor in gpt_descriptions[k]:
-                dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
+        # # Penalise the dot product matrix based on the frequency of the descriptor
+        # if frequency_type == 'freq_exact':
+        #     for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
+        #         dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
+        # elif frequency_type == 'freq_approx':
+        #     for descriptor in gpt_descriptions[k]:
+        #         dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
 
-        # Penalise the dot product matrix based on the normalised cosine similarity of the descriptor to all other descriptors
-        if similarity_penalty_config == 'similarity_penalty':
-            for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
-                dot_product_matrix /= descriptor_self_similarity[unmodify_dict[k][descriptor]]
+        # # Penalise the dot product matrix based on the normalised cosine similarity of the descriptor to all other descriptors
+        # if similarity_penalty_config == 'similarity_penalty':
+        #     for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
+        #         dot_product_matrix /= descriptor_self_similarity[unmodify_dict[k][descriptor]]
         
         image_description_similarity[i] = dot_product_matrix
         image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
