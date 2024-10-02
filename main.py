@@ -61,8 +61,10 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     image_encodings = F.normalize(image_encodings)
     
     # Compute similarities and make predictions
+    print(image_encodings.shape, label_encodings.shape)
     image_labels_similarity = image_encodings @ label_encodings.T
     clip_predictions = image_labels_similarity.argmax(dim=1)
+    print(clip_predictions.shape)
     
     # Update overall and class-wise accuracies for CLIP
     overall_clip_accuracy_metric(image_labels_similarity, labels)
