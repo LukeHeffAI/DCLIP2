@@ -8,7 +8,7 @@ import pathlib
 
 from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
-from torchvision.datasets import ImageNet, ImageFolder, Places365, CIFAR10, CIFAR100, FGVCAircraft, StanfordCars, Flowers102, SUN397, Caltech101
+from torchvision.datasets import ImageNet, ImageFolder, Places365
 from imagenetv2_pytorch import ImageNetV2Dataset as ImageNetV2
 from datasets import _transform, CUBDataset
 from collections import OrderedDict
@@ -21,20 +21,43 @@ hparams = {}
 
 hparams['model_size'] = "ViT-B/32"
 # Options:
-# ['RN50', 'RN101', 'RN50x4', 'RN50x16', 'RN50x64', 'ViT-B/32', 'ViT-B/16', 'ViT-L/14', 'ViT-L/14@336px']
+# ['RN50',
+#  'RN101',
+#  'RN50x4',
+#  'RN50x16',
+#  'RN50x64',
+#  'ViT-B/32',
+#  'ViT-B/16',
+#  'ViT-L/14',
+#  'ViT-L/14@336px']
 
-hparams['desc_type'] = 'gpt3'
+hparams['desc_type'] = 'gpt4o'
 # Options:
-# ['gpt3', 'gpt4', 'gpt4o', 'test']
+# ['gpt3',
+#  'gpt4,
+#  'gpt4o',
+#  'test']
 
 hparams['dataset'] = 'cub'
 # Options:
-# ['imagenet', 'imagenetv2', 'cub', 'cub_reassignment', 'cub_reassignment_threshold', 'cub_gpt4_{n}_desc', 'eurosat', 'places365', 'food101', 'pets', 'dtd', 'cifar10', 'cifar100', 'aircraft', 'cars', 'flowers', 'sun397', 'caltech101']
-
-hparams['method'] = 'e-clip'
-# Options:
-# ['clip', 'e-clip', 'd-clip', 'waffleclip', 'defntaxs', 'other']
-
+# ['imagenet',
+#  'imagenetv2',
+#  'cub',
+#  'cub_reassignment',
+#  'cub_reassignment_threshold',
+#  'cub_gpt4_1_desc',
+#  'cub_gpt4_2_desc',
+#  'cub_gpt4_3_desc',
+#  'cub_gpt4_4_desc',
+#  'cub_gpt4_5_desc',
+#  'cub_gpt4_6_desc',
+#  'cub_gpt4_7_desc',
+#  'cub_gpt4_8_desc',
+#  'eurosat',
+#  'places365',
+#  'food101',
+#  'pets',
+#  'dtd']
 
 hparams['batch_size'] = 64*10
 hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
@@ -57,6 +80,17 @@ elif hparams['model_size'] == 'RN50x64' and hparams['image_size'] != 448:
     print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 288.')
     hparams['image_size'] = 448
 
+hparams['before_text'] = ""
+hparams['label_before_text'] = ""
+hparams['between_text'] = ', '
+hparams['after_text'] = ''
+# hparams['between_text'] = ' '
+# hparams['between_text'] = ''
+hparams['unmodify'] = True
+# hparams['after_text'] = '.'
+# hparams['after_text'] = ', which is a type of bird.'
+hparams['label_after_text'] = ''
+# hparams['label_after_text'] = ' which is a type of bird.'
 hparams['seed'] = 1
 
 # classes_to_load = openai_imagenet_classes
@@ -66,21 +100,16 @@ IMAGENET_DIR = '/home/luke/Documents/GitHub/data/ImageNet/'
 IMAGENETV2_DIR = '/home/luke/Documents/GitHub/data/ImageNetV2/'
 CUB_DIR = '/home/luke/Documents/GitHub/data/CUB/CUB_200_2011/'
 EUROSAT_DIR = '/home/luke/Documents/GitHub/data/EuroSAT/2750/'
-FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/'
+FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/' # TODO: Fix shape issue when running main.py
 PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/'
 DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
 PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
-CIFAR10_DIR = '/home/luke/Documents/GitHub/data/CIFAR10/'
-CIFAR100_DIR = '/home/luke/Documents/GitHub/data/CIFAR100/'
-AIRCRAFT_DIR = '/home/luke/Documents/GitHub/data/FGVC-aircraft-2013b/data/'
-CARS_DIR = '/home/luke/Documents/GitHub/data/stanford_cars/' # TODO: Add Stanford Cars
-FLOWERS_DIR = '/home/luke/Documents/GitHub/data/Oxford_flowers/'
-SUN397_DIR = '/home/luke/Documents/GitHub/data/SUN397/'
-CALTECH101_DIR = '/home/luke/Documents/GitHub/data/Caltech101/'
+ESC_10_DIR = '/home/luke/Documents/GitHub/ImageBind/ESC-50-master/audio/ESC-10'
 
 
 # PyTorch datasets
 tfms = _transform(hparams['image_size'])
+
 
 
 if hparams['dataset'] == 'imagenet':
@@ -92,7 +121,7 @@ if hparams['dataset'] == 'imagenet':
     dataset = dsclass(hparams['data_dir'], split='val', transform=tfms)
     classes_to_load = None
     hparams['descriptor_fname'] = 'descriptors_imagenet'
-    hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
+    hparams['after_text'] = hparams['label_after_text'] = '.'
         
 elif hparams['dataset'] == 'imagenetv2':
     hparams['dataset_name'] = 'ImageNetV2'
@@ -102,7 +131,6 @@ elif hparams['dataset'] == 'imagenetv2':
     dataset = dsclass(location=str(hparams['data_dir']), transform=tfms)
     classes_to_load = openai_imagenet_classes
     hparams['descriptor_fname'] = 'descriptors_imagenet'
-    hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
 
 elif hparams['dataset'] == 'cub':
     hparams['dataset_name'] = 'Caltech-UCSD Birds 200 (CUB-200)'
@@ -111,7 +139,6 @@ elif hparams['dataset'] == 'cub':
     dataset = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
     classes_to_load = None #dataset.classes
     hparams['descriptor_fname'] = 'descriptors_cub'
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of bird images.'
 
 elif hparams['dataset'] == 'cub_reassignment':
     hparams['dataset_name'] = 'CUB_reassignment'
@@ -137,6 +164,8 @@ elif hparams['dataset'].startswith('cub_gpt4'):
     classes_to_load = None
     hparams['descriptor_fname'] = f'descriptors_{hparams["dataset"]}riptors'
     
+# I recommend using VISSL https://github.com/facebookresearch/vissl/blob/main/extra_scripts/README.md to download these
+    
 elif hparams['dataset'] == 'eurosat':
     hparams['dataset_name'] = 'EuroSAT'
     # from extra_datasets.patching.eurosat import EuroSATVal
@@ -148,16 +177,14 @@ elif hparams['dataset'] == 'eurosat':
     dataset = dsclass(str(hparams['data_dir']), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_eurosat'
     classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of satellite images of land use across European regions.'
     
 elif hparams['dataset'] == 'places365':
-    hparams['dataset_name'] = 'Places365 Scene Recognition'
+    hparams['dataset_name'] = 'Places365'
     hparams['data_dir'] = pathlib.Path(PLACES_DIR)
     hparams['analysis_fname'] = 'analysis_places365'
     dataset = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_places365'
     classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing diverse scene images for environmental classification tasks.'
     
 elif hparams['dataset'] == 'food101':
     hparams['dataset_name'] = 'Food101'
@@ -167,7 +194,6 @@ elif hparams['dataset'] == 'food101':
     dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_food101'
     classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories with 1,000 images each.'
 
 elif hparams['dataset'] == 'pets':
     hparams['dataset_name'] = 'Oxford Pets'
@@ -177,131 +203,45 @@ elif hparams['dataset'] == 'pets':
     dataset = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_pets'
     classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of dog and cat breeds.'
     
 elif hparams['dataset'] == 'dtd':
-    hparams['dataset_name'] = 'Desribable Textures Dataset (DTD)'
+    hparams['dataset_name'] = 'DTD'
     hparams['data_dir'] = pathlib.Path(DTD_DIR)
     hparams['analysis_fname'] = 'analysis_dtd'
     dataset = ImageFolder(str(hparams['data_dir'] / 'images'), transform=tfms)
     hparams['descriptor_fname'] = 'descriptors_dtd'
     classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images categorized by visual textures.'
-
-elif hparams['dataset'] == 'cifar10':
-    hparams['dataset_name'] = 'CIFAR-10'
-    hparams['data_dir'] = pathlib.Path(CIFAR10_DIR)
-    # hparams['analysis_fname'] = 'analysis_cifar10'
-    dataset = CIFAR10(hparams['data_dir'], train=False, transform=tfms, download=True)
-    hparams['descriptor_fname'] = 'descriptors_cifar10'
-    classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of 10 different classes.'
-
-elif hparams['dataset'] == 'cifar100':
-    hparams['dataset_name'] = 'CIFAR-100'
-    hparams['data_dir'] = pathlib.Path(CIFAR100_DIR)
-    # hparams['analysis_fname'] = 'analysis_cifar100'
-    dataset = CIFAR100(hparams['data_dir'], train=False, transform=tfms, download=True)
-    hparams['descriptor_fname'] = 'descriptors_cifar100'
-    classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of 100 different classes.'
-
-elif hparams['dataset'] == 'aircraft':
-    hparams['dataset_name'] = 'FGVC Aircraft'
-    hparams['data_dir'] = pathlib.Path(AIRCRAFT_DIR)
-    # hparams['analysis_fname'] = 'analysis_aircraft'
-    dataset = FGVCAircraft(hparams['data_dir'], split='val', transform=tfms, download=False)
-    hparams['descriptor_fname'] = 'descriptors_aircraft'
-    classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of aircrafts.'
-
-elif hparams['dataset'] == 'cars': # TODO: Add Stanford Cars, download from https://github.com/pytorch/vision/issues/7545#issuecomment-1631441616
-    hparams['dataset_name'] = 'Stanford Cars'
-    hparams['data_dir'] = pathlib.Path(CARS_DIR)
-    # hparams['analysis_fname'] = 'analysis_cars'
-    dataset = StanfordCars(hparams['data_dir'], split='test', transform=tfms, download=True)
-    hparams['descriptor_fname'] = 'descriptors_cars'
-    classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of cars.'
-
-elif hparams['dataset'] == 'flowers':
-    hparams['dataset_name'] = 'Oxford Flowers'
-    hparams['data_dir'] = pathlib.Path(FLOWERS_DIR)
-    # hparams['analysis_fname'] = 'analysis_flowers'
-    dataset = Flowers102(str(hparams['data_dir'] / 'jpg'), split='test', transform=tfms, download=False)
-    hparams['descriptor_fname'] = 'descriptors_flowers'
-    classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of flowers.'
-
-elif hparams['dataset'] == 'sun397':
-    hparams['dataset_name'] = 'SUN397'
-    hparams['data_dir'] = pathlib.Path(SUN397_DIR)
-    # hparams['analysis_fname'] = 'analysis_sun397'
-    dataset = SUN397(hparams['data_dir'], transform=tfms, download=True)
-    hparams['descriptor_fname'] = 'descriptors_sun397'
-    classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of scenes and places.'
-
-elif hparams['dataset'] == 'caltech101':
-    hparams['dataset_name'] = 'Caltech101'
-    hparams['data_dir'] = pathlib.Path(CALTECH101_DIR)
-    # hparams['analysis_fname'] = 'analysis_caltech101'
-    dataset = Caltech101(hparams['data_dir'], transform=tfms, download=True)
-    hparams['descriptor_fname'] = 'descriptors_caltech101'
-    classes_to_load = None
-    hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of objects from 101 categories.'
 
 if hparams['dataset'] != 'imagenetv2':
     dataset_classes = dataset.classes
 else:
     dataset_classes = classes_to_load
-
-# hparams['before_text'] = "An photo of a "
-hparams['before_text'] = ""
-hparams['label_before_text'] = ""
-hparams['between_text'] = ', '
-# hparams['after_text'] = f', from a dataset.'
-# hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
-hparams['after_text'] = ''
-# hparams['between_text'] = ' '
-# hparams['between_text'] = ''
-hparams['unmodify'] = True
-# hparams['after_text'] = '.'
-# hparams['after_text'] = ', which is a type of bird.'
-hparams['label_after_text'] = ''
-# hparams['label_after_text'] = ' which is a type of bird.'
+    
 # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
 # hparams['before_text'] = f'From the {hparams["dataset_name"]} dataset, the '
-
 hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
 hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
-
-print("Loading class subcategories...")
-with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
-    class_subcategories = json.load(f)
     
 print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
 gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load, cut_proportion=cut_proportion)
 label_to_classname = list(gpt_descriptions.keys())
 
-# If the 
-
 print("Creating descriptor frequencies...")
+descriptors_freq = load_descriptors_frequency(hparams)
 
 n_classes = len(list(gpt_descriptions.keys()))
 
-# TODO: Fix the implementation of frequency and semantic penalisation
+total_descriptors_is = sum(descriptors_freq['freq_is'].values())
+total_descriptors_contains = sum(descriptors_freq['freq_contains'].values())
+frequency_proportion_is = {desc: freq/total_descriptors_is for desc, freq in descriptors_freq['freq_is'].items()}
+frequency_proportion_contains = {desc: freq/total_descriptors_contains for desc, freq in descriptors_freq['freq_contains'].items()}
 
-# Redo the penalty methods
-if frequency_type == 'freq_exact' or frequency_type == 'freq_approx' or similarity_penalty_config == 'similarity_penalty':
-    descriptors_stats = load_json(hparams['descriptor_analysis_fname'] + '.json')
-    freq_exact = descriptors_stats['freq_exact']
-    freq_approx = descriptors_stats['freq_approx']
-    descriptor_self_similarity = descriptors_stats['descriptor-self-similarity']
-
-
+if similarity_penalty_config:
+    class_similarity_dict = load_json(hparams['class_analysis_fname'] + '.json')
+    class_list = compute_class_list(class_similarity_dict, sort_config=True)
+    average_cosine_similarities = {k: v['average_cosine_similarity'] for k, v in class_similarity_dict.items()}
 
 def compute_description_encodings(model, batch_size=32):
     description_encodings = OrderedDict()

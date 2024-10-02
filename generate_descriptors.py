@@ -8,8 +8,6 @@ import itertools
 from descriptor_strings import stringtolist
 from load import hparams
 from loading_helpers import compute_class_list, load_json
-import pathlib
-from torchvision.datasets import ImageFolder
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -73,6 +71,8 @@ Generate descriptors for the following class, preserving the class name exactly:
 
     return messages, category_name
 
+
+# Generator function
 def partition(lst, size):
     for i in range(0, len(lst), size):
         yield list(itertools.islice(lst, i, i + size))
@@ -137,42 +137,6 @@ def obtain_descriptors_and_save(filename, model="gpt-4o"):
 
     return descriptors
 
-def get_class_names_from_folder(hparams):
-    # Ensure the dataset folder exists
-    data_dir = hparams['data_dir']
-    
-    if not data_dir.exists():
-        raise FileNotFoundError(f"Dataset directory {data_dir} does not exist.")
-    
-    # If the dataset is loaded using ImageFolder or similar, you can retrieve class names directly
-    if 'ImageFolder' in str(type(hparams['dataset'])) or isinstance(hparams['dataset'], ImageFolder):
-        # ImageFolder automatically loads classes based on folder names
-        class_names = hparams['dataset'].classes
-    else:
-        # Manually get folder names for datasets that don't use ImageFolder
-        class_names = sorted([d.name for d in data_dir.iterdir() if d.is_dir()])
-    
-    # Create a dictionary with class names as keys and assign default values (e.g., None or empty lists)
-    class_dict = {class_name: None for class_name in class_names}
-    
-    return class_dict
+filename = f'descriptors/gpt4o/descriptors_{hparams['dataset']}.json'
 
-def check_for_descriptors_at(filename):
-    try:
-        with open(filename, 'r') as fp:
-            descriptors = json.load(fp)
-    except FileNotFoundError:
-        with open(filename, 'w') as fp:
-            descriptors = {}
-            json.dump(descriptors, fp, indent=4)
-
-    return descriptors
-
-# filename = f'descriptors/{hparams['desc_type']}/descriptors_{hparams['dataset']}.json'
-
-# obtain_descriptors_and_save(filename=filename, model="davinci-002")
-
-filename = hparams['descriptor_fname']
-# descriptors = check_for_descriptors_at(filename)
-class_dict = get_class_names_from_folder(hparams)
-print(class_dict)
+obtain_descriptors_and_save(filename=filename)

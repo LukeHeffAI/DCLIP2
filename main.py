@@ -79,18 +79,16 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     for i, (k, v) in enumerate(description_encodings.items()):
         dot_product_matrix = image_encodings @ v.T
         
-        # Penalise the dot product matrix based on the frequency of the descriptor
-        if frequency_type == 'freq_exact':
-            for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
-                dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
-        elif frequency_type == 'freq_approx':
+        if frequency_type == 'freq_is' or frequency_type == 'freq_contains':
             for descriptor in gpt_descriptions[k]:
-                dot_product_matrix -= freq_exact[unmodify_dict[k][descriptor]]
+                freq = descriptors_freq[frequency_type].get(descriptor, 1)
+                norm_freq = freq / max(descriptors_freq[frequency_type].values())
+                penalty_index = gpt_descriptions[k].index(descriptor)
+                dot_product_matrix[:, penalty_index] /= norm_freq
 
-        # Penalise the dot product matrix based on the normalised cosine similarity of the descriptor to all other descriptors
         if similarity_penalty_config == 'similarity_penalty':
-            for descriptor in gpt_descriptions[k]: # Iterate over the descriptors for this class
-                dot_product_matrix /= descriptor_self_similarity[unmodify_dict[k][descriptor]]
+            class_average_sim = average_cosine_similarities.get(k, 0)  # Default to 0 if not found
+            dot_product_matrix -= class_average_sim
         
         image_description_similarity[i] = dot_product_matrix
         image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
@@ -199,7 +197,6 @@ results[model_size][dataset_name][frequency_type] = experimental_results
 print(f"CLIP Model: {hparams['model_size']}",
       f"|| Desc. Source: {hparams['desc_type']}",
       f"|| Dataset being tested: {hparams['dataset']}",
-      f"|| Method: {hparams['method']}",
       f"|| Cut Proportion: {cut_proportion}",
       f"|| Freq. Penalisation Type: {frequency_type}",
       f"|| Sim. Penalisation: {similarity_penalty_config}")
