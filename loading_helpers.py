@@ -159,13 +159,18 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
 
                 elif hparams['method'] == 'waffleclip':
                     # Recreate WaffleCLIP approach
-                    build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
+                    build_descriptor_string = lambda item: f"a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
+
+                elif hparams['method'] == 'waffleclip+concepts':
+                    # Recreate WaffleCLIP approach with concepts
+                    build_descriptor_string = lambda item: f"A photo of a {hparams['concept_phrase']}: a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
+
 
                 elif (hparams['method'] == 'defntaxs'):
                     
                     # Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
                     # Best (v2) (55.90%): "tench, which is a freshwater fish, which is a type of freshwater fish"
-                    if hparams['dataset_name'] == 'ImageNet' or hparams['dataset_name'] == 'ImageNetv2':
+                    if hparams['dataset_name'] == 'ImageNet' or hparams['dataset_name'] == 'ImageNetV2':
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add}"}{hparams['after_text']}"
                     
                     elif hparams['dataset_name'] == 'Food101':
@@ -180,17 +185,48 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                     # Best (87.48%): "A photo of a Abyssinian, which has black, grey, or brown fur, which is a breed of short-haired cats, from a dataset containing images of dog and cat breeds."
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a breed of {subcategory_to_add}'}{hparams['after_text']}"
                     
-                    elif hparams['dataset_name'] == 'Describable Textures':
+                    elif hparams['dataset_name'] == 'Describable Textures Dataset (DTD)':
                     # Best (45.88%): "banded, which is a repeating pattern of light and dark bands, which is described as a {subcategory_to_add} texture"
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'}{hparams['after_text']}"
                     
-                    elif hparams['dataset_name'] == 'CUB':
+                    elif hparams['dataset_name'] == 'Caltech-UCSD Birds 200 (CUB-200)':
                     # Best (54.02%): "Black-footed Albatross, which is a seabird, which belongs to the genus of albatrosses"
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which belongs to the genus of {subcategory_to_add}'}{hparams['after_text']}"
                     
-                    elif hparams['dataset_name'] == 'Places365':
+                    elif hparams['dataset_name'] == 'Places365 Scene Recognition':
                     # Best (40.27%): "airfield, which is an airport, which is a type of air transportation" (note: "A photo of an airfield, which is an airport, which is a type of air transportation" achieved 41.09%)
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of place for {subcategory_to_add}'}{hparams['after_text']}"
+
+                elif (hparams['method'] == 'defntaxs_sans_descriptor'):
+
+                    # Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
+                    # Best (v2) (55.90%): "tench, which is a freshwater fish, which is a type of freshwater fish"
+                    if hparams['dataset_name'] == 'ImageNet' or hparams['dataset_name'] == 'ImageNetV2':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{f", which is a type of {subcategory_to_add}"}{hparams['after_text']}"
+                    
+                    elif hparams['dataset_name'] == 'Food101':
+                    # Best (81.26%): "apple pie, which is a pie dish, which would be found on a menu under "desserts""
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{f', which would be found on a menu under "{subcategory_to_add}"'}{hparams['after_text']}"
+                    
+                    elif hparams['dataset_name'] == 'EuroSAT':
+                    # Best (57.22%): "annual crop land, which has large, open fields, which is a type of agricultural area, from the EuroSAT dataset."
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{f', which is a type of {subcategory_to_add}'}{f', from the EuroSAT dataset.'}"
+
+                    elif hparams['dataset_name'] == 'Oxford Pets':
+                    # Best (87.48%): "A photo of a Abyssinian, which has black, grey, or brown fur, which is a breed of short-haired cats, from a dataset containing images of dog and cat breeds."
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{f', which is a breed of {subcategory_to_add}'}{hparams['after_text']}"
+
+                    elif hparams['dataset_name'] == 'Describable Textures Dataset (DTD)':
+                    # Best (45.88%): "banded, which is a repeating pattern of light and dark bands, which is described as a {subcategory_to_add} texture"
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{f', which is described as a {subcategory_to_add} texture'}{hparams['after_text']}"
+
+                    elif hparams['dataset_name'] == 'Caltech-UCSD Birds 200 (CUB-200)':
+                    # Best (54.02%): "Black-footed Albatross, which is a seabird, which belongs to the genus of albatrosses"
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{f', which belongs to the genus of {subcategory_to_add}'}{hparams['after_text']}"
+
+                    elif hparams['dataset_name'] == 'Places365 Scene Recognition':
+                    # Best (40.27%): "airfield, which is an airport, which is a type of air transportation" (note: "A photo of an airfield, which is an airport, which is a type of air transportation" achieved 41.09%)
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{f', which is a type of place for {subcategory_to_add}'}{hparams['after_text']}"                    
 
                 elif (hparams['method'] == 'other'):
 
@@ -237,7 +273,7 @@ def seed_everything(seed: int):
  
 import matplotlib.pyplot as plt
 
-stats = (0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711)
+# stats = (0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711)
 
 def denormalize(images, means=(0.485, 0.456, 0.406), stds=(0.229, 0.224, 0.225)):
     means = torch.tensor(means).reshape(1, 3, 1, 1)

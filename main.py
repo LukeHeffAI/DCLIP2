@@ -16,7 +16,7 @@ def save_results(results, file_path):
         json.dump(results, file, indent=4)
 
 # Set the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt3', dataset='cub', method='d-clip')
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt3', dataset='cub', method='waffleclip+concepts')
 
 # Update the hyperparameters
 hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
@@ -41,7 +41,7 @@ model.requires_grad_(False)
 # Encode descriptions and labels
 print("Encoding descriptions...")
 description_encodings = compute_description_encodings(model, gpt_descriptions, hparams)
-label_encodings = compute_label_encodings(model, hparams)
+label_encodings = compute_label_encodings(model, hparams, label_to_classname)
 
 # Number of classes
 num_classes = len(dataset_classes)
@@ -67,9 +67,7 @@ for batch_number, (images, labels) in enumerate(tqdm(dataloader)):
     image_encodings = F.normalize(image_encodings)
     
     # Compute similarities and make predictions
-    print(image_encodings.shape, label_encodings.shape)
     image_labels_similarity = image_encodings @ label_encodings.T
-    print(image_labels_similarity.shape)
     clip_predictions = image_labels_similarity.argmax(dim=1)
     
     # Update overall and class-wise accuracies for CLIP

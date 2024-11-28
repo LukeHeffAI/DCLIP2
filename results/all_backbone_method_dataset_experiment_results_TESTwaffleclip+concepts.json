@@ -1,0 +1,42 @@
+{
+    "gpt3": {
+        "ViT-B/32": {
+            "clip": {
+                "cub": {
+                    "Clip Accuracy: ": 51.86399817466736,
+                    "CLIP Accuracy: ": 52.00207233428955
+                }
+            },
+            "e-clip": {
+                "cub": {
+                    "E-clip Accuracy: ": 52.00207233428955,
+                    "CLIP Accuracy: ": 52.00207233428955
+                }
+            },
+            "d-clip": {
+                "cub": {
+                    "D-clip Accuracy: ": 53.22747826576233,
+                    "CLIP Accuracy: ": 52.00207233428955
+                }
+            },
+            "waffleclip": {
+                "cub": {
+                    "Waffleclip Accuracy: ": 52.72696018218994,
+                    "CLIP Accuracy: ": 52.00207233428955
+                }
+            },
+            "waffleclip+concepts": {
+                "cub": {
+                    "Waffleclip+concepts Accuracy: ": 52.67518162727356,
+                    "CLIP Accuracy: ": 52.00207233428955
+                }
+            },
+            "defntaxs_sans_descriptor": {
+                "cub": {
+                    "Defntaxs_sans_descriptor Accuracy: ": 53.93510460853577,
+                    "CLIP Accuracy: ": 52.00207233428955
+                }
+            }
+        }
+    }
+}
