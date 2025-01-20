@@ -11,7 +11,9 @@ from loading_helpers import compute_class_list, load_json
 import pathlib
 from torchvision.datasets import ImageFolder
 
-hparams = set_hparams("ViT-B/32", "gpt4o",
+# Set and update the hyperparameters
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt3', dataset='imagenet', method='waffleclip+concepts')
+hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
