@@ -88,6 +88,7 @@ def update_hparams(hparams):
 
     if hparams['dataset'] == 'imagenet':
         hparams['dataset_name'] = 'ImageNet'
+        hparams['concept_phrase'] = None
         dsclass = ImageNet        
         hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
         hparams['analysis_fname'] = 'analysis_imagenet'
@@ -99,6 +100,7 @@ def update_hparams(hparams):
             
     elif hparams['dataset'] == 'imagenetv2':
         hparams['dataset_name'] = 'ImageNetV2'
+        hparams['concept_phrase'] = None
         dsclass = ImageNetV2
         hparams['data_dir'] = pathlib.Path(IMAGENETV2_DIR)
         hparams['analysis_fname'] = 'analysis_imagenet'
@@ -109,7 +111,7 @@ def update_hparams(hparams):
 
     elif hparams['dataset'] == 'cub':
         hparams['dataset_name'] = 'Caltech-UCSD Birds 200 (CUB-200)'
-        hparams['concept_phrase'] = 'bird'
+        hparams['concept_phrase'] = 'a bird'
         hparams['data_dir'] = pathlib.Path(CUB_DIR)
         hparams['analysis_fname'] = 'analysis_cub'
         dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
@@ -157,7 +159,7 @@ def update_hparams(hparams):
         
     elif hparams['dataset'] == 'places365':
         hparams['dataset_name'] = 'Places365 Scene Recognition'
-        hparams['concept_phrase'] = 'place'
+        hparams['concept_phrase'] = 'a place'
         hparams['data_dir'] = pathlib.Path(PLACES_DIR)
         hparams['analysis_fname'] = 'analysis_places365'
         dataset_loader = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
@@ -167,7 +169,7 @@ def update_hparams(hparams):
         
     elif hparams['dataset'] == 'food101':
         hparams['dataset_name'] = 'Food101'
-        hparams['concept_phrase'] = 'food'
+        hparams['concept_phrase'] = 'a food'
         hparams['data_dir'] = pathlib.Path(FOOD101_DIR)
         hparams['analysis_fname'] = 'analysis_food101'
         dsclass = ImageFolder
@@ -178,7 +180,7 @@ def update_hparams(hparams):
 
     elif hparams['dataset'] == 'pets':
         hparams['dataset_name'] = 'Oxford Pets'
-        hparams['concept_phrase'] = 'breed'
+        hparams['concept_phrase'] = 'a breed'
         hparams['data_dir'] = pathlib.Path(PETS_DIR)
         hparams['analysis_fname'] = 'analysis_pets'
         dsclass = ImageFolder
@@ -189,6 +191,7 @@ def update_hparams(hparams):
         
     elif hparams['dataset'] == 'dtd':
         hparams['dataset_name'] = 'Describable Textures Dataset (DTD)'
+        hparams['concept_phrase'] = None
         hparams['data_dir'] = pathlib.Path(DTD_DIR)
         hparams['analysis_fname'] = 'analysis_dtd'
         dataset_loader = ImageFolder(str(hparams['data_dir'] / 'images'), transform=tfms)
