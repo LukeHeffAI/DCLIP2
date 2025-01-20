@@ -6,10 +6,12 @@ import json
 import time
 import itertools
 from descriptor_strings import stringtolist
-from load import hparams
+from load import set_hparams, update_hparams
 from loading_helpers import compute_class_list, load_json
 import pathlib
 from torchvision.datasets import ImageFolder
+
+hparams = set_hparams("ViT-B/32", "gpt4o",
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
