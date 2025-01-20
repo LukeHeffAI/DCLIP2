@@ -168,7 +168,6 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                     else:
                         build_descriptor_string = lambda item: f"a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
 
-
                 elif (hparams['method'] == 'defntaxs'):
                     
                     # Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
