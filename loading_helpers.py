@@ -163,7 +163,10 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
 
                 elif hparams['method'] == 'waffleclip+concepts':
                     # Recreate WaffleCLIP approach with concepts
-                    build_descriptor_string = lambda item: f"A photo of a {hparams['concept_phrase']}: a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
+                    if hparams['concept_phrase']:
+                        build_descriptor_string = lambda item: f"A photo of {hparams['concept_phrase']}: a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
+                    else:
+                        build_descriptor_string = lambda item: f"a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
 
 
                 elif (hparams['method'] == 'defntaxs'):
