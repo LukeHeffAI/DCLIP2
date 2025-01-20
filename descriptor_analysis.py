@@ -127,9 +127,6 @@ def compute_descriptor_sim_uniqueness_score(data):
     descriptor_normalised_sums = {desc: float(descriptor_sums[i] / max_sum) for i, desc in enumerate(descriptor_list)}
 
     return descriptor_normalised_sums
-import torch
-import torch.nn.functional as F
-from tqdm import tqdm
 
 def compute_class_sim_uniqueness_score(data):
     """
