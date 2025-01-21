@@ -12,7 +12,7 @@ import pathlib
 from torchvision.datasets import ImageFolder
 
 # Set and update the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt3', dataset='imagenet', method='waffleclip+concepts')
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-4o', dataset='eurosat', method='clip')
 hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
@@ -23,7 +23,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_api_content(model, category_name: str):
     # you can replace the examples with whatever you want; these were random and worked, could be improved
-    if model.startswith("gpt3.5"):
+    if model.startswith("gpt-3.5"):
         messages = f"""Q: What are useful visual features for distinguishing a lemur in a photo?
         A: There are several useful visual features to tell there is a lemur in a photo:
         - four-limbed primate
@@ -88,8 +88,10 @@ def obtain_descriptors_and_save(filename, model="gpt-4o"):
     except FileNotFoundError:
         print(f"File not found: {filename}, creating new file")
         descriptors = {}
+
+    output_filename = filename.replace('.json', '_descriptors.json')
     
-    dataset = load_json(hparams['descriptor_fname'])
+    dataset = load_json(hparams['class_analysis_fname'])
     class_list = compute_class_list(dataset)
 
     # Generate prompts along with corresponding class names
@@ -134,9 +136,10 @@ def obtain_descriptors_and_save(filename, model="gpt-4o"):
                     print(f"An unexpected error occurred: {e}")
                     break  # Exit retry loop for non-rate-limit errors
 
-    if not filename.endswith('.json'):
-        filename += '.json'
-    with open(filename, 'w') as fp:
+    if not output_filename.endswith('.json'):
+        output_filename += '.json'
+    print(f"Saving descriptors to {output_filename}")
+    with open(output_filename, 'w') as fp:
         json.dump(descriptors, fp, indent=4)
 
     return descriptors
@@ -172,11 +175,5 @@ def check_for_descriptors_at(filename):
 
     return descriptors
 
-# filename = f'descriptors/{hparams['desc_type']}/descriptors_{hparams['dataset']}.json'
-
-# obtain_descriptors_and_save(filename=filename, model="davinci-002")
-
-filename = hparams['descriptor_fname']
-# descriptors = check_for_descriptors_at(filename)
-class_dict = get_class_names_from_folder(hparams)
-print(class_dict)
+filename = hparams['class_analysis_fname'] + '.json'
+obtain_descriptors_and_save(filename=filename, model="gpt4-o")
