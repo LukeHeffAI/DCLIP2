@@ -114,6 +114,7 @@ def create_gibberish_descriptions(length, repeat=1):
 def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
     unmodify_dict = {}
+    build_descriptor_strings = []
 
     if classes_to_load is not None: 
         gpt_descriptions = {c: gpt_descriptions_unordered[c] for c in classes_to_load}
@@ -122,6 +123,9 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
 
     if hparams['class_analysis_fname'] is not None:
         subcategory_dict = load_json(hparams['class_analysis_fname'])
+
+    if hparams['subcategory_desc_fname'] is not None:
+        subcategory_desc_dict = load_json(hparams['subcategory_desc_fname'])
 
     if hparams['category_name_inclusion'] is not None:
         if classes_to_load is not None:
@@ -199,6 +203,41 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                     # Best (40.27%): "airfield, which is an airport, which is a type of air transportation" (note: "A photo of an airfield, which is an airport, which is a type of air transportation" achieved 41.09%)
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of place for {subcategory_to_add}'}{hparams['after_text']}"
 
+                elif (hparams['method'] == 'defntaxs+descriptor'):
+
+                    for taxonomic_descriptor in subcategory_desc_dict[subcategory_to_add]:
+
+                        # Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
+                        # Best (v2) (55.90%): "tench, which is a freshwater fish, which is a type of freshwater fish"
+                        if hparams['dataset_name'] == 'ImageNet' or hparams['dataset_name'] == 'ImageNetV2':
+                            build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add}"} with {taxonomic_descriptor}{hparams['after_text']}"
+                        
+                        elif hparams['dataset_name'] == 'Food101':
+                        # Best (81.26%): "apple pie, which is a pie dish, which would be found on a menu under "desserts""
+                            build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which would be found on a menu under "{subcategory_to_add}"'} with {taxonomic_descriptor}{hparams['after_text']}"
+                        
+                        elif hparams['dataset_name'] == 'EuroSAT':
+                        # Best (57.22%): "annual crop land, which has large, open fields, which is a type of agricultural area, from the EuroSAT dataset."
+                            build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of {subcategory_to_add}'} with {taxonomic_descriptor}{f', from the EuroSAT dataset.'}"
+                        
+                        elif hparams['dataset_name'] == 'Oxford Pets':
+                        # Best (87.48%): "A photo of a Abyssinian, which has black, grey, or brown fur, which is a breed of short-haired cats, from a dataset containing images of dog and cat breeds."
+                            build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a breed of {subcategory_to_add}'} with {taxonomic_descriptor}{hparams['after_text']}"
+                        
+                        elif hparams['dataset_name'] == 'Describable Textures Dataset (DTD)':
+                        # Best (45.88%): "banded, which is a repeating pattern of light and dark bands, which is described as a {subcategory_to_add} texture"
+                            build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'} with {taxonomic_descriptor}{hparams['after_text']}"
+                        
+                        elif hparams['dataset_name'] == 'Caltech-UCSD Birds 200 (CUB-200)':
+                        # Best (54.02%): "Black-footed Albatross, which is a seabird, which belongs to the genus of albatrosses"
+                            build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which belongs to the genus of {subcategory_to_add}'} with {taxonomic_descriptor}{hparams['after_text']}"
+                        
+                        elif hparams['dataset_name'] == 'Places365 Scene Recognition':
+                        # Best (40.27%): "airfield, which is an airport, which is a type of air transportation" (note: "A photo of an airfield, which is an airport, which is a type of air transportation" achieved 41.09%)
+                            build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of place for {subcategory_to_add}'} with {taxonomic_descriptor}{hparams['after_text']}"
+
+                        build_descriptor_strings.append(build_descriptor_string)
+
                 elif (hparams['method'] == 'defntaxs_sans_descriptor'):
 
                     # Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
@@ -250,9 +289,20 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
             else:
                 build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)
 
-            unmodify_dict[k] = {build_descriptor_string(item): item for item in v}
-
-            gpt_descriptions[k] = [build_descriptor_string(item) for item in v]
+            if len(build_descriptor_strings) == 0:
+                unmodify_dict[k] = {build_descriptor_string(item): item for item in v}
+                gpt_descriptions[k] = [build_descriptor_string(item) for item in v]
+            else:
+                unmodify_dict[k] = {
+                    build_descriptor_strings[i](item): item
+                    for i, item in enumerate(v)
+                    if callable(build_descriptor_strings[i])
+                }
+                gpt_descriptions[k] = [
+                    build_descriptor_strings[i](item)
+                    for i, item in enumerate(v)
+                    if callable(build_descriptor_strings[i])
+                ]
 
             # print an example the first time
             if i == 0: #verbose and 
@@ -282,10 +332,10 @@ def denormalize(images, means=(0.485, 0.456, 0.406), stds=(0.229, 0.224, 0.225))
     stds = torch.tensor(stds).reshape(1, 3, 1, 1)
     return images * stds + means
   
-def show_single_image(image):
-    fig, ax = plt.subplots(figsize=(12, 12))
-    ax.set_xticks([]); ax.set_yticks([])
-    denorm_image = denormalize(image.unsqueeze(0).cpu(), *stats)
-    ax.imshow(denorm_image.squeeze().permute(1, 2, 0).clamp(0,1))
+# def show_single_image(image):
+#     fig, ax = plt.subplots(figsize=(12, 12))
+#     ax.set_xticks([]); ax.set_yticks([])
+#     denorm_image = denormalize(image.unsqueeze(0).cpu(), *stats)
+#     ax.imshow(denorm_image.squeeze().permute(1, 2, 0).clamp(0,1))
     
-    plt.show()
+#     plt.show()
