@@ -1,0 +1,34 @@
+{
+    "short-haired cats": [
+        "sleek fur texture",
+        "compact body structure",
+        "pointed ears",
+        "bright, expressive eyes",
+        "varied coat patterns",
+        "agile and playful demeanor"
+    ],
+    "long-haired cats": [
+        "fluffy fur",
+        "lush mane",
+        "soft texture",
+        "elegant appearance",
+        "distinctive tufted ears",
+        "long, flowing tail"
+    ],
+    "medium to large dogs": [
+        "strong build",
+        "short to medium fur",
+        "varied coat colors",
+        "prominent musculature",
+        "expressive eyes",
+        "loyal demeanor"
+    ],
+    "small dogs": [
+        "compact size",
+        "short legs",
+        "fluffy fur",
+        "playful demeanor",
+        "large expressive eyes",
+        "varied coat colors"
+    ]
+}

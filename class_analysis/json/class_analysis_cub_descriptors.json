@@ -1,0 +1,162 @@
+{
+    "albatrosses": [
+        "large wingspan",
+        "long narrow wings",
+        "white body with dark wingtips",
+        "hooked yellow beak",
+        "webbed feet",
+        "graceful gliding flight"
+    ],
+    "crows": [
+        "glossy black plumage",
+        "stout, straight bill",
+        "fan-shaped tail",
+        "strong, broad wings",
+        "dark, intelligent eyes",
+        "robust, medium-sized body"
+    ],
+    "auklets": [
+        "small seabird with a stout body",
+        "short, thick bill often with a horn-like extension",
+        "dark plumage with a white belly",
+        "distinctive facial plumes or whiskers",
+        "compact wings suited for diving",
+        "often found in coastal and marine environments"
+    ],
+    "blackbirds": [
+        "glossy black plumage",
+        "medium-sized songbird",
+        "sharp, pointed beak",
+        "bright yellow eyes",
+        "long, slender tail",
+        "strong, agile flight"
+    ],
+    "buntings": [
+        "small to medium-sized songbirds",
+        "brightly colored plumage with blues and reds",
+        "short, conical bills adapted for seed eating",
+        "distinctive wing patterns with contrasting colors",
+        "rounded wings and tails",
+        "often found in open fields and woodland edges"
+    ],
+    "warblers": [
+        "small, slender body",
+        "olive-green upperparts",
+        "yellow underparts",
+        "pointed, thin beak",
+        "short, rounded wings",
+        "active, flitting movement"
+    ],
+    "sparrows": [
+        "small size with compact body",
+        "short, conical beak",
+        "brown and gray plumage with streaks",
+        "short tail and rounded wings",
+        "distinctive head patterns, often with a crown",
+        "adaptable to various environments, often found in urban areas"
+    ],
+    "wrens": [
+        "small size",
+        "brown plumage",
+        "short wings",
+        "thin, slightly curved bill",
+        "upright tail",
+        "subtle streaking on underparts"
+    ],
+    "cormorants": [
+        "long neck",
+        "dark plumage",
+        "hooked bill",
+        "webbed feet",
+        "slender body",
+        "glossy feathers"
+    ],
+    "cuckoos": [
+        "medium-sized bird with slender body",
+        "grayish-brown plumage with subtle patterns",
+        "long tail with white tips and dark bars",
+        "curved, slightly downturned bill",
+        "distinctive red or yellow eye ring",
+        "often seen perched in open woodlands"
+    ],
+    "flycatchers": [
+        "small to medium-sized songbirds",
+        "slender bodies with long tails",
+        "short, broad bills adapted for catching insects",
+        "often exhibit contrasting plumage patterns",
+        "active, agile flight with quick maneuvers",
+        "perch conspicuously while hunting for prey"
+    ],
+    "woodpeckers": [
+        "red crown",
+        "black and white striped back",
+        "long, pointed beak",
+        "white underparts",
+        "zygodactyl feet",
+        "drumming behavior"
+    ],
+    "gulls": [
+        "medium-sized seabird",
+        "gray and white plumage",
+        "long wings and tail",
+        "yellow or red bill",
+        "webbed feet",
+        "distinctive call"
+    ],
+    "hummingbirds": [
+        "iridescent plumage",
+        "long slender bill",
+        "rapid wing beats",
+        "small body size",
+        "hovering flight",
+        "bright throat patch"
+    ],
+    "kingfishers": [
+        "bright blue and orange plumage",
+        "long, sharp beak",
+        "compact body shape",
+        "short legs",
+        "distinctive head crest",
+        "rapid, direct flight pattern"
+    ],
+    "ducks": [
+        "broad, flat bill",
+        "webbed feet",
+        "rounded body",
+        "short neck",
+        "colorful plumage",
+        "distinctive quacking sound"
+    ],
+    "swallows": [
+        "streamlined body",
+        "long pointed wings",
+        "forked tail",
+        "glossy blue-black upperparts",
+        "pale underparts",
+        "swift agile flight"
+    ],
+    "terns": [
+        "slender body",
+        "long pointed wings",
+        "forked tail",
+        "sharp, pointed bill",
+        "white and gray plumage",
+        "black cap on head"
+    ],
+    "vireos": [
+        "small songbird with olive-green plumage",
+        "distinctive white or yellow eye-ring",
+        "short, thick bill adapted for insect feeding",
+        "grayish underparts with subtle streaking",
+        "active forager, often seen in dense foliage",
+        "short tail with a slightly notched appearance"
+    ],
+    "waxwings": [
+        "sleek crest on head",
+        "smooth, silky plumage",
+        "black mask across eyes",
+        "yellow-tipped tail",
+        "red wax-like wing tips",
+        "pale underparts with subtle gray tones"
+    ]
+}

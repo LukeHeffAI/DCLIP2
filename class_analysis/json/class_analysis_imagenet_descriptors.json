@@ -1,0 +1,961 @@
+{
+    "freshwater fish": [
+        "scales and fins",
+        "vibrant colors",
+        "streamlined body shape",
+        "aquatic habitat",
+        "gills for breathing",
+        "varied sizes and shapes"
+    ],
+    "sharks": [
+        "streamlined body",
+        "sharp teeth",
+        "dorsal fin",
+        "cartilaginous skeleton",
+        "predatory behavior",
+        "gills for breathing"
+    ],
+    "saltwater fish": [
+        "colorful scales",
+        "streamlined body",
+        "fins for swimming",
+        "vibrant patterns",
+        "distinctive shapes",
+        "aquatic habitat"
+    ],
+    "rays": [
+        "long, slender, flat body",
+        "wide pectoral fins",
+        "cartilaginous skeleton",
+        "smooth, skin-like texture",
+        "distinctive tail shape",
+        "often found in shallow waters"
+    ],
+    "domestic fowl": [
+        "feathered body",
+        "brightly colored plumage",
+        "short legs",
+        "beak for pecking",
+        "social behavior",
+        "egg-laying capability"
+    ],
+    "game birds": [
+        "plumage patterns",
+        "long legs",
+        "sharp beaks",
+        "camouflaged feathers",
+        "distinctive calls",
+        "robust bodies"
+    ],
+    "songbirds": [
+        "colorful plumage",
+        "melodic songs",
+        "small size",
+        "distinctive beaks",
+        "active behavior",
+        "social interactions"
+    ],
+    "exotic birds": [
+        "vibrant plumage",
+        "unique beak shapes",
+        "colorful feather patterns",
+        "distinctive calls",
+        "tropical habitats",
+        "varied sizes"
+    ],
+    "birds of prey": [
+        "sharp talons",
+        "hooked beaks",
+        "keen eyesight",
+        "powerful wings",
+        "predatory behavior",
+        "feathered bodies"
+    ],
+    "amphibians": [
+        "moist skin",
+        "webbed feet",
+        "smooth body",
+        "bright colors",
+        "bulging eyes",
+        "laying eggs in water"
+    ],
+    "sea turtles": [
+        "shell-covered body",
+        "flipper-like limbs",
+        "streamlined shape",
+        "colorful patterns",
+        "large, gentle eyes",
+        "aquatic habitat"
+    ],
+    "turtles": [
+        "hard shell protection",
+        "webbed feet for swimming",
+        "long necks for reaching",
+        "slow-moving on land",
+        "aquatic and terrestrial habitats",
+        "distinctive patterned shells"
+    ],
+    "lizards": [
+        "scaly skin texture",
+        "long slender body",
+        "colorful patterns",
+        "four limbs",
+        "long tail",
+        "distinctive eyes"
+    ],
+    "crocodilians": [
+        "long snouts",
+        "thick, scaly skin",
+        "powerful jaws",
+        "webbed feet",
+        "camouflaged coloration",
+        "reptilian body structure"
+    ],
+    "dinosaurs": [
+        "large reptiles",
+        "scaly skin",
+        "long tails",
+        "sharp teeth",
+        "distinctive limbs",
+        "varied sizes"
+    ],
+    "venomous snakes": [
+        "triangular head shape",
+        "slender, elongated body",
+        "distinctive color patterns",
+        "slit-like pupils",
+        "prominent fangs",
+        "smooth, shiny scales"
+    ],
+    "constrictor snakes": [
+        "long, muscular body",
+        "patterned scales",
+        "large, rounded head",
+        "strong, coiling grip",
+        "no venom",
+        "typically non-aggressive"
+    ],
+    "marine animals": [
+        "aquatic body shapes",
+        "colorful patterns",
+        "fins and gills",
+        "streamlined movement",
+        "underwater habitats",
+        "diverse sizes and species"
+    ],
+    "arachnids": [
+        "eight legs",
+        "jointed limbs",
+        "exoskeleton",
+        "fangs or chelicerae",
+        "multiple eyes",
+        "web-spinning ability"
+    ],
+    "insects": [
+        "small, segmented bodies",
+        "six legs",
+        "wings in many species",
+        "compound eyes",
+        "exoskeleton",
+        "diverse colors and patterns"
+    ],
+    "waterfowl": [
+        "webbed feet",
+        "long neck",
+        "feathered body",
+        "flat bill",
+        "aquatic habitat",
+        "migratory behavior"
+    ],
+    "elephants": [
+        "large size",
+        "trunk for grasping",
+        "tusks for digging",
+        "wrinkled skin",
+        "large ears",
+        "social behavior"
+    ],
+    "marsupials": [
+        "pouched mammals",
+        "distinctive reproductive system",
+        "climbing and jumping abilities",
+        "fur patterns vary widely",
+        "strong hind limbs",
+        "prehensile tails"
+    ],
+    "corals": [
+        "colorful marine organisms",
+        "branching and encrusting forms",
+        "calcium carbonate structures",
+        "symbiotic relationships with algae",
+        "vibrant underwater ecosystems",
+        "varied shapes and textures"
+    ],
+    "mollusks": [
+        "soft-bodied marine animals",
+        "shells of various shapes",
+        "tentacles for feeding",
+        "colorful patterns and textures",
+        "aquatic habitats",
+        "diverse species and sizes"
+    ],
+    "cephalopods": [
+        "soft-bodied marine animals",
+        "tentacles with suckers",
+        "highly flexible and agile",
+        "color-changing skin",
+        "complex nervous system",
+        "intelligent and problem-solving"
+    ],
+    "crabs": [
+        "hard shell",
+        "clawed pincers",
+        "wide flat body",
+        "multiple legs",
+        "marine habitat",
+        "varied colors"
+    ],
+    "crustaceans": [
+        "hard exoskeleton",
+        "jointed limbs",
+        "compound eyes",
+        "segmented body",
+        "aquatic habitat",
+        "varied colors and patterns"
+    ],
+    "whales": [
+        "large marine mammals",
+        "streamlined bodies",
+        "blubber for insulation",
+        "baleen or teeth",
+        "distinctive tail flukes",
+        "vocal communication"
+    ],
+    "small toy dogs": [
+        "compact size",
+        "fluffy fur",
+        "playful demeanor",
+        "large expressive eyes",
+        "short legs",
+        "variety of colors"
+    ],
+    "medium companion dogs": [
+        "friendly demeanor",
+        "compact size",
+        "soft fur",
+        "playful nature",
+        "affectionate behavior",
+        "alert expression"
+    ],
+    "large companion dogs": [
+        "friendly demeanor",
+        "strong build",
+        "short to medium coat",
+        "gentle temperament",
+        "playful nature",
+        "loyal companions"
+    ],
+    "small companion dogs": [
+        "small size",
+        "playful demeanor",
+        "affectionate nature",
+        "varied coat colors",
+        "short legs",
+        "rounded faces"
+    ],
+    "sighthounds": [
+        "long legs",
+        "narrow head",
+        "short coat",
+        "fast runners",
+        "elegant posture",
+        "strong sight"
+    ],
+    "terriers": [
+        "small size",
+        "short coat",
+        "pointed ears",
+        "energetic demeanor",
+        "distinctive snout",
+        "varied colors"
+    ],
+    "wild canines": [
+        "long legs",
+        "pointed ears",
+        "thick fur",
+        "sharp teeth",
+        "bushy tails",
+        "agile movement"
+    ],
+    "domestic cats": [
+        "small size",
+        "varied coat patterns",
+        "pointed ears",
+        "long whiskers",
+        "expressive eyes",
+        "agile movements"
+    ],
+    "wild cats": [
+        "feline agility and grace",
+        "distinctive spotted or striped fur",
+        "sharp retractable claws",
+        "keen night vision",
+        "powerful muscular build",
+        "solitary or social behavior"
+    ],
+    "bears": [
+        "large furry mammals",
+        "strong limbs and claws",
+        "distinctive snouts",
+        "thick fur coats",
+        "varied color patterns",
+        "social and solitary behaviors"
+    ],
+    "wild animals": [
+        "fur-covered bodies",
+        "natural habitats",
+        "diverse species",
+        "predatory behaviors",
+        "varying sizes",
+        "distinctive markings"
+    ],
+    "small rodents": [
+        "tiny size",
+        "short tails",
+        "furry bodies",
+        "large eyes",
+        "small paws",
+        "quick movements"
+    ],
+    "lagomorphs": [
+        "long ears",
+        "short fluffy tails",
+        "strong hind legs",
+        "large front teeth",
+        "soft fur",
+        "distinctive whiskers"
+    ],
+    "large rodents": [
+        "large body size",
+        "prominent front teeth",
+        "short, sturdy legs",
+        "thick fur or hair",
+        "long tails",
+        "strong claws"
+    ],
+    "domestic ungulates": [
+        "hooved animals",
+        "short hair",
+        "stocky build",
+        "gentle demeanor",
+        "domesticated for farming",
+        "varied coat colors"
+    ],
+    "wild ungulates": [
+        "long legs for running",
+        "hooves adapted for terrain",
+        "varied coat patterns",
+        "large body size",
+        "social herd behavior",
+        "grazing on grasslands"
+    ],
+    "land mammals": [
+        "fur-covered bodies",
+        "four limbs",
+        "live births",
+        "warm-blooded",
+        "diverse sizes",
+        "varied habitats"
+    ],
+    "great apes": [
+        "large body size",
+        "long arms",
+        "hairy body",
+        "intelligent expressions",
+        "social behavior",
+        "facial similarities to humans"
+    ],
+    "primates": [
+        "long limbs and fingers",
+        "expressive facial features",
+        "prehensile tails",
+        "social group behavior",
+        "highly developed brains",
+        "varied fur patterns"
+    ],
+    "office supplies": [
+        "pens and pencils",
+        "notebooks and paper",
+        "staplers and tape",
+        "folders and binders",
+        "sticky notes",
+        "desk organizers"
+    ],
+    "clothing": [
+        "fabric texture",
+        "color patterns",
+        "style variations",
+        "fit and silhouette",
+        "design elements",
+        "layering techniques"
+    ],
+    "musical instruments": [
+        "variety of shapes and sizes",
+        "colorful finishes and textures",
+        "distinctive sound-producing features",
+        "strings, keys, or percussion elements",
+        "often used in performances",
+        "cultural significance and diversity"
+    ],
+    "string instruments": [
+        "wooden body",
+        "long neck",
+        "strings stretched",
+        "sound hole",
+        "bow or plucking",
+        "musical resonance"
+    ],
+    "watercraft": [
+        "floating vessel",
+        "propelled by engine",
+        "used on water",
+        "variety of shapes",
+        "can carry passengers",
+        "includes boats and ships"
+    ],
+    "aircraft": [
+        "wings for flight",
+        "fuselage body structure",
+        "tail for stability",
+        "propellers or jet engines",
+        "cockpit for pilots",
+        "landing gear for ground"
+    ],
+    "religious items": [
+        "ornate designs",
+        "symbolic imagery",
+        "varied materials",
+        "cultural significance",
+        "distinctive shapes",
+        "spiritual themes"
+    ],
+    "land vehicles": [
+        "wheels for ground movement",
+        "engine for propulsion",
+        "variety of shapes and sizes",
+        "designed for transportation",
+        "includes cars and trucks",
+        "often has four or more wheels"
+    ],
+    "decorative items": [
+        "colorful patterns",
+        "intricate designs",
+        "varied shapes",
+        "textured surfaces",
+        "artistic embellishments",
+        "unique materials"
+    ],
+    "outdoor structures": [
+        "man-made constructions",
+        "variety of architectural styles",
+        "functional and aesthetic designs",
+        "materials like wood and metal",
+        "integration with natural surroundings",
+        "diverse shapes and sizes"
+    ],
+    "household items": [
+        "variety of shapes and sizes",
+        "common everyday objects",
+        "functional and practical designs",
+        "often colorful and patterned",
+        "used for domestic tasks",
+        "includes utensils and decor"
+    ],
+    "weapons": [
+        "metallic surfaces",
+        "sharp edges",
+        "varied shapes",
+        "functional components",
+        "distinctive markings",
+        "heavyweight design"
+    ],
+    "accessories": [
+        "variety of decorative items",
+        "enhances personal style",
+        "includes jewelry and bags",
+        "often colorful and unique",
+        "functional and aesthetic appeal",
+        "complements outfits and looks"
+    ],
+    "baked goods": [
+        "golden brown crust",
+        "fluffy interior",
+        "sweet aroma",
+        "decorative icing",
+        "variety of shapes",
+        "soft texture"
+    ],
+    "sports equipment": [
+        "various shapes and sizes",
+        "bright colors and patterns",
+        "functional design elements",
+        "durable materials",
+        "ergonomic features",
+        "sport-specific characteristics"
+    ],
+    "toys": [
+        "colorful plastic shapes",
+        "soft plush animals",
+        "interactive electronic devices",
+        "building blocks and sets",
+        "action figures and dolls",
+        "puzzles and games"
+    ],
+    "writing instruments": [
+        "various shapes and sizes",
+        "ink or graphite tips",
+        "colorful barrels",
+        "clip for attachment",
+        "smooth writing surface",
+        "often made of plastic"
+    ],
+    "medical equipment": [
+        "surgical tools",
+        "diagnostic devices",
+        "monitoring instruments",
+        "sterile packaging",
+        "precision engineering",
+        "clinical functionality"
+    ],
+    "furniture": [
+        "varied shapes and sizes",
+        "wooden and metal materials",
+        "functional and decorative elements",
+        "upholstered surfaces",
+        "distinctive styles and designs",
+        "used for seating and storage"
+    ],
+    "personal care items": [
+        "bottles and tubes",
+        "various colors and shapes",
+        "labels with product names",
+        "cosmetic packaging",
+        "hygiene-related products",
+        "small household items"
+    ],
+    "scientific equipment": [
+        "metallic surfaces",
+        "precision instruments",
+        "various sizes",
+        "functional components",
+        "calibrated dials",
+        "glass containers"
+    ],
+    "containers": [
+        "various shapes and sizes",
+        "holds liquids or solids",
+        "often made of plastic",
+        "stackable and portable",
+        "lids or closures present",
+        "used for storage and transport"
+    ],
+    "construction equipment": [
+        "heavy machinery",
+        "large metal structures",
+        "earth-moving vehicles",
+        "construction site tools",
+        "mechanical arms",
+        "industrial design"
+    ],
+    "wind instruments": [
+        "hollow tubes",
+        "air vibration",
+        "distinctive sound",
+        "varied lengths",
+        "mouthpiece required",
+        "musical harmony"
+    ],
+    "sportswear": [
+        "athletic fit",
+        "breathable fabric",
+        "vibrant colors",
+        "moisture-wicking",
+        "flexible design",
+        "reflective details"
+    ],
+    "bathroom items": [
+        "toiletries",
+        "towels",
+        "soap dispensers",
+        "toilet brushes",
+        "shower curtains",
+        "bath mats"
+    ],
+    "structures": [
+        "geometric shapes",
+        "architectural forms",
+        "symmetrical designs",
+        "material textures",
+        "spatial arrangements",
+        "structural integrity"
+    ],
+    "headwear": [
+        "various styles and colors",
+        "covers head and hair",
+        "decorative and functional",
+        "includes hats and caps",
+        "often seasonal or cultural",
+        "may feature logos or designs"
+    ],
+    "beverages": [
+        "varied colors and shapes",
+        "liquid-filled containers",
+        "distinctive labels and branding",
+        "diverse packaging styles",
+        "fizzy or still appearance",
+        "wide range of flavors"
+    ],
+    "kitchen utensils": [
+        "metallic spoons and forks",
+        "colorful plastic measuring cups",
+        "wooden cutting boards",
+        "ceramic mixing bowls",
+        "sharp knives with handles",
+        "silicone spatulas and whisks"
+    ],
+    "outdoor equipment": [
+        "durable materials",
+        "weather-resistant design",
+        "functional accessories",
+        "ergonomic shapes",
+        "lightweight construction",
+        "versatile usage"
+    ],
+    "natural formations": [
+        "rocky cliffs",
+        "flowing rivers",
+        "lush valleys",
+        "towering mountains",
+        "vast deserts",
+        "cascading waterfalls"
+    ],
+    "protective gear": [
+        "hard hat",
+        "safety goggles",
+        "reflective vest",
+        "steel-toed boots",
+        "ear protection",
+        "gloves"
+    ],
+    "cleaning tools": [
+        "broom with bristles",
+        "mop with wet cloth",
+        "vacuum cleaner nozzle",
+        "dustpan and brush",
+        "squeegee for windows",
+        "scrubbing brush handle"
+    ],
+    "entertainment equipment": [
+        "variety of devices",
+        "used for leisure",
+        "audio and visual tools",
+        "enhances user experience",
+        "includes gaming consoles",
+        "supports multimedia playback"
+    ],
+    "hand tools": [
+        "metallic construction",
+        "ergonomic handles",
+        "varied sizes",
+        "precision edges",
+        "manual operation",
+        "durable materials"
+    ],
+    "electronic devices": [
+        "sleek design",
+        "metallic finish",
+        "glowing screens",
+        "compact size",
+        "varied colors",
+        "modern interfaces"
+    ],
+    "media": [
+        "colorful graphics",
+        "text overlays",
+        "dynamic layouts",
+        "visual storytelling",
+        "multimedia elements",
+        "engaging visuals"
+    ],
+    "buildings": [
+        "tall structures",
+        "architectural designs",
+        "windows and doors",
+        "varied materials",
+        "urban skyline",
+        "distinct rooftops"
+    ],
+    "power tools": [
+        "electric drill",
+        "circular saw",
+        "impact wrench",
+        "cordless screwdriver",
+        "heavy-duty construction",
+        "mechanical operation"
+    ],
+    "footwear": [
+        "varied styles and colors",
+        "distinctive sole patterns",
+        "material textures like leather",
+        "ankle height variations",
+        "decorative elements like buckles",
+        "sporty versus formal designs"
+    ],
+    "cooking appliances": [
+        "metallic surfaces",
+        "various sizes",
+        "control knobs",
+        "cooking elements",
+        "power cords",
+        "heat indicators"
+    ],
+    "food": [
+        "colorful ingredients",
+        "varied textures",
+        "distinct shapes",
+        "appetizing presentation",
+        "cooked and raw forms",
+        "diverse cultural styles"
+    ],
+    "storage solutions": [
+        "compact design",
+        "organized compartments",
+        "durable materials",
+        "space-saving features",
+        "versatile usage",
+        "stylish appearance"
+    ],
+    "armor": [
+        "metallic surface",
+        "protective gear",
+        "intricate designs",
+        "historical significance",
+        "varied styles",
+        "battlefield utility"
+    ],
+    "office furniture": [
+        "ergonomic chairs",
+        "wooden desks",
+        "filing cabinets",
+        "conference tables",
+        "shelves and bookcases",
+        "cubicle partitions"
+    ],
+    "percussion instruments": [
+        "varied shapes and sizes",
+        "produces sound by striking",
+        "often made of wood",
+        "includes drums and tambourines",
+        "rhythmic and melodic capabilities",
+        "used in diverse music genres"
+    ],
+    "appliances": [
+        "electrical devices",
+        "kitchen tools",
+        "home equipment",
+        "functional design",
+        "modern technology",
+        "varied sizes and shapes"
+    ],
+    "transportation": [
+        "vehicles in motion",
+        "wheels and engines",
+        "road and rail systems",
+        "aircraft in flight",
+        "boats on water",
+        "urban transit options"
+    ],
+    "vehicles": [
+        "wheels and tires",
+        "metallic body",
+        "engine compartment",
+        "windows and mirrors",
+        "distinctive headlights",
+        "variety of colors"
+    ],
+    "agricultural equipment": [
+        "tractors with large wheels",
+        "plows for soil cultivation",
+        "harvesters for crop gathering",
+        "irrigation systems with pipes",
+        "seeders for planting seeds",
+        "fertilizer spreaders with hoppers"
+    ],
+    "games": [
+        "colorful graphics",
+        "dynamic characters",
+        "interactive gameplay",
+        "varied environments",
+        "animated effects",
+        "user interface elements"
+    ],
+    "lighting": [
+        "bright illumination",
+        "soft glow",
+        "harsh shadows",
+        "color temperature variations",
+        "directional light",
+        "ambient light effects"
+    ],
+    "automotive parts": [
+        "metallic components",
+        "engine parts",
+        "wheels and tires",
+        "brake systems",
+        "electrical systems",
+        "body panels"
+    ],
+    "art supplies": [
+        "variety of colors",
+        "brushes and tools",
+        "canvas and paper",
+        "paints and markers",
+        "adhesives and glues",
+        "creative materials"
+    ],
+    "outdoor furniture": [
+        "weather-resistant materials",
+        "ergonomic design",
+        "variety of styles",
+        "colorful cushions",
+        "durable construction",
+        "easy maintenance"
+    ],
+    "landscapes": [
+        "vast open spaces",
+        "mountains and valleys",
+        "lush greenery",
+        "sunset skies",
+        "flowing rivers",
+        "diverse terrains"
+    ],
+    "bedroom items": [
+        "soft bedding",
+        "wooden furniture",
+        "decorative pillows",
+        "nightstands",
+        "lamps",
+        "wall art"
+    ],
+    "gardening tools": [
+        "handheld, ergonomic design",
+        "metallic blades, sharp edges",
+        "colorful plastic handles",
+        "various sizes and shapes",
+        "rust-resistant materials",
+        "lightweight for easy use"
+    ],
+    "fabrics": [
+        "soft texture",
+        "varied patterns",
+        "colorful designs",
+        "flexible drape",
+        "woven materials",
+        "lightweight feel"
+    ],
+    "fishing equipment": [
+        "rods and reels",
+        "fishing lines",
+        "hooks and lures",
+        "tackle boxes",
+        "nets and traps",
+        "floatation devices"
+    ],
+    "kitchen items": [
+        "utensils and cookware",
+        "appliances for food preparation",
+        "storage containers",
+        "dishes and cutlery",
+        "kitchen textiles",
+        "small kitchen gadgets"
+    ],
+    "military vehicles": [
+        "armored body",
+        "camouflage patterns",
+        "heavy-duty tires",
+        "turrets and weapons",
+        "military insignia",
+        "rugged design"
+    ],
+    "photographic equipment": [
+        "cameras",
+        "lenses",
+        "tripods",
+        "flash units",
+        "light meters",
+        "accessories"
+    ],
+    "puzzles": [
+        "colorful interlocking pieces",
+        "varied shapes and sizes",
+        "complex image patterns",
+        "flat, two-dimensional surface",
+        "engaging problem-solving activity",
+        "cognitive skill development"
+    ],
+    "signage": [
+        "bold text",
+        "bright colors",
+        "directional arrows",
+        "informative symbols",
+        "high contrast",
+        "large size"
+    ],
+    "desserts": [
+        "sweet and colorful treats",
+        "variety of textures and flavors",
+        "often topped with cream",
+        "served in small portions",
+        "decorative and artistic presentation"
+    ],
+    "vegetables": [
+        "green leafy textures",
+        "vibrant colors",
+        "varied shapes and sizes",
+        "fresh and crisp appearance",
+        "natural earthy tones",
+        "distinctive surface patterns"
+    ],
+    "fungi": [
+        "multicolored caps",
+        "spongy texture",
+        "gills underneath caps",
+        "varied shapes and sizes",
+        "often found in clusters",
+        "distinctive spore patterns"
+    ],
+    "fruits": [
+        "colorful, varied shapes",
+        "smooth or textured skin",
+        "juicy, sweet interior",
+        "seeds embedded or clustered",
+        "vibrant colors like red, yellow",
+        "natural, organic appearance"
+    ],
+    "plants": [
+        "green foliage",
+        "varied leaf shapes",
+        "natural growth patterns",
+        "diverse colors",
+        "textured surfaces",
+        "organic forms"
+    ],
+    "flowers": [
+        "colorful petals",
+        "varied shapes",
+        "green leaves",
+        "fragrant aroma",
+        "delicate structures",
+        "natural beauty"
+    ]
+}

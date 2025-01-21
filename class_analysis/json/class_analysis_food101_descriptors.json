@@ -1,0 +1,89 @@
+{
+    "desserts": [
+        "colorful frosting toppings",
+        "variety of shapes and sizes",
+        "glistening fruit garnishes",
+        "creamy textures and layers",
+        "chocolate drizzles and sprinkles"
+    ],
+    "meat dishes": [
+        "savory cooked meats",
+        "rich brown sauces",
+        "tender cuts of meat",
+        "hearty portions",
+        "grilled or roasted appearance",
+        "garnished with herbs"
+    ],
+    "salads": [
+        "vibrant greens and vegetables",
+        "colorful toppings and dressings",
+        "fresh and crunchy textures",
+        "variety of shapes and sizes",
+        "light and healthy appearance",
+        "often served in bowls"
+    ],
+    "asian cuisine": [
+        "vibrant colors and textures",
+        "rice and noodle dishes",
+        "fresh herbs and spices",
+        "variety of sauces and toppings",
+        "distinctive plating styles",
+        "cultural presentation elements"
+    ],
+    "breakfast foods": [
+        "golden-brown pancakes",
+        "fluffy scrambled eggs",
+        "crispy bacon strips",
+        "freshly brewed coffee",
+        "colorful fruit slices",
+        "warm toasted bread"
+    ],
+    "appetizers and snacks": [
+        "small bite-sized portions",
+        "colorful and varied presentation",
+        "finger food style",
+        "diverse textures and flavors",
+        "often served with dips",
+        "casual dining appeal"
+    ],
+    "seafood": [
+        "fresh fish fillets",
+        "brightly colored shrimp",
+        "glistening scallops",
+        "lustrous crab legs",
+        "vibrant mussels",
+        "delicate squid rings"
+    ],
+    "sandwiches": [
+        "layered ingredients between bread",
+        "variety of fillings and toppings",
+        "often served cold or toasted",
+        "can include meats, cheeses, vegetables",
+        "portable and easy to eat",
+        "diverse styles across cultures"
+    ],
+    "soups": [
+        "liquid consistency",
+        "varied colors",
+        "garnished toppings",
+        "steaming hot",
+        "bowl presentation",
+        "chunky ingredients"
+    ],
+    "vegetarian dishes": [
+        "colorful vegetables",
+        "fresh herbs",
+        "vibrant presentation",
+        "diverse textures",
+        "plant-based ingredients",
+        "minimalist plating"
+    ],
+    "pasta and noodles": [
+        "long, thin strands",
+        "curved shapes",
+        "variety of colors",
+        "smooth, glossy surface",
+        "often served with sauce",
+        "commonly garnished with herbs"
+    ]
+}

@@ -1,0 +1,145 @@
+{
+    "air transportation": [
+        "airplanes in flight",
+        "runways and terminals",
+        "cloudy skies",
+        "baggage handling areas",
+        "control towers",
+        "passenger boarding gates"
+    ],
+    "architecture and structures": [
+        "tall buildings",
+        "bridges and arches",
+        "symmetrical designs",
+        "geometric patterns",
+        "urban landscapes",
+        "historical landmarks"
+    ],
+    "public spaces": [
+        "open areas",
+        "gathering spots",
+        "urban parks",
+        "community centers",
+        "accessible environments",
+        "social interaction zones"
+    ],
+    "amusement and entertainment": [
+        "colorful rides",
+        "crowded spaces",
+        "bright lights",
+        "festive decorations",
+        "variety of attractions",
+        "joyful expressions"
+    ],
+    "art and culture": [
+        "vibrant murals",
+        "historic sculptures",
+        "traditional artifacts",
+        "cultural festivals",
+        "artistic performances",
+        "diverse exhibitions"
+    ],
+    "sports and fitness": [
+        "athletic equipment",
+        "active lifestyle",
+        "outdoor activities",
+        "exercise routines",
+        "team sports",
+        "fitness training"
+    ],
+    "industrial and manufacturing": [
+        "factory machinery",
+        "assembly lines",
+        "industrial equipment",
+        "production processes",
+        "warehouse storage",
+        "conveyor belts"
+    ],
+    "outdoor recreation": [
+        "lush green landscapes",
+        "people engaging in activities",
+        "sunny weather",
+        "varied terrain",
+        "natural surroundings",
+        "sports equipment visible"
+    ],
+    "home and living": [
+        "cozy furniture arrangement",
+        "warm lighting ambiance",
+        "decorative plants and art",
+        "comfortable textiles and cushions",
+        "inviting color palette"
+    ],
+    "commercial spaces": [
+        "retail storefronts",
+        "office interiors",
+        "shopping malls",
+        "restaurants and cafes",
+        "public plazas",
+        "exhibition halls"
+    ],
+    "natural landscapes": [
+        "vast open spaces",
+        "lush greenery",
+        "diverse terrain features",
+        "natural water bodies",
+        "sky with clouds",
+        "wildlife presence"
+    ],
+    "food and drink": [
+        "colorful dishes",
+        "variety of textures",
+        "fresh ingredients",
+        "culinary presentation",
+        "beverage containers",
+        "dining settings"
+    ],
+    "retail and shopping": [
+        "storefronts with signage",
+        "shopping carts and bags",
+        "crowded aisles",
+        "display windows",
+        "variety of products",
+        "checkout counters"
+    ],
+    "health and wellness": [
+        "calm environment",
+        "natural light",
+        "green plants",
+        "minimalist decor",
+        "wellness activities",
+        "relaxing colors"
+    ],
+    "transportation infrastructure": [
+        "roads and highways",
+        "bridges and overpasses",
+        "railway tracks",
+        "traffic signals",
+        "public transit stations",
+        "pavement markings"
+    ],
+    "educational institutions": [
+        "classrooms filled with students",
+        "bookshelves lined with books",
+        "lecture halls with desks",
+        "outdoor campus spaces",
+        "academic buildings with signage",
+        "students engaged in learning"
+    ],
+    "water bodies and features": [
+        "reflective water surface",
+        "surrounding vegetation",
+        "flowing currents",
+        "varied water colors",
+        "natural shorelines",
+        "aquatic wildlife presence"
+    ],
+    "religious and spiritual": [
+        "sacred symbols",
+        "places of worship",
+        "ritualistic elements",
+        "spiritual gatherings",
+        "ornate architecture",
+        "tranquil environments"
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "agricultural area": [
+        "large, open fields",
+        "regular, grid-like patterns",
+        "varied shades of green and brown",
+        "presence of crop rows",
+        "sparse tree coverage",
+        "irrigation structures visible"
+    ],
+    "natural landscape": [
+        "expansive green fields",
+        "dense forested areas",
+        "rolling hills",
+        "scattered water bodies",
+        "varied terrain textures",
+        "minimal human structures"
+    ],
+    "urban area": [
+        "dense building clusters",
+        "grid-like street patterns",
+        "varied roof colors",
+        "presence of roads and vehicles",
+        "sparse vegetation",
+        "high-rise structures"
+    ],
+    "body of water": [
+        "expansive blue surface",
+        "reflective water texture",
+        "irregular shoreline",
+        "sparse vegetation",
+        "varying shades of blue",
+        "smooth, undisturbed surface"
+    ]
+}

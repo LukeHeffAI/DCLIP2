@@ -1,0 +1,34 @@
+{
+    "geometric pattern": [
+        "sharp angles",
+        "symmetrical shapes",
+        "repetitive motifs",
+        "bold lines",
+        "defined edges",
+        "contrasting colors"
+    ],
+    "organic pattern": [
+        "curved lines",
+        "natural shapes",
+        "flowing textures",
+        "earthy colors",
+        "irregular forms",
+        "biomorphic designs"
+    ],
+    "textile pattern": [
+        "geometric shapes",
+        "vibrant colors",
+        "repeating motifs",
+        "textured surface",
+        "intricate designs",
+        "soft fabric appearance"
+    ],
+    "surface imperfection": [
+        "uneven texture",
+        "faded areas",
+        "irregular patterns",
+        "blemished appearance",
+        "rough edges",
+        "subtle variations"
+    ]
+}
