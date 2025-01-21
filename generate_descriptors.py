@@ -12,8 +12,8 @@ import pathlib
 from torchvision.datasets import ImageFolder
 
 # Set and update the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-4o', dataset='eurosat', method='clip')
-hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt4o', dataset='places365', method='clip')
+hparams, tfms, dataset, dataset_classes, class_subcategories, class_subcategory_desc, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -23,7 +23,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_api_content(model, category_name: str):
     # you can replace the examples with whatever you want; these were random and worked, could be improved
-    if model.startswith("gpt-3.5"):
+    if model.startswith("gpt3.5"):
         messages = f"""Q: What are useful visual features for distinguishing a lemur in a photo?
         A: There are several useful visual features to tell there is a lemur in a photo:
         - four-limbed primate
@@ -71,7 +71,7 @@ f"""Use this method to generate visual descriptors for the following class from 
 "Class 2 Name": ["Descriptor 1", "Descriptor 2", "Descriptor 3", "Descriptor 4", "Descriptor 5", "Descriptor 6"],
 "Class 3 Name": ["Descriptor 1", "Descriptor 2", "Descriptor 3", "Descriptor 4", "Descriptor 5", "Descriptor 6"]
 
-Generate descriptors for the following class, preserving the class name exactly: \"{category_name}\""""
+Generate concise descriptors (4-6 words total) for the following class, preserving the class name exactly: \"{category_name}\""""
             }
         ]
 
@@ -176,4 +176,4 @@ def check_for_descriptors_at(filename):
     return descriptors
 
 filename = hparams['class_analysis_fname'] + '.json'
-obtain_descriptors_and_save(filename=filename, model="gpt4-o")
+obtain_descriptors_and_save(filename=filename, model="gpt-4o-mini")
