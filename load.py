@@ -308,7 +308,7 @@ def update_hparams(hparams):
 
     return hparams, tfms, dataset_loader, dataset_classes, class_subcategories, class_subcategory_desc, gpt_descriptions, unmodify_dict, label_to_classname, n_classes
 
-# hparams = set_hparams('ViT-B/32', 'gpt3', 'cub', 'd-clip')
+# hparams = set_hparams('ViT-B/32', 'gpt-3', 'cub', 'd-clip')
 # hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
 
 
