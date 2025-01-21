@@ -16,7 +16,7 @@ def save_results(results, file_path):
         json.dump(results, file, indent=4)
 
 # Set the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt3', dataset='imagenet', method='waffleclip+concepts')
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='imagenet', method='d-clip')
 
 # Update the hyperparameters
 hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
