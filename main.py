@@ -16,10 +16,10 @@ def save_results(results, file_path):
         json.dump(results, file, indent=4)
 
 # Set the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='imagenet', method='d-clip')
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='imagenet', method='defntaxs+descriptor')
 
 # Update the hyperparameters
-hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+hparams, tfms, dataset, dataset_classes, class_subcategories, class_subcategory_desc, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
 
 results_file_path = 'results/experiment_results.json'
 results = load_or_initialise_results(results_file_path)
