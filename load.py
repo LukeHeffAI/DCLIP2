@@ -26,7 +26,7 @@ def set_hparams(model_size, desc_type, dataset, method):
 
     hparams['desc_type'] = desc_type
     # Options:
-    # ['gpt3', 'gpt4', 'gpt4o', 'test']
+    # ['gpt-3', 'gpt-4', 'gpt-4o', 'test']
 
     hparams['dataset'] = dataset
     # Options:
