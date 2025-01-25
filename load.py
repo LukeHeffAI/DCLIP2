@@ -34,7 +34,7 @@ def set_hparams(model_size, desc_type, dataset, method):
 
     hparams['method'] = method
     # Options:
-    # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs_sans_descriptor', 'other']
+    # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors' 'defntaxs_sans_descriptor', 'other']
 
     return hparams
 
@@ -96,6 +96,7 @@ def update_hparams(hparams):
         dataset_loader = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_imagenet'
+        hparams['before_subcategory'] = ', which is a type of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
             
     elif hparams['dataset'] == 'imagenetv2':
@@ -107,6 +108,7 @@ def update_hparams(hparams):
         dataset_loader = dsclass(location=str(hparams['data_dir']), transform=tfms)
         classes_to_load = openai_imagenet_classes
         hparams['descriptor_fname'] = 'descriptors_imagenet'
+        hparams['before_subcategory'] = ', which is a type of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
 
     elif hparams['dataset'] == 'cub':
@@ -117,6 +119,7 @@ def update_hparams(hparams):
         dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
         classes_to_load = None #dataset.classes
         hparams['descriptor_fname'] = 'descriptors_cub'
+        hparams['before_subcategory'] = ', which belongs to the genus of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of bird images.'
 
     elif hparams['dataset'] == 'cub_reassignment':
@@ -155,7 +158,8 @@ def update_hparams(hparams):
         dataset_loader = dsclass(str(hparams['data_dir']), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_eurosat'
         classes_to_load = None
-        hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of satellite images of land use across European regions.'
+        hparams['before_subcategory'] = ', which is a type of '
+        hparams['after_text'] = hparams['label_after_text'] = f', from the EuroSAT dataset.'
         
     elif hparams['dataset'] == 'places365':
         hparams['dataset_name'] = 'Places365 Scene Recognition'
@@ -165,6 +169,7 @@ def update_hparams(hparams):
         dataset_loader = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_places365'
         classes_to_load = None
+        hparams['before_subcategory'] = ', which is a type of place for '
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing diverse scene images for environmental classification tasks.'
         
     elif hparams['dataset'] == 'food101':
@@ -176,6 +181,7 @@ def update_hparams(hparams):
         dataset_loader = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_food101'
         classes_to_load = None
+        hparams['before_subcategory'] = ', which would be found on a menu under '
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories with 1,000 images each.'
 
     elif hparams['dataset'] == 'pets':
@@ -187,6 +193,7 @@ def update_hparams(hparams):
         dataset_loader = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_pets'
         classes_to_load = None
+        hparams['before_subcategory'] = ', which is a breed of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of dog and cat breeds.'
         
     elif hparams['dataset'] == 'dtd':
@@ -274,6 +281,7 @@ def update_hparams(hparams):
     # hparams['after_text'] = f', from a dataset.'
     # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
     hparams['after_text'] = ''
+    # if hparams['dataset'] != 'eurosat': hparams['after_text'] = ''
     # hparams['between_text'] = ' '
     # hparams['between_text'] = ''
     hparams['unmodify'] = True
