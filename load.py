@@ -352,68 +352,68 @@ def aggregate_similarity(similarity_matrix_chunk, aggregation_method='mean'):
     else: 
         raise ValueError("Unknown aggregate_similarity")
 
-def show_from_indices(indices, images, labels=None, predictions=None, predictions2 = None, n=None, image_description_similarity=None, image_labels_similarity=None):
-    if indices is None or not indices:
-        print("No indices provided")
-        return
+# def show_from_indices(indices, images, labels=None, predictions=None, predictions2 = None, n=None, image_description_similarity=None, image_labels_similarity=None):
+#     if indices is None or not indices:
+#         print("No indices provided")
+#         return
     
-    if n is not None:
-        indices = indices[:n]
+#     if n is not None:
+#         indices = indices[:n]
     
-    for index in indices:
-        show_single_image(images[index])
-        print(f"Index: {index}")
-        if labels is not None:
-            true_label = labels[index]
-            true_label_name = label_to_classname[true_label]
-            print(f"True label: {true_label_name}")
-        if predictions is not None:
-            predicted_label = predictions[index]
-            predicted_label_name = label_to_classname[predicted_label]
-            print(f"Predicted label (ours): {predicted_label_name}")
-        if predictions2 is not None:
-            predicted_label2 = predictions2[index]
-            predicted_label_name2 = label_to_classname[predicted_label2]
-            print(f"Predicted label 2 (CLIP): {predicted_label_name2}")
+#     for index in indices:
+#         show_single_image(images[index])
+#         print(f"Index: {index}")
+#         if labels is not None:
+#             true_label = labels[index]
+#             true_label_name = label_to_classname[true_label]
+#             print(f"True label: {true_label_name}")
+#         if predictions is not None:
+#             predicted_label = predictions[index]
+#             predicted_label_name = label_to_classname[predicted_label]
+#             print(f"Predicted label (ours): {predicted_label_name}")
+#         if predictions2 is not None:
+#             predicted_label2 = predictions2[index]
+#             predicted_label_name2 = label_to_classname[predicted_label2]
+#             print(f"Predicted label 2 (CLIP): {predicted_label_name2}")
         
-        print("\n")
+#         print("\n")
         
-        if image_labels_similarity is not None:
-            if labels is not None:
-                print(f"Total similarity to {true_label_name} (true label) labels: {image_labels_similarity[index][true_label].item()}")
-            if predictions is not None:
-                if labels is not None and true_label_name == predicted_label_name: 
-                    print("Predicted label (ours) matches true label")
-                else: 
-                    print(f"Total similarity to {predicted_label_name} (predicted label) labels: {image_labels_similarity[index][predicted_label].item()}")
-            if predictions2 is not None:
-                if labels is not None and true_label_name == predicted_label_name2: 
-                    print("Predicted label 2 (CLIP) matches true label")
-                elif predictions is not None and predicted_label_name == predicted_label_name2: 
-                    print("Predicted label 2 (CLIP) matches predicted label 1")
-                else: 
-                    print(f"Total similarity to {predicted_label_name2} (predicted label 2) labels: {image_labels_similarity[index][predicted_label2].item()}")
+#         if image_labels_similarity is not None:
+#             if labels is not None:
+#                 print(f"Total similarity to {true_label_name} (true label) labels: {image_labels_similarity[index][true_label].item()}")
+#             if predictions is not None:
+#                 if labels is not None and true_label_name == predicted_label_name: 
+#                     print("Predicted label (ours) matches true label")
+#                 else: 
+#                     print(f"Total similarity to {predicted_label_name} (predicted label) labels: {image_labels_similarity[index][predicted_label].item()}")
+#             if predictions2 is not None:
+#                 if labels is not None and true_label_name == predicted_label_name2: 
+#                     print("Predicted label 2 (CLIP) matches true label")
+#                 elif predictions is not None and predicted_label_name == predicted_label_name2: 
+#                     print("Predicted label 2 (CLIP) matches predicted label 1")
+#                 else: 
+#                     print(f"Total similarity to {predicted_label_name2} (predicted label 2) labels: {image_labels_similarity[index][predicted_label2].item()}")
         
-            print("\n")
+#             print("\n")
         
-        if image_description_similarity is not None:
-            if labels is not None:
-                print_descriptor_similarity(image_description_similarity, index, true_label, true_label_name, "true")
-                print("\n")
-            if predictions is not None:
-                if labels is not None and true_label_name == predicted_label_name:
-                    print("Predicted label (ours) same as true label")
-                else:
-                    print_descriptor_similarity(image_description_similarity, index, predicted_label, predicted_label_name, "descriptor")
-                print("\n")
-            if predictions2 is not None:
-                if labels is not None and true_label_name == predicted_label_name2:
-                    print("Predicted label 2 (CLIP) same as true label")
-                elif predictions is not None and predicted_label_name == predicted_label_name2: 
-                    print("Predicted label 2 (CLIP) matches predicted label 1")
-                else:
-                    print_descriptor_similarity(image_description_similarity, index, predicted_label2, predicted_label_name2, "CLIP")
-            print("\n")
+#         if image_description_similarity is not None:
+#             if labels is not None:
+#                 print_descriptor_similarity(image_description_similarity, index, true_label, true_label_name, "true")
+#                 print("\n")
+#             if predictions is not None:
+#                 if labels is not None and true_label_name == predicted_label_name:
+#                     print("Predicted label (ours) same as true label")
+#                 else:
+#                     print_descriptor_similarity(image_description_similarity, index, predicted_label, predicted_label_name, "descriptor")
+#                 print("\n")
+#             if predictions2 is not None:
+#                 if labels is not None and true_label_name == predicted_label_name2:
+#                     print("Predicted label 2 (CLIP) same as true label")
+#                 elif predictions is not None and predicted_label_name == predicted_label_name2: 
+#                     print("Predicted label 2 (CLIP) matches predicted label 1")
+#                 else:
+#                     print_descriptor_similarity(image_description_similarity, index, predicted_label2, predicted_label_name2, "CLIP")
+#             print("\n")
 
 def print_descriptor_similarity(image_description_similarity, index, label, label_name, gpt_descriptions, unmodify_dict, label_type="provided"):
     print(f"Total similarity to {label_name} ({label_type} label) descriptors:")
@@ -428,36 +428,36 @@ def print_max_descriptor_similarity(image_description_similarity, index, label, 
     label_descriptors = gpt_descriptions[label_name]
     print(f"I saw a {label_name} because I saw {unmodify_dict[label_name][label_descriptors[argmax.item()]]} with score: {max_similarity.item()}")
     
-def show_misclassified_images(images, labels, predictions, n=None, 
-                              image_description_similarity=None, 
-                              image_labels_similarity=None,
-                              true_label_to_consider: int = None, 
-                              predicted_label_to_consider: int = None):
-    misclassified_indices = yield_misclassified_indices(images, labels=labels, predictions=predictions, true_label_to_consider=true_label_to_consider, predicted_label_to_consider=predicted_label_to_consider)
-    if misclassified_indices is None: return
-    show_from_indices(misclassified_indices, images, labels, predictions, 
-                      n=n,
-                      image_description_similarity=image_description_similarity, 
-                      image_labels_similarity=image_labels_similarity)
+# def show_misclassified_images(images, labels, predictions, n=None, 
+#                               image_description_similarity=None, 
+#                               image_labels_similarity=None,
+#                               true_label_to_consider: int = None, 
+#                               predicted_label_to_consider: int = None):
+#     misclassified_indices = yield_misclassified_indices(images, labels=labels, predictions=predictions, true_label_to_consider=true_label_to_consider, predicted_label_to_consider=predicted_label_to_consider)
+#     if misclassified_indices is None: return
+#     show_from_indices(misclassified_indices, images, labels, predictions, 
+#                       n=n,
+#                       image_description_similarity=image_description_similarity, 
+#                       image_labels_similarity=image_labels_similarity)
 
-def yield_misclassified_indices(images, labels, predictions, true_label_to_consider=None, predicted_label_to_consider=None):
-    misclassified_indicators = (predictions.cpu() != labels.cpu())
-    if true_label_to_consider is not None:
-        misclassified_indicators = misclassified_indicators & (labels.cpu() == true_label_to_consider)
-    if predicted_label_to_consider is not None:
-        misclassified_indicators = misclassified_indicators & (predictions.cpu() == predicted_label_to_consider)
+# # def yield_misclassified_indices(images, labels, predictions, true_label_to_consider=None, predicted_label_to_consider=None):
+#     misclassified_indicators = (predictions.cpu() != labels.cpu())
+#     if true_label_to_consider is not None:
+#         misclassified_indicators = misclassified_indicators & (labels.cpu() == true_label_to_consider)
+#     if predicted_label_to_consider is not None:
+#         misclassified_indicators = misclassified_indicators & (predictions.cpu() == predicted_label_to_consider)
         
-    if misclassified_indicators.sum() == 0:
-        output_string = 'No misclassified images found'
-        if true_label_to_consider is not None:
-            output_string += f' with true label {label_to_classname[true_label_to_consider]}'
-        if predicted_label_to_consider is not None:
-            output_string += f' with predicted label {label_to_classname[predicted_label_to_consider]}'
-        print(output_string + '.')
-        return
+#     if misclassified_indicators.sum() == 0:
+#         output_string = 'No misclassified images found'
+#         if true_label_to_consider is not None:
+#             output_string += f' with true label {label_to_classname[true_label_to_consider]}'
+#         if predicted_label_to_consider is not None:
+#             output_string += f' with predicted label {label_to_classname[predicted_label_to_consider]}'
+#         print(output_string + '.')
+#         return
     
-    misclassified_indices = torch.arange(images.shape[0])[misclassified_indicators]
-    return misclassified_indices
+#     misclassified_indices = torch.arange(images.shape[0])[misclassified_indicators]
+#     return misclassified_indices
 
 
 from PIL import Image
