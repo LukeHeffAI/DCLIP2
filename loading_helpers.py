@@ -125,7 +125,7 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     if hparams['class_analysis_fname'] is not None:
         subcategory_dict = load_json(hparams['class_analysis_fname'])
 
-    if hparams['category_name_inclusion'] is not None and hparams['method'] == 'defntaxs+descriptor':
+    if hparams['category_name_inclusion'] is not None and hparams['method'] == 'defntaxs+descriptors':
         subcategory_desc_dict = load_json(hparams['subcategory_desc_fname'])
 
         if classes_to_load is not None:
@@ -134,55 +134,41 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 print(f"Skipping descriptions for \"{k}\", not in classes to load")
                 gpt_descriptions.pop(k)
 
-        for i, (k, v) in enumerate(gpt_descriptions.items()):
+        for k, v in gpt_descriptions.items():
             if len(v) == 0:
                 v = ['']
 
             print(f"Processing class {k} and descriptions {v}")
-
             word_to_add = wordify(k)
+
+            subcategory_to_add = None
             for subcategory, classes in subcategory_dict.items():
                 if k in classes:
                     print(f"Found class {k} in subcategory {subcategory}")
                     subcategory_to_add = subcategory
                     subcategory_descriptor_list = subcategory_desc_dict[subcategory]
-                    print(f"Subcategory to add: {subcategory_to_add} and subcategory descriptor list: {subcategory_descriptor_list}")
+                    break
+                print(f"Subcategory to add: {subcategory_to_add} and subcategory descriptor list: {subcategory_descriptor_list}")
 
                 ## TODO: Add subcategory descriptions, using a list to hold them from the subcategory_desc_dict and subcategory variable as the key
 
-                    for subcategory_descriptor in subcategory_descriptor_list:
+                if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                    build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}", hparams, subcategory_descriptor)
+                else:
+                    build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'}", hparams, subcategory_descriptor)
 
-                        # Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
-                        # Best (v2) (55.90%): "tench, which is a freshwater fish, which is a type of freshwater fish"
-                        if hparams['dataset_name'] == 'ImageNet' or hparams['dataset_name'] == 'ImageNetV2':
-                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}", hparams, subcategory_descriptor)
-                        
-                        elif hparams['dataset_name'] == 'Food101':
-                        # Best (81.26%): "apple pie, which is a pie dish, which would be found on a menu under "desserts""
-                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which would be found on a menu under "{subcategory_to_add}"'}", hparams, subcategory_descriptor)
-                        
-                        elif hparams['dataset_name'] == 'EuroSAT':
-                        # Best (57.22%): "annual crop land, which has large, open fields, which is a type of agricultural area, from the EuroSAT dataset."
-                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of {subcategory_to_add}'}", hparams, subcategory_descriptor)
-                        
-                        elif hparams['dataset_name'] == 'Oxford Pets':
-                        # Best (87.48%): "A photo of a Abyssinian, which has black, grey, or brown fur, which is a breed of short-haired cats, from a dataset containing images of dog and cat breeds."
-                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a breed of {subcategory_to_add}'}", hparams, subcategory_descriptor)
-                        
-                        elif hparams['dataset_name'] == 'Describable Textures Dataset (DTD)':
-                        # Best (45.88%): "banded, which is a repeating pattern of light and dark bands, which is described as a {subcategory_to_add} texture"
-                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'}", hparams, subcategory_descriptor)
-                        
-                        elif hparams['dataset_name'] == 'Caltech-UCSD Birds 200 (CUB-200)':
-                        # Best (54.02%): "Black-footed Albatross, which is a seabird, which belongs to the genus of albatrosses"
-                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which belongs to the genus of {subcategory_to_add}'}", hparams, subcategory_descriptor)
-                        
-                        elif hparams['dataset_name'] == 'Places365 Scene Recognition':
-                        # Best (40.27%): "airfield, which is an airport, which is a type of air transportation" (note: "A photo of an airfield, which is an airport, which is a type of air transportation" achieved 41.09%)
-                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of place for {subcategory_to_add}'}", hparams, subcategory_descriptor)
+                for subcategory_descriptor in subcategory_descriptor_list:
+                    print(f"Subcategory descriptor: {subcategory_descriptor}")
 
-                        unmodify_dict[k] = {build_descriptor_string(item): item for item in v}
-                        gpt_descriptions[k] = [build_descriptor_string(item) for item in v]
+                    if k not in gpt_descriptions:
+                        gpt_descriptions[k] = []
+
+                    gpt_descriptions[k].extend([build_descriptor_string(item) for item in v])
+
+                    unmodify_dict[k] = {build_descriptor_string(item): item for item in v}
+                    # gpt_descriptions[k] = [build_descriptor_string(item) for item in v]
+
+                    print(f"Processed {gpt_descriptions[k]}")
 
     elif hparams['category_name_inclusion'] is not None:
         if classes_to_load is not None:
@@ -230,35 +216,11 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                         build_descriptor_string = lambda item: f"a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
 
                 elif (hparams['method'] == 'defntaxs'):
-
-                    # Best (63.48%): "tench, which is a freshwater fish, which is a type of freshwater fish"
-                    # Best (v2) (55.90%): "tench, which is a freshwater fish, which is a type of freshwater fish"
-                    if hparams['dataset_name'] == 'ImageNet' or hparams['dataset_name'] == 'ImageNetV2':
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f", which is a type of {subcategory_to_add}"}{hparams['after_text']}"
                     
-                    elif hparams['dataset_name'] == 'Food101':
-                    # Best (81.26%): "apple pie, which is a pie dish, which would be found on a menu under "desserts""
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which would be found on a menu under "{subcategory_to_add}"'}{hparams['after_text']}"
-                    
-                    elif hparams['dataset_name'] == 'EuroSAT':
-                    # Best (57.22%): "annual crop land, which has large, open fields, which is a type of agricultural area, from the EuroSAT dataset."
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of {subcategory_to_add}'}{f', from the EuroSAT dataset.'}"
-                    
-                    elif hparams['dataset_name'] == 'Oxford Pets':
-                    # Best (87.48%): "A photo of a Abyssinian, which has black, grey, or brown fur, which is a breed of short-haired cats, from a dataset containing images of dog and cat breeds."
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a breed of {subcategory_to_add}'}{hparams['after_text']}"
-                    
-                    elif hparams['dataset_name'] == 'Describable Textures Dataset (DTD)':
-                    # Best (45.88%): "banded, which is a repeating pattern of light and dark bands, which is described as a {subcategory_to_add} texture"
+                    if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}{hparams['after_text']}"
+                    else:
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'}{hparams['after_text']}"
-                    
-                    elif hparams['dataset_name'] == 'Caltech-UCSD Birds 200 (CUB-200)':
-                    # Best (54.02%): "Black-footed Albatross, which is a seabird, which belongs to the genus of albatrosses"
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which belongs to the genus of {subcategory_to_add}'}{hparams['after_text']}"
-                    
-                    elif hparams['dataset_name'] == 'Places365 Scene Recognition':
-                    # Best (40.27%): "airfield, which is an airport, which is a type of air transportation" (note: "A photo of an airfield, which is an airport, which is a type of air transportation" achieved 41.09%)
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is a type of place for {subcategory_to_add}'}{hparams['after_text']}"
 
                 elif (hparams['method'] == 'defntaxs_sans_descriptor'):
 
