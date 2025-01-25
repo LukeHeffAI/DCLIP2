@@ -125,7 +125,7 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
     if hparams['method'] == 'defntaxs+descriptor' and hparams['subcategory_desc_fname'] is not None:
         subcategory_desc_dict = load_json(hparams['subcategory_desc_fname'])
 
-    if hparams['category_name_inclusion'] is not None:
+    if hparams['category_name_inclusion'] is not None and hparams['method'] == 'defntaxs+descriptor':
         if classes_to_load is not None:
             keys_to_remove = [k for k in gpt_descriptions.keys() if k not in classes_to_load]
             for k in keys_to_remove:
