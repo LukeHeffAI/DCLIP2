@@ -25,9 +25,12 @@ def save_results(results, file_path):
 def run_experiments():
 
     model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
-    desc_types = ['gpt3', 'gpt4o']
+    desc_types = ['gpt-3']
     datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet', 'imagenetv2']
-    methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs_sans_descriptor']
+    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    methods = ['clip', 'e-clip', 'd-clip', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+
+    print(f"Running a maximum of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiments.")
     
     # # Test with a smaller subset of the above parameters
     # model_sizes = ['ViT-B/32', 'ViT-B/16']
@@ -36,7 +39,7 @@ def run_experiments():
     # methods = ['d-clip']
     
     # Path to the results file
-    results_file_path = 'results/all_backbone_method_dataset_experiment_results.json'
+    results_file_path = 'results/NEW_all_backbone_method_dataset_experiment_results.json'
     
     # Load existing results
     all_results = load_existing_results(results_file_path)
@@ -68,11 +71,11 @@ def run_experiments():
         hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
         
         
-        print(f"\nRunning experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}")
+        print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}")
         
         # Run the main experiment logic from main.py
         try:
-            results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes)
+            results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
             avg_runtime = (time() - start_time) / count
             count += 1
             print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for all experiments: {avg_runtime * len(model_sizes) * len(desc_types) * len(datasets) * len(methods):.2f} seconds")
@@ -102,7 +105,7 @@ def run_experiments():
     
     print(f"All results have been saved to {results_file_path}")
 
-def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes):
+def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
 
     seed_everything(hparams['seed'])
 
@@ -168,6 +171,8 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, class_
     experimental_results = {}
     experimental_results[f"{hparams['method'].capitalize()} Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
     experimental_results["CLIP Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
+
+    print("\n")
 
     return experimental_results
 
