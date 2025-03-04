@@ -34,7 +34,7 @@ def set_hparams(model_size, desc_type, dataset, method):
 
     hparams['method'] = method
     # Options:
-    # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors' 'defntaxs_sans_descriptor', 'other']
+    # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
 
     return hparams
 
@@ -280,8 +280,8 @@ def update_hparams(hparams):
     hparams['between_text'] = ', '
     # hparams['after_text'] = f', from a dataset.'
     # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
-    hparams['after_text'] = ''
-    # if hparams['dataset'] != 'eurosat': hparams['after_text'] = ''
+    # hparams['after_text'] = ''
+    if hparams['dataset'] != 'eurosat': hparams['after_text'] = ''
     # hparams['between_text'] = ' '
     # hparams['between_text'] = ''
     hparams['unmodify'] = True
@@ -300,10 +300,6 @@ def update_hparams(hparams):
     print("Loading class subcategories...")
     with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
         class_subcategories = json.load(f)
-
-    print("Loading class subcategory descriptors...")
-    with open(hparams['subcategory_desc_fname'] + '.json', 'r') as f:
-        class_subcategory_desc = json.load(f)
         
     print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
@@ -314,7 +310,7 @@ def update_hparams(hparams):
 
     a = 1
 
-    return hparams, tfms, dataset_loader, dataset_classes, class_subcategories, class_subcategory_desc, gpt_descriptions, unmodify_dict, label_to_classname, n_classes
+    return hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes
 
 # hparams = set_hparams('ViT-B/32', 'gpt-3', 'cub', 'd-clip')
 # hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
