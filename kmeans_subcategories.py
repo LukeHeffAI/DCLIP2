@@ -1,17 +1,27 @@
-# kmeans_subcategories.py
-
 import os
 import json
 import numpy as np
 from sklearn.cluster import KMeans
 import torch
 import clip
-
-# OPTIONAL: If you want to use an LLM to label subcategories:
 from openai import OpenAI
 
+def compute_class_list(data:dict, sort_config = False):
+
+    if sort_config:
+        data = dict(sorted(data.items()))
+
+    class_list = []
+    for k in data.keys():
+        class_list.append(k)
+
+    if sort_config:
+        class_list = sorted(class_list)
+
+    return class_list
+
 def create_subcategories_with_kmeans(
-    classes,
+    hparams,
     device,
     model_size,
     out_json_path,
@@ -38,6 +48,13 @@ def create_subcategories_with_kmeans(
     Returns:
         cluster_dict (dict): { 'cluster_label': [classA, classB, ...], ... }
     """
+
+    filename = f'descriptors/gpt-3/descriptors_{hparams['dataset']}.json'
+
+    with open(filename, 'r') as f:
+        data = json.load(f)
+
+    classes = compute_class_list(data, sort_config=False)
 
     # 1) Load CLIP and encode each class name as a text embedding
     device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -79,9 +96,7 @@ def create_subcategories_with_kmeans(
 
         for cluster_id, c_list in cluster_map.items():
             prompt_text = (
-                f"Provide a short descriptive subcategory name for "
-                f"these classes: {c_list}. "
-                "Respond with only the name, nothing else."
+                f"Provide a short descriptive subcategory name for these classes: {c_list}. Respond with only the name, nothing else."
             )
             response = openai_client.chat.completions.create(
                 model="gpt-4o",
@@ -105,17 +120,5 @@ def create_subcategories_with_kmeans(
     # 5) Save subcategory->classes mapping
     with open(out_json_path, 'w') as f:
         json.dump(cluster_dict, f, indent=2)
-
-    # 6) If you want subcategory-level descriptors (like the old "class_analysis_xxx_descriptors.json"),
-    #    you can create them yourself or leave them blank. For example:
-    subcat_desc = {}
-    for subcat_name in cluster_dict:
-        # A trivial placeholder descriptor, or you can generate them with an LLM
-        subcat_desc[subcat_name] = [
-            "cluster descriptor text one",
-            "cluster descriptor text two"
-        ]
-    with open(out_desc_path, 'w') as f:
-        json.dump(subcat_desc, f, indent=2)
 
     return cluster_dict
