@@ -36,6 +36,10 @@ def set_hparams(model_size, desc_type, dataset, method):
     # Options:
     # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
 
+    hparams['kmeans_mode'] = True
+    # Options:
+    # [True, False]
+
     return hparams
 
 def update_hparams(hparams):
@@ -294,11 +298,18 @@ def update_hparams(hparams):
 
     hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
     hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
-    hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
-    hparams['subcategory_desc_fname'] = './class_analysis/json/class_' + hparams['analysis_fname'] + '_descriptors'
+    hparams['class_analysis_fname'] = f'./class_analysis/json/class_{hparams['analysis_fname']}'
+    if hparams['kmeans_mode']:
+        hparams['class_analysis_fname'] = f"{hparams['class_analysis_fname']}_kmeans"
+    hparams['subcategory_desc_fname'] = f'./class_analysis/json/{hparams['class_analysis_fname']}_descriptors'
 
+    if hparams.get('kmeans_mode', False):
+        maybe_generate_kmeans_subcats(hparams)
+
+    subcat_json_filename = f"{hparams['class_analysis_fname']}.json"
+    
     print("Loading class subcategories...")
-    with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
+    with open(subcat_json_filename, 'r') as f:
         class_subcategories = json.load(f)
         
     print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
