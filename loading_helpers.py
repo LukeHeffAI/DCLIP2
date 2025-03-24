@@ -3,6 +3,8 @@ import os
 import json
 import numpy as np
 import random
+from sklearn.cluster import KMeans
+from kmeans_subcategories import create_subcategories_with_kmeans
 
 cut_proportion = 1
 
@@ -288,6 +290,42 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
             if i == 0: #verbose and 
                 print(f"Example description for class '{k}': \"{gpt_descriptions[k][0]}\"\n")
     return gpt_descriptions, unmodify_dict
+
+def maybe_generate_kmeans_subcats(hparams):
+    """
+    If 'kmeans_mode' is True, run k-means over text embeddings for the dataset classes,
+    produce a JSON subcategory mapping, and store it in the path given by hparams['class_analysis_fname'].
+    Also produce a subcategory descriptor file if needed.
+    """
+    if not hparams.get('kmeans_mode', False):
+        return  # do nothing
+
+    out_json_path = hparams['class_analysis_fname'] + '.json'
+    out_desc_path = hparams['subcategory_desc_fname'] + '.json'
+
+    # Only run if we haven't done so already
+    if os.path.exists(out_json_path) and os.path.exists(out_desc_path):
+        print(f"k-means subcategories appear to exist: {out_json_path}")
+        return
+
+    print("Running k-means-based subcategory generation...")
+
+    device = torch.device(hparams['device'])
+    model_size = hparams['model_size']
+    fraction_clusters = 0.05  # or read from hparams
+
+    # Now call the function
+    create_subcategories_with_kmeans(
+        hparams=hparams,
+        device=device,
+        model_size=model_size,
+        out_json_path=out_json_path,
+        out_desc_path=out_desc_path,
+        fraction_clusters=fraction_clusters,
+        use_llm_for_cluster_names=True
+    )
+
+    print("Finished k-means subcategory generation.")
 
 
 def seed_everything(seed: int):
