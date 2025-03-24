@@ -3,6 +3,7 @@ from load import *
 import torchmetrics
 from tqdm import tqdm
 import torch
+from load import set_hparams, update_hparams
 
 def load_or_initialise_results(file_path):
     try:
@@ -16,7 +17,7 @@ def save_results(results, file_path):
         json.dump(results, file, indent=4)
 
 # Set the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='eurosat', method='defntaxs')
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='dtd', method='defntaxs')
 
 # Update the hyperparameters
 hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
