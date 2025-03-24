@@ -1,12 +1,18 @@
 from loading_helpers import compute_class_list
 import json
 from openai import OpenAI
-from load import hparams
+from load import set_hparams, update_hparams
 import time
 
 time_start = time.time()
 
 client = OpenAI()
+
+# Set the hyperparameters
+hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='cub', method='defntaxs')
+
+# Update the hyperparameters
+hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
 
 filename = f'descriptors/gpt3/descriptors_{hparams['dataset']}.json'
 
