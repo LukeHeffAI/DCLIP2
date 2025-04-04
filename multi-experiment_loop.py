@@ -26,11 +26,19 @@ def run_experiments():
 
     model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
     desc_types = ['gpt-3']
-    datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet', 'imagenetv2']
+    datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
-    methods = ['clip', 'e-clip', 'd-clip', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
+    kmeans_modes = [True, False]  # Add kmeans_mode options
 
-    print(f"Running a maximum of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiments.")
+    # Calculate total experiments considering kmeans_mode for defntaxs methods
+    defntaxs_methods = [m for m in methods if 'defntaxs' in m]
+    total_experiments = (
+        (len(model_sizes) * len(desc_types) * len(datasets) * 
+         (len(methods) - len(defntaxs_methods) + len(defntaxs_methods) * len(kmeans_modes)))
+    )
+    
+    print(f"Running a maximum of {total_experiments} experiments.")
     
     # # Test with a smaller subset of the above parameters
     # model_sizes = ['ViT-B/32', 'ViT-B/16']
@@ -39,7 +47,7 @@ def run_experiments():
     # methods = ['d-clip']
     
     # Path to the results file
-    results_file_path = 'results/NEW_all_backbone_method_dataset_experiment_results.json'
+    results_file_path = 'results/kmeans_all_backbone_method_dataset_experiment_results.json'
     
     # Load existing results
     all_results = load_existing_results(results_file_path)
@@ -51,53 +59,84 @@ def run_experiments():
 
     # Loop through all combinations of model_size, desc_type, dataset, and method
     for model_size, desc_type, current_dataset, method in itertools.product(model_sizes, desc_types, datasets, methods):
-        # Check if this combination of model_size, desc_type, dataset, and method has already been run
-        if desc_type in all_results and model_size in all_results[desc_type] and method in all_results[desc_type][model_size] and current_dataset in all_results[desc_type][model_size][method]:
-            print(f"Skipping existing experiment: model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}")
-
-            avg_runtime = (time() - start_time) / count
-            count += 1
-            print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for all experiments: {avg_runtime * len(model_sizes) * len(desc_types) * len(datasets) * len(methods):.2f} seconds")
-
-            continue
-
-        # Make a deep copy of the original hparams to avoid modifying the original
-        # current_hparams = copy.deepcopy(hparams)
         
-        # Set hparams for the current experiment
-        hparams = set_hparams(model_size, desc_type, current_dataset, method)
+        # For defntaxs methods, we'll test both kmeans modes
+        if 'defntaxs' in method:
+            kmeans_loop = kmeans_modes
+        else:
+            # For non-defntaxs methods, we only run with default (False)
+            kmeans_loop = [False]
+            
+        for kmeans_mode in kmeans_loop:
+            # Skip if this experiment has already been run
+            result_key = f"kmeans_{kmeans_mode}" if 'defntaxs' in method else "default"
+            
+            if (desc_type in all_results and 
+                model_size in all_results[desc_type] and 
+                method in all_results[desc_type][model_size] and 
+                current_dataset in all_results[desc_type][model_size][method] and
+                result_key in all_results[desc_type][model_size][method][current_dataset]):
+                
+                print(f"Skipping existing experiment: model_size={model_size}, desc_type={desc_type}, "
+                      f"dataset={current_dataset}, method={method}, kmeans_mode={kmeans_mode}")
 
-        # Update hparams and other variables based on the current experiment using update_hparams
-        hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
-        
-        
-        print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}")
-        
-        # Run the main experiment logic from main.py
-        try:
-            results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
-            avg_runtime = (time() - start_time) / count
-            count += 1
-            print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for all experiments: {avg_runtime * len(model_sizes) * len(desc_types) * len(datasets) * len(methods):.2f} seconds")
-            # Store the results in the all_results dictionary
-            if desc_type not in all_results:
-                all_results[desc_type] = {}
-            if model_size not in all_results[desc_type]:
-                all_results[desc_type][model_size] = {}
-            if method not in all_results[desc_type][model_size]:
-                all_results[desc_type][model_size][method] = {}
-            all_results[desc_type][model_size][method][current_dataset] = results
-            save_results(all_results, results_file_path)
-        except Exception as e:
-            failed_experiments[count] = [model_size, desc_type, current_dataset, method]
-            print(f"Experiment failed for model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}")
-            print(f"Error: {e}")
-            all_results["failed_experiments"] = failed_experiments
-            save_results(all_results, results_file_path)
+                avg_runtime = (time() - start_time) / count if count > 1 else 0
+                count += 1
+                print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for remaining experiments: "
+                      f"{avg_runtime * (total_experiments - count + 1):.2f} seconds")
 
-            avg_runtime = (time() - start_time) / count
-            count += 1
-            print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for all experiments: {avg_runtime * len(model_sizes) * len(desc_types) * len(datasets) * len(methods):.2f} seconds")
+                continue
+            
+            # Set hparams for the current experiment
+            hparams = set_hparams(model_size, desc_type, current_dataset, method)
+            
+            # Set kmeans_mode in hparams
+            if 'defntaxs' in method:
+                hparams['kmeans_mode'] = kmeans_mode
+            
+            # Update hparams and other variables based on the current experiment
+            hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+            
+            print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, "
+                  f"dataset: {current_dataset}, method: {method}, kmeans_mode: {kmeans_mode if 'defntaxs' in method else 'N/A'}")
+            
+            # Run the main experiment logic
+            try:
+                results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
+                
+                avg_runtime = (time() - start_time) / count if count > 1 else 0
+                count += 1
+                print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for remaining experiments: "
+                      f"{avg_runtime * (total_experiments - count + 1):.2f} seconds")
+                
+                # Store the results in the all_results dictionary with kmeans information
+                if desc_type not in all_results:
+                    all_results[desc_type] = {}
+                if model_size not in all_results[desc_type]:
+                    all_results[desc_type][model_size] = {}
+                if method not in all_results[desc_type][model_size]:
+                    all_results[desc_type][model_size][method] = {}
+                if current_dataset not in all_results[desc_type][model_size][method]:
+                    all_results[desc_type][model_size][method][current_dataset] = {}
+                
+                # Store with kmeans indicator for defntaxs methods
+                result_key = f"kmeans_{kmeans_mode}" if 'defntaxs' in method else "default"
+                all_results[desc_type][model_size][method][current_dataset][result_key] = results
+                
+                save_results(all_results, results_file_path)
+            except Exception as e:
+                failed_experiments[count] = [model_size, desc_type, current_dataset, method, 
+                                            f"kmeans_mode={kmeans_mode}" if 'defntaxs' in method else ""]
+                print(f"Experiment failed for model_size: {model_size}, desc_type: {desc_type}, "
+                      f"dataset: {current_dataset}, method: {method}, kmeans_mode: {kmeans_mode if 'defntaxs' in method else 'N/A'}")
+                print(f"Error: {e}")
+                all_results["failed_experiments"] = failed_experiments
+                save_results(all_results, results_file_path)
+
+                avg_runtime = (time() - start_time) / count if count > 1 else 0
+                count += 1
+                print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for remaining experiments: "
+                      f"{avg_runtime * (total_experiments - count + 1):.2f} seconds")
     
     # Save the updated results to the JSON file
     all_results["failed_experiments"] = failed_experiments
