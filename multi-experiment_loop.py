@@ -135,7 +135,7 @@ def run_experiments():
 
                 avg_runtime = (time() - start_time) / count if count > 1 else 0
                 count += 1
-                print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for remaining experiments: "
+                print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for remaining {total_experiments - count + 1} experiments: "
                       f"{avg_runtime * (total_experiments - count + 1):.2f} seconds")
     
     # Save the updated results to the JSON file
