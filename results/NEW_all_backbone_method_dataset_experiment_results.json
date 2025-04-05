@@ -1,5 +1,5 @@
 {
-    "gpt3": {
+    "gpt-3": {
         "ViT-B/32": {
             "clip": {
                 "cub": {
@@ -739,6 +739,14 @@
                 "places365": {
                     "Waffleclip Accuracy: ": 39.86027538776398,
                     "CLIP Accuracy: ": 39.065754413604736
+                },
+                "food101": {
+                        "Waffleclip Accuracy: ": 90.5138611793518,
+                        "CLIP Accuracy: ": 89.88019824028015
+                },
+                "imagenet": {
+                        "Waffleclip Accuracy: ": 74.07199740409851,
+                        "CLIP Accuracy: ": 71.56599760055542
                 }
             },
             "waffleclip+concepts": {
@@ -761,6 +769,14 @@
                 "places365": {
                     "Waffleclip+concepts Accuracy: ": 41.02191925048828,
                     "CLIP Accuracy: ": 39.065754413604736
+                },
+                "food101": {
+                    "Waffleclip+concepts Accuracy: ": 90.87425470352173,
+                    "CLIP Accuracy: ": 89.88019824028015
+                },
+                "imagenet": {
+                    "Waffleclip+concepts Accuracy: ": 74.07199740409851,
+                    "CLIP Accuracy: ": 71.56599760055542
                 }
             },
             "defntaxs": {
@@ -901,7 +917,7 @@
             }
         }
     },
-    "gpt4o": {
+    "gpt-4o": {
         "ViT-B/32": {
             "clip": {
                 "cub": {
@@ -1518,6 +1534,5 @@
                 }
             }
         }
-    },
-    "failed_experiments": {}
+    }
 }
