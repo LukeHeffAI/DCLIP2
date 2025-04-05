@@ -1,5 +1,5 @@
 {
-  "Seabirds": [
+  "Seabirds and Coastal Birds": [
     "Black-footed Albatross",
     "Laysan Albatross",
     "Sooty Albatross",
@@ -18,7 +18,7 @@
     "White Pelican",
     "Horned Puffin"
   ],
-  "Diverse Avian Species": [
+  "Diverse North American Birds": [
     "Groove-billed Ani",
     "Brewer Blackbird",
     "Bobolink",
@@ -54,7 +54,7 @@
     "Harris Sparrow",
     "Bank Swallow"
   ],
-  "Waterbirds": [
+  "Seabirds and Waterfowl": [
     "Crested Auklet",
     "Least Auklet",
     "Parakeet Auklet",
@@ -68,7 +68,7 @@
     "Hooded Merganser",
     "Red-breasted Merganser"
   ],
-  "Colorful Songbirds and Woodpeckers": [
+  "Colorful North American Songbirds and Woodpeckers": [
     "Red-winged Blackbird",
     "Yellow-headed Blackbird",
     "Indigo Bunting",
@@ -93,7 +93,7 @@
     "Red-headed Woodpecker",
     "Downy Woodpecker"
   ],
-  "Songbirds": [
+  "North American Songbirds and Swallows": [
     "Rusty Blackbird",
     "Eastern Towhee",
     "Brown Creeper",
@@ -117,7 +117,7 @@
     "Rock Wren",
     "Winter Wren"
   ],
-  "Songbirds (Group 1)": [
+  "North American Songbirds": [
     "Lazuli Bunting",
     "Gray Catbird",
     "Yellow-breasted Chat",
@@ -210,7 +210,7 @@
     "Yellow Warbler",
     "Common Yellowthroat"
   ],
-  "Terns": [
+  "Tern Species": [
     "Artic Tern",
     "Black Tern",
     "Caspian Tern",

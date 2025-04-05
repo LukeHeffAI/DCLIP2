@@ -1,14 +1,22 @@
 {
-  "Land Use and Cover Types": [
+  "Agricultural Land": [
     "annual crop land",
-    "forest",
-    "brushland or shrubland",
-    "highway or road",
-    "industrial buildings or commercial buildings",
     "pasture land",
-    "permanent crop land",
-    "residential buildings or homes or apartments",
+    "permanent crop land"
+  ],
+  "Woodland": [
+    "forest"
+  ],
+  "Shrubland Ecosystems": [
+    "brushland or shrubland"
+  ],
+  "Linear and Water Bodies": [
+    "highway or road",
     "river",
     "lake or sea"
+  ],
+  "Built Environment": [
+    "industrial buildings or commercial buildings",
+    "residential buildings or homes or apartments"
   ]
 }
