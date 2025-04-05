@@ -1,0 +1,22 @@
+{
+  "Agricultural Land": [
+    "annual crop land",
+    "pasture land",
+    "permanent crop land"
+  ],
+  "Woodland Ecosystems": [
+    "forest"
+  ],
+  "Shrubland Ecosystems": [
+    "brushland or shrubland"
+  ],
+  "Transportation and Water Bodies": [
+    "highway or road",
+    "river",
+    "lake or sea"
+  ],
+  "Built Environment": [
+    "industrial buildings or commercial buildings",
+    "residential buildings or homes or apartments"
+  ]
+}

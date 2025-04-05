@@ -31,6 +31,18 @@
                         "Clip Accuracy: ": 77.82673239707947,
                         "CLIP Accuracy: ": 77.8485119342804
                     }
+                },
+                "pets": {
+                    "default": {
+                        "Clip Accuracy: ": 77.87550687789917,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Clip Accuracy: ": 41.117021441459656,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
                 }
             },
             "e-clip": {
@@ -62,6 +74,18 @@
                     "default": {
                         "E-clip Accuracy: ": 78.77524495124817,
                         "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "E-clip Accuracy: ": 82.09742903709412,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "E-clip Accuracy: ": 43.0673748254776,
+                        "CLIP Accuracy: ": 41.152483224868774
                     }
                 }
             },
@@ -95,6 +119,18 @@
                         "D-clip Accuracy: ": 80.42871356010437,
                         "CLIP Accuracy: ": 77.8485119342804
                     }
+                },
+                "pets": {
+                    "default": {
+                        "D-clip Accuracy: ": 81.84032440185547,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "D-clip Accuracy: ": 43.6170220375061,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
                 }
             },
             "waffleclip": {
@@ -127,6 +163,18 @@
                         "Waffleclip Accuracy: ": 79.42871451377869,
                         "CLIP Accuracy: ": 77.8485119342804
                     }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 82.38159418106079,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 40.053191781044006,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
                 }
             },
             "waffleclip+concepts": {
@@ -158,6 +206,18 @@
                     "default": {
                         "Waffleclip+concepts Accuracy: ": 81.25346302986145,
                         "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 85.39918661117554,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 40.053191781044006,
+                        "CLIP Accuracy: ": 41.152483224868774
                     }
                 }
             },
@@ -206,9 +266,1506 @@
                     "kmeans_True": {
                         "Defntaxs Accuracy: ": 80.65148591995239,
                         "CLIP Accuracy: ": 77.8485119342804
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 81.2227725982666,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 83.2882285118103,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 86.08930706977844,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 43.563830852508545,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 46.24113440513611,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
+                }
+            }
+        },
+        "ViT-B/16": {
+            "clip": {
+                "imagenet": {
+                    "default": {
+                        "Clip Accuracy: ": 64.09800052642822,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Clip Accuracy: ": 56.42043352127075,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Clip Accuracy: ": 46.0999995470047,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Clip Accuracy: ": 38.317808508872986,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Clip Accuracy: ": 84.01881456375122,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Clip Accuracy: ": 80.13531565666199,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Clip Accuracy: ": 44.574469327926636,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "e-clip": {
+                "imagenet": {
+                    "default": {
+                        "E-clip Accuracy: ": 66.59600138664246,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "E-clip Accuracy: ": 55.86813688278198,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "E-clip Accuracy: ": 52.73703932762146,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "E-clip Accuracy: ": 39.186301827430725,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "E-clip Accuracy: ": 84.87722873687744,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "E-clip Accuracy: ": 85.5074405670166,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "E-clip Accuracy: ": 43.6170220375061,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "d-clip": {
+                "imagenet": {
+                    "default": {
+                        "D-clip Accuracy: ": 68.05400252342224,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "D-clip Accuracy: ": 57.49050974845886,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "D-clip Accuracy: ": 54.17777895927429,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "D-clip Accuracy: ": 40.55342376232147,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "D-clip Accuracy: ": 85.54554581642151,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "D-clip Accuracy: ": 85.57510375976562,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "D-clip Accuracy: ": 45.51418423652649,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "waffleclip": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 67.28799939155579,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 56.2133252620697,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 31.94074034690857,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 39.52328860759735,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 85.26930809020996,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 81.21786117553711,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 42.500001192092896,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "waffleclip+concepts": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 67.28799939155579,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 56.903696060180664,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 41.27407371997833,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 40.523287653923035,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 86.39801740646362,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 86.92828416824341,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 42.500001192092896,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "defntaxs": {
+                "imagenet": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 67.15400218963623,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 68.0899977684021,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 58.14635753631592,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 58.16361904144287,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 52.42592692375183,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 56.511110067367554,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 40.268492698669434,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 41.08767211437225,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 85.81980466842651,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 86.09009981155396,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 87.98376321792603,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 89.3098771572113,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 44.663119316101074,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 46.400707960128784,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            }
+        },
+        "ViT-L/14": {
+            "clip": {
+                "imagenet": {
+                    "default": {
+                        "Clip Accuracy: ": 71.55200242996216,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Clip Accuracy: ": 62.978941202163696,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Clip Accuracy: ": 36.83333396911621,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Clip Accuracy: ": 39.043834805488586,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Clip Accuracy: ": 89.86831903457642,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Clip Accuracy: ": 86.82002425193787,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Clip Accuracy: ": 50.7446825504303,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "e-clip": {
+                "imagenet": {
+                    "default": {
+                        "E-clip Accuracy: ": 72.80600070953369,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "E-clip Accuracy: ": 62.65102028846741,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "E-clip Accuracy: ": 54.03703451156616,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "E-clip Accuracy: ": 39.7616446018219,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "E-clip Accuracy: ": 89.77822065353394,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "E-clip Accuracy: ": 91.81326031684875,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "E-clip Accuracy: ": 51.41844153404236,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "d-clip": {
+                "imagenet": {
+                    "default": {
+                        "D-clip Accuracy: ": 74.99600052833557,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "D-clip Accuracy: ": 64.51501846313477,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "D-clip Accuracy: ": 54.70370650291443,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "D-clip Accuracy: ": 40.85753560066223,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "D-clip Accuracy: ": 90.3316855430603,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "D-clip Accuracy: ": 91.15020036697388,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "D-clip Accuracy: ": 54.59219813346863,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "waffleclip": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 74.07199740409851,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 62.340354919433594,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 34.28148031234741,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 39.86027538776398,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 90.5138611793518,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 88.24086785316467,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 49.41489398479462,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "waffleclip+concepts": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 74.07199740409851,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 62.547463178634644,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 50.00740885734558,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 41.02191925048828,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 90.87425470352173,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 93.70771050453186,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 49.41489398479462,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "defntaxs": {
+                "imagenet": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 73.70799779891968,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 74.69800114631653,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 63.68657350540161,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 63.92819881439209,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 56.31851553916931,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 59.68148112297058,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 40.07123410701752,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 41.80547893047333,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 90.79108834266663,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 90.98514914512634,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 90.75778126716614,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 92.76048541069031,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 52.14539170265198,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 55.23049831390381,
+                        "CLIP Accuracy: ": 50.797873735427856
                     }
                 }
             }
         }
-    }
+    },
+    "gpt-4o": {
+        "ViT-B/32": {
+            "clip": {
+                "imagenet": {
+                    "default": {
+                        "Clip Accuracy: ": 58.855998516082764,
+                        "CLIP Accuracy: ": 58.973997831344604
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Clip Accuracy: ": 51.82948112487793,
+                        "CLIP Accuracy: ": 52.00207233428955
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Clip Accuracy: ": 44.32222247123718,
+                        "CLIP Accuracy: ": 44.30740773677826
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Clip Accuracy: ": 37.479451298713684,
+                        "CLIP Accuracy: ": 37.50959038734436
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Clip Accuracy: ": 77.83762216567993,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Clip Accuracy: ": 77.9567003250122,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Clip Accuracy: ": 41.08155965805054,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
+                }
+            },
+            "e-clip": {
+                "imagenet": {
+                    "default": {
+                        "E-clip Accuracy: ": 61.89600229263306,
+                        "CLIP Accuracy: ": 58.973997831344604
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "E-clip Accuracy: ": 51.95029377937317,
+                        "CLIP Accuracy: ": 52.00207233428955
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "E-clip Accuracy: ": 33.311110734939575,
+                        "CLIP Accuracy: ": 44.30740773677826
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "E-clip Accuracy: ": 39.12328779697418,
+                        "CLIP Accuracy: ": 37.50959038734436
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "E-clip Accuracy: ": 78.78515124320984,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "E-clip Accuracy: ": 82.0568323135376,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "E-clip Accuracy: ": 43.12056601047516,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
+                }
+            },
+            "d-clip": {
+                "imagenet": {
+                    "default": {
+                        "D-clip Accuracy: ": 63.26000094413757,
+                        "CLIP Accuracy: ": 58.973997831344604
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "D-clip Accuracy: ": 53.831547498703,
+                        "CLIP Accuracy: ": 52.00207233428955
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "D-clip Accuracy: ": 51.51481628417969,
+                        "CLIP Accuracy: ": 44.30740773677826
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "D-clip Accuracy: ": 40.89314937591553,
+                        "CLIP Accuracy: ": 37.50959038734436
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "D-clip Accuracy: ": 81.05643391609192,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "D-clip Accuracy: ": 81.5426230430603,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "D-clip Accuracy: ": 47.10992872714996,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
+                }
+            },
+            "waffleclip": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 62.25799918174744,
+                        "CLIP Accuracy: ": 58.973997831344604
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 52.05385088920593,
+                        "CLIP Accuracy: ": 52.00207233428955
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 35.281482338905334,
+                        "CLIP Accuracy: ": 44.30740773677826
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 38.63561749458313,
+                        "CLIP Accuracy: ": 37.50959038734436
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 80.30990362167358,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 80.12178540229797,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 41.02836847305298,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
+                }
+            },
+            "waffleclip+concepts": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 62.25799918174744,
+                        "CLIP Accuracy: ": 58.973997831344604
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 52.50259041786194,
+                        "CLIP Accuracy: ": 52.00207233428955
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 46.04814946651459,
+                        "CLIP Accuracy: ": 44.30740773677826
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 40.62465727329254,
+                        "CLIP Accuracy: ": 37.50959038734436
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 81.55841827392578,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 85.33152937889099,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 41.02836847305298,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
+                }
+            },
+            "defntaxs": {
+                "imagenet": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 62.65000104904175,
+                        "CLIP Accuracy: ": 58.973997831344604
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 63.822001218795776,
+                        "CLIP Accuracy: ": 58.973997831344604
+                    }
+                },
+                "cub": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 53.43458652496338,
+                        "CLIP Accuracy: ": 52.00207233428955
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 54.435622692108154,
+                        "CLIP Accuracy: ": 52.00207233428955
+                    }
+                },
+                "eurosat": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 49.974074959754944,
+                        "CLIP Accuracy: ": 44.30740773677826
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 57.507407665252686,
+                        "CLIP Accuracy: ": 44.30740773677826
+                    }
+                },
+                "places365": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 38.70410919189453,
+                        "CLIP Accuracy: ": 37.50959038734436
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 39.887672662734985,
+                        "CLIP Accuracy: ": 37.50959038734436
+                    }
+                },
+                "food101": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 80.97326755523682,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 81.30099177360535,
+                        "CLIP Accuracy: ": 77.8485119342804
+                    }
+                },
+                "pets": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 83.47766995429993,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 86.67117953300476,
+                        "CLIP Accuracy: ": 77.9296338558197
+                    }
+                },
+                "dtd": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 45.1241135597229,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 47.34042584896088,
+                        "CLIP Accuracy: ": 41.152483224868774
+                    }
+                }
+            }
+        },
+        "ViT-B/16": {
+            "clip": {
+                "imagenet": {
+                    "default": {
+                        "Clip Accuracy: ": 64.07399773597717,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Clip Accuracy: ": 56.351399421691895,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Clip Accuracy: ": 46.20000123977661,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Clip Accuracy: ": 38.33424746990204,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Clip Accuracy: ": 84.0227723121643,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Clip Accuracy: ": 80.12178540229797,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Clip Accuracy: ": 44.592198729515076,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "e-clip": {
+                "imagenet": {
+                    "default": {
+                        "E-clip Accuracy: ": 66.60599708557129,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "E-clip Accuracy: ": 55.86813688278198,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "E-clip Accuracy: ": 52.5592565536499,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "E-clip Accuracy: ": 39.183562994003296,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "E-clip Accuracy: ": 84.86138582229614,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "E-clip Accuracy: ": 85.49391031265259,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "E-clip Accuracy: ": 43.599289655685425,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "d-clip": {
+                "imagenet": {
+                    "default": {
+                        "D-clip Accuracy: ": 68.37599873542786,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "D-clip Accuracy: ": 59.13013219833374,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "D-clip Accuracy: ": 54.88518476486206,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "D-clip Accuracy: ": 41.85205399990082,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "D-clip Accuracy: ": 86.09405755996704,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "D-clip Accuracy: ": 85.64276099205017,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "D-clip Accuracy: ": 47.64184355735779,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "waffleclip": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 67.17600226402283,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 55.41939735412598,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 49.4740754365921,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 39.63561654090881,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 85.22970080375671,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 81.27198815345764,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 44.48581635951996,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "waffleclip+concepts": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 67.17600226402283,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 56.17880821228027,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 49.392592906951904,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 40.8219188451767,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 86.40593886375427,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 86.64411306381226,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 44.48581635951996,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            },
+            "defntaxs": {
+                "imagenet": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 66.93000197410583,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 68.09800267219543,
+                        "CLIP Accuracy: ": 64.11399841308594
+                    }
+                },
+                "cub": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 58.11184048652649,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 59.52709913253784,
+                        "CLIP Accuracy: ": 56.316882371902466
+                    }
+                },
+                "eurosat": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 54.78888750076294,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 60.25184988975525,
+                        "CLIP Accuracy: ": 46.19629681110382
+                    }
+                },
+                "places365": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 41.04657471179962,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 41.68493151664734,
+                        "CLIP Accuracy: ": 38.37808072566986
+                    }
+                },
+                "food101": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 86.2772285938263,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 86.4653468132019,
+                        "CLIP Accuracy: ": 84.04950499534607
+                    }
+                },
+                "pets": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 88.28145861625671,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 89.26928043365479,
+                        "CLIP Accuracy: ": 80.13531565666199
+                    }
+                },
+                "dtd": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 46.400707960128784,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 48.01418483257294,
+                        "CLIP Accuracy: ": 44.80496346950531
+                    }
+                }
+            }
+        },
+        "ViT-L/14": {
+            "clip": {
+                "imagenet": {
+                    "default": {
+                        "Clip Accuracy: ": 71.5719997882843,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Clip Accuracy: ": 62.978941202163696,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Clip Accuracy: ": 36.97037100791931,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Clip Accuracy: ": 39.046576619148254,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Clip Accuracy: ": 89.8594081401825,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Clip Accuracy: ": 86.83356046676636,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Clip Accuracy: ": 50.7624089717865,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "e-clip": {
+                "imagenet": {
+                    "default": {
+                        "E-clip Accuracy: ": 72.80200123786926,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "E-clip Accuracy: ": 62.70279884338379,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "E-clip Accuracy: ": 54.100000858306885,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "E-clip Accuracy: ": 39.74520564079285,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "E-clip Accuracy: ": 89.7792100906372,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "E-clip Accuracy: ": 91.86738729476929,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "E-clip Accuracy: ": 51.43616795539856,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "d-clip": {
+                "imagenet": {
+                    "default": {
+                        "D-clip Accuracy: ": 75.16400218009949,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "D-clip Accuracy: ": 65.34345746040344,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "D-clip Accuracy: ": 57.999998331069946,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "D-clip Accuracy: ": 41.46301448345184,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "D-clip Accuracy: ": 91.22475385665894,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "D-clip Accuracy: ": 91.58322215080261,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "D-clip Accuracy: ": 56.54255151748657,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "waffleclip": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 74.1100013256073,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 62.75457143783569,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 46.2370365858078,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 40.098631381988525,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 90.60198068618774,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 88.17320466041565,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip Accuracy: ": 50.460994243621826,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "waffleclip+concepts": {
+                "imagenet": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 74.1100013256073,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 63.13427686691284,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 51.585185527801514,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 41.246575117111206,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 91.27624034881592,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 93.88362765312195,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "default": {
+                        "Waffleclip+concepts Accuracy: ": 50.460994243621826,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            },
+            "defntaxs": {
+                "imagenet": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 73.49799871444702,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 74.58000183105469,
+                        "CLIP Accuracy: ": 71.56599760055542
+                    }
+                },
+                "cub": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 64.22160863876343,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 64.63583111763,
+                        "CLIP Accuracy: ": 63.03071975708008
+                    }
+                },
+                "eurosat": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 58.18889141082764,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 60.67036986351013,
+                        "CLIP Accuracy: ": 36.803704500198364
+                    }
+                },
+                "places365": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 40.33150672912598,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 41.150686144828796,
+                        "CLIP Accuracy: ": 39.065754413604736
+                    }
+                },
+                "food101": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 91.10099077224731,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 91.23069047927856,
+                        "CLIP Accuracy: ": 89.88019824028015
+                    }
+                },
+                "pets": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 91.8809175491333,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 93.13938021659851,
+                        "CLIP Accuracy: ": 86.82002425193787
+                    }
+                },
+                "dtd": {
+                    "kmeans_True": {
+                        "Defntaxs Accuracy: ": 53.90070676803589,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    },
+                    "kmeans_False": {
+                        "Defntaxs Accuracy: ": 56.56028389930725,
+                        "CLIP Accuracy: ": 50.797873735427856
+                    }
+                }
+            }
+        }
+    },
+    "failed_experiments": {}
 }

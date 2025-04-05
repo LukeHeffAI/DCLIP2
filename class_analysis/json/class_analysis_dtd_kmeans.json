@@ -1,0 +1,59 @@
+{
+  "\"Patterned Linear Textures\"": [
+    "banded",
+    "braided",
+    "fibrous",
+    "grooved",
+    "interlaced",
+    "knitted",
+    "pitted",
+    "pleated",
+    "spiralled",
+    "stratified",
+    "striped",
+    "veined",
+    "zigzagged"
+  ],
+  "Patterned": [
+    "blotchy",
+    "cobwebbed",
+    "cracked",
+    "crosshatched",
+    "crystalline",
+    "flecked",
+    "freckled",
+    "grid",
+    "honeycombed",
+    "lacelike",
+    "lined",
+    "marbled",
+    "matted",
+    "meshed",
+    "perforated",
+    "porous",
+    "potholed",
+    "scaly",
+    "smeared",
+    "sprinkled",
+    "stained",
+    "waffled",
+    "woven",
+    "wrinkled"
+  ],
+  "Ornate": [
+    "bubbly",
+    "bumpy",
+    "frilly",
+    "gauzy",
+    "paisley",
+    "swirly"
+  ],
+  "Geometric Patterns": [
+    "chequered"
+  ],
+  "\"Punctuated Patterns\"": [
+    "dotted",
+    "polka-dotted",
+    "studded"
+  ]
+}

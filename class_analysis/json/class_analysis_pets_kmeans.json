@@ -1,0 +1,49 @@
+{
+  "Small and Medium Breeds": [
+    "Abyssinian",
+    "havanese",
+    "miniature pinscher",
+    "scottish terrier",
+    "wheaten terrier",
+    "yorkshire terrier"
+  ],
+  "Mixed Breeds: Cats & Dogs": [
+    "Bengal",
+    "Bombay",
+    "Persian",
+    "Ragdoll",
+    "Siamese",
+    "Sphynx",
+    "beagle",
+    "boxer",
+    "chihuahua",
+    "newfoundland",
+    "pomeranian",
+    "pug",
+    "shiba inu"
+  ],
+  "Fluffy Giants": [
+    "Birman",
+    "Maine Coon",
+    "great pyrenees",
+    "japanese chin",
+    "keeshond",
+    "leonberger",
+    "saint bernard",
+    "samoyed"
+  ],
+  "\"Mixed Breeds: Cats & Bulldogs\"": [
+    "British Shorthair",
+    "Egyptian Mau",
+    "Russian Blue",
+    "american bulldog",
+    "american pit bull terrier",
+    "german shorthaired",
+    "staffordshire bull terrier"
+  ],
+  "English Hunting Dogs": [
+    "basset hound",
+    "english cocker spaniel",
+    "english setter"
+  ]
+}
