@@ -96,7 +96,7 @@ def update_hparams(hparams):
         dataset_loader = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['before_subcategory'] = ', which is a type of '
+        hparams['before_subcategory'] = ' often categorized as a type of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
             
     elif hparams['dataset'] == 'imagenetv2':
