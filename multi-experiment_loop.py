@@ -1,6 +1,6 @@
 import itertools
-import copy
 import json
+import os
 from load import set_hparams, update_hparams, compute_description_encodings, compute_label_encodings, aggregate_similarity
 from loading_helpers import seed_everything
 from torch.utils.data import DataLoader
@@ -10,6 +10,7 @@ import clip
 import torchmetrics
 from tqdm import tqdm
 from time import time
+from create_subcategories import create_subcategories
 
 def load_existing_results(file_path):
     try:
@@ -19,94 +20,132 @@ def load_existing_results(file_path):
         return {}
 
 def save_results(results, file_path):
+    # Create directory if it doesn't exist
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
-def run_experiments():
-
-    model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
-    desc_types = ['gpt-3']
-    datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet', 'imagenetv2']
-    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
-    methods = ['clip', 'e-clip', 'd-clip', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
-
-    print(f"Running a maximum of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiments.")
+def run_experiments(num_runs=3, force_regenerate_subcategories=True):
+    """
+    Run multiple experiments across different model configurations.
     
-    # # Test with a smaller subset of the above parameters
-    # model_sizes = ['ViT-B/32', 'ViT-B/16']
-    # desc_types = ['gpt3']
-    # datasets = ['cub']
-    # methods = ['d-clip']
+    Args:
+        num_runs: Number of times to repeat each experiment configuration
+        force_regenerate_subcategories: Whether to regenerate subcategories before each run
+    """
+    # model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
+    model_sizes = ['ViT-B/32']
+    desc_types = ['gpt-3']
+    # datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet', 'imagenetv2']
+    datasets = ['cub', 'eurosat', 'pets']
+    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    methods = ['waffleclip', 'waffleclip+concepts', 'defntaxs']
+
+    total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
+    print(f"Running {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
     
     # Path to the results file
-    results_file_path = 'results/NEW_all_backbone_method_dataset_experiment_results.json'
+    results_file_path = 'results/multiple_runs_experiment_results.json'
     
     # Load existing results
     all_results = load_existing_results(results_file_path)
-
-    failed_experiments = {}
+    
+    # Track failures
+    failed_experiments = all_results.get("failed_experiments", {})
 
     count = 1
     start_time = time()
 
-    # Loop through all combinations of model_size, desc_type, dataset, and method
+    # Loop through all combinations of model configurations
     for model_size, desc_type, current_dataset, method in itertools.product(model_sizes, desc_types, datasets, methods):
-        # Check if this combination of model_size, desc_type, dataset, and method has already been run
-        if desc_type in all_results and model_size in all_results[desc_type] and method in all_results[desc_type][model_size] and current_dataset in all_results[desc_type][model_size][method]:
-            print(f"Skipping existing experiment: model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}")
-
-            avg_runtime = (time() - start_time) / count
-            count += 1
-            print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for all experiments: {avg_runtime * len(model_sizes) * len(desc_types) * len(datasets) * len(methods):.2f} seconds")
-
-            continue
-
-        # Make a deep copy of the original hparams to avoid modifying the original
-        # current_hparams = copy.deepcopy(hparams)
+        # Initialize result structure for this configuration if it doesn't exist
+        if desc_type not in all_results:
+            all_results[desc_type] = {}
+        if model_size not in all_results[desc_type]:
+            all_results[desc_type][model_size] = {}
+        if method not in all_results[desc_type][model_size]:
+            all_results[desc_type][model_size][method] = {}
+        if current_dataset not in all_results[desc_type][model_size][method]:
+            all_results[desc_type][model_size][method][current_dataset] = []
         
-        # Set hparams for the current experiment
-        hparams = set_hparams(model_size, desc_type, current_dataset, method)
-
-        # Update hparams and other variables based on the current experiment using update_hparams
-        hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+        # Get current results list for this configuration
+        current_results = all_results[desc_type][model_size][method][current_dataset]
         
-        
-        print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}")
-        
-        # Run the main experiment logic from main.py
-        try:
-            results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
-            avg_runtime = (time() - start_time) / count
-            count += 1
-            print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for all experiments: {avg_runtime * len(model_sizes) * len(desc_types) * len(datasets) * len(methods):.2f} seconds")
-            # Store the results in the all_results dictionary
-            if desc_type not in all_results:
-                all_results[desc_type] = {}
-            if model_size not in all_results[desc_type]:
-                all_results[desc_type][model_size] = {}
-            if method not in all_results[desc_type][model_size]:
-                all_results[desc_type][model_size][method] = {}
-            all_results[desc_type][model_size][method][current_dataset] = results
-            save_results(all_results, results_file_path)
-        except Exception as e:
-            failed_experiments[count] = [model_size, desc_type, current_dataset, method]
-            print(f"Experiment failed for model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}")
-            print(f"Error: {e}")
-            all_results["failed_experiments"] = failed_experiments
-            save_results(all_results, results_file_path)
-
-            avg_runtime = (time() - start_time) / count
-            count += 1
-            print(f"Average runtime: {avg_runtime:.2f} seconds. Expected time for all experiments: {avg_runtime * len(model_sizes) * len(desc_types) * len(datasets) * len(methods):.2f} seconds")
+        # Run this experiment configuration multiple times
+        for run_idx in range(num_runs):
+            print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}")
+            
+            try:
+                # Set hparams for the current experiment
+                hparams = set_hparams(model_size, desc_type, current_dataset, method)
+                hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
+                
+                # # Add dataset_name to hparams to fix defntaxs method error
+                # hparams['dataset_name'] = current_dataset
+                
+                # Regenerate subcategories if needed (only for methods that use them)
+                if force_regenerate_subcategories and method in ['defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']:
+                    print(f"Regenerating subcategories for {current_dataset}...")
+                    create_subcategories(hparams, force=True)
+                
+                # Update hparams and other variables for the current experiment
+                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+                
+                # Run the experiment
+                print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx+1}")
+                results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
+                
+                # Add run metadata
+                results["run_id"] = run_idx + 1
+                results["timestamp"] = time()
+                
+                # Append results to the list
+                current_results.append(results)
+                
+                # Save after each experiment run
+                all_results[desc_type][model_size][method][current_dataset] = current_results
+                save_results(all_results, results_file_path)
+                
+                # Track progress and estimate remaining time
+                count += 1
+                elapsed_time = time() - start_time
+                avg_time_per_exp = elapsed_time / count
+                remaining_exps = total_experiments - count
+                est_remaining_time = avg_time_per_exp * remaining_exps
+                print(f"Progress: {count}/{total_experiments} experiments completed")
+                print(f"Average time per experiment: {avg_time_per_exp:.2f} seconds")
+                print(f"Estimated time remaining: {est_remaining_time:.2f} seconds ({est_remaining_time/3600:.2f} hours)")
+                
+            except Exception as e:
+                # Record the failed experiment
+                failure_key = f"{model_size}_{desc_type}_{current_dataset}_{method}_run{run_idx}"
+                failed_experiments[failure_key] = {
+                    "model_size": model_size, 
+                    "desc_type": desc_type, 
+                    "dataset": current_dataset, 
+                    "method": method,
+                    "run_idx": run_idx,
+                    "error": str(e)
+                }
+                
+                print(f"Experiment failed: {failure_key}")
+                print(f"Error: {e}")
+                
+                # Save failure information
+                all_results["failed_experiments"] = failed_experiments
+                save_results(all_results, results_file_path)
+                
+                # Continue with next experiment
+                count += 1
     
-    # Save the updated results to the JSON file
-    all_results["failed_experiments"] = failed_experiments
+    # Save final results
     save_results(all_results, results_file_path)
-    
     print(f"All results have been saved to {results_file_path}")
 
-def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
 
+def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
+    """Run a single experiment with the given configuration."""
     seed_everything(hparams['seed'])
 
     # Prepare the data loader
@@ -128,7 +167,7 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
     # Number of classes
     num_classes = len(dataset_classes)
 
-    # Evaluation metrics for overall and per-class accuracies
+    # Evaluation metrics
     print("Evaluating...")
     overall_lang_accuracy_metric = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes).to(device)
     overall_lang_accuracy_metric_top5 = torchmetrics.Accuracy(task="multiclass", num_classes=num_classes, top_k=5).to(device)
@@ -144,10 +183,8 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
         image_encodings = model.encode_image(images)
         image_encodings = F.normalize(image_encodings)
         
-        # Compute similarities and make predictions
+        # Compute similarities and make predictions for CLIP
         image_labels_similarity = image_encodings @ label_encodings.T
-        
-        # Update overall accuracies for CLIP
         overall_clip_accuracy_metric(image_labels_similarity, labels)
         overall_clip_accuracy_metric_top5(image_labels_similarity, labels)
 
@@ -157,28 +194,46 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 
         for i, (k, v) in enumerate(description_encodings.items()):
             dot_product_matrix = image_encodings @ v.T
-            
             image_description_similarity[i] = dot_product_matrix
             image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
 
-        cumulative_tensor = torch.stack(image_description_similarity_cumulative,dim=1)
+        cumulative_tensor = torch.stack(image_description_similarity_cumulative, dim=1)
         
         # Update overall accuracies for descriptions
         overall_lang_accuracy_metric(cumulative_tensor.softmax(dim=-1), labels)
         overall_lang_accuracy_metric_top5(cumulative_tensor.softmax(dim=-1), labels)
 
-    # Print overall accuracies
-    experimental_results = {}
-    experimental_results[f"{hparams['method'].capitalize()} Accuracy: "] = 100*overall_lang_accuracy_metric.compute().item()
-    experimental_results["CLIP Accuracy: "] = 100*overall_clip_accuracy_metric.compute().item()
+    # Calculate accuracy values
+    method_top1 = 100*overall_lang_accuracy_metric.compute().item()
+    method_top5 = 100*overall_lang_accuracy_metric_top5.compute().item()
+    clip_top1 = 100*overall_clip_accuracy_metric.compute().item()
+    clip_top5 = 100*overall_clip_accuracy_metric_top5.compute().item()
 
-    print("\n")
+    # Prepare results dictionary with consistent keys
+    experimental_results = {
+        f"{hparams['method'].capitalize()} Top-1 Accuracy": method_top1,
+        f"{hparams['method'].capitalize()} Top-5 Accuracy": method_top5,
+        "CLIP Top-1 Accuracy": clip_top1,
+        "CLIP Top-5 Accuracy": clip_top5,
+        "seed": hparams['seed']
+    }
+
+    # Print results summary with matching keys
+    print(f"\nResults for {hparams['method']} on {hparams['dataset_name']}:")
+    print(f"{hparams['method'].capitalize()} Top-1 Accuracy: {method_top1:.2f}%")
+    print(f"CLIP Top-1 Accuracy: {clip_top1:.2f}%")
 
     return experimental_results
 
 
-start_time = time()
-run_experiments()
-end_time = time()
-
-print(f"Total time taken: {end_time - start_time:.2f} seconds")
+if __name__ == "__main__":
+    # Run experiments with specified number of runs per configuration
+    # Change these parameters as needed
+    num_runs = 3  # Number of times to run each configuration
+    force_regenerate = True  # Whether to regenerate subcategories each time
+    
+    start_time = time()
+    run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate)
+    end_time = time()
+    
+    print(f"Total time taken: {end_time - start_time:.2f} seconds")
