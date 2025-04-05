@@ -5,9 +5,9 @@ from sklearn.cluster import KMeans
 import torch
 import clip
 from openai import OpenAI
+from collections import defaultdict
 
 def compute_class_list(data:dict, sort_config = False):
-
     if sort_config:
         data = dict(sorted(data.items()))
 
@@ -26,7 +26,7 @@ def create_subcategories_with_kmeans(
     model_size,
     out_json_path,
     out_desc_path,
-    fraction_clusters=0.05,
+    fraction_clusters=0.15,  # Increased from 0.05 to get more clusters
     use_llm_for_cluster_names=True
 ):
     """
@@ -48,14 +48,15 @@ def create_subcategories_with_kmeans(
     Returns:
         cluster_dict (dict): { 'cluster_label': [classA, classB, ...], ... }
     """
-
-    filename = f'descriptors/gpt-3/descriptors_{hparams['dataset']}.json'
-
+    # Load the descriptors file
+    filename = f'descriptors/gpt-3/descriptors_{hparams["dataset"]}.json'
     with open(filename, 'r') as f:
         data = json.load(f)
 
-    classes = compute_class_list(data, sort_config=False)
-
+    # Get all classes from the descriptors file
+    all_classes = list(data.keys())
+    print(f"Total classes found: {len(all_classes)}")
+    
     # 1) Load CLIP and encode each class name as a text embedding
     device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, preprocess = clip.load(model_size, device=device, jit=False)
@@ -63,62 +64,98 @@ def create_subcategories_with_kmeans(
 
     # Convert each class string into a token embedding
     all_embeddings = []
-    for cname in classes:
+    classes = []  # To keep track of classes in same order as embeddings
+    
+    for cname in all_classes:
         # Optionally do the same prefix as usual, e.g. "A photo of a {cname}"
         text = f"{cname}"
         tokens = clip.tokenize([text]).to(device)
-        with torch.no_grad():
-            emb = model.encode_text(tokens).float()
-        emb = emb / emb.norm(dim=-1, keepdim=True)  # L2-normalize
-        all_embeddings.append(emb[0].cpu().numpy())
+        try:
+            with torch.no_grad():
+                emb = model.encode_text(tokens).float()
+            emb = emb / emb.norm(dim=-1, keepdim=True)  # L2-normalize
+            all_embeddings.append(emb[0].cpu().numpy())
+            classes.append(cname)
+        except Exception as e:
+            print(f"Error processing {cname}: {e}")
 
     # 2) K-means over those text embeddings
     all_embeddings = np.stack(all_embeddings, axis=0)
-    num_clusters = max(1, int(len(classes) * fraction_clusters))
+    num_clusters = max(5, int(len(classes) * fraction_clusters))
+    print(f"Creating {num_clusters} clusters")
 
-    kmeans = KMeans(n_clusters=num_clusters, random_state=0)
+    kmeans = KMeans(n_clusters=num_clusters, random_state=0, n_init=10)
     assignments = kmeans.fit_predict(all_embeddings)
 
     # 3) Group classes by cluster ID
-    cluster_map = {}
+    cluster_map = defaultdict(list)
     for idx, class_name in enumerate(classes):
         cluster_id = assignments[idx]
-        if cluster_id not in cluster_map:
-            cluster_map[cluster_id] = []
         cluster_map[cluster_id].append(class_name)
 
-    # 4) (Optional) Use LLM to generate a short descriptive name per cluster
-    #     or else just name them "subcat_0", "subcat_1", etc.
+    # 4) Use LLM to generate descriptive names per cluster
     cluster_dict = {}
     if use_llm_for_cluster_names:
-        # Example using your existing OpenAI code
         openai_client = OpenAI()
+
+        # Get the class list for the prompt
+        class_list = ', '.join(all_classes)
 
         for cluster_id, c_list in cluster_map.items():
             prompt_text = (
-                f"Provide a short descriptive subcategory name for these classes: {c_list}. Respond with only the name, nothing else."
+                f"Provide a short descriptive subcategory name for this group of dataset classes: {c_list}. "
+                f"The name should be specific to this subset of classes within the broader set of classes: {class_list}. "
+                "Respond with only the name, nothing else."
             )
+            # For the first iteration, print the prompt text
+            if cluster_id == 0:
+                print(f"Prompt text for LLM: {prompt_text}")
+                
             response = openai_client.chat.completions.create(
                 model="gpt-4o",
-                messages=[{"role":"user","content":prompt_text}],
+                messages=[{"role": "user", "content": prompt_text}],
                 temperature=0.2,
                 max_tokens=20
             )
-            cluster_name = response.choices[0].message.content.strip()
+            
+            if response.choices[0].message.content is not None: cluster_name = response.choices[0].message.content.strip()
 
             # Just in case the LLM returns something messy
             if not cluster_name:
-                cluster_name = f"subcategory_{cluster_id}"
-            # Clean or shorten cluster_name if needed
+                cluster_name = f"Bird Group {cluster_id}"
+                
+            # Handle duplicate names by adding numbers
+            if cluster_name in cluster_dict:
+                base_name = cluster_name
+                i = 1
+                while f"{base_name} (Group {i})" in cluster_dict:
+                    i += 1
+                cluster_name = f"{base_name} (Group {i})"
+                
             cluster_dict[cluster_name] = c_list
     else:
-        # No LLM; just label them "subcat_0", "subcat_1", ...
+        # No LLM; just label them "Bird Group 1", "Bird Group 2", ...
         for cluster_id, c_list in cluster_map.items():
-            cluster_name = f"subcategory_{cluster_id}"
+            cluster_name = f"Bird Group {cluster_id+1}"
             cluster_dict[cluster_name] = c_list
+
+    # Verify all birds are included
+    all_birds_in_clusters = [bird for birds in cluster_dict.values() for bird in birds]
+    missing_birds = set(all_classes) - set(all_birds_in_clusters)
+    
+    if missing_birds:
+        print(f"Warning: {len(missing_birds)} birds are missing from clusters: {missing_birds}")
+        # Add missing birds to a "Miscellaneous Birds" category
+        if "Miscellaneous Birds" not in cluster_dict:
+            cluster_dict["Miscellaneous Birds"] = list(missing_birds)
+        else:
+            cluster_dict["Miscellaneous Birds"].extend(list(missing_birds))
 
     # 5) Save subcategory->classes mapping
     with open(out_json_path, 'w') as f:
         json.dump(cluster_dict, f, indent=2)
+        
+    print(f"Saved clusters to {out_json_path}")
+    print(f"Created {len(cluster_dict)} named clusters")
 
     return cluster_dict
