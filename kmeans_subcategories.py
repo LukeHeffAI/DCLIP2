@@ -20,6 +20,113 @@ def compute_class_list(data:dict, sort_config = False):
 
     return class_list
 
+def get_dataset_terms(dataset_name):
+    """
+    Returns dataset-specific terminology for cluster naming.
+    
+    Args:
+        dataset_name (str): Name of the dataset (e.g., 'ImageNet', 'CUB-200', 'Food101')
+        
+    Returns:
+        dict: Dictionary containing dataset-specific terms
+    """
+    # Default generic terms
+    terms = {
+        "class_type": "item",
+        "group_prefix": "Group",
+        "misc_group_name": "Miscellaneous Items"
+    }
+    
+    # Dataset-specific overrides
+    dataset_name = dataset_name.lower()
+    
+    if any(bird_term in dataset_name for bird_term in ["cub", "bird"]):
+        terms = {
+            "class_type": "bird",
+            "group_prefix": "Bird Group",
+            "misc_group_name": "Miscellaneous Birds"
+        }
+    elif any(food_term in dataset_name for food_term in ["food", "cuisine"]):
+        terms = {
+            "class_type": "food",
+            "group_prefix": "Food Category",
+            "misc_group_name": "Miscellaneous Food Items"
+        }
+    elif "imagenet" in dataset_name:
+        terms = {
+            "class_type": "object",
+            "group_prefix": "Object Category",
+            "misc_group_name": "Miscellaneous Objects"
+        }
+    elif "place" in dataset_name:
+        terms = {
+            "class_type": "place",
+            "group_prefix": "Location Type",
+            "misc_group_name": "Miscellaneous Places"
+        }
+    elif "aircraft" in dataset_name:
+        terms = {
+            "class_type": "aircraft",
+            "group_prefix": "Aircraft Type",
+            "misc_group_name": "Miscellaneous Aircraft"
+        }
+    elif "car" in dataset_name:
+        terms = {
+            "class_type": "car",
+            "group_prefix": "Vehicle Category",
+            "misc_group_name": "Miscellaneous Vehicles"
+        }
+    elif "flower" in dataset_name:
+        terms = {
+            "class_type": "flower",
+            "group_prefix": "Floral Group",
+            "misc_group_name": "Miscellaneous Flowers"
+        }
+    elif "dtd" in dataset_name or "texture" in dataset_name:
+        terms = {
+            "class_type": "texture",
+            "group_prefix": "Texture Type",
+            "misc_group_name": "Miscellaneous Textures"
+        }
+    elif "pet" in dataset_name:
+        terms = {
+            "class_type": "pet",
+            "group_prefix": "Pet Category",
+            "misc_group_name": "Miscellaneous Pets"
+        }
+    elif "eurosat" in dataset_name or "satellite" in dataset_name:
+        terms = {
+            "class_type": "land use",
+            "group_prefix": "Land Category",
+            "misc_group_name": "Miscellaneous Land Types"
+        }
+    elif "cifar10" in dataset_name:
+        terms = {
+            "class_type": "object",
+            "group_prefix": "Object Group",
+            "misc_group_name": "Miscellaneous Objects"
+        }
+    elif "cifar100" in dataset_name:
+        terms = {
+            "class_type": "object",
+            "group_prefix": "Object Category",
+            "misc_group_name": "Miscellaneous Objects"
+        }
+    elif "sun397" in dataset_name:
+        terms = {
+            "class_type": "scene",
+            "group_prefix": "Scene Type",
+            "misc_group_name": "Miscellaneous Scenes"
+        }
+    elif "caltech101" in dataset_name:
+        terms = {
+            "class_type": "object",
+            "group_prefix": "Object Category",
+            "misc_group_name": "Miscellaneous Objects"
+        }
+    
+    return terms
+
 def create_subcategories_with_kmeans(
     hparams,
     device,
@@ -37,7 +144,7 @@ def create_subcategories_with_kmeans(
     5) Also saves subcategory descriptors (if you want them) to a second file.
 
     Args:
-        classes (List[str]): The class names for your dataset.
+        hparams (dict): Hyperparameters including dataset name.
         device (torch.device): CUDA or CPU device.
         model_size (str): e.g. 'ViT-B/32'.
         out_json_path (str): Path to save the subcategory->classes mapping JSON.
@@ -48,6 +155,9 @@ def create_subcategories_with_kmeans(
     Returns:
         cluster_dict (dict): { 'cluster_label': [classA, classB, ...], ... }
     """
+    # Get dataset-specific terminology
+    dataset_terms = get_dataset_terms(hparams['dataset_name'])
+    
     # Load the descriptors file
     filename = f'descriptors/gpt-3/descriptors_{hparams["dataset"]}.json'
     with open(filename, 'r') as f:
@@ -103,9 +213,10 @@ def create_subcategories_with_kmeans(
 
         for cluster_id, c_list in cluster_map.items():
             prompt_text = (
-                f"Provide a short descriptive subcategory name for this group of dataset classes: {c_list}. "
-                f"The name should be specific to this subset of classes within the broader set of classes: {class_list}. "
-                "Respond with only the name, nothing else."
+                f"You're helping categorize a dataset of {dataset_terms['class_type']}s. "
+                f"Provide a short descriptive subcategory name for this group of {dataset_terms['class_type']}s: {c_list}. "
+                f"The name should be specific to this subset within the broader set of {dataset_terms['class_type']}s in the {hparams['dataset_name']} dataset. "
+                "Respond with only the category name, nothing else."
             )
             # For the first iteration, print the prompt text
             if cluster_id == 0:
@@ -122,7 +233,7 @@ def create_subcategories_with_kmeans(
 
             # Just in case the LLM returns something messy
             if not cluster_name:
-                cluster_name = f"Bird Group {cluster_id}"
+                cluster_name = f"{dataset_terms['group_prefix']} {cluster_id}"
                 
             # Handle duplicate names by adding numbers
             if cluster_name in cluster_dict:
@@ -134,22 +245,22 @@ def create_subcategories_with_kmeans(
                 
             cluster_dict[cluster_name] = c_list
     else:
-        # No LLM; just label them "Bird Group 1", "Bird Group 2", ...
+        # No LLM; use dataset-specific generic naming
         for cluster_id, c_list in cluster_map.items():
-            cluster_name = f"Bird Group {cluster_id+1}"
+            cluster_name = f"{dataset_terms['group_prefix']} {cluster_id+1}"
             cluster_dict[cluster_name] = c_list
 
-    # Verify all birds are included
-    all_birds_in_clusters = [bird for birds in cluster_dict.values() for bird in birds]
-    missing_birds = set(all_classes) - set(all_birds_in_clusters)
+    # Verify all classes are included
+    all_classes_in_clusters = [c for classes in cluster_dict.values() for c in classes]
+    missing_classes = set(all_classes) - set(all_classes_in_clusters)
     
-    if missing_birds:
-        print(f"Warning: {len(missing_birds)} birds are missing from clusters: {missing_birds}")
-        # Add missing birds to a "Miscellaneous Birds" category
-        if "Miscellaneous Birds" not in cluster_dict:
-            cluster_dict["Miscellaneous Birds"] = list(missing_birds)
+    if missing_classes:
+        print(f"Warning: {len(missing_classes)} {dataset_terms['class_type']}s are missing from clusters: {missing_classes}")
+        # Add missing classes to a miscellaneous category
+        if dataset_terms['misc_group_name'] not in cluster_dict:
+            cluster_dict[dataset_terms['misc_group_name']] = list(missing_classes)
         else:
-            cluster_dict["Miscellaneous Birds"].extend(list(missing_birds))
+            cluster_dict[dataset_terms['misc_group_name']].extend(list(missing_classes))
 
     # 5) Save subcategory->classes mapping
     with open(out_json_path, 'w') as f:
