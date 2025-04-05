@@ -64,11 +64,15 @@ def wordify(string):
     word = string.replace('_', ' ')
     return word
 
+def starts_with_vowel(word):
+    vowels = ('a', 'e', 'i', 'o', 'u')
+    return word.lower().startswith(vowels)
+
 def make_descriptor_sentence(descriptor, hparams):
     if (hparams['category_name_inclusion'] == 'prepend'):
         if descriptor.startswith('a ') or descriptor.startswith('an ') or descriptor.startswith('the '):
             return f"which is {descriptor}"
-        elif descriptor.startswith('a') or descriptor.startswith('e') or descriptor.startswith('i') or descriptor.startswith('o') or descriptor.startswith('u'):
+        elif starts_with_vowel(descriptor.split(' ')[0]):
             return f"which is an {descriptor}"
         elif descriptor.startswith('has') or descriptor.startswith('often') or descriptor.startswith('typically') or descriptor.startswith('may') or descriptor.startswith('can'):
             return f"which {descriptor}"
@@ -193,10 +197,16 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                 v = ['']
 
             word_to_add = wordify(k)
-            for subcategory, classes in subcategory_dict.items():
-                if k in classes:
-                    subcategory_to_add = subcategory
-                    break
+            
+            # Initialize subcategory_to_add with a default value
+            subcategory_to_add = "unknown"
+            
+            # Try to find the subcategory for this class
+            if 'class_analysis_fname' in hparams and hparams['class_analysis_fname'] is not None:
+                for subcategory, classes in subcategory_dict.items():
+                    if k in classes:
+                        subcategory_to_add = subcategory
+                        break
 
             if (hparams['category_name_inclusion'] == 'append'):
                 build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['between_text']}{word_to_add}"
@@ -227,11 +237,15 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                         build_descriptor_string = lambda item: f"a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)}{" "}{create_gibberish_descriptions(4)}"
 
                 elif (hparams['method'] == 'defntaxs'):
-                    
+                    # Make sure we have 'before_subcategory' in hparams
+                    if 'before_subcategory' not in hparams:
+                        hparams['before_subcategory'] = ', which is a type of '
+                        
                     if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
                         build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}{hparams['after_text']}"
                     else:
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'}{hparams['after_text']}"
+                        subcategory_to_add = f'an {subcategory_to_add}' if starts_with_vowel(subcategory_to_add) else subcategory_to_add
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f' which presents a {subcategory_to_add} appearance when viewed'}{hparams['after_text']}"
 
                 elif (hparams['method'] == 'defntaxs_sans_descriptor'):
 
@@ -304,7 +318,7 @@ def maybe_generate_kmeans_subcats(hparams):
     out_desc_path = hparams['subcategory_desc_fname'] + '.json'
 
     # Only run if we haven't done so already
-    if os.path.exists(out_json_path) and os.path.exists(out_desc_path):
+    if os.path.exists(out_json_path):
         print(f"k-means subcategories appear to exist: {out_json_path}")
         return
 
