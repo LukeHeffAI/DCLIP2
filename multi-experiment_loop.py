@@ -25,8 +25,8 @@ def save_results(results, file_path):
 def run_experiments():
 
     model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
-    desc_types = ['gpt-3']
-    datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet']
+    desc_types = ['gpt-3', 'gpt-4o']
+    datasets = ['imagenet', 'cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
     methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
     kmeans_modes = [True, False]  # Add kmeans_mode options
