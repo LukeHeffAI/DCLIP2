@@ -186,7 +186,7 @@ def update_hparams(hparams):
         hparams['descriptor_fname'] = 'descriptors_food101'
         classes_to_load = None
         hparams['before_subcategory'] = ', which would be found on a menu under '
-        hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories with 1,000 images each.'
+        hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories.'
 
     elif hparams['dataset'] == 'pets':
         hparams['dataset_name'] = 'Oxford Pets'
