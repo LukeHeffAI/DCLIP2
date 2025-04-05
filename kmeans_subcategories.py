@@ -215,7 +215,7 @@ def create_subcategories_with_kmeans(
             prompt_text = (
                 f"You're helping categorize a dataset of {dataset_terms['class_type']}s. "
                 f"Provide a short descriptive subcategory name for this group of {dataset_terms['class_type']}s: {c_list}. "
-                f"The name should be specific to this subset within the broader set of {dataset_terms['class_type']}s in the {hparams['dataset_name']} dataset. "
+                f"The name should be specific to this subset and differentiate it from the broader set of {dataset_terms['class_type']}s within the {hparams['dataset_name']} dataset. "
                 "Respond with only the category name, nothing else."
             )
             # For the first iteration, print the prompt text
