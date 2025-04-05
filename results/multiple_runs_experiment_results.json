@@ -1,0 +1,239 @@
+{
+    "gpt-3": {
+        "ViT-B/32": {
+            "waffleclip": {
+                "cub": [],
+                "eurosat": [],
+                "pets": []
+            },
+            "waffleclip+concepts": {
+                "cub": [],
+                "eurosat": [],
+                "pets": []
+            },
+            "defntaxs": {
+                "cub": [],
+                "eurosat": [],
+                "pets": []
+            }
+        }
+    },
+    "failed_experiments": {
+        "ViT-B/32_gpt-3_cub_waffleclip_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "waffleclip",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_waffleclip_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "waffleclip",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_waffleclip_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "waffleclip",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_waffleclip+concepts_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "waffleclip+concepts",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_waffleclip+concepts_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "waffleclip+concepts",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_waffleclip+concepts_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "waffleclip+concepts",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_defntaxs_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "defntaxs",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_defntaxs_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "defntaxs",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_cub_defntaxs_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "cub",
+            "method": "defntaxs",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_cub.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_waffleclip_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "waffleclip",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_waffleclip_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "waffleclip",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_waffleclip_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "waffleclip",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_waffleclip+concepts_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "waffleclip+concepts",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_waffleclip+concepts_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "waffleclip+concepts",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_waffleclip+concepts_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "waffleclip+concepts",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_defntaxs_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "defntaxs",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_defntaxs_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "defntaxs",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_eurosat_defntaxs_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "eurosat",
+            "method": "defntaxs",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_eurosat.json'"
+        },
+        "ViT-B/32_gpt-3_pets_waffleclip_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "waffleclip",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_waffleclip_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "waffleclip",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_waffleclip_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "waffleclip",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_waffleclip+concepts_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "waffleclip+concepts",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_waffleclip+concepts_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "waffleclip+concepts",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_waffleclip+concepts_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "waffleclip+concepts",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_defntaxs_run0": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "defntaxs",
+            "run_idx": 0,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_defntaxs_run1": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "defntaxs",
+            "run_idx": 1,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        },
+        "ViT-B/32_gpt-3_pets_defntaxs_run2": {
+            "model_size": "ViT-B/32",
+            "desc_type": "gpt-3",
+            "dataset": "pets",
+            "method": "defntaxs",
+            "run_idx": 2,
+            "error": "[Errno 2] No such file or directory: './class_analysis/json/class_analysis_pets.json'"
+        }
+    }
+}
