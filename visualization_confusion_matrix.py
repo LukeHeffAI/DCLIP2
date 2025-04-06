@@ -2,13 +2,14 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import json
 from load import compute_description_encodings
-from loading_helpers import load_gpt_descriptions
+from loading_helpers import load_gpt_descriptions, seed_everything, compute_class_list
 import clip
 import argparse
 from torch.nn import functional as F
 import pandas as pd
-from load import set_hparams, seed_everything
+from load import set_hparams
 import os
 from tqdm import tqdm
 
@@ -167,7 +168,7 @@ def generate_confusion_matrix_comparison(model_size='ViT-B/32',
     
     # Compute the confusion matrix
     confusion_matrix, class_names = compute_text_method_confusion_matrix(
-        model, method1, method2, hparams['dataset_classes'], hparams, aggregation)
+        model, method1, method2, class_list, hparams, aggregation)
     
     # Visualize the confusion matrix
     plt = visualize_confusion_matrix(
