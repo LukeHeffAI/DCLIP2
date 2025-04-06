@@ -33,13 +33,13 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
         num_runs: Number of times to repeat each experiment configuration
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
     """
-    # model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
-    model_sizes = ['ViT-B/32']
+    model_sizes = ['ViT-B/16', 'ViT-L/14', 'ViT-B/32']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
+    # model_sizes = ['ViT-B/32']
     desc_types = ['gpt-3']
-    # datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet', 'imagenetv2']
-    datasets = ['cub', 'eurosat', 'pets']
-    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
-    # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    datasets = ['imagenet', 'cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+    # datasets = ['cub', 'eurosat', 'pets']
+    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
+    # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
     methods = ['waffleclip', 'waffleclip+concepts', 'defntaxs']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
@@ -93,7 +93,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
                 
                 # Run the experiment
                 print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx+1}")
-                results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes, run_id=run_idx)
+                results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
                 
                 # Add run metadata
                 results["run_id"] = run_idx + 1
@@ -143,9 +143,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     print(f"All results have been saved to {results_file_path}")
 
 
-def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes, run_id=0):
+def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
     """Run a single experiment with the given configuration."""
-    seed_everything(hparams['seed'] + run_id)
+
 
     # Prepare the data loader
     bs = hparams['batch_size']
@@ -228,7 +228,7 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
-    num_runs = 3  # Number of times to run each configuration
+    num_runs = 20  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
     start_time = time()
