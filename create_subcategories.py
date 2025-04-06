@@ -95,12 +95,12 @@ def generate_subcategories_from(class_list, context_prompt, client):
         }
     )
 
-    print(response.choices[0].message.content)
+    # print(response.choices[0].message.content)
 
     subcategories_list = str(response.choices[0].message.content).replace('\"', '').replace('\'', '').split("[")[1].split(']')[0].replace('\n', '').replace('_', ' ').lower().split(',')
     subcategories_list = [subcategory.strip() for subcategory in subcategories_list]
 
-    print(f"List has {len(subcategories_list)} subcategories: {subcategories_list}")
+    print(f"List has {len(subcategories_list)} subcategories, including: {subcategories_list[0:5]}")
 
     return subcategories_list
 
@@ -151,16 +151,16 @@ def refine_subcategories_from(class_list, category_list, context_prompt, client)
         }
     )
 
-    print(response.choices[0].message.content)
+    # print(response.choices[0].message.content)
 
     subcategories_list = str(response.choices[0].message.content).replace('\"', '').replace('\'', '').split("[")[1].split(']')[0].replace('\n', '').replace('_', ' ').lower().split(',')
     subcategories_list = [subcategory.strip() for subcategory in subcategories_list]
 
-    print(f"List has {len(subcategories_list)} subcategories: {subcategories_list}")
+    print(f"List has {len(subcategories_list)} subcategories, including: {subcategories_list[0:5]}")
 
     return subcategories_list
 
-def create_subcategories(hparams, force=False, max_workers=10):
+def create_subcategories(hparams, force=False, max_workers=20):
     """
     Create subcategories for classes in the dataset.
     
@@ -215,7 +215,7 @@ def create_subcategories(hparams, force=False, max_workers=10):
     time_fine_subcategories = time.time()
 
     # Parallelize class allocation
-    print(f"Allocating {len(class_list)} classes to subcategories in parallel (max_workers={max_workers})...")
+    # print(f"Allocating {len(class_list)} classes to subcategories in parallel (max_workers={max_workers})...")
     
     # Prepare arguments for parallel execution
     args_list = [(class_name, subcategories_list, context_prompt, client) for class_name in class_list]
@@ -246,7 +246,7 @@ def create_subcategories(hparams, force=False, max_workers=10):
 
     time_assigned = time.time()
 
-    print(classes_assigned_to_subcategories)
+    # print(classes_assigned_to_subcategories)
 
     # Ensure directory exists
     os.makedirs(os.path.dirname(class_filename), exist_ok=True)
@@ -257,23 +257,23 @@ def create_subcategories(hparams, force=False, max_workers=10):
 
     time_end = time.time()
 
-    print(f"Time taken to generate broad subcategories: {time_broad_subcategories - time_start}")
-    print(f"Time taken to refine subcategories: {time_fine_subcategories - time_broad_subcategories}")
-    print(f"Time taken to assign classes: {time_assigned - time_fine_subcategories}")
-    print(f"Time taken to save classes: {time_end - time_assigned}")
-    print(f"Total time: {time_end - time_start}")
+    # print(f"Time taken to generate broad subcategories: {time_broad_subcategories - time_start}")
+    # print(f"Time taken to refine subcategories: {time_fine_subcategories - time_broad_subcategories}")
+    # print(f"Time taken to assign classes: {time_assigned - time_fine_subcategories}")
+    # print(f"Time taken to save classes: {time_end - time_assigned}")
+    # print(f"Total time: {time_end - time_start}")
     
     return classes_assigned_to_subcategories
 
 if __name__ == "__main__":
     # If this script is run directly, use these settings
-    from load import set_hparams, update_hparams
+    from load import set_hparams
     
     # Set the hyperparameters
     hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='eurosat', method='defntaxs')
     
     # Update the hyperparameters
-    hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
+    # hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
     
     # Force regeneration of subcategories with parallel processing
     create_subcategories(hparams, force=True, max_workers=10)
