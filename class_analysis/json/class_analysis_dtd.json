@@ -1,57 +1,59 @@
 {
-    "geometric pattern": [
+    "geometric": [
         "banded",
         "chequered",
         "crosshatched",
-        "crystalline",
-        "dotted",
         "grid",
         "honeycombed",
-        "interlaced",
         "lined",
-        "meshed",
-        "polka-dotted",
-        "spiralled",
-        "striped",
         "zigzagged"
     ],
-    "organic pattern": [
+    "textured": [
         "blotchy",
+        "bumpy",
+        "cracked",
+        "crystalline",
+        "flecked",
+        "freckled",
+        "frilly",
+        "gauzy",
+        "grooved",
+        "marbled",
+        "matted",
+        "perforated",
+        "pitted",
+        "pleated",
+        "porous",
+        "potholed",
+        "scaly",
+        "smeared",
+        "sprinkled",
+        "stained",
+        "stratified",
+        "studded",
+        "waffled",
+        "wrinkled"
+    ],
+    "interwoven": [
+        "braided",
+        "interlaced",
+        "knitted",
+        "meshed",
+        "woven"
+    ],
+    "organic": [
         "bubbly",
         "cobwebbed",
         "fibrous",
-        "freckled",
         "lacelike",
-        "marbled",
-        "matted",
-        "porous",
-        "scaly",
-        "sprinkled",
-        "stratified",
-        "swirly",
-        "veined",
-        "wrinkled"
+        "veined"
     ],
-    "textile pattern": [
-        "braided",
-        "frilly",
-        "gauzy",
-        "knitted",
+    "patterned": [
+        "dotted",
         "paisley",
-        "pleated",
-        "waffled",
-        "woven"
-    ],
-    "surface imperfection": [
-        "bumpy",
-        "cracked",
-        "flecked",
-        "grooved",
-        "perforated",
-        "pitted",
-        "potholed",
-        "smeared",
-        "stained",
-        "studded"
+        "polka-dotted",
+        "spiralled",
+        "striped",
+        "swirly"
     ]
 }

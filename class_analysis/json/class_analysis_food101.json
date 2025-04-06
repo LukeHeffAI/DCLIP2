@@ -25,13 +25,13 @@
         "baby back ribs",
         "beef carpaccio",
         "beef tartare",
-        "chicken curry",
         "chicken wings",
         "filet mignon",
         "foie gras",
         "pork chop",
         "poutine",
         "prime rib",
+        "shrimp and grits",
         "steak"
     ],
     "salads": [
@@ -43,20 +43,22 @@
     ],
     "asian cuisine": [
         "bibimbap",
+        "chicken curry",
         "dumplings",
+        "edamame",
+        "falafel",
         "fried rice",
         "gyoza",
         "pad thai",
         "peking duck",
         "pho",
         "ramen",
-        "samosa",
         "sashimi",
         "spring rolls",
         "sushi",
         "takoyaki"
     ],
-    "breakfast foods": [
+    "breakfast": [
         "breakfast burrito",
         "eggs benedict",
         "french toast",
@@ -65,21 +67,21 @@
         "pancakes",
         "waffles"
     ],
-    "appetizers and snacks": [
+    "appetizers": [
         "bruschetta",
         "cheese plate",
         "deviled eggs",
+        "escargots",
         "french fries",
-        "garlic bread",
         "guacamole",
         "hummus",
         "nachos",
-        "onion rings"
+        "onion rings",
+        "samosa"
     ],
     "seafood": [
         "ceviche",
         "crab cakes",
-        "escargots",
         "fish and chips",
         "fried calamari",
         "grilled salmon",
@@ -87,7 +89,6 @@
         "oysters",
         "paella",
         "scallops",
-        "shrimp and grits",
         "tuna tartare"
     ],
     "sandwiches": [
@@ -109,11 +110,10 @@
         "lobster bisque",
         "miso soup"
     ],
-    "vegetarian dishes": [
-        "edamame",
-        "falafel"
+    "baked goods": [
+        "garlic bread"
     ],
-    "pasta and noodles": [
+    "pasta": [
         "gnocchi",
         "lasagna",
         "macaroni and cheese",

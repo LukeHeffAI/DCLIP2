@@ -1,403 +1,503 @@
 {
-    "air transportation": [
+    "aviation facilities": [
         "airfield",
-        "airplane_cabin",
         "airport_terminal",
         "cockpit",
+        "fire_station",
         "hangar-indoor",
         "hangar-outdoor",
         "heliport",
         "landing_deck",
         "runway"
     ],
-    "architecture and structures": [
+    "aircraft interiors": [
+        "airplane_cabin",
+        "car_interior",
+        "galley",
+        "train_interior"
+    ],
+    "living rooms": [
         "alcove",
+        "bow_window-indoor",
+        "home_theater",
+        "living_room",
+        "television_room"
+    ],
+    "urban streets": [
+        "alley",
         "apartment_building-outdoor",
-        "aqueduct",
-        "arch",
-        "archive",
-        "balcony-exterior",
         "bridge",
         "building_facade",
-        "castle",
-        "chalet",
-        "courthouse",
-        "doorway-outdoor",
-        "elevator_shaft",
-        "fire_escape",
-        "igloo",
-        "kasbah",
-        "mansion",
-        "mezzanine",
-        "oast_house",
-        "palace",
-        "ruin",
-        "skyscraper",
-        "staircase",
-        "tower",
-        "water_tower"
-    ],
-    "public spaces": [
-        "alley",
-        "amphitheater",
-        "aquarium",
-        "atrium-public",
-        "auditorium",
-        "bullring",
-        "bus_station-indoor",
-        "corridor",
-        "courtyard",
+        "canal-urban",
+        "crosswalk",
         "downtown",
-        "dressing_room",
-        "elevator-door",
-        "elevator_lobby",
-        "entrance_hall",
-        "escalator-indoor",
-        "fire_station",
-        "fountain",
-        "gazebo-exterior",
-        "hotel-outdoor",
-        "inn-outdoor",
-        "jail_cell",
-        "legislative_chamber",
-        "library-outdoor",
-        "medina",
-        "pavilion",
-        "phone_booth",
-        "plaza",
-        "promenade",
+        "fire_escape",
+        "parking_garage-outdoor",
+        "parking_lot",
+        "skyscraper",
         "slum",
-        "street",
-        "swimming_pool-indoor",
-        "waiting_room",
-        "youth_hostel"
+        "street"
     ],
-    "amusement and entertainment": [
+    "performance venues": [
+        "amphitheater",
+        "arena-performance",
+        "auditorium",
+        "ballroom",
+        "orchestra_pit",
+        "stage-indoor",
+        "stage-outdoor"
+    ],
+    "amusement parks": [
         "amusement_arcade",
         "amusement_park",
         "arcade (passageway)",
-        "arena-performance",
-        "arena-rodeo",
         "ball_pit",
-        "ballroom",
-        "bowling_alley",
+        "bullring",
         "carrousel",
-        "discotheque",
-        "ice_skating_rink-indoor",
-        "movie_theater-indoor",
-        "orchestra_pit",
-        "playroom",
-        "recreation_room",
-        "stage-indoor",
-        "stage-outdoor",
-        "television_studio",
         "ticket_booth",
         "water_park"
     ],
-    "art and culture": [
+    "aquatic environments": [
+        "aquarium",
+        "berth",
+        "boat_deck",
+        "fishpond",
+        "lagoon",
+        "ocean",
+        "swimming_hole",
+        "swimming_pool-indoor",
+        "swimming_pool-outdoor",
+        "underwater-ocean_deep"
+    ],
+    "bridges": [
+        "aqueduct",
+        "rope_bridge",
+        "viaduct"
+    ],
+    "cultural landmarks": [
+        "arch",
         "archaelogical_excavation",
+        "castle",
+        "embassy",
+        "kasbah",
+        "library-outdoor",
+        "medina",
+        "museum-outdoor",
+        "palace",
+        "tower"
+    ],
+    "libraries": [
+        "archive",
+        "library-indoor"
+    ],
+    "sports venues": [
+        "arena-hockey",
+        "stadium-baseball",
+        "stadium-football",
+        "stadium-soccer"
+    ],
+    "athletic fields": [
+        "arena-rodeo",
+        "athletic_field-outdoor",
+        "baseball_field",
+        "basketball_court-indoor",
+        "boxing_ring",
+        "football_field",
+        "golf_course",
+        "gymnasium-indoor",
+        "ice_skating_rink-indoor",
+        "racecourse",
+        "soccer_field",
+        "volleyball_court-outdoor"
+    ],
+    "military facilities": [
+        "army_base"
+    ],
+    "art galleries": [
         "art_gallery",
         "art_school",
         "art_studio",
         "artists_loft",
-        "museum-indoor",
-        "museum-outdoor",
-        "music_studio",
-        "natural_history_museum",
-        "science_museum",
-        "throne_room"
+        "museum-indoor"
     ],
-    "sports and fitness": [
-        "arena-hockey",
-        "baseball_field",
-        "basketball_court-indoor",
-        "boxing_ring",
-        "gymnasium-indoor",
-        "martial_arts_gym",
-        "stadium-baseball",
-        "stadium-football",
-        "stadium-soccer",
-        "volleyball_court-outdoor"
-    ],
-    "industrial and manufacturing": [
-        "army_base",
+    "factories": [
         "assembly_line",
         "auto_factory",
-        "construction_site",
-        "engine_room",
-        "excavation",
-        "industrial_area",
-        "junkyard",
-        "landfill",
-        "loading_dock",
-        "oilrig",
-        "server_room"
+        "industrial_area"
     ],
-    "outdoor recreation": [
-        "athletic_field-outdoor",
-        "beer_garden",
-        "boardwalk",
-        "boat_deck",
-        "campsite",
-        "football_field",
-        "golf_course",
-        "hunting_lodge-outdoor",
-        "ice_skating_rink-outdoor",
-        "kennel-outdoor",
-        "park",
-        "patio",
-        "picnic_area",
-        "playground",
-        "racecourse",
-        "raceway",
-        "raft",
-        "restaurant_patio",
-        "rope_bridge",
-        "sandbox",
-        "ski_resort",
-        "ski_slope",
-        "soccer_field",
-        "swimming_pool-outdoor"
+    "auditoriums": [
+        "atrium-public",
+        "booth-indoor",
+        "conference_room",
+        "elevator-door",
+        "entrance_hall",
+        "jail_cell",
+        "legislative_chamber",
+        "mezzanine",
+        "music_studio",
+        "television_studio",
+        "waiting_room"
     ],
-    "home and living": [
+    "bedrooms": [
         "attic",
-        "balcony-interior",
-        "barndoor",
-        "basement",
-        "bathroom",
-        "beach_house",
         "bedchamber",
         "bedroom",
-        "bow_window-indoor",
         "childs_room",
-        "clean_room",
         "closet",
-        "cottage",
-        "dining_room",
         "dorm_room",
-        "driveway",
-        "galley",
-        "garage-indoor",
-        "garage-outdoor",
-        "home_office",
         "hotel_room",
-        "house",
-        "kitchen",
-        "living_room",
-        "manufactured_home",
-        "nursery",
-        "pantry",
-        "porch",
-        "residential_neighborhood",
-        "shed",
-        "shower",
-        "storage_room",
-        "television_room",
-        "utility_room"
+        "playroom"
     ],
-    "commercial spaces": [
+    "retail stores": [
         "auto_showroom",
-        "bank_vault",
-        "banquet_hall",
-        "booth-indoor",
-        "butchers_shop",
-        "cafeteria",
-        "coffee_shop",
-        "conference_center",
-        "conference_room",
-        "dining_hall",
-        "embassy",
-        "fastfood_restaurant",
-        "florist_shop-indoor",
-        "food_court",
-        "gas_station",
-        "hardware_store",
-        "home_theater",
-        "laundromat",
-        "lobby",
-        "motel",
-        "office",
-        "office_building",
-        "office_cubicles",
-        "pharmacy",
-        "pizzeria",
-        "pub-indoor",
-        "reception",
-        "repair_shop",
-        "restaurant"
-    ],
-    "natural landscapes": [
-        "badlands",
-        "bamboo_forest",
-        "barn",
-        "beach",
-        "botanical_garden",
-        "butte",
-        "cabin-outdoor",
-        "canyon",
-        "cliff",
-        "coast",
-        "corn_field",
-        "corral",
-        "creek",
-        "crevasse",
-        "desert-sand",
-        "desert-vegetation",
-        "desert_road",
-        "farm",
-        "field-cultivated",
-        "field-wild",
-        "field_road",
-        "forest-broadleaf",
-        "forest_path",
-        "forest_road",
-        "formal_garden",
-        "glacier",
-        "greenhouse-indoor",
-        "greenhouse-outdoor",
-        "grotto",
-        "hayfield",
-        "hot_spring",
-        "ice_floe",
-        "ice_shelf",
-        "iceberg",
-        "islet",
-        "japanese_garden",
-        "lagoon",
-        "lake-natural",
-        "lawn",
-        "lighthouse",
-        "marsh",
-        "mountain",
-        "mountain_path",
-        "mountain_snowy",
-        "ocean",
-        "orchard",
-        "pasture",
-        "pier",
-        "pond",
-        "rainforest",
-        "rice_paddy",
-        "river",
-        "rock_arch",
-        "roof_garden",
-        "sky",
-        "snowfield",
-        "stable",
-        "swamp",
-        "swimming_hole",
-        "topiary_garden",
-        "tree_farm",
-        "tree_house",
-        "trench",
-        "tundra",
-        "underwater-ocean_deep",
-        "valley",
-        "vegetable_garden",
-        "village",
-        "vineyard",
-        "volcano",
-        "waterfall",
-        "watering_hole",
-        "wave",
-        "wheat_field",
-        "wind_farm",
-        "windmill",
-        "yard",
-        "zen_garden"
-    ],
-    "food and drink": [
-        "bakery-shop",
-        "bar",
-        "beer_hall",
-        "delicatessen",
-        "diner-outdoor",
-        "ice_cream_parlor",
-        "restaurant_kitchen",
-        "sushi_bar",
-        "wet_bar"
-    ],
-    "retail and shopping": [
-        "bazaar-indoor",
-        "bazaar-outdoor",
         "bookstore",
         "candy_store",
         "clothing_store",
         "department_store",
         "drugstore",
         "fabric_store",
-        "flea_market-indoor",
+        "gas_station",
         "general_store-indoor",
         "general_store-outdoor",
         "gift_shop",
+        "hardware_store",
         "jewelry_shop",
+        "laundromat",
         "market-indoor",
-        "market-outdoor",
         "pet_shop",
+        "pharmacy",
         "shoe_shop",
         "shopfront",
-        "shopping_mall-indoor",
         "supermarket",
         "toyshop"
     ],
-    "health and wellness": [
-        "beauty_salon",
-        "hospital",
+    "wilderness areas": [
+        "badlands",
+        "campsite",
+        "hunting_lodge-outdoor",
+        "mountain_path",
+        "ski_slope",
+        "snowfield",
+        "tree_house"
+    ],
+    "bakeries": [
+        "bakery-shop"
+    ],
+    "balconies": [
+        "balcony-exterior",
+        "balcony-interior",
+        "porch"
+    ],
+    "forests": [
+        "bamboo_forest"
+    ],
+    "industrial facilities": [
+        "bank_vault",
+        "elevator_shaft",
+        "engine_room",
+        "junkyard",
+        "landfill",
+        "oilrig",
+        "parking_garage-indoor",
+        "repair_shop",
+        "water_tower"
+    ],
+    "ballrooms": [
+        "banquet_hall",
+        "throne_room"
+    ],
+    "bars and pubs": [
+        "bar",
+        "beer_garden",
+        "beer_hall",
+        "discotheque",
+        "pub-indoor",
+        "sushi_bar",
+        "wet_bar"
+    ],
+    "farms": [
+        "barn",
+        "field-cultivated",
+        "rice_paddy",
+        "stable",
+        "tree_farm",
+        "vineyard"
+    ],
+    "warehouses": [
+        "barndoor",
+        "loading_dock",
+        "storage_room"
+    ],
+    "storage spaces": [
+        "basement",
+        "garage-indoor"
+    ],
+    "bathrooms": [
+        "bathroom",
+        "dressing_room",
         "hospital_room",
         "jacuzzi-indoor",
-        "locker_room",
-        "nursing_home",
-        "operating_room",
         "sauna",
-        "veterinarians_office"
+        "shower",
+        "utility_room"
     ],
-    "transportation infrastructure": [
-        "berth",
-        "bus_interior",
-        "car_interior",
-        "crosswalk",
-        "highway",
-        "parking_garage-indoor",
-        "parking_garage-outdoor",
-        "parking_lot",
-        "railroad_track",
-        "subway_station-platform",
-        "train_interior",
-        "train_station-platform",
-        "viaduct"
+    "markets": [
+        "bazaar-indoor",
+        "bazaar-outdoor",
+        "flea_market-indoor",
+        "market-outdoor"
     ],
-    "educational institutions": [
-        "biology_laboratory",
-        "campus",
-        "chemistry_lab",
-        "classroom",
-        "computer_room",
-        "kindergarden_classroom",
-        "lecture_room",
-        "library-indoor",
-        "physics_laboratory",
-        "schoolhouse"
-    ],
-    "water bodies and features": [
-        "boathouse",
-        "canal-natural",
-        "canal-urban",
+    "natural landscapes": [
+        "beach",
+        "butte",
+        "canyon",
+        "cliff",
+        "coast",
+        "creek",
+        "crevasse",
         "dam",
-        "fishpond",
-        "harbor",
-        "lock_chamber (canal)",
-        "moat-water"
+        "desert-sand",
+        "desert-vegetation",
+        "forest-broadleaf",
+        "forest_path",
+        "glacier",
+        "grotto",
+        "hot_spring",
+        "ice_floe",
+        "ice_shelf",
+        "iceberg",
+        "islet",
+        "mountain",
+        "mountain_snowy",
+        "park",
+        "pond",
+        "rainforest",
+        "rock_arch",
+        "ski_resort",
+        "sky",
+        "swamp",
+        "tundra",
+        "valley",
+        "volcano",
+        "waterfall",
+        "watering_hole",
+        "wave"
     ],
-    "religious and spiritual": [
+    "coastal environments": [
+        "beach_house",
+        "lighthouse"
+    ],
+    "beauty salons": [
+        "beauty_salon"
+    ],
+    "laboratories": [
+        "biology_laboratory",
+        "chemistry_lab",
+        "clean_room",
+        "physics_laboratory"
+    ],
+    "waterfronts": [
+        "boardwalk",
+        "boathouse",
+        "harbor",
+        "hotel-outdoor",
+        "moat-water",
+        "pier",
+        "promenade"
+    ],
+    "gardens": [
+        "botanical_garden",
+        "formal_garden",
+        "gazebo-exterior",
+        "greenhouse-indoor",
+        "greenhouse-outdoor",
+        "japanese_garden",
+        "lawn",
+        "nursery",
+        "oast_house",
+        "roof_garden",
+        "shed",
+        "topiary_garden",
+        "vegetable_garden",
+        "yard",
+        "zen_garden"
+    ],
+    "recreational facilities": [
+        "bowling_alley",
+        "ice_skating_rink-outdoor",
+        "recreation_room"
+    ],
+    "cemeteries": [
         "burial_chamber",
         "catacomb",
+        "mausoleum",
+        "ruin"
+    ],
+    "public transportation": [
+        "bus_interior",
+        "bus_station-indoor",
+        "escalator-indoor",
+        "fountain",
+        "phone_booth",
+        "plaza",
+        "subway_station-platform",
+        "train_station-platform"
+    ],
+    "cafeterias": [
+        "butchers_shop",
+        "cafeteria",
+        "coffee_shop",
+        "delicatessen",
+        "dining_hall",
+        "fastfood_restaurant",
+        "florist_shop-indoor",
+        "food_court",
+        "ice_cream_parlor",
+        "restaurant_patio"
+    ],
+    "countryside": [
+        "cabin-outdoor",
+        "chalet",
+        "corn_field",
+        "corral",
+        "cottage",
+        "farm",
+        "field-wild",
+        "field_road",
+        "forest_road",
+        "garage-outdoor",
+        "hayfield",
+        "igloo",
+        "kennel-outdoor",
+        "marsh",
+        "orchard",
+        "pasture",
+        "trench",
+        "village",
+        "wheat_field",
+        "wind_farm",
+        "windmill"
+    ],
+    "educational institutions": [
+        "campus",
+        "classroom",
+        "schoolhouse"
+    ],
+    "rivers and lakes": [
+        "canal-natural",
+        "lake-natural",
+        "raft",
+        "river"
+    ],
+    "religious sites": [
         "cemetery",
         "church-indoor",
         "church-outdoor",
-        "mausoleum",
         "mosque-outdoor",
         "pagoda",
         "synagogue-outdoor",
         "temple-asia"
+    ],
+    "offices": [
+        "computer_room",
+        "home_office",
+        "office",
+        "office_building",
+        "office_cubicles",
+        "server_room"
+    ],
+    "conference facilities": [
+        "conference_center"
+    ],
+    "construction sites": [
+        "construction_site",
+        "excavation"
+    ],
+    "hospitals": [
+        "corridor",
+        "nursing_home",
+        "operating_room",
+        "veterinarians_office"
+    ],
+    "courthouses": [
+        "courthouse"
+    ],
+    "courtyards": [
+        "courtyard",
+        "doorway-outdoor",
+        "patio"
+    ],
+    "roadways": [
+        "desert_road",
+        "highway",
+        "raceway",
+        "railroad_track"
+    ],
+    "restaurants": [
+        "diner-outdoor",
+        "inn-outdoor",
+        "pizzeria"
+    ],
+    "dining areas": [
+        "dining_room",
+        "restaurant"
+    ],
+    "suburban areas": [
+        "driveway",
+        "house",
+        "manufactured_home",
+        "residential_neighborhood"
+    ],
+    "lobbies": [
+        "elevator_lobby",
+        "reception"
+    ],
+    "healthcare facilities": [
+        "hospital"
+    ],
+    "classrooms": [
+        "kindergarden_classroom",
+        "lecture_room"
+    ],
+    "kitchens": [
+        "kitchen",
+        "pantry",
+        "restaurant_kitchen"
+    ],
+    "hotels": [
+        "lobby",
+        "motel",
+        "youth_hostel"
+    ],
+    "canals": [
+        "lock_chamber (canal)"
+    ],
+    "gyms": [
+        "locker_room",
+        "martial_arts_gym"
+    ],
+    "castles": [
+        "mansion"
+    ],
+    "theaters": [
+        "movie_theater-indoor"
+    ],
+    "museums": [
+        "natural_history_museum",
+        "science_museum"
+    ],
+    "parks": [
+        "pavilion",
+        "picnic_area",
+        "playground"
+    ],
+    "playgrounds": [
+        "sandbox"
+    ],
+    "shopping malls": [
+        "shopping_mall-indoor"
+    ],
+    "hallways": [
+        "staircase"
     ]
 }

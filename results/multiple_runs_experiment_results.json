@@ -4124,6 +4124,145 @@
                         "seed": 12,
                         "run_id": 12,
                         "timestamp": 1743934553.5048213
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 73.99399876594543,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.96600127220154,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 13,
+                        "run_id": 13,
+                        "timestamp": 1743942389.0766392
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 74.03799891471863,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.86799931526184,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 14,
+                        "run_id": 14,
+                        "timestamp": 1743942498.7273388
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 74.08000230789185,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.90199780464172,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 15,
+                        "run_id": 15,
+                        "timestamp": 1743942607.9069593
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 74.11199808120728,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.96799802780151,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 16,
+                        "run_id": 16,
+                        "timestamp": 1743942717.6818435
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 74.02200102806091,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.96399855613708,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 17,
+                        "run_id": 17,
+                        "timestamp": 1743942826.4453216
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 73.95399808883667,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.81999969482422,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 18,
+                        "run_id": 18,
+                        "timestamp": 1743942935.2914357
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 73.60799908638,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.90599727630615,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 19,
+                        "run_id": 19,
+                        "timestamp": 1743943044.0741847
+                    },
+                    {
+                        "Waffleclip+concepts Top-1 Accuracy": 73.7500011920929,
+                        "Waffleclip+concepts Top-5 Accuracy": 93.92200112342834,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 20,
+                        "run_id": 20,
+                        "timestamp": 1743943197.2978249
+                    }
+                ]
+            },
+            "defntaxs": {
+                "imagenet": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 74.66599941253662,
+                        "Defntaxs Top-5 Accuracy": 94.28399801254272,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 1,
+                        "run_id": 1,
+                        "timestamp": 1743943404.6817214
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 74.88399744033813,
+                        "Defntaxs Top-5 Accuracy": 94.43399906158447,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 2,
+                        "run_id": 2,
+                        "timestamp": 1743944016.6699717
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 74.3939995765686,
+                        "Defntaxs Top-5 Accuracy": 94.2080020904541,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 3,
+                        "run_id": 3,
+                        "timestamp": 1743944174.1296167
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 74.89399909973145,
+                        "Defntaxs Top-5 Accuracy": 94.41999793052673,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 4,
+                        "run_id": 4,
+                        "timestamp": 1743944334.8448744
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 74.60600137710571,
+                        "Defntaxs Top-5 Accuracy": 94.3880021572113,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 5,
+                        "run_id": 5,
+                        "timestamp": 1743944496.620307
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 74.86400008201599,
+                        "Defntaxs Top-5 Accuracy": 94.42800283432007,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 6,
+                        "run_id": 6,
+                        "timestamp": 1743944665.425277
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 74.91199970245361,
+                        "Defntaxs Top-5 Accuracy": 94.40799951553345,
+                        "CLIP Top-1 Accuracy": 71.56599760055542,
+                        "CLIP Top-5 Accuracy": 92.18999743461609,
+                        "seed": 7,
+                        "run_id": 7,
+                        "timestamp": 1743944830.2073488
                     }
                 ]
             }
