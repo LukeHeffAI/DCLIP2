@@ -43,7 +43,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     methods = ['waffleclip', 'waffleclip+concepts', 'defntaxs']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
-    print(f"Running {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
+    print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
     
     # Path to the results file
     results_file_path = 'results/multiple_runs_experiment_results.json'
@@ -55,6 +55,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     failed_experiments = all_results.get("failed_experiments", {})
 
     count = 1
+    runs_completed = 0
     start_time = time()
 
     # Loop through all combinations of model configurations
@@ -71,11 +72,27 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
         
         # Get current results list for this configuration
         current_results = all_results[desc_type][model_size][method][current_dataset]
+
+        # Find the highest run_id already completed
+        completed_run_ids = []
+        if current_results:
+            completed_run_ids = [result.get("run_id", 0) for result in current_results]
         
-        # Run this experiment configuration multiple times
-        for run_idx in range(num_runs):
+        max_run_id = max(completed_run_ids) if completed_run_ids else 0
+        remaining_runs = max(0, num_runs - max_run_id)
+        runs_completed += len(current_results)
+
+        # Skip if all runs are already completed
+        if remaining_runs <= 0:
+            print(f"All {num_runs} runs for {model_size}, {desc_type}, {current_dataset}, {method} are already completed.")
+            continue
+        
+        print(f"Found {max_run_id} completed runs. Running {remaining_runs} more runs to reach target of {num_runs}.")
+        
+            # Run the remaining experiments
+        for run_idx in range(max_run_id, num_runs):
             print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}")
-            
+
             try:
                 # Set hparams for the current experiment
                 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
@@ -110,9 +127,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
                 count += 1
                 elapsed_time = time() - start_time
                 avg_time_per_exp = elapsed_time / count
-                remaining_exps = total_experiments - count
+                remaining_exps = total_experiments - runs_completed - count
                 est_remaining_time = avg_time_per_exp * remaining_exps
-                print(f"Progress: {count}/{total_experiments} experiments completed")
+                print(f"Progress: {count}/{total_experiments - runs_completed} experiments completed")
                 print(f"Average time per experiment: {avg_time_per_exp:.2f} seconds")
                 print(f"Estimated time remaining: {est_remaining_time:.2f} seconds ({est_remaining_time/3600:.2f} hours)")
                 
@@ -122,7 +139,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
                 failed_experiments[failure_key] = {
                     "model_size": model_size, 
                     "desc_type": desc_type, 
-                    "dataset": current_dataset, 
+                    "dataset": current_dataset,
                     "method": method,
                     "run_idx": run_idx,
                     "error": str(e)
