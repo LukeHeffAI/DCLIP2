@@ -1,7 +1,7 @@
 import itertools
 import json
 import os
-from load import set_hparams, update_hparams, compute_description_encodings, compute_label_encodings, aggregate_similarity
+from load import set_hparams, compute_description_encodings, compute_label_encodings, aggregate_similarity
 from loading_helpers import seed_everything
 from torch.utils.data import DataLoader
 import torch
@@ -78,8 +78,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
             
             try:
                 # Set hparams for the current experiment
-                hparams = set_hparams(model_size, desc_type, current_dataset, method)
-                hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
+                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
                 
                 # # Add dataset_name to hparams to fix defntaxs method error
                 # hparams['dataset_name'] = current_dataset
@@ -89,12 +88,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
                     print(f"Regenerating subcategories for {current_dataset}...")
                     create_subcategories(hparams, force=True)
                 
-                # Update hparams and other variables for the current experiment
-                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
                 
                 # Run the experiment
                 print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx+1}")
-                results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
+                results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes, run_id=run_idx)
                 
                 # Add run metadata
                 results["run_id"] = run_idx + 1
@@ -144,9 +141,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     print(f"All results have been saved to {results_file_path}")
 
 
-def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
+def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes, run_id=0):
     """Run a single experiment with the given configuration."""
-    seed_everything(hparams['seed'])
+    seed_everything(hparams['seed'] + run_id)
 
     # Prepare the data loader
     bs = hparams['batch_size']
