@@ -149,11 +149,12 @@ def generate_confusion_matrix_comparison(model_size='ViT-B/32',
         normalize: Whether to normalize the confusion matrix by row
     """
     # Set up hyperparameters
-    hparams = set_hparams(model_size=model_size, 
-                         desc_type=desc_type, 
-                         dataset=dataset, 
-                         method=method1)  # Start with method1
+    hparams, _, _, _, _, _, _, _, _  = set_hparams(model_size=model_size, desc_type=desc_type, dataset=dataset, method=method1)  # Start with method1
     
+    with open(f'{hparams['descriptor_fname']}.json', 'r') as f:
+        class_descriptors = json.load(f)
+    class_list = compute_class_list(class_descriptors)
+
     # Ensure reproducibility
     seed_everything(hparams['seed'])
     
