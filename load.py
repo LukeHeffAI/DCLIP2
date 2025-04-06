@@ -36,9 +36,9 @@ def set_hparams(model_size, desc_type, dataset, method):
     # Options:
     # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
 
-    return hparams
+    # return hparams
 
-def update_hparams(hparams):
+# def update_hparams(hparams):
     hparams['batch_size'] = 64*10
     hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
     hparams['category_name_inclusion'] = 'prepend' #'append' 'prepend'
@@ -96,7 +96,7 @@ def update_hparams(hparams):
         dataset_loader = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['before_subcategory'] = ' often categorized as a type of '
+        hparams['before_subcategory'] = ' often categorized as a type of ' if hparams['model_size'] != 'ViT-L/14' else ', which is a type of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
             
     elif hparams['dataset'] == 'imagenetv2':
@@ -464,30 +464,30 @@ def print_max_descriptor_similarity(image_description_similarity, index, label, 
 #     return misclassified_indices
 
 
-from PIL import Image
-def predict_and_show_explanations(images, model, tfms, labels=None, description_encodings=None, label_encodings=None, device=None):
-    if isinstance(images, Image):
-        images = tfms(images)
+# from PIL import Image
+# def predict_and_show_explanations(images, model, tfms, labels=None, description_encodings=None, label_encodings=None, device=None):
+#     if isinstance(images, Image):
+#         images = tfms(images)
         
-    if images.device != device:
-        images = images.to(device)
-        labels = labels.to(device)
+#     if images.device != device:
+#         images = images.to(device)
+#         labels = labels.to(device)
 
-    image_encodings = model.encode_image(images)
-    image_encodings = F.normalize(image_encodings)
+#     image_encodings = model.encode_image(images)
+#     image_encodings = F.normalize(image_encodings)
     
-    image_labels_similarity = image_encodings @ label_encodings.T
-    clip_predictions = image_labels_similarity.argmax(dim=1)
+#     image_labels_similarity = image_encodings @ label_encodings.T
+#     clip_predictions = image_labels_similarity.argmax(dim=1)
     
-    n_classes = len(description_encodings)
-    image_description_similarity = [None]*n_classes
-    image_description_similarity_cumulative = [None]*n_classes
-    for i, (k, v) in enumerate(description_encodings.items()):
-        dot_product_matrix = image_encodings @ v.T
-        image_description_similarity[i] = dot_product_matrix
-        image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
+#     n_classes = len(description_encodings)
+#     image_description_similarity = [None]*n_classes
+#     image_description_similarity_cumulative = [None]*n_classes
+#     for i, (k, v) in enumerate(description_encodings.items()):
+#         dot_product_matrix = image_encodings @ v.T
+#         image_description_similarity[i] = dot_product_matrix
+#         image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
         
-    cumulative_tensor = torch.stack(image_description_similarity_cumulative, dim=1)
-    descr_predictions = cumulative_tensor.argmax(dim=1)
+#     cumulative_tensor = torch.stack(image_description_similarity_cumulative, dim=1)
+#     descr_predictions = cumulative_tensor.argmax(dim=1)
     
-    show_from_indices(torch.arange(images.shape[0]), images, labels, descr_predictions, clip_predictions, image_description_similarity=image_description_similarity, image_labels_similarity=image_labels_similarity)
+#     show_from_indices(torch.arange(images.shape[0]), images, labels, descr_predictions, clip_predictions, image_description_similarity=image_description_similarity, image_labels_similarity=image_labels_similarity)
