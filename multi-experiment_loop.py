@@ -79,6 +79,8 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
             try:
                 # Set hparams for the current experiment
                 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
+                hparams['seed'] = hparams['seed'] + run_idx
+                seed_everything(hparams['seed'])
                 
                 # # Add dataset_name to hparams to fix defntaxs method error
                 # hparams['dataset_name'] = current_dataset
