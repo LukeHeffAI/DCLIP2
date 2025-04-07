@@ -307,13 +307,12 @@ def create_subcategories(hparams, force=False, max_workers=25):
 
     # Create a number of subcategories such that the maximum number of classes per subcategory is 20
     n_classes = len(class_list)
+    max_classes_per_subcategory = 5
 
     if n_classes < 21:
         min_subcategories = 1
     else:
-        min_subcategories = int(n_classes / 10)
-
-    max_classes_per_subcategory = n_classes // min_subcategories
+        min_subcategories = int(n_classes / max_classes_per_subcategory)
 
     context_prompt = f"The {hparams['dataset_name']} dataset is constructed from {len(class_list)} classes. You will create at minimum {min_subcategories} subcategories to group the classes by and assign at maximum {max_classes_per_subcategory} of the {hparams['dataset_name']} classes to each subcategory. For an example of a subcategory and its classes, a subcategory \"kitchen utensil\" may have the classes \"fork\", \"knife\", \"can opener\" and \"teaspoon\" assigned to it. Every class must be assigned to a subcategory, none can be missed."
 
