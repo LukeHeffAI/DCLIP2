@@ -252,4 +252,5 @@ if __name__ == "__main__":
     run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate)
     end_time = time()
     
-    print(f"Total time taken: {end_time - start_time:.2f} seconds")
+    print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+    print("All experiments completed.")
