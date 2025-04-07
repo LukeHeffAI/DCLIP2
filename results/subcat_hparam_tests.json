@@ -1,0 +1,136 @@
+{
+    "gpt-3": {
+        "ViT-B/16": {
+            "defntaxs": {
+                "cub": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.54331851005554,
+                        "Defntaxs Top-5 Accuracy": 87.53883242607117,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 1,
+                        "run_id": 1,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013400.970911
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.55954384803772,
+                        "Defntaxs Top-5 Accuracy": 87.07283139228821,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "run_id": 2,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013442.8877432
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.59406089782715,
+                        "Defntaxs Top-5 Accuracy": 87.12460994720459,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "run_id": 3,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013487.495714
+                    }
+                ],
+                "eurosat": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
+                        "Defntaxs Top-5 Accuracy": 95.56666612625122,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 1,
+                        "run_id": 1,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013507.7327898
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "run_id": 2,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013526.3996766
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 55.4111123085022,
+                        "Defntaxs Top-5 Accuracy": 95.77407240867615,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "run_id": 3,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013548.5716774
+                    }
+                ],
+                "places365": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.95068573951721,
+                        "Defntaxs Top-5 Accuracy": 70.61917781829834,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 1,
+                        "run_id": 1,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013646.816658
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 39.841094613075256,
+                        "Defntaxs Top-5 Accuracy": 70.29315233230591,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "run_id": 2,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013739.3137748
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 39.841094613075256,
+                        "Defntaxs Top-5 Accuracy": 70.06575465202332,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "run_id": 3,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744013832.6491423
+                    }
+                ],
+                "food101": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.87623834609985,
+                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 1,
+                        "run_id": 1,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744019374.468974
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.05445623397827,
+                        "Defntaxs Top-5 Accuracy": 97.59405851364136,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "run_id": 2,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744019462.517362
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.13366484642029,
+                        "Defntaxs Top-5 Accuracy": 97.59306907653809,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "run_id": 3,
+                        "Est. classes per subcategory": 5,
+                        "timestamp": 1744019548.2948034
+                    }
+                ]
+            }
+        }
+    }
+}
