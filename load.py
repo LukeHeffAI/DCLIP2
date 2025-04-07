@@ -96,7 +96,7 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['before_subcategory'] = ' often categorized as a type of ' if hparams['model_size'] != 'ViT-L/14' else ', which is a type of '
+        hparams['before_subcategory'] = ' often categorized as a type of '# if hparams['model_size'] != 'ViT-L/14' else ', which is a type of ' #CHANGED AT ID 7
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
             
     elif hparams['dataset'] == 'imagenetv2':
