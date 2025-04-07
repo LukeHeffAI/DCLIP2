@@ -103,7 +103,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 # Set up parameters for this specific run
                 seed = run_idx
                 seed_everything(seed)
-                hparams = set_hparams(
+                hparams, _, _, _, _, _, _, _, _ = set_hparams(
                     model_size=model_size, 
                     desc_type=desc_type, 
                     dataset=current_dataset, 
