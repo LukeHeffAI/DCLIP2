@@ -80,7 +80,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
         
         max_run_id = max(completed_run_ids) if completed_run_ids else 0
         remaining_runs = max(0, num_runs - max_run_id)
-        runs_completed += len(current_results)
+        runs_completed += min(num_runs, len(current_results))
 
         # Skip if all runs are already completed
         if remaining_runs <= 0:
@@ -245,7 +245,7 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
-    num_runs = 20  # Number of times to run each configuration
+    num_runs = 10  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
     start_time = time()
