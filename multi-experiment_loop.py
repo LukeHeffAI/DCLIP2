@@ -25,28 +25,29 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
-def run_experiments(num_runs=3, force_regenerate_subcategories=True):
+def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes_per_subcategory=10):
     """
     Run multiple experiments across different model configurations.
     
     Args:
         num_runs: Number of times to repeat each experiment configuration
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
+        max_classes_per_subcategory: Maximum classes per subcategory for this run set
     """
-    model_sizes = ['ViT-B/16', 'ViT-L/14', 'ViT-B/32']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
+    model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     # model_sizes = ['ViT-B/32']
     desc_types = ['gpt-3']
-    datasets = ['imagenet', 'cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+    datasets = ['cub', 'eurosat', 'places365', 'food101']
     # datasets = ['cub', 'eurosat', 'pets']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
     # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
-    methods = ['waffleclip', 'waffleclip+concepts', 'defntaxs']
+    methods = ['defntaxs']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
     
     # Path to the results file
-    results_file_path = 'results/multiple_runs_experiment_results.json'
+    results_file_path = 'results/subcat_hparam_tests.json'
     
     # Load existing results
     all_results = load_existing_results(results_file_path)
@@ -72,51 +73,68 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
         
         # Get current results list for this configuration
         current_results = all_results[desc_type][model_size][method][current_dataset]
-
-        # Find the highest run_id already completed
-        completed_run_ids = []
-        if current_results:
-            completed_run_ids = [result.get("run_id", 0) for result in current_results]
+        
+        # Filter results to only include those with matching max_classes_per_subcategory
+        matching_results = [
+            result for result in current_results 
+            if result.get("Est. classes per subcategory") == max_classes_per_subcategory
+        ]
+        
+        # Find the highest run_id already completed for this specific parameter value
+        completed_run_ids = [result.get("run_id", 0) for result in matching_results] if matching_results else []
         
         max_run_id = max(completed_run_ids) if completed_run_ids else 0
-        remaining_runs = max(0, num_runs - max_run_id)
-        runs_completed += min(num_runs, len(current_results))
+        remaining_runs = max(0, num_runs - len(matching_results))
+        runs_completed += len(matching_results)
 
-        # Skip if all runs are already completed
+        # Skip if all runs with this specific max_classes_per_subcategory are already completed
         if remaining_runs <= 0:
-            print(f"All {num_runs} runs for {model_size}, {desc_type}, {current_dataset}, {method} are already completed.")
+            print(f"Skipping {desc_type}/{model_size}/{method}/{current_dataset} - Already have {len(matching_results)} runs with max_classes_per_subcategory={max_classes_per_subcategory}")
             continue
         
-        print(f"Found {max_run_id} completed runs. Running {remaining_runs} more runs to reach target of {num_runs}.")
+        print(f"Found {len(matching_results)} completed runs for max_classes_per_subcategory={max_classes_per_subcategory}.")
+        print(f"Running {remaining_runs} more runs to reach target of {num_runs}.")
         
-            # Run the remaining experiments
-        for run_idx in range(max_run_id, num_runs):
-            print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}")
-
+        # Run the remaining experiments
+        for i in range(remaining_runs):
+            run_idx = max_run_id + i + 1
+            
             try:
+                # Set up parameters for this specific run
+                seed = run_idx
+                seed_everything(seed)
+                hparams = set_hparams(
+                    model_size=model_size, 
+                    desc_type=desc_type, 
+                    dataset=current_dataset, 
+                    method=method
+                )
+                
+                # Load dataset
+                print(f"\n\nRunning experiment {count} of {total_experiments - runs_completed}: {desc_type} {model_size} {method} {current_dataset} (Run {run_idx}/{num_runs})")
+                
+                # Set maximum classes per subcategory to the current loop value
+                print(f"Using max_classes_per_subcategory: {max_classes_per_subcategory}")
+                
+                # Create subcategories
+                if force_regenerate_subcategories and method in ["defntaxs"]:
+                    create_subcategories(hparams, force=True, max_classes_per_subcategory=max_classes_per_subcategory)
+                
                 # Set hparams for the current experiment
                 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
                 hparams['seed'] = hparams['seed'] + run_idx
                 seed_everything(hparams['seed'])
                 
-                # # Add dataset_name to hparams to fix defntaxs method error
-                # hparams['dataset_name'] = current_dataset
-                
-                # Regenerate subcategories if needed (only for methods that use them)
-                if force_regenerate_subcategories and method in ['defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']:
-                    print(f"Regenerating subcategories for {current_dataset}...")
-                    create_subcategories(hparams, force=True)
-                
-                
                 # Run the experiment
-                print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx+1}")
+                print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx}")
                 results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
                 
-                # Add run metadata
-                results["run_id"] = run_idx + 1
+                # Add the parameter information to results
+                results["Est. classes per subcategory"] = max_classes_per_subcategory
+                results["run_id"] = run_idx
                 results["timestamp"] = time()
                 
-                # Append results to the list
+                # Append results to the current dataset
                 current_results.append(results)
                 
                 # Save after each experiment run
@@ -245,12 +263,13 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
-    num_runs = 10  # Number of times to run each configuration
+    num_runs = 3  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
-    start_time = time()
-    run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate)
-    end_time = time()
-    
-    print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+    for max_classes_per_subcategory in [5, 8, 12, 15, 20, 25, 30, 35]:
+        start_time = time()
+        run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, max_classes_per_subcategory=max_classes_per_subcategory)
+        end_time = time()
+        print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+
     print("All experiments completed.")
