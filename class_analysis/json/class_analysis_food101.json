@@ -1,38 +1,86 @@
 {
-    "desserts": [
+    "cakes": [
         "apple pie",
-        "baklava",
-        "beignets",
         "bread pudding",
-        "cannoli",
         "carrot cake",
         "cheesecake",
         "chocolate cake",
         "chocolate mousse",
-        "churros",
         "creme brulee",
         "cup cakes",
-        "donuts",
-        "frozen yogurt",
-        "ice cream",
-        "macarons",
         "panna cotta",
         "red velvet cake",
         "strawberry shortcake",
         "tiramisu"
     ],
-    "meat dishes": [
+    "pastries": [
+        "baklava",
+        "beignets",
+        "cannoli",
+        "churros",
+        "donuts",
+        "macarons"
+    ],
+    "frozen desserts": [
+        "frozen yogurt",
+        "ice cream"
+    ],
+    "meat cuts": [
         "baby back ribs",
+        "filet mignon",
+        "pork chop",
+        "prime rib",
+        "steak"
+    ],
+    "meat preparations": [
         "beef carpaccio",
         "beef tartare",
         "chicken wings",
-        "filet mignon",
         "foie gras",
-        "pork chop",
-        "poutine",
-        "prime rib",
-        "shrimp and grits",
-        "steak"
+        "shrimp and grits"
+    ],
+    "vegetable dishes": [
+        "poutine"
+    ],
+    "asian cuisine - rice dishes": [
+        "bibimbap",
+        "chicken curry",
+        "edamame",
+        "fried rice",
+        "pad thai",
+        "peking duck",
+        "pho",
+        "ramen",
+        "sashimi",
+        "sushi"
+    ],
+    "asian cuisine - dumplings and rolls": [
+        "dumplings",
+        "falafel",
+        "gyoza",
+        "samosa",
+        "spring rolls",
+        "takoyaki"
+    ],
+    "italian cuisine": [
+        "paella"
+    ],
+    "quesadillas": [
+        "chicken quesadilla",
+        "tacos"
+    ],
+    "hot sandwiches": [
+        "club sandwich",
+        "croque madame",
+        "grilled cheese sandwich",
+        "hamburger",
+        "hot dog",
+        "lobster roll sandwich",
+        "pizza",
+        "pulled pork sandwich"
+    ],
+    "breads": [
+        "garlic bread"
     ],
     "salads": [
         "beet salad",
@@ -41,24 +89,7 @@
         "greek salad",
         "seaweed salad"
     ],
-    "asian cuisine": [
-        "bibimbap",
-        "chicken curry",
-        "dumplings",
-        "edamame",
-        "falafel",
-        "fried rice",
-        "gyoza",
-        "pad thai",
-        "peking duck",
-        "pho",
-        "ramen",
-        "sashimi",
-        "spring rolls",
-        "sushi",
-        "takoyaki"
-    ],
-    "breakfast": [
+    "breakfast foods": [
         "breakfast burrito",
         "eggs benedict",
         "french toast",
@@ -70,38 +101,24 @@
     "appetizers": [
         "bruschetta",
         "cheese plate",
+        "crab cakes",
         "deviled eggs",
         "escargots",
         "french fries",
         "guacamole",
         "hummus",
         "nachos",
-        "onion rings",
-        "samosa"
+        "onion rings"
     ],
     "seafood": [
         "ceviche",
-        "crab cakes",
         "fish and chips",
         "fried calamari",
         "grilled salmon",
         "mussels",
         "oysters",
-        "paella",
         "scallops",
         "tuna tartare"
-    ],
-    "sandwiches": [
-        "chicken quesadilla",
-        "club sandwich",
-        "croque madame",
-        "grilled cheese sandwich",
-        "hamburger",
-        "hot dog",
-        "lobster roll sandwich",
-        "pizza",
-        "pulled pork sandwich",
-        "tacos"
     ],
     "soups": [
         "clam chowder",
@@ -110,10 +127,7 @@
         "lobster bisque",
         "miso soup"
     ],
-    "baked goods": [
-        "garlic bread"
-    ],
-    "pasta": [
+    "pasta dishes": [
         "gnocchi",
         "lasagna",
         "macaroni and cheese",

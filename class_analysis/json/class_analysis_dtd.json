@@ -1,59 +1,61 @@
 {
-    "geometric": [
+    "geometric patterns": [
         "banded",
         "chequered",
         "crosshatched",
+        "dotted",
         "grid",
-        "honeycombed",
+        "interlaced",
         "lined",
+        "spiralled",
+        "striped",
         "zigzagged"
     ],
-    "textured": [
-        "blotchy",
-        "bumpy",
-        "cracked",
-        "crystalline",
-        "flecked",
-        "freckled",
-        "frilly",
-        "gauzy",
-        "grooved",
-        "marbled",
-        "matted",
-        "perforated",
-        "pitted",
-        "pleated",
-        "porous",
-        "potholed",
-        "scaly",
-        "smeared",
-        "sprinkled",
-        "stained",
-        "stratified",
-        "studded",
-        "waffled",
-        "wrinkled"
-    ],
-    "interwoven": [
-        "braided",
-        "interlaced",
-        "knitted",
-        "meshed",
-        "woven"
+    "decorative patterns": [
+        "paisley",
+        "polka-dotted"
     ],
     "organic": [
-        "bubbly",
         "cobwebbed",
         "fibrous",
         "lacelike",
-        "veined"
+        "sprinkled"
     ],
     "patterned": [
-        "dotted",
-        "paisley",
-        "polka-dotted",
-        "spiralled",
-        "striped",
-        "swirly"
+        "blotchy",
+        "flecked",
+        "frilly",
+        "waffled"
+    ],
+    "surface textures": [
+        "bubbly",
+        "bumpy",
+        "cracked",
+        "gauzy",
+        "grooved",
+        "matted",
+        "pitted",
+        "potholed",
+        "smeared",
+        "stained",
+        "wrinkled"
+    ],
+    "natural textures": [
+        "braided",
+        "freckled",
+        "knitted",
+        "porous",
+        "scaly",
+        "veined"
+    ],
+    "man-made textures": [
+        "perforated",
+        "studded",
+        "woven"
+    ],
+    "structured": [
+        "crystalline",
+        "honeycombed",
+        "stratified"
     ]
 }
