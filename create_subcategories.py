@@ -3,6 +3,9 @@ import json
 from openai import OpenAI
 import time
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 import concurrent.futures
 from tqdm import tqdm
 import tenacity
@@ -73,7 +76,7 @@ def generate_subcategories_from(class_list, context_prompt, client):
         min_subcategories = 1
     
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
             "role": "user",
@@ -161,7 +164,7 @@ def refine_subcategories_from(class_list, category_list, context_prompt, client)
 
     return subcategories_list
 
-def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_per_subcategory, context_prompt, client, max_workers=10):
+def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_per_subcategory, context_prompt, client, max_workers=1):
     """
     Identify subcategories with too many classes and further refine them into more specific subcategories.
     
@@ -272,7 +275,7 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
     
     return refined_assignments
 
-def create_subcategories(hparams, force=False, max_workers=25, max_classes_per_subcategory=10):
+def create_subcategories(hparams, force=False, max_workers=1, max_classes_per_subcategory=10):
     """
     Create subcategories for classes in the dataset.
     
@@ -397,4 +400,4 @@ if __name__ == "__main__":
     # hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
     
     # Force regeneration of subcategories with parallel processing
-    create_subcategories(hparams, force=True, max_workers=25, max_classes_per_subcategory=10)
+    create_subcategories(hparams, force=True, max_workers=1, max_classes_per_subcategory=10)
