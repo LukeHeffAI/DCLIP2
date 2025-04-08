@@ -4,46 +4,606 @@
             "defntaxs": {
                 "cub": [
                     {
-                        "Defntaxs Top-1 Accuracy": 58.54331851005554,
-                        "Defntaxs Top-5 Accuracy": 87.53883242607117,
-                        "CLIP Top-1 Accuracy": 56.316882371902466,
-                        "CLIP Top-5 Accuracy": 84.81187224388123,
-                        "seed": 1,
-                        "run_id": 1,
-                        "Est. classes per subcategory": 5,
-                        "timestamp": 1744013400.970911
-                    },
-                    {
-                        "Defntaxs Top-1 Accuracy": 57.55954384803772,
-                        "Defntaxs Top-5 Accuracy": 87.07283139228821,
+                        "Defntaxs Top-1 Accuracy": 57.248878479003906,
+                        "Defntaxs Top-5 Accuracy": 86.83120608329773,
                         "CLIP Top-1 Accuracy": 56.316882371902466,
                         "CLIP Top-5 Accuracy": 84.81187224388123,
                         "seed": 2,
-                        "run_id": 2,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744013442.8877432
+                        "run_id": 1,
+                        "timestamp": 1744024416.5474954
                     },
                     {
-                        "Defntaxs Top-1 Accuracy": 57.59406089782715,
-                        "Defntaxs Top-5 Accuracy": 87.12460994720459,
+                        "Defntaxs Top-1 Accuracy": 57.9737663269043,
+                        "Defntaxs Top-5 Accuracy": 88.14290761947632,
                         "CLIP Top-1 Accuracy": 56.316882371902466,
                         "CLIP Top-5 Accuracy": 84.81187224388123,
                         "seed": 3,
-                        "run_id": 3,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744013487.495714
+                        "run_id": 2,
+                        "timestamp": 1744024468.2372208
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.28443169593811,
+                        "Defntaxs Top-5 Accuracy": 87.6596450805664,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 3,
+                        "timestamp": 1744024515.7431407
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.455986738204956,
+                        "Defntaxs Top-5 Accuracy": 87.2109055519104,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 1,
+                        "timestamp": 1744025149.3507962
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.0245087146759,
+                        "Defntaxs Top-5 Accuracy": 87.52157688140869,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 2,
+                        "timestamp": 1744025189.7715514
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.52502679824829,
+                        "Defntaxs Top-5 Accuracy": 87.64238953590393,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 3,
+                        "timestamp": 1744025228.0260634
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.439767360687256,
+                        "Defntaxs Top-5 Accuracy": 87.12460994720459,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 1,
+                        "timestamp": 1744025774.177484
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.4225058555603,
+                        "Defntaxs Top-5 Accuracy": 87.31446266174316,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 2,
+                        "timestamp": 1744025796.8967597
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.37072730064392,
+                        "Defntaxs Top-5 Accuracy": 87.0210587978363,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 3,
+                        "timestamp": 1744025817.0016341
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.387988805770874,
+                        "Defntaxs Top-5 Accuracy": 87.12460994720459,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 1,
+                        "timestamp": 1744026329.1044858
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.93924927711487,
+                        "Defntaxs Top-5 Accuracy": 87.50431537628174,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 2,
+                        "timestamp": 1744026351.3157563
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.628583908081055,
+                        "Defntaxs Top-5 Accuracy": 86.91750168800354,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 3,
+                        "timestamp": 1744026380.5315955
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.4225058555603,
+                        "Defntaxs Top-5 Accuracy": 86.90024018287659,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 1,
+                        "timestamp": 1744026843.9637303
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.26717019081116,
+                        "Defntaxs Top-5 Accuracy": 87.41801977157593,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 2,
+                        "timestamp": 1744026882.701129
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.50880146026611,
+                        "Defntaxs Top-5 Accuracy": 87.07283139228821,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 3,
+                        "timestamp": 1744026909.6820195
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.93924927711487,
+                        "Defntaxs Top-5 Accuracy": 87.41801977157593,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 1,
+                        "timestamp": 1744027363.9252062
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.30169320106506,
+                        "Defntaxs Top-5 Accuracy": 87.2109055519104,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 2,
+                        "timestamp": 1744027395.1582248
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.560580015182495,
+                        "Defntaxs Top-5 Accuracy": 87.19365000724792,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 3,
+                        "timestamp": 1744027415.6491604
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.62961411476135,
+                        "Defntaxs Top-5 Accuracy": 87.36624121665955,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 1,
+                        "timestamp": 1744027867.554003
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.90472626686096,
+                        "Defntaxs Top-5 Accuracy": 87.0210587978363,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 2,
+                        "timestamp": 1744027891.3797064
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.887470722198486,
+                        "Defntaxs Top-5 Accuracy": 86.91750168800354,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 3,
+                        "timestamp": 1744027912.6064637
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.628583908081055,
+                        "Defntaxs Top-5 Accuracy": 86.95201873779297,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 1,
+                        "timestamp": 1744028384.3111944
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.042800426483154,
+                        "Defntaxs Top-5 Accuracy": 87.26268410682678,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 2,
+                        "timestamp": 1744028408.6655478
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.57784152030945,
+                        "Defntaxs Top-5 Accuracy": 87.17638850212097,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 3,
+                        "timestamp": 1744028429.6724102
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.37072730064392,
+                        "Defntaxs Top-5 Accuracy": 86.8484616279602,
+                        "CLIP Top-1 Accuracy": 56.38591647148132,
+                        "CLIP Top-5 Accuracy": 84.7773551940918,
+                        "seed": 2,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 1,
+                        "timestamp": 1744033860.4653227
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.14635753631592,
+                        "Defntaxs Top-5 Accuracy": 86.33068799972534,
+                        "CLIP Top-1 Accuracy": 56.38591647148132,
+                        "CLIP Top-5 Accuracy": 84.7773551940918,
+                        "seed": 3,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 2,
+                        "timestamp": 1744034572.5828378
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.87124538421631,
+                        "Defntaxs Top-5 Accuracy": 86.90024018287659,
+                        "CLIP Top-1 Accuracy": 56.38591647148132,
+                        "CLIP Top-5 Accuracy": 84.7773551940918,
+                        "seed": 4,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 3,
+                        "timestamp": 1744034945.1854422
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.474284410476685,
+                        "Defntaxs Top-5 Accuracy": 86.8484616279602,
+                        "CLIP Top-1 Accuracy": 56.38591647148132,
+                        "CLIP Top-5 Accuracy": 84.7773551940918,
+                        "seed": 5,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 4,
+                        "timestamp": 1744035329.2615902
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.16361904144287,
+                        "Defntaxs Top-5 Accuracy": 87.07283139228821,
+                        "CLIP Top-1 Accuracy": 56.38591647148132,
+                        "CLIP Top-5 Accuracy": 84.7773551940918,
+                        "seed": 6,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 5,
+                        "timestamp": 1744035709.280932
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.31894874572754,
+                        "Defntaxs Top-5 Accuracy": 86.8484616279602,
+                        "CLIP Top-1 Accuracy": 56.38591647148132,
+                        "CLIP Top-5 Accuracy": 84.7773551940918,
+                        "seed": 7,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 6,
+                        "timestamp": 1744036395.9512522
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.80221128463745,
+                        "Defntaxs Top-5 Accuracy": 87.7459466457367,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 1,
+                        "timestamp": 1744080360.0936263
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.14635753631592,
+                        "Defntaxs Top-5 Accuracy": 88.28098177909851,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 2,
+                        "timestamp": 1744080451.2116957
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.06006193161011,
+                        "Defntaxs Top-5 Accuracy": 87.40075826644897,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 3,
+                        "timestamp": 1744080509.2995486
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.37072730064392,
+                        "Defntaxs Top-5 Accuracy": 87.59061098098755,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 4,
+                        "timestamp": 1744080567.0077543
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.57784152030945,
+                        "Defntaxs Top-5 Accuracy": 87.72868514060974,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 6,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 5,
+                        "timestamp": 1744080624.3733737
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.767688274383545,
+                        "Defntaxs Top-5 Accuracy": 87.95305490493774,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 7,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 6,
+                        "timestamp": 1744080691.2229345
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.31894874572754,
+                        "Defntaxs Top-5 Accuracy": 87.59061098098755,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 4,
+                        "timestamp": 1744082263.868828
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.31894874572754,
+                        "Defntaxs Top-5 Accuracy": 87.6078724861145,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 6,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 5,
+                        "timestamp": 1744082302.1257296
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.31894874572754,
+                        "Defntaxs Top-5 Accuracy": 87.86675930023193,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 7,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 6,
+                        "timestamp": 1744082352.7727685
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.50880146026611,
+                        "Defntaxs Top-5 Accuracy": 87.7459466457367,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 1,
+                        "timestamp": 1744083236.0679843
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.28443169593811,
+                        "Defntaxs Top-5 Accuracy": 87.33172416687012,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 2,
+                        "timestamp": 1744083283.9803948
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.37072730064392,
+                        "Defntaxs Top-5 Accuracy": 87.72868514060974,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 3,
+                        "timestamp": 1744083328.5527213
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.40524435043335,
+                        "Defntaxs Top-5 Accuracy": 87.4352753162384,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 4,
+                        "timestamp": 1744083371.5165179
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.69865417480469,
+                        "Defntaxs Top-5 Accuracy": 87.52157688140869,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 6,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 5,
+                        "timestamp": 1744083423.7385032
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.85295367240906,
+                        "Defntaxs Top-5 Accuracy": 87.1591329574585,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 7,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 6,
+                        "timestamp": 1744083479.5136557
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.18087458610535,
+                        "Defntaxs Top-5 Accuracy": 87.3835027217865,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 4,
+                        "timestamp": 1744084816.9867575
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.02554488182068,
+                        "Defntaxs Top-5 Accuracy": 88.09112906455994,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 6,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 5,
+                        "timestamp": 1744084869.2998
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.595097064971924,
+                        "Defntaxs Top-5 Accuracy": 87.81498074531555,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 7,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 6,
+                        "timestamp": 1744084914.028957
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.06006193161011,
+                        "Defntaxs Top-5 Accuracy": 87.41801977157593,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 1,
+                        "timestamp": 1744085653.2892225
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.26717019081116,
+                        "Defntaxs Top-5 Accuracy": 87.7977192401886,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 2,
+                        "timestamp": 1744085684.5493746
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.16361904144287,
+                        "Defntaxs Top-5 Accuracy": 87.72868514060974,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 3,
+                        "timestamp": 1744085721.4858918
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.40524435043335,
+                        "Defntaxs Top-5 Accuracy": 87.72868514060974,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 4,
+                        "timestamp": 1744085759.7878613
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.02554488182068,
+                        "Defntaxs Top-5 Accuracy": 87.48705387115479,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 6,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 5,
+                        "timestamp": 1744085800.0458205
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.99102783203125,
+                        "Defntaxs Top-5 Accuracy": 87.90127635002136,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 7,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 6,
+                        "timestamp": 1744085841.1890726
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 59.06109809875488,
+                        "Defntaxs Top-5 Accuracy": 87.86675930023193,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 4,
+                        "timestamp": 1744087048.6706133
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.37072730064392,
+                        "Defntaxs Top-5 Accuracy": 87.72868514060974,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 6,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 5,
+                        "timestamp": 1744087070.2144313
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.042800426483154,
+                        "Defntaxs Top-5 Accuracy": 88.09112906455994,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 7,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 6,
+                        "timestamp": 1744087090.7595541
                     }
                 ],
                 "eurosat": [
                     {
-                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
-                        "Defntaxs Top-5 Accuracy": 95.56666612625122,
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
                         "CLIP Top-1 Accuracy": 46.19629681110382,
                         "CLIP Top-5 Accuracy": 86.7555558681488,
-                        "seed": 1,
-                        "run_id": 1,
+                        "seed": 2,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744013507.7327898
+                        "run_id": 1,
+                        "timestamp": 1744024534.394185
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 2,
+                        "timestamp": 1744024554.4983928
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 3,
+                        "timestamp": 1744024575.0161722
                     },
                     {
                         "Defntaxs Top-1 Accuracy": 56.05555772781372,
@@ -51,83 +611,2447 @@
                         "CLIP Top-1 Accuracy": 46.19629681110382,
                         "CLIP Top-5 Accuracy": 86.7555558681488,
                         "seed": 2,
-                        "run_id": 2,
-                        "Est. classes per subcategory": 5,
-                        "timestamp": 1744013526.3996766
+                        "Est. classes per subcategory": 8,
+                        "run_id": 1,
+                        "timestamp": 1744025246.6138604
                     },
                     {
-                        "Defntaxs Top-1 Accuracy": 55.4111123085022,
-                        "Defntaxs Top-5 Accuracy": 95.77407240867615,
+                        "Defntaxs Top-1 Accuracy": 54.79999780654907,
+                        "Defntaxs Top-5 Accuracy": 95.49999833106995,
                         "CLIP Top-1 Accuracy": 46.19629681110382,
                         "CLIP Top-5 Accuracy": 86.7555558681488,
                         "seed": 3,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 2,
+                        "timestamp": 1744025265.2202675
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 8,
                         "run_id": 3,
+                        "timestamp": 1744025283.9147568
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 1,
+                        "timestamp": 1744025838.8518922
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 2,
+                        "timestamp": 1744025858.2608225
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.86296224594116,
+                        "Defntaxs Top-5 Accuracy": 96.12592458724976,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 3,
+                        "timestamp": 1744025878.1813314
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.01851844787598,
+                        "Defntaxs Top-5 Accuracy": 95.80000042915344,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 1,
+                        "timestamp": 1744026400.0028617
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 52.99999713897705,
+                        "Defntaxs Top-5 Accuracy": 95.54073810577393,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 2,
+                        "timestamp": 1744026419.3293066
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 55.20370602607727,
+                        "Defntaxs Top-5 Accuracy": 95.88888883590698,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 3,
+                        "timestamp": 1744026439.142922
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 55.496299266815186,
+                        "Defntaxs Top-5 Accuracy": 95.87036967277527,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 1,
+                        "timestamp": 1744026928.7989202
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 2,
+                        "timestamp": 1744026948.8739574
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.05555772781372,
+                        "Defntaxs Top-5 Accuracy": 95.08518576622009,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 3,
+                        "timestamp": 1744026969.6603212
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.86296224594116,
+                        "Defntaxs Top-5 Accuracy": 96.12592458724976,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 1,
+                        "timestamp": 1744027434.7196274
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 52.99999713897705,
+                        "Defntaxs Top-5 Accuracy": 95.54073810577393,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 2,
+                        "timestamp": 1744027453.1283715
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.86296224594116,
+                        "Defntaxs Top-5 Accuracy": 96.12592458724976,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 3,
+                        "timestamp": 1744027472.6497269
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.03333115577698,
+                        "Defntaxs Top-5 Accuracy": 95.3592598438263,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 1,
+                        "timestamp": 1744027932.1744375
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.86296224594116,
+                        "Defntaxs Top-5 Accuracy": 96.12592458724976,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 2,
+                        "timestamp": 1744027952.16645
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.86296224594116,
+                        "Defntaxs Top-5 Accuracy": 96.12592458724976,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 3,
+                        "timestamp": 1744027971.5788672
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.01851844787598,
+                        "Defntaxs Top-5 Accuracy": 95.80000042915344,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 1,
+                        "timestamp": 1744028448.8174021
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.86296224594116,
+                        "Defntaxs Top-5 Accuracy": 96.12592458724976,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 2,
+                        "timestamp": 1744028467.2528892
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.86296224594116,
+                        "Defntaxs Top-5 Accuracy": 96.12592458724976,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 3,
+                        "timestamp": 1744028487.0693934
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.48518705368042,
+                        "Defntaxs Top-5 Accuracy": 95.61481475830078,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 1,
+                        "timestamp": 1744078634.7011285
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 61.56296133995056,
+                        "Defntaxs Top-5 Accuracy": 96.08888626098633,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 2,
+                        "timestamp": 1744078657.0986629
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 53.66296172142029,
+                        "Defntaxs Top-5 Accuracy": 95.83703875541687,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 3,
+                        "timestamp": 1744078682.2935293
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.607407331466675,
+                        "Defntaxs Top-5 Accuracy": 95.32222151756287,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 4,
+                        "timestamp": 1744078705.4242823
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.17037224769592,
+                        "Defntaxs Top-5 Accuracy": 96.09259366989136,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 6,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 5,
+                        "timestamp": 1744078729.1263201
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
+                        "Defntaxs Top-5 Accuracy": 96.28518223762512,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 7,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 6,
+                        "timestamp": 1744078752.6529393
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 1,
+                        "timestamp": 1744080710.7705147
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 55.81851601600647,
+                        "Defntaxs Top-5 Accuracy": 96.02592587471008,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 2,
+                        "timestamp": 1744080733.4603844
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.67036771774292,
+                        "Defntaxs Top-5 Accuracy": 95.25555372238159,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 3,
+                        "timestamp": 1744080757.151378
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.43333196640015,
+                        "Defntaxs Top-5 Accuracy": 96.01481556892395,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 4,
+                        "timestamp": 1744080778.3297145
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 53.77036929130554,
+                        "Defntaxs Top-5 Accuracy": 95.75185179710388,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 6,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 5,
+                        "timestamp": 1744080798.842461
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 7,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 6,
+                        "timestamp": 1744080819.0061526
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 53.740739822387695,
+                        "Defntaxs Top-5 Accuracy": 96.20000123977661,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744013548.5716774
+                        "run_id": 4,
+                        "timestamp": 1744082373.3411145
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 55.885183811187744,
+                        "Defntaxs Top-5 Accuracy": 96.27777934074402,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 6,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 5,
+                        "timestamp": 1744082393.0404468
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 52.4148166179657,
+                        "Defntaxs Top-5 Accuracy": 95.89999914169312,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 7,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 6,
+                        "timestamp": 1744082412.1000674
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 1,
+                        "timestamp": 1744083498.5201616
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 2,
+                        "timestamp": 1744083517.2847266
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 3,
+                        "timestamp": 1744083537.0693412
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.703704595565796,
+                        "Defntaxs Top-5 Accuracy": 96.318519115448,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 4,
+                        "timestamp": 1744083556.7117577
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 6,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 5,
+                        "timestamp": 1744083575.6810207
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 7,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 6,
+                        "timestamp": 1744083594.3760276
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 4,
+                        "timestamp": 1744084933.0244682
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 6,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 5,
+                        "timestamp": 1744084952.177541
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.703704595565796,
+                        "Defntaxs Top-5 Accuracy": 96.318519115448,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 7,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 6,
+                        "timestamp": 1744084970.7249615
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 1,
+                        "timestamp": 1744085860.153399
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.21851682662964,
+                        "Defntaxs Top-5 Accuracy": 96.27037048339844,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 2,
+                        "timestamp": 1744085878.903588
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.977778673172,
+                        "Defntaxs Top-5 Accuracy": 96.32592797279358,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 3,
+                        "timestamp": 1744085897.782151
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 4,
+                        "timestamp": 1744085916.823541
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.0888876914978,
+                        "Defntaxs Top-5 Accuracy": 95.58518528938293,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 6,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 5,
+                        "timestamp": 1744085935.7176418
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 7,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 6,
+                        "timestamp": 1744085955.099322
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 4,
+                        "timestamp": 1744087110.2617188
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.451850175857544,
+                        "Defntaxs Top-5 Accuracy": 95.82962989807129,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 6,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 5,
+                        "timestamp": 1744087130.4775217
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 55.885183811187744,
+                        "Defntaxs Top-5 Accuracy": 96.27777934074402,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 7,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 6,
+                        "timestamp": 1744087150.6595197
                     }
                 ],
                 "places365": [
                     {
-                        "Defntaxs Top-1 Accuracy": 40.95068573951721,
-                        "Defntaxs Top-5 Accuracy": 70.61917781829834,
-                        "CLIP Top-1 Accuracy": 38.37808072566986,
-                        "CLIP Top-5 Accuracy": 66.45753383636475,
-                        "seed": 1,
-                        "run_id": 1,
-                        "Est. classes per subcategory": 5,
-                        "timestamp": 1744013646.816658
-                    },
-                    {
-                        "Defntaxs Top-1 Accuracy": 39.841094613075256,
-                        "Defntaxs Top-5 Accuracy": 70.29315233230591,
+                        "Defntaxs Top-1 Accuracy": 40.67123234272003,
+                        "Defntaxs Top-5 Accuracy": 70.53972482681274,
                         "CLIP Top-1 Accuracy": 38.37808072566986,
                         "CLIP Top-5 Accuracy": 66.45753383636475,
                         "seed": 2,
-                        "run_id": 2,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744013739.3137748
+                        "run_id": 1,
+                        "timestamp": 1744024672.4790761
                     },
                     {
-                        "Defntaxs Top-1 Accuracy": 39.841094613075256,
-                        "Defntaxs Top-5 Accuracy": 70.06575465202332,
+                        "Defntaxs Top-1 Accuracy": 40.53698778152466,
+                        "Defntaxs Top-5 Accuracy": 70.30410766601562,
                         "CLIP Top-1 Accuracy": 38.37808072566986,
                         "CLIP Top-5 Accuracy": 66.45753383636475,
                         "seed": 3,
-                        "run_id": 3,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744013832.6491423
+                        "run_id": 2,
+                        "timestamp": 1744024763.351022
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.619176626205444,
+                        "Defntaxs Top-5 Accuracy": 70.08219361305237,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 3,
+                        "timestamp": 1744024853.868889
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.64383506774902,
+                        "Defntaxs Top-5 Accuracy": 70.69315314292908,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 1,
+                        "timestamp": 1744025353.014483
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.1589035987854,
+                        "Defntaxs Top-5 Accuracy": 69.99452114105225,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 2,
+                        "timestamp": 1744025427.5849125
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.57808220386505,
+                        "Defntaxs Top-5 Accuracy": 70.54794430732727,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 3,
+                        "timestamp": 1744025499.0097094
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.60547947883606,
+                        "Defntaxs Top-5 Accuracy": 70.30137181282043,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 1,
+                        "timestamp": 1744025950.8369932
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.95890522003174,
+                        "Defntaxs Top-5 Accuracy": 70.7013726234436,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 2,
+                        "timestamp": 1744026014.41847
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.66575467586517,
+                        "Defntaxs Top-5 Accuracy": 70.51233053207397,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 3,
+                        "timestamp": 1744026083.6215734
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 41.1452054977417,
+                        "Defntaxs Top-5 Accuracy": 70.7479476928711,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 1,
+                        "timestamp": 1744026497.7044156
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.97260236740112,
+                        "Defntaxs Top-5 Accuracy": 70.86849212646484,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 2,
+                        "timestamp": 1744026557.2772462
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 41.02739691734314,
+                        "Defntaxs Top-5 Accuracy": 70.81096172332764,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 3,
+                        "timestamp": 1744026607.8522475
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.69862961769104,
+                        "Defntaxs Top-5 Accuracy": 70.51780819892883,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 1,
+                        "timestamp": 1744027026.2730362
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.67945182323456,
+                        "Defntaxs Top-5 Accuracy": 70.45479416847229,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 2,
+                        "timestamp": 1744027086.7388558
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.35068452358246,
+                        "Defntaxs Top-5 Accuracy": 70.60273885726929,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 3,
+                        "timestamp": 1744027142.5655653
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.852054953575134,
+                        "Defntaxs Top-5 Accuracy": 70.9534227848053,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 1,
+                        "timestamp": 1744027528.8407102
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.778082609176636,
+                        "Defntaxs Top-5 Accuracy": 70.7369863986969,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 2,
+                        "timestamp": 1744027591.7130427
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 41.016438603401184,
+                        "Defntaxs Top-5 Accuracy": 70.80821990966797,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 3,
+                        "timestamp": 1744027642.0502572
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.616437792778015,
+                        "Defntaxs Top-5 Accuracy": 70.61370015144348,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 1,
+                        "timestamp": 1744028024.1622458
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.65205454826355,
+                        "Defntaxs Top-5 Accuracy": 70.49862742424011,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 2,
+                        "timestamp": 1744028077.2013657
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 41.38356149196625,
+                        "Defntaxs Top-5 Accuracy": 71.46027684211731,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 3,
+                        "timestamp": 1744028134.0550768
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 41.23561680316925,
+                        "Defntaxs Top-5 Accuracy": 71.10685110092163,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 1,
+                        "timestamp": 1744028537.1100652
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 41.02191925048828,
+                        "Defntaxs Top-5 Accuracy": 70.86575627326965,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 2,
+                        "timestamp": 1744028591.095562
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 41.04657471179962,
+                        "Defntaxs Top-5 Accuracy": 70.95068693161011,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 3,
+                        "timestamp": 1744028639.6671984
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.498629212379456,
+                        "Defntaxs Top-5 Accuracy": 70.6684947013855,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 1,
+                        "timestamp": 1744078865.4234486
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.36986231803894,
+                        "Defntaxs Top-5 Accuracy": 70.65205574035645,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 2,
+                        "timestamp": 1744078984.4695623
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.594521164894104,
+                        "Defntaxs Top-5 Accuracy": 70.75616717338562,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 3,
+                        "timestamp": 1744079101.5148456
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.58904051780701,
+                        "Defntaxs Top-5 Accuracy": 70.59726119041443,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 4,
+                        "timestamp": 1744079207.6205497
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.37808179855347,
+                        "Defntaxs Top-5 Accuracy": 70.81096172332764,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 6,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 5,
+                        "timestamp": 1744079310.7114651
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.58356285095215,
+                        "Defntaxs Top-5 Accuracy": 70.68766951560974,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 7,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 6,
+                        "timestamp": 1744079411.7831302
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.47123193740845,
+                        "Defntaxs Top-5 Accuracy": 70.29041051864624,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 1,
+                        "timestamp": 1744080906.9958227
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.06027281284332,
+                        "Defntaxs Top-5 Accuracy": 70.10411024093628,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 2,
+                        "timestamp": 1744081009.1729648
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.413698554039,
+                        "Defntaxs Top-5 Accuracy": 70.39178013801575,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 3,
+                        "timestamp": 1744081098.9475405
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.18356204032898,
+                        "Defntaxs Top-5 Accuracy": 70.27397155761719,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 4,
+                        "timestamp": 1744081188.5129821
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.59725999832153,
+                        "Defntaxs Top-5 Accuracy": 70.35342454910278,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 6,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 5,
+                        "timestamp": 1744081272.3900073
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.29862880706787,
+                        "Defntaxs Top-5 Accuracy": 70.52876949310303,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 7,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 6,
+                        "timestamp": 1744081366.3966212
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.27945101261139,
+                        "Defntaxs Top-5 Accuracy": 70.43835520744324,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 4,
+                        "timestamp": 1744082498.723106
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.51506817340851,
+                        "Defntaxs Top-5 Accuracy": 70.52328586578369,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 6,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 5,
+                        "timestamp": 1744082589.0537648
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.2328759431839,
+                        "Defntaxs Top-5 Accuracy": 70.51506638526917,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 7,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 6,
+                        "timestamp": 1744082673.1550868
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.12054800987244,
+                        "Defntaxs Top-5 Accuracy": 70.39178013801575,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 1,
+                        "timestamp": 1744083671.7229364
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 39.986300468444824,
+                        "Defntaxs Top-5 Accuracy": 70.33698558807373,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 2,
+                        "timestamp": 1744083757.8089764
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.29862880706787,
+                        "Defntaxs Top-5 Accuracy": 70.20547986030579,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 3,
+                        "timestamp": 1744083834.260467
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.169861912727356,
+                        "Defntaxs Top-5 Accuracy": 70.24931311607361,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 4,
+                        "timestamp": 1744083918.7247832
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 39.958903193473816,
+                        "Defntaxs Top-5 Accuracy": 70.37808299064636,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 6,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 5,
+                        "timestamp": 1744084008.2903318
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.383562445640564,
+                        "Defntaxs Top-5 Accuracy": 70.61095833778381,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 7,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 6,
+                        "timestamp": 1744084091.9786916
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.567123889923096,
+                        "Defntaxs Top-5 Accuracy": 70.35890221595764,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 4,
+                        "timestamp": 1744085042.7592027
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.41095972061157,
+                        "Defntaxs Top-5 Accuracy": 70.4767107963562,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 6,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 5,
+                        "timestamp": 1744085121.1197643
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.20822048187256,
+                        "Defntaxs Top-5 Accuracy": 70.26575207710266,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 7,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 6,
+                        "timestamp": 1744085194.207495
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.58630168437958,
+                        "Defntaxs Top-5 Accuracy": 70.3287661075592,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 1,
+                        "timestamp": 1744086026.18173
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.383562445640564,
+                        "Defntaxs Top-5 Accuracy": 70.6246554851532,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 2,
+                        "timestamp": 1744086090.5460742
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.35342335700989,
+                        "Defntaxs Top-5 Accuracy": 70.12876868247986,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 3,
+                        "timestamp": 1744086167.8233426
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.25479555130005,
+                        "Defntaxs Top-5 Accuracy": 70.34520506858826,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 4,
+                        "timestamp": 1744086237.2179828
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.45753479003906,
+                        "Defntaxs Top-5 Accuracy": 70.52328586578369,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 6,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 5,
+                        "timestamp": 1744086310.8250654
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.76438248157501,
+                        "Defntaxs Top-5 Accuracy": 70.75616717338562,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 7,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 6,
+                        "timestamp": 1744086379.9956858
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.55342376232147,
+                        "Defntaxs Top-5 Accuracy": 70.22465467453003,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 4,
+                        "timestamp": 1744087216.122187
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.60821831226349,
+                        "Defntaxs Top-5 Accuracy": 70.38082480430603,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 6,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 5,
+                        "timestamp": 1744087287.3531086
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.147945284843445,
+                        "Defntaxs Top-5 Accuracy": 70.06301283836365,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 7,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 6,
+                        "timestamp": 1744087345.5233116
                     }
                 ],
                 "food101": [
                     {
-                        "Defntaxs Top-1 Accuracy": 85.87623834609985,
-                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
-                        "CLIP Top-1 Accuracy": 84.04950499534607,
-                        "CLIP Top-5 Accuracy": 96.95742726325989,
-                        "seed": 1,
-                        "run_id": 1,
-                        "Est. classes per subcategory": 5,
-                        "timestamp": 1744019374.468974
-                    },
-                    {
-                        "Defntaxs Top-1 Accuracy": 86.05445623397827,
-                        "Defntaxs Top-5 Accuracy": 97.59405851364136,
+                        "Defntaxs Top-1 Accuracy": 86.1683189868927,
+                        "Defntaxs Top-5 Accuracy": 97.60792255401611,
                         "CLIP Top-1 Accuracy": 84.04950499534607,
                         "CLIP Top-5 Accuracy": 96.95742726325989,
                         "seed": 2,
-                        "run_id": 2,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744019462.517362
+                        "run_id": 1,
+                        "timestamp": 1744024943.601584
                     },
                     {
-                        "Defntaxs Top-1 Accuracy": 86.13366484642029,
-                        "Defntaxs Top-5 Accuracy": 97.59306907653809,
+                        "Defntaxs Top-1 Accuracy": 86.11485362052917,
+                        "Defntaxs Top-5 Accuracy": 97.60296940803528,
                         "CLIP Top-1 Accuracy": 84.04950499534607,
                         "CLIP Top-5 Accuracy": 96.95742726325989,
                         "seed": 3,
-                        "run_id": 3,
                         "Est. classes per subcategory": 5,
-                        "timestamp": 1744019548.2948034
+                        "run_id": 2,
+                        "timestamp": 1744025026.3743777
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.10693216323853,
+                        "Defntaxs Top-5 Accuracy": 97.59802222251892,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 3,
+                        "timestamp": 1744025108.9850783
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.92376112937927,
+                        "Defntaxs Top-5 Accuracy": 97.5831687450409,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 1,
+                        "timestamp": 1744025574.6267664
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.066335439682,
+                        "Defntaxs Top-5 Accuracy": 97.58020043373108,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 2,
+                        "timestamp": 1744025657.1160107
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.0089123249054,
+                        "Defntaxs Top-5 Accuracy": 97.58020043373108,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 3,
+                        "timestamp": 1744025737.5063038
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.06534600257874,
+                        "Defntaxs Top-5 Accuracy": 97.5673258304596,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 1,
+                        "timestamp": 1744026155.500374
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.07524633407593,
+                        "Defntaxs Top-5 Accuracy": 97.5831687450409,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 2,
+                        "timestamp": 1744026229.0554643
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.00792288780212,
+                        "Defntaxs Top-5 Accuracy": 97.58118987083435,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 3,
+                        "timestamp": 1744026305.867417
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.07425689697266,
+                        "Defntaxs Top-5 Accuracy": 97.57425785064697,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 1,
+                        "timestamp": 1744026679.0567617
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.07822060585022,
+                        "Defntaxs Top-5 Accuracy": 97.60000109672546,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 2,
+                        "timestamp": 1744026748.948619
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.12574338912964,
+                        "Defntaxs Top-5 Accuracy": 97.59109020233154,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 15,
+                        "run_id": 3,
+                        "timestamp": 1744026818.8723717
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.9673261642456,
+                        "Defntaxs Top-5 Accuracy": 97.56831526756287,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 1,
+                        "timestamp": 1744027207.1116912
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.09405755996704,
+                        "Defntaxs Top-5 Accuracy": 97.56336808204651,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 2,
+                        "timestamp": 1744027271.859638
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.09901070594788,
+                        "Defntaxs Top-5 Accuracy": 97.58217930793762,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 20,
+                        "run_id": 3,
+                        "timestamp": 1744027335.0113869
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.89900732040405,
+                        "Defntaxs Top-5 Accuracy": 97.5673258304596,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 1,
+                        "timestamp": 1744027705.0722206
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.01484894752502,
+                        "Defntaxs Top-5 Accuracy": 97.60395884513855,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 2,
+                        "timestamp": 1744027780.3314528
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.0376238822937,
+                        "Defntaxs Top-5 Accuracy": 97.58020043373108,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 25,
+                        "run_id": 3,
+                        "timestamp": 1744027848.7434509
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.88218092918396,
+                        "Defntaxs Top-5 Accuracy": 97.53267168998718,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 1,
+                        "timestamp": 1744028203.1246119
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.88514924049377,
+                        "Defntaxs Top-5 Accuracy": 97.53861427307129,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 2,
+                        "timestamp": 1744028267.938959
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.9673261642456,
+                        "Defntaxs Top-5 Accuracy": 97.5732684135437,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 30,
+                        "run_id": 3,
+                        "timestamp": 1744028339.9764926
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.13465428352356,
+                        "Defntaxs Top-5 Accuracy": 97.5960373878479,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 1,
+                        "timestamp": 1744028702.382863
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.10495328903198,
+                        "Defntaxs Top-5 Accuracy": 97.589111328125,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 2,
+                        "timestamp": 1744028767.796724
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.97524762153625,
+                        "Defntaxs Top-5 Accuracy": 97.56930470466614,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 35,
+                        "run_id": 3,
+                        "timestamp": 1744028832.33657
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.04158163070679,
+                        "Defntaxs Top-5 Accuracy": 97.62079119682312,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 1,
+                        "timestamp": 1744079515.0434203
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.95346808433533,
+                        "Defntaxs Top-5 Accuracy": 97.56831526756287,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 2,
+                        "timestamp": 1744079614.1580455
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.86534857749939,
+                        "Defntaxs Top-5 Accuracy": 97.59010076522827,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 3,
+                        "timestamp": 1744079717.5797353
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.83564162254333,
+                        "Defntaxs Top-5 Accuracy": 97.56831526756287,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 4,
+                        "timestamp": 1744079816.1061592
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.96930503845215,
+                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 6,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 5,
+                        "timestamp": 1744079920.722339
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.68316698074341,
+                        "Defntaxs Top-5 Accuracy": 97.62475490570068,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 7,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 6,
+                        "timestamp": 1744080013.7231243
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.02970242500305,
+                        "Defntaxs Top-5 Accuracy": 97.60593771934509,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 1,
+                        "timestamp": 1744081466.8284032
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.1683189868927,
+                        "Defntaxs Top-5 Accuracy": 97.61385917663574,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 2,
+                        "timestamp": 1744081556.952509
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.92475056648254,
+                        "Defntaxs Top-5 Accuracy": 97.58118987083435,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 3,
+                        "timestamp": 1744081650.0971062
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.99010109901428,
+                        "Defntaxs Top-5 Accuracy": 97.5960373878479,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 4,
+                        "timestamp": 1744081744.261373
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.07921004295349,
+                        "Defntaxs Top-5 Accuracy": 97.60693311691284,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 6,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 5,
+                        "timestamp": 1744081846.4944725
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.92574000358582,
+                        "Defntaxs Top-5 Accuracy": 97.56831526756287,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 7,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 6,
+                        "timestamp": 1744081934.8826709
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.86930632591248,
+                        "Defntaxs Top-5 Accuracy": 97.57623672485352,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 4,
+                        "timestamp": 1744082776.882618
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.95346808433533,
+                        "Defntaxs Top-5 Accuracy": 97.58613705635071,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 6,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 5,
+                        "timestamp": 1744082857.9275718
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.05940341949463,
+                        "Defntaxs Top-5 Accuracy": 97.56930470466614,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 7,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 6,
+                        "timestamp": 1744082949.6475916
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.01287007331848,
+                        "Defntaxs Top-5 Accuracy": 97.5673258304596,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 1,
+                        "timestamp": 1744084174.2357638
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.83762645721436,
+                        "Defntaxs Top-5 Accuracy": 97.5574254989624,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 2,
+                        "timestamp": 1744084254.6055107
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.10098958015442,
+                        "Defntaxs Top-5 Accuracy": 97.57524728775024,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 3,
+                        "timestamp": 1744084340.3138313
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.17128729820251,
+                        "Defntaxs Top-5 Accuracy": 97.60792255401611,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 4,
+                        "timestamp": 1744084419.8218272
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.07128858566284,
+                        "Defntaxs Top-5 Accuracy": 97.63564467430115,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 6,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 5,
+                        "timestamp": 1744084503.6252623
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.00296974182129,
+                        "Defntaxs Top-5 Accuracy": 97.59109020233154,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 7,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 6,
+                        "timestamp": 1744084585.7506323
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.00099086761475,
+                        "Defntaxs Top-5 Accuracy": 97.58811593055725,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 4,
+                        "timestamp": 1744085269.2699034
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.07029914855957,
+                        "Defntaxs Top-5 Accuracy": 97.58811593055725,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 6,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 5,
+                        "timestamp": 1744085345.5441763
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.09504699707031,
+                        "Defntaxs Top-5 Accuracy": 97.60494828224182,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 7,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 6,
+                        "timestamp": 1744085422.297259
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.94356179237366,
+                        "Defntaxs Top-5 Accuracy": 97.589111328125,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 1,
+                        "timestamp": 1744086453.417003
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.05049252510071,
+                        "Defntaxs Top-5 Accuracy": 97.61980175971985,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 2,
+                        "timestamp": 1744086527.0956137
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.15742325782776,
+                        "Defntaxs Top-5 Accuracy": 97.6118803024292,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 3,
+                        "timestamp": 1744086598.9223673
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.01385951042175,
+                        "Defntaxs Top-5 Accuracy": 97.60693311691284,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 4,
+                        "timestamp": 1744086667.814707
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.84356307983398,
+                        "Defntaxs Top-5 Accuracy": 97.54752516746521,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 6,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 5,
+                        "timestamp": 1744086745.686711
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.96435785293579,
+                        "Defntaxs Top-5 Accuracy": 97.59702682495117,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 7,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 6,
+                        "timestamp": 1744086819.8871248
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.95247268676758,
+                        "Defntaxs Top-5 Accuracy": 97.57128953933716,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 4,
+                        "timestamp": 1744087415.7089217
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.65247654914856,
+                        "Defntaxs Top-5 Accuracy": 97.5287139415741,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 6,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 5,
+                        "timestamp": 1744087488.6780972
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.92871427536011,
+                        "Defntaxs Top-5 Accuracy": 97.56534695625305,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 7,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 6,
+                        "timestamp": 1744087568.1336918
+                    }
+                ],
+                "pets": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 83.65358710289001,
+                        "Defntaxs Top-5 Accuracy": 97.2395122051239,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 1,
+                        "timestamp": 1744080028.646071
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.40324878692627,
+                        "Defntaxs Top-5 Accuracy": 99.59404468536377,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 2,
+                        "timestamp": 1744080052.0851321
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.82273435592651,
+                        "Defntaxs Top-5 Accuracy": 99.55344796180725,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 3,
+                        "timestamp": 1744080070.082913
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 84.87144708633423,
+                        "Defntaxs Top-5 Accuracy": 97.13125824928284,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 4,
+                        "timestamp": 1744080092.6164463
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.21380138397217,
+                        "Defntaxs Top-5 Accuracy": 99.62111115455627,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 6,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 5,
+                        "timestamp": 1744080112.951819
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.37753438949585,
+                        "Defntaxs Top-5 Accuracy": 99.68876838684082,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 7,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 6,
+                        "timestamp": 1744080133.7663052
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.01217579841614,
+                        "Defntaxs Top-5 Accuracy": 99.59404468536377,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 1,
+                        "timestamp": 1744081951.9681284
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.60622644424438,
+                        "Defntaxs Top-5 Accuracy": 99.70229864120483,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 2,
+                        "timestamp": 1744081974.3617573
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.9580488204956,
+                        "Defntaxs Top-5 Accuracy": 99.53991770744324,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 3,
+                        "timestamp": 1744081996.593831
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.29769897460938,
+                        "Defntaxs Top-5 Accuracy": 99.63464140892029,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 4,
+                        "timestamp": 1744082041.543167
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.02435994148254,
+                        "Defntaxs Top-5 Accuracy": 99.62111115455627,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 6,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 5,
+                        "timestamp": 1744082060.8688738
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.30582094192505,
+                        "Defntaxs Top-5 Accuracy": 99.63464140892029,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 7,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 6,
+                        "timestamp": 1744082078.910694
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.87686133384705,
+                        "Defntaxs Top-5 Accuracy": 99.62111115455627,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 1,
+                        "timestamp": 1744082964.8277402
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.02571201324463,
+                        "Defntaxs Top-5 Accuracy": 99.59404468536377,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 2,
+                        "timestamp": 1744082981.3627493
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.48443627357483,
+                        "Defntaxs Top-5 Accuracy": 99.53991770744324,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 3,
+                        "timestamp": 1744082997.9829013
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 87.11772561073303,
+                        "Defntaxs Top-5 Accuracy": 99.53991770744324,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 4,
+                        "timestamp": 1744083018.97693
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.09201717376709,
+                        "Defntaxs Top-5 Accuracy": 99.55344796180725,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 6,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 5,
+                        "timestamp": 1744083036.3401246
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.1339659690857,
+                        "Defntaxs Top-5 Accuracy": 99.60757493972778,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 7,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 6,
+                        "timestamp": 1744083051.9692073
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.75507712364197,
+                        "Defntaxs Top-5 Accuracy": 99.60757493972778,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 1,
+                        "timestamp": 1744084600.748474
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.01217579841614,
+                        "Defntaxs Top-5 Accuracy": 99.53991770744324,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 2,
+                        "timestamp": 1744084614.2604687
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 87.65900135040283,
+                        "Defntaxs Top-5 Accuracy": 99.25575256347656,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 3,
+                        "timestamp": 1744084632.3465908
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.03924226760864,
+                        "Defntaxs Top-5 Accuracy": 99.58051443099976,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 4,
+                        "timestamp": 1744084646.9735973
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.40324878692627,
+                        "Defntaxs Top-5 Accuracy": 99.56698417663574,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 6,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 5,
+                        "timestamp": 1744084664.493987
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.9580488204956,
+                        "Defntaxs Top-5 Accuracy": 99.56698417663574,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 7,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 6,
+                        "timestamp": 1744084678.9298306
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.2949948310852,
+                        "Defntaxs Top-5 Accuracy": 99.56698417663574,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 1,
+                        "timestamp": 1744085436.6784616
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 86.92828416824341,
+                        "Defntaxs Top-5 Accuracy": 99.45873022079468,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 2,
+                        "timestamp": 1744085452.0699759
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.04059433937073,
+                        "Defntaxs Top-5 Accuracy": 99.62111115455627,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 3,
+                        "timestamp": 1744085471.1529715
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.94587063789368,
+                        "Defntaxs Top-5 Accuracy": 99.59404468536377,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 4,
+                        "timestamp": 1744085487.1790986
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.93234038352966,
+                        "Defntaxs Top-5 Accuracy": 99.60757493972778,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 6,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 5,
+                        "timestamp": 1744085501.5907276
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.04059433937073,
+                        "Defntaxs Top-5 Accuracy": 99.62111115455627,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 7,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 6,
+                        "timestamp": 1744085515.7751546
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.20297527313232,
+                        "Defntaxs Top-5 Accuracy": 99.63464140892029,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 1,
+                        "timestamp": 1744086832.4310036
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.23004174232483,
+                        "Defntaxs Top-5 Accuracy": 99.63464140892029,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 2,
+                        "timestamp": 1744086848.0478973
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.44654965400696,
+                        "Defntaxs Top-5 Accuracy": 99.58051443099976,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 3,
+                        "timestamp": 1744086861.398012
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.21651148796082,
+                        "Defntaxs Top-5 Accuracy": 99.63464140892029,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 4,
+                        "timestamp": 1744086878.4709406
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.20297527313232,
+                        "Defntaxs Top-5 Accuracy": 99.63464140892029,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 6,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 5,
+                        "timestamp": 1744086897.867945
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.39242267608643,
+                        "Defntaxs Top-5 Accuracy": 99.58051443099976,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 7,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 6,
+                        "timestamp": 1744086911.6193676
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.18944501876831,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 1,
+                        "timestamp": 1744087580.4904356
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.18944501876831,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 2,
+                        "timestamp": 1744087592.6822321
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.18944501876831,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 3,
+                        "timestamp": 1744087606.6331904
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.18944501876831,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "Est. classes per subcategory": 12,
+                        "run_id": 4,
+                        "timestamp": 1744087620.600321
+                    }
+                ],
+                "dtd": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.49645483493805,
+                        "Defntaxs Top-5 Accuracy": 75.58510899543762,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 1,
+                        "timestamp": 1744080159.3899698
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.93262279033661,
+                        "Defntaxs Top-5 Accuracy": 73.6347496509552,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 2,
+                        "timestamp": 1744080187.463679
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.88652551174164,
+                        "Defntaxs Top-5 Accuracy": 72.96099066734314,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 3,
+                        "timestamp": 1744080217.1504366
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.975178480148315,
+                        "Defntaxs Top-5 Accuracy": 73.31560254096985,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 4,
+                        "timestamp": 1744080247.808171
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.638298988342285,
+                        "Defntaxs Top-5 Accuracy": 75.40780305862427,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 6,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 5,
+                        "timestamp": 1744080270.4148865
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.85106372833252,
+                        "Defntaxs Top-5 Accuracy": 74.60992932319641,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 7,
+                        "Est. classes per subcategory": 2,
+                        "run_id": 6,
+                        "timestamp": 1744080298.6729648
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.46099305152893,
+                        "Defntaxs Top-5 Accuracy": 76.41844153404236,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 1,
+                        "timestamp": 1744082107.0995758
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.29432559013367,
+                        "Defntaxs Top-5 Accuracy": 77.19858288764954,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 2,
+                        "timestamp": 1744082126.3266916
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.319148898124695,
+                        "Defntaxs Top-5 Accuracy": 75.85106492042542,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 3,
+                        "timestamp": 1744082153.1040475
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.52482271194458,
+                        "Defntaxs Top-5 Accuracy": 75.53191781044006,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 4,
+                        "timestamp": 1744082172.0541897
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.36170160770416,
+                        "Defntaxs Top-5 Accuracy": 75.95744729042053,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 6,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 5,
+                        "timestamp": 1744082195.7677689
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.7446813583374,
+                        "Defntaxs Top-5 Accuracy": 73.54609966278076,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 7,
+                        "Est. classes per subcategory": 4,
+                        "run_id": 6,
+                        "timestamp": 1744082221.1701565
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 43.82978677749634,
+                        "Defntaxs Top-5 Accuracy": 74.21985864639282,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 1,
+                        "timestamp": 1744083072.3593385
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.73404288291931,
+                        "Defntaxs Top-5 Accuracy": 73.98936152458191,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 2,
+                        "timestamp": 1744083096.6855183
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.48581635951996,
+                        "Defntaxs Top-5 Accuracy": 74.52127933502197,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 3,
+                        "timestamp": 1744083115.7038252
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 43.989360332489014,
+                        "Defntaxs Top-5 Accuracy": 73.35106134414673,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 4,
+                        "timestamp": 1744083138.5504057
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.46099305152893,
+                        "Defntaxs Top-5 Accuracy": 73.82978796958923,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 6,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 5,
+                        "timestamp": 1744083156.1816306
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.78723406791687,
+                        "Defntaxs Top-5 Accuracy": 72.55319356918335,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 7,
+                        "Est. classes per subcategory": 5,
+                        "run_id": 6,
+                        "timestamp": 1744083175.548605
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 47.375887632369995,
+                        "Defntaxs Top-5 Accuracy": 76.34751796722412,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 1,
+                        "timestamp": 1744084699.6965978
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.18794322013855,
+                        "Defntaxs Top-5 Accuracy": 75.0,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 2,
+                        "timestamp": 1744084714.2920313
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.88652551174164,
+                        "Defntaxs Top-5 Accuracy": 76.40070915222168,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 3,
+                        "timestamp": 1744084728.7084699
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 43.45744550228119,
+                        "Defntaxs Top-5 Accuracy": 74.09574389457703,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 4,
+                        "timestamp": 1744084745.5480313
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.01773118972778,
+                        "Defntaxs Top-5 Accuracy": 72.83688187599182,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 6,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 5,
+                        "timestamp": 1744084758.559214
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 47.21631109714508,
+                        "Defntaxs Top-5 Accuracy": 76.95035338401794,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 7,
+                        "Est. classes per subcategory": 6,
+                        "run_id": 6,
+                        "timestamp": 1744084774.7062395
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.964540004730225,
+                        "Defntaxs Top-5 Accuracy": 71.96808457374573,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 1,
+                        "timestamp": 1744085530.8199701
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 47.65957593917847,
+                        "Defntaxs Top-5 Accuracy": 75.53191781044006,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 2,
+                        "timestamp": 1744085548.443416
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.47872245311737,
+                        "Defntaxs Top-5 Accuracy": 75.69149136543274,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 3,
+                        "timestamp": 1744085565.6998956
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.27659618854523,
+                        "Defntaxs Top-5 Accuracy": 76.22340321540833,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 4,
+                        "timestamp": 1744085581.3916519
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 47.2517728805542,
+                        "Defntaxs Top-5 Accuracy": 74.3794322013855,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 6,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 5,
+                        "timestamp": 1744085599.668013
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.48936092853546,
+                        "Defntaxs Top-5 Accuracy": 75.15957355499268,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 7,
+                        "Est. classes per subcategory": 8,
+                        "run_id": 6,
+                        "timestamp": 1744085616.827494
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.063828468322754,
+                        "Defntaxs Top-5 Accuracy": 73.91843795776367,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 1,
+                        "timestamp": 1744086925.7102044
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.52127516269684,
+                        "Defntaxs Top-5 Accuracy": 71.34751677513123,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 2,
+                        "timestamp": 1744086943.5782537
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 47.16311991214752,
+                        "Defntaxs Top-5 Accuracy": 74.16666746139526,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 3,
+                        "timestamp": 1744086956.4847455
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.14184296131134,
+                        "Defntaxs Top-5 Accuracy": 73.22695255279541,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 4,
+                        "timestamp": 1744086972.0675023
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.60283720493317,
+                        "Defntaxs Top-5 Accuracy": 74.48581457138062,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 6,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 5,
+                        "timestamp": 1744086985.6199472
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.691490173339844,
+                        "Defntaxs Top-5 Accuracy": 74.36169981956482,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 7,
+                        "Est. classes per subcategory": 10,
+                        "run_id": 6,
+                        "timestamp": 1744087002.5018165
                     }
                 ]
             }
