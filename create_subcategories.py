@@ -17,7 +17,7 @@ import tenacity
 )
 def allocate_classes_to(class_name, subcategories_list, context_prompt, client):
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
             {
             "role": "user",
@@ -76,7 +76,7 @@ def generate_subcategories_from(class_list, context_prompt, client):
         min_subcategories = 1
     
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
             {
             "role": "user",
@@ -115,7 +115,7 @@ def refine_subcategories_from(class_list, category_list, context_prompt, client)
         
     # Generate refined subcategories
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=[
                         {
             "role": "user",
@@ -198,7 +198,7 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
         
         # Generate refined subcategories for this specific group
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4o",
             messages=[
                 {
                 "role": "user",
