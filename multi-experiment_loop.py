@@ -37,7 +37,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
     model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     # model_sizes = ['ViT-B/32']
     desc_types = ['gpt-3']
-    datasets = ['cub', 'eurosat', 'places365', 'food101']
+    datasets = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
     # datasets = ['cub', 'eurosat', 'pets']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
     # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
@@ -263,10 +263,10 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
-    num_runs = 3  # Number of times to run each configuration
+    num_runs = 6  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
-    for max_classes_per_subcategory in [5, 8, 12, 15, 20, 25, 30, 35]:
+    for max_classes_per_subcategory in [2, 4, 5, 6, 8, 10, 12, 15, 18, 20, 25, 30, 35, 40, 50]:
         start_time = time()
         run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, max_classes_per_subcategory=max_classes_per_subcategory)
         end_time = time()
