@@ -1,4 +1,76 @@
 {
+    "sparrow species": [
+        "Baird Sparrow",
+        "Black-throated Sparrow",
+        "Brewer Sparrow",
+        "Chipping Sparrow",
+        "Clay-colored Sparrow",
+        "House Sparrow",
+        "Field Sparrow",
+        "Fox Sparrow",
+        "Grasshopper Sparrow",
+        "Harris Sparrow",
+        "Henslow Sparrow",
+        "Le-Conte Sparrow",
+        "Lincoln Sparrow",
+        "Nelson-Sharp-tailed Sparrow",
+        "Savannah Sparrow",
+        "Seaside Sparrow",
+        "Song Sparrow",
+        "Tree Sparrow",
+        "Vesper Sparrow",
+        "White-crowned Sparrow",
+        "White-throated Sparrow"
+    ],
+    "towhees and juncos": [
+        "Eastern Towhee",
+        "Dark-eyed Junco",
+        "Green-tailed Towhee"
+    ],
+    "pipits and larks": [
+        "Horned Lark",
+        "American Pipit"
+    ],
+    "wood-warblers": [
+        "Ovenbird",
+        "American Redstart",
+        "Bay-breasted Warbler",
+        "Black-throated-Blue Warbler",
+        "Blue-winged Warbler",
+        "Canada Warbler",
+        "Cape-May Warbler",
+        "Cerulean Warbler",
+        "Chestnut-sided Warbler",
+        "Golden-winged Warbler",
+        "Hooded Warbler",
+        "Kentucky Warbler",
+        "Magnolia Warbler",
+        "Mourning Warbler",
+        "Myrtle Warbler",
+        "Nashville Warbler",
+        "Orange-crowned Warbler",
+        "Palm Warbler",
+        "Pine Warbler",
+        "Prairie Warbler",
+        "Prothonotary Warbler",
+        "Swainson Warbler",
+        "Tennessee Warbler",
+        "Wilson Warbler",
+        "Worm-eating Warbler",
+        "Yellow Warbler"
+    ],
+    "waterthrushes": [
+        "Northern Waterthrush",
+        "Louisiana Waterthrush"
+    ],
+    "black-and-white warblers": [
+        "Black-and-white Warbler"
+    ],
+    "albatrosses": [
+        "Black-footed Albatross",
+        "Laysan Albatross",
+        "Sooty Albatross"
+    ],
     "cuckoos": [
         "Groove-billed Ani",
         "Black-billed Cuckoo",
@@ -6,62 +78,84 @@
         "Yellow-billed Cuckoo",
         "Geococcyx"
     ],
-    "nightjars": [
-        "Chuck-will Widow",
-        "Whip-poor Will"
+    "auklets": [
+        "Crested Auklet",
+        "Least Auklet",
+        "Parakeet Auklet",
+        "Rhinoceros Auklet",
+        "Pigeon Guillemot",
+        "Horned Puffin"
     ],
-    "oriole": [
-        "Baltimore Oriole",
-        "Hooded Oriole",
-        "Orchard Oriole",
-        "Scott Oriole",
-        "Cedar Waxwing"
-    ],
-    "blackbird": [
+    "blackbirds": [
         "Brewer Blackbird",
         "Red-winged Blackbird",
         "Rusty Blackbird",
         "Yellow-headed Blackbird",
-        "Fish Crow"
-    ],
-    "starling": [
+        "Bobolink",
+        "Spotted Catbird",
+        "Fish Crow",
+        "Boat-tailed Grackle",
+        "Western Meadowlark",
         "Cape-Glossy Starling"
     ],
-    "bobolinks": [
-        "Bobolink"
-    ],
-    "indigo buntings": [
+    "buntings": [
         "Indigo Bunting",
-        "Lazuli Bunting"
+        "Lazuli Bunting",
+        "Painted Bunting",
+        "Blue Grosbeak"
     ],
-    "painted buntings": [
-        "Painted Bunting"
+    "cardinals and chats": [
+        "Cardinal",
+        "Yellow-breasted Chat",
+        "Rose-breasted Grosbeak",
+        "Loggerhead Shrike",
+        "Great-Grey Shrike"
     ],
-    "sparrows": [
-        "White-throated Sparrow"
+    "thrushes": [
+        "Gray Catbird",
+        "Brown Creeper",
+        "Mockingbird",
+        "Brown Thrasher",
+        "Sage Thrasher",
+        "Bohemian Waxwing",
+        "Cedar Waxwing"
     ],
-    "tanagers": [
-        "Scarlet Tanager",
-        "Summer Tanager"
+    "nighthawks and nightjars": [
+        "Chuck-will Widow",
+        "Nighthawk",
+        "Whip-poor Will"
     ],
-    "warblers": [
-        "Bay-breasted Warbler",
-        "Cerulean Warbler",
-        "Golden-winged Warbler",
-        "Myrtle Warbler",
-        "Orange-crowned Warbler",
-        "Pine Warbler",
-        "Wilson Warbler",
-        "Yellow Warbler",
-        "Bohemian Waxwing"
+    "cormorants": [
+        "Brandt Cormorant",
+        "Red-faced Cormorant",
+        "Pelagic Cormorant",
+        "Frigatebird",
+        "Northern Fulmar",
+        "Eared Grebe",
+        "Horned Grebe",
+        "Pied-billed Grebe",
+        "Western Grebe",
+        "Pacific Loon"
     ],
-    "cardinals": [
-        "Cardinal"
+    "cowbirds": [
+        "Bronzed Cowbird",
+        "Shiny Cowbird"
     ],
-    "flickers": [
-        "Northern Flicker"
+    "ravens and crows": [
+        "American Crow",
+        "Common Raven",
+        "White-necked Raven"
+    ],
+    "finches": [
+        "Gray-crowned-Rosy Finch",
+        "Purple Finch",
+        "American Goldfinch",
+        "European Goldfinch",
+        "Evening Grosbeak",
+        "Pine Grosbeak"
     ],
     "woodpeckers": [
+        "Northern Flicker",
         "American-Three-toed Woodpecker",
         "Pileated Woodpecker",
         "Red-bellied Woodpecker",
@@ -69,31 +163,88 @@
         "Red-headed Woodpecker",
         "Downy Woodpecker"
     ],
-    "empidonax flycatchers": [
+    "flycatchers": [
         "Acadian Flycatcher",
         "Great-Crested Flycatcher",
         "Least Flycatcher",
-        "Vermilion Flycatcher",
-        "Yellow-bellied Flycatcher"
-    ],
-    "vireos": [
-        "Black-capped Vireo"
-    ],
-    "swallows": [
-        "Barn Swallow",
-        "Cliff Swallow"
-    ],
-    "pewees": [
         "Olive-sided Flycatcher",
         "Scissor-tailed Flycatcher",
+        "Vermilion Flycatcher",
+        "Yellow-bellied Flycatcher",
+        "Tropical Kingbird",
+        "Gray Kingbird",
         "Western-Wood Pewee",
         "Sayornis"
     ],
-    "california gulls": [
+    "pelicans": [
+        "Gadwall",
+        "Brown Pelican",
+        "White Pelican"
+    ],
+    "gulls": [
         "California Gull",
+        "Glaucous-winged Gull",
         "Heermann Gull",
+        "Herring Gull",
+        "Ivory Gull",
         "Ring-billed Gull",
-        "Slaty-backed Gull"
+        "Slaty-backed Gull",
+        "Western Gull",
+        "Long-tailed Jaeger",
+        "Pomarine Jaeger",
+        "Red-legged Kittiwake"
+    ],
+    "hummingbirds": [
+        "Anna Hummingbird",
+        "Ruby-throated Hummingbird",
+        "Rufous Hummingbird",
+        "Green Violetear"
+    ],
+    "jays": [
+        "Blue Jay",
+        "Florida Jay",
+        "Green Jay",
+        "Clark Nutcracker"
+    ],
+    "kingfishers": [
+        "Belted Kingfisher",
+        "Green Kingfisher",
+        "Pied Kingfisher",
+        "Ringed Kingfisher",
+        "White-breasted Kingfisher"
+    ],
+    "ducks": [
+        "Mallard"
+    ],
+    "mergansers": [
+        "Hooded Merganser",
+        "Red-breasted Merganser"
+    ],
+    "wrens": [
+        "White-breasted Nuthatch",
+        "Bewick Wren",
+        "Cactus Wren",
+        "Carolina Wren",
+        "House Wren",
+        "Marsh Wren",
+        "Rock Wren",
+        "Winter Wren"
+    ],
+    "orchard and hooded orioles": [
+        "Baltimore Oriole",
+        "Hooded Oriole",
+        "Orchard Oriole",
+        "Scott Oriole"
+    ],
+    "swallows": [
+        "Bank Swallow",
+        "Barn Swallow",
+        "Cliff Swallow",
+        "Tree Swallow"
+    ],
+    "tanagers": [
+        "Scarlet Tanager",
+        "Summer Tanager"
     ],
     "terns": [
         "Artic Tern",
@@ -104,181 +255,16 @@
         "Forsters Tern",
         "Least Tern"
     ],
-    "western gulls": [
-        "Glaucous-winged Gull",
-        "Herring Gull",
-        "Western Gull"
+    "vireos": [
+        "Black-capped Vireo",
+        "Blue-headed Vireo",
+        "Philadelphia Vireo",
+        "Red-eyed Vireo",
+        "Warbling Vireo",
+        "White-eyed Vireo",
+        "Yellow-throated Vireo"
     ],
-    "arctic gulls": [
-        "Ivory Gull"
-    ],
-    "wood-warblers": [
-        "Ovenbird",
-        "American Redstart",
-        "Black-and-white Warbler",
-        "Black-throated-Blue Warbler",
-        "Cape-May Warbler",
-        "Chestnut-sided Warbler",
-        "Magnolia Warbler",
-        "Nashville Warbler",
-        "Prothonotary Warbler",
-        "Tennessee Warbler",
-        "Worm-eating Warbler"
-    ],
-    "waterthrushes": [
-        "Northern Waterthrush",
-        "Louisiana Waterthrush"
-    ],
-    "common warblers": [
+    "yellowthroats": [
         "Common Yellowthroat"
-    ],
-    "grassland sparrows": [
-        "Black-throated Sparrow",
-        "Fox Sparrow",
-        "Grasshopper Sparrow",
-        "Henslow Sparrow",
-        "Savannah Sparrow",
-        "Seaside Sparrow",
-        "Song Sparrow"
-    ],
-    "albatrosses": [
-        "Black-footed Albatross",
-        "Laysan Albatross",
-        "Sooty Albatross"
-    ],
-    "auklets": [
-        "Crested Auklet",
-        "Least Auklet",
-        "Parakeet Auklet",
-        "Rhinoceros Auklet",
-        "Horned Puffin"
-    ],
-    "catbirds": [
-        "Spotted Catbird",
-        "Gray Catbird",
-        "Mockingbird",
-        "Brown Thrasher",
-        "Swainson Warbler"
-    ],
-    "chats": [
-        "Yellow-breasted Chat",
-        "Sage Thrasher",
-        "House Wren",
-        "Marsh Wren"
-    ],
-    "cormorants": [
-        "Brandt Cormorant",
-        "Red-faced Cormorant",
-        "Pelagic Cormorant",
-        "Brown Pelican",
-        "White Pelican"
-    ],
-    "cowbirds": [
-        "Bronzed Cowbird",
-        "Shiny Cowbird"
-    ],
-    "creepers": [
-        "Brown Creeper",
-        "Bewick Wren",
-        "Carolina Wren",
-        "Rock Wren",
-        "Winter Wren"
-    ],
-    "crows": [
-        "American Crow",
-        "Common Raven",
-        "White-necked Raven"
-    ],
-    "frigatebirds": [
-        "Frigatebird"
-    ],
-    "fulmars": [
-        "Northern Fulmar"
-    ],
-    "ducks": [
-        "Gadwall",
-        "Mallard"
-    ],
-    "goldfinches": [
-        "American Goldfinch"
-    ],
-    "grackles": [
-        "Boat-tailed Grackle"
-    ],
-    "grebes": [
-        "Eared Grebe",
-        "Horned Grebe",
-        "Pied-billed Grebe",
-        "Western Grebe"
-    ],
-    "grosbeaks": [
-        "Blue Grosbeak",
-        "Evening Grosbeak",
-        "Pine Grosbeak",
-        "Rose-breasted Grosbeak"
-    ],
-    "guillemots": [
-        "Pigeon Guillemot"
-    ],
-    "hummingbirds": [
-        "Anna Hummingbird",
-        "Ruby-throated Hummingbird",
-        "Rufous Hummingbird",
-        "Green Violetear"
-    ],
-    "jaegers": [
-        "Long-tailed Jaeger",
-        "Pomarine Jaeger"
-    ],
-    "jays": [
-        "Blue Jay",
-        "Florida Jay",
-        "Green Jay"
-    ],
-    "juncos": [
-        "Dark-eyed Junco"
-    ],
-    "kingbirds": [
-        "Tropical Kingbird",
-        "Gray Kingbird"
-    ],
-    "kingfishers": [
-        "Belted Kingfisher",
-        "Green Kingfisher",
-        "Pied Kingfisher",
-        "Ringed Kingfisher",
-        "White-breasted Kingfisher"
-    ],
-    "kittiwakes": [
-        "Red-legged Kittiwake"
-    ],
-    "larks": [
-        "Horned Lark"
-    ],
-    "loons": [
-        "Pacific Loon"
-    ],
-    "meadowlarks": [
-        "Western Meadowlark"
-    ],
-    "mergansers": [
-        "Hooded Merganser",
-        "Red-breasted Merganser"
-    ],
-    "nighthawks": [
-        "Nighthawk"
-    ],
-    "nutcrackers": [
-        "Clark Nutcracker"
-    ],
-    "nuthatches": [
-        "White-breasted Nuthatch"
-    ],
-    "shrikes": [
-        "Loggerhead Shrike",
-        "Great-Grey Shrike"
-    ],
-    "wrens": [
-        "Cactus Wren"
     ]
 }

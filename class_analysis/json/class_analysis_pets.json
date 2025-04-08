@@ -1,40 +1,4 @@
 {
-    "short-haired cats": [
-        "Abyssinian",
-        "Bengal",
-        "Bombay",
-        "British Shorthair",
-        "Egyptian Mau",
-        "Russian Blue",
-        "Siamese",
-        "Sphynx"
-    ],
-    "long-haired cats": [
-        "Birman",
-        "Maine Coon",
-        "Persian",
-        "Ragdoll"
-    ],
-    "large dogs": [
-        "american bulldog",
-        "american pit bull terrier",
-        "boxer",
-        "english setter",
-        "great pyrenees",
-        "keeshond",
-        "leonberger",
-        "newfoundland",
-        "saint bernard",
-        "samoyed"
-    ],
-    "medium dogs": [
-        "basset hound",
-        "english cocker spaniel",
-        "german shorthaired",
-        "scottish terrier",
-        "staffordshire bull terrier",
-        "wheaten terrier"
-    ],
     "small dogs": [
         "beagle",
         "chihuahua",
@@ -43,7 +7,41 @@
         "miniature pinscher",
         "pomeranian",
         "pug",
+        "scottish terrier",
         "shiba inu",
         "yorkshire terrier"
+    ],
+    "medium dogs": [
+        "basset hound",
+        "english cocker spaniel",
+        "keeshond",
+        "staffordshire bull terrier",
+        "wheaten terrier"
+    ],
+    "large dogs": [
+        "american bulldog",
+        "american pit bull terrier",
+        "boxer",
+        "english setter",
+        "german shorthaired",
+        "great pyrenees",
+        "leonberger",
+        "newfoundland",
+        "saint bernard",
+        "samoyed"
+    ],
+    "cats": [
+        "Abyssinian",
+        "Bengal",
+        "Birman",
+        "Bombay",
+        "British Shorthair",
+        "Egyptian Mau",
+        "Maine Coon",
+        "Persian",
+        "Ragdoll",
+        "Russian Blue",
+        "Siamese",
+        "Sphynx"
     ]
 }

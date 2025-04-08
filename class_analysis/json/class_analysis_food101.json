@@ -8,6 +8,7 @@
         "chocolate mousse",
         "creme brulee",
         "cup cakes",
+        "ice cream",
         "panna cotta",
         "red velvet cake",
         "strawberry shortcake",
@@ -21,66 +22,88 @@
         "donuts",
         "macarons"
     ],
-    "frozen desserts": [
-        "frozen yogurt",
-        "ice cream"
+    "snacks": [
+        "cheese plate",
+        "edamame",
+        "french fries",
+        "garlic bread",
+        "guacamole",
+        "hummus",
+        "nachos",
+        "onion rings"
     ],
-    "meat cuts": [
+    "breakfast": [
+        "french toast"
+    ],
+    "meat dishes": [
         "baby back ribs",
-        "filet mignon",
-        "pork chop",
-        "prime rib",
-        "steak"
-    ],
-    "meat preparations": [
         "beef carpaccio",
         "beef tartare",
-        "chicken wings",
-        "foie gras",
-        "shrimp and grits"
-    ],
-    "vegetable dishes": [
-        "poutine"
-    ],
-    "asian cuisine - rice dishes": [
-        "bibimbap",
         "chicken curry",
-        "edamame",
+        "chicken wings",
+        "filet mignon",
+        "foie gras",
+        "grilled salmon",
+        "pork chop",
+        "prime rib",
+        "scallops",
+        "shrimp and grits",
+        "steak"
+    ],
+    "pasta dishes": [
+        "gnocchi",
+        "lasagna",
+        "macaroni and cheese",
+        "ravioli",
+        "spaghetti bolognese",
+        "spaghetti carbonara"
+    ],
+    "rice and grain dishes": [
         "fried rice",
-        "pad thai",
-        "peking duck",
-        "pho",
-        "ramen",
-        "sashimi",
-        "sushi"
+        "risotto"
     ],
-    "asian cuisine - dumplings and rolls": [
-        "dumplings",
-        "falafel",
-        "gyoza",
-        "samosa",
-        "spring rolls",
-        "takoyaki"
-    ],
-    "italian cuisine": [
-        "paella"
-    ],
-    "quesadillas": [
+    "international cuisine": [
         "chicken quesadilla",
-        "tacos"
+        "fish and chips",
+        "mussels",
+        "pizza"
     ],
-    "hot sandwiches": [
+    "sandwiches": [
         "club sandwich",
-        "croque madame",
         "grilled cheese sandwich",
         "hamburger",
         "hot dog",
         "lobster roll sandwich",
-        "pizza",
         "pulled pork sandwich"
     ],
-    "breads": [
-        "garlic bread"
+    "main courses": [
+        "tacos"
+    ],
+    "asian cuisine": [
+        "bibimbap",
+        "ceviche",
+        "dumplings",
+        "gyoza",
+        "pad thai",
+        "peking duck",
+        "ramen",
+        "samosa",
+        "sashimi",
+        "sushi",
+        "takoyaki"
+    ],
+    "mediterranean cuisine": [
+        "falafel",
+        "paella"
+    ],
+    "appetizers": [
+        "bruschetta",
+        "crab cakes",
+        "deviled eggs",
+        "fried calamari",
+        "oysters",
+        "spring rolls",
+        "tuna tartare"
     ],
     "salads": [
         "beet salad",
@@ -89,51 +112,12 @@
         "greek salad",
         "seaweed salad"
     ],
-    "breakfast foods": [
-        "breakfast burrito",
-        "eggs benedict",
-        "french toast",
-        "huevos rancheros",
-        "omelette",
-        "pancakes",
-        "waffles"
-    ],
-    "appetizers": [
-        "bruschetta",
-        "cheese plate",
-        "crab cakes",
-        "deviled eggs",
-        "escargots",
-        "french fries",
-        "guacamole",
-        "hummus",
-        "nachos",
-        "onion rings"
-    ],
-    "seafood": [
-        "ceviche",
-        "fish and chips",
-        "fried calamari",
-        "grilled salmon",
-        "mussels",
-        "oysters",
-        "scallops",
-        "tuna tartare"
-    ],
-    "soups": [
+    "soup": [
         "clam chowder",
         "french onion soup",
         "hot and sour soup",
         "lobster bisque",
-        "miso soup"
-    ],
-    "pasta dishes": [
-        "gnocchi",
-        "lasagna",
-        "macaroni and cheese",
-        "ravioli",
-        "risotto",
-        "spaghetti bolognese",
-        "spaghetti carbonara"
+        "miso soup",
+        "pho"
     ]
 }
