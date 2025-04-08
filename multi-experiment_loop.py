@@ -266,7 +266,7 @@ if __name__ == "__main__":
     num_runs = 6  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
-    for max_classes_per_subcategory in [2, 4, 5, 6, 8, 10, 12, 15, 18, 20, 25, 30, 35, 40, 50]:
+    for max_classes_per_subcategory in [5, 6, 8, 10, 12, 15, 18, 20, 25, 30, 35, 40, 50]:
         start_time = time()
         run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, max_classes_per_subcategory=max_classes_per_subcategory)
         end_time = time()
