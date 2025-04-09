@@ -40,7 +40,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     # datasets = ['cub', 'eurosat', 'pets']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
     # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
-    methods = ['waffleclip', 'waffleclip+concepts', 'defntaxs']
+    methods = ['waffletaxs']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
