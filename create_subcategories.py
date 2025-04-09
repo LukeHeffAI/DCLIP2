@@ -186,10 +186,10 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
     print(f"Found {len(large_subcategories)} subcategories with too many classes")
     
     for subcategory, classes in large_subcategories.items():
-        print(f"Refining subcategory '{subcategory}' with {len(classes)} classes (max: {max_classes_per_subcategory})")
+        print(f"Refining subcategory '{subcategory}' with {len(classes)} classes (max: {max_classes_per_subcategory}) into minimum {( len(classes) // max_classes_per_subcategory) + 1} subcategories")
         
         # Calculate number of subcategories needed
-        num_needed_subcategories = len(classes) // max_classes_per_subcategory + 1
+        num_needed_subcategories = (len(classes) // max_classes_per_subcategory) + 1
         
         # Create a class list string for the prompt
         class_list_str = ", ".join(classes)
@@ -393,10 +393,10 @@ if __name__ == "__main__":
     from load import set_hparams
     
     # Set the hyperparameters
-    hparams, _, _, _, _, _, _, _, _ = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='eurosat', method='defntaxs')
+    hparams, _, _, _, _, _, _, _, _ = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='dtd', method='defntaxs')
     
     # Update the hyperparameters
     # hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
     
     # Force regeneration of subcategories with parallel processing
-    create_subcategories(hparams, force=True, max_workers=10, max_classes_per_subcategory=10)
+    create_subcategories(hparams, force=True, max_workers=10, max_classes_per_subcategory=5)
