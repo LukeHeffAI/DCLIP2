@@ -4,7 +4,7 @@ from openai import OpenAI
 import time
 import os
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(dotenv_path='/home/luke/Documents/GitHub/DCLIP2/.env')
 
 import concurrent.futures
 from tqdm import tqdm
