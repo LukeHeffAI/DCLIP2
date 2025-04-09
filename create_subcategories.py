@@ -275,7 +275,7 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
     
     return refined_assignments
 
-def create_subcategories(hparams, force=False, max_workers=1, max_classes_per_subcategory=10):
+def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_subcategory=10):
     """
     Create subcategories for classes in the dataset.
     
@@ -400,4 +400,4 @@ if __name__ == "__main__":
     # hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
     
     # Force regeneration of subcategories with parallel processing
-    create_subcategories(hparams, force=True, max_workers=1, max_classes_per_subcategory=10)
+    create_subcategories(hparams, force=True, max_workers=10, max_classes_per_subcategory=10)
