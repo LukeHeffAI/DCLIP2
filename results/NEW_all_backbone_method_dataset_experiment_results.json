@@ -743,6 +743,10 @@
                 "imagenet": {
                     "Waffleclip Accuracy: ": 74.15199875831604,
                     "CLIP Accuracy: ": 71.56599760055542
+                },
+                "food101": {
+                    "Waffleclip Accuracy: ": 90.62376022338867,
+                    "CLIP Accuracy: ": 89.88019824028015
                 }
             },
             "waffleclip+concepts": {
@@ -769,6 +773,10 @@
                 "imagenet": {
                     "Waffleclip+concepts Accuracy: ": 74.07199740409851,
                     "CLIP Accuracy: ": 71.56599760055542
+                },
+                "food101": {
+                    "Waffleclip+concepts Accuracy: ": 90.87425470352173,
+                    "CLIP Accuracy: ": 89.88019824028015
                 }
             },
             "defntaxs": {
