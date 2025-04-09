@@ -118,7 +118,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 
                 # Create subcategories
                 if force_regenerate_subcategories and method in ["defntaxs"]:
-                    create_subcategories(hparams, force=True, max_classes_per_subcategory=max_classes_per_subcategory)
+                    create_subcategories(hparams, force=True, max_workers=20, max_classes_per_subcategory=max_classes_per_subcategory)
                 
                 # Set hparams for the current experiment
                 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
