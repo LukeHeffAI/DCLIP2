@@ -280,7 +280,7 @@ def update_hparams(hparams):
     hparams['between_text'] = ', '
     # hparams['after_text'] = f', from a dataset.'
     # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
-    # hparams['after_text'] = ''
+    hparams['after_text'] = ''
     if hparams['dataset'] != 'eurosat': hparams['after_text'] = ''
     # hparams['between_text'] = ' '
     # hparams['between_text'] = ''
@@ -294,7 +294,7 @@ def update_hparams(hparams):
 
     hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
     hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
-    hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
+    hparams['class_analysis_fname'] = './class_analysis/json/paper_results/class_' + hparams['analysis_fname']
     hparams['subcategory_desc_fname'] = './class_analysis/json/class_' + hparams['analysis_fname'] + '_descriptors'
 
     print("Loading class subcategories...")
