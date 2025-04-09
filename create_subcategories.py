@@ -4,6 +4,8 @@ from openai import OpenAI
 import time
 import os
 import concurrent.futures
+from dotenv import load_dotenv
+load_dotenv(dotenv_path='/home/luke/Documents/GitHub/DCLIP2/.env', override=True)
 from tqdm import tqdm
 import tenacity
 
