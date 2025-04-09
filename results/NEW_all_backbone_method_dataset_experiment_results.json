@@ -74,10 +74,6 @@
                     "D-clip Accuracy: ": 53.210216760635376,
                     "CLIP Accuracy: ": 52.00207233428955
                 },
-                "eurosat": {
-                    "D-clip Accuracy: ": 55.60370087623596,
-                    "CLIP Accuracy: ": 44.30740773677826
-                },
                 "pets": {
                     "D-clip Accuracy: ": 81.84032440185547,
                     "CLIP Accuracy: ": 77.9296338558197
@@ -101,6 +97,10 @@
                 "imagenetv2": {
                     "D-clip Accuracy: ": 55.7699978351593,
                     "CLIP Accuracy: ": 51.74000263214111
+                },
+                "eurosat": {
+                    "D-clip Accuracy: ": 47.35555648803711,
+                    "CLIP Accuracy: ": 44.30740773677826
                 }
             },
             "waffleclip": {
@@ -382,10 +382,6 @@
                     "D-clip Accuracy: ": 57.49050974845886,
                     "CLIP Accuracy: ": 56.316882371902466
                 },
-                "eurosat": {
-                    "D-clip Accuracy: ": 54.17777895927429,
-                    "CLIP Accuracy: ": 46.19629681110382
-                },
                 "pets": {
                     "D-clip Accuracy: ": 85.57510375976562,
                     "CLIP Accuracy: ": 80.13531565666199
@@ -409,6 +405,10 @@
                 "imagenetv2": {
                     "D-clip Accuracy: ": 61.54000163078308,
                     "CLIP Accuracy: ": 57.819998264312744
+                },
+                "eurosat": {
+                    "D-clip Accuracy: ": 51.95184946060181,
+                    "CLIP Accuracy: ": 46.19629681110382
                 }
             },
             "waffleclip": {
@@ -690,10 +690,6 @@
                     "D-clip Accuracy: ": 64.51501846313477,
                     "CLIP Accuracy: ": 63.03071975708008
                 },
-                "eurosat": {
-                    "D-clip Accuracy: ": 54.70370650291443,
-                    "CLIP Accuracy: ": 36.803704500198364
-                },
                 "pets": {
                     "D-clip Accuracy: ": 91.15020036697388,
                     "CLIP Accuracy: ": 86.82002425193787
@@ -717,6 +713,10 @@
                 "imagenetv2": {
                     "D-clip Accuracy: ": 69.33000087738037,
                     "CLIP Accuracy: ": 65.32999873161316
+                },
+                "eurosat": {
+                    "D-clip Accuracy: ": 49.981480836868286,
+                    "CLIP Accuracy: ": 36.803704500198364
                 }
             },
             "waffleclip": {
@@ -739,6 +739,10 @@
                 "places365": {
                     "Waffleclip Accuracy: ": 39.86027538776398,
                     "CLIP Accuracy: ": 39.065754413604736
+                },
+                "imagenet": {
+                    "Waffleclip Accuracy: ": 74.15199875831604,
+                    "CLIP Accuracy: ": 71.56599760055542
                 }
             },
             "waffleclip+concepts": {
@@ -761,6 +765,10 @@
                 "places365": {
                     "Waffleclip+concepts Accuracy: ": 41.02191925048828,
                     "CLIP Accuracy: ": 39.065754413604736
+                },
+                "imagenet": {
+                    "Waffleclip+concepts Accuracy: ": 74.07199740409851,
+                    "CLIP Accuracy: ": 71.56599760055542
                 }
             },
             "defntaxs": {
@@ -975,10 +983,6 @@
                 "cub": {
                     "D-clip Accuracy: ": 53.831547498703,
                     "CLIP Accuracy: ": 52.00207233428955
-                },
-                "eurosat": {
-                    "D-clip Accuracy: ": 51.51481628417969,
-                    "CLIP Accuracy: ": 44.30740773677826
                 },
                 "pets": {
                     "D-clip Accuracy: ": 81.5426230430603,
@@ -1283,10 +1287,6 @@
                 "cub": {
                     "D-clip Accuracy: ": 59.13013219833374,
                     "CLIP Accuracy: ": 56.316882371902466
-                },
-                "eurosat": {
-                    "D-clip Accuracy: ": 54.88518476486206,
-                    "CLIP Accuracy: ": 46.19629681110382
                 },
                 "pets": {
                     "D-clip Accuracy: ": 85.64276099205017,
