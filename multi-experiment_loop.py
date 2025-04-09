@@ -33,14 +33,14 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
         num_runs: Number of times to repeat each experiment configuration
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
     """
-    model_sizes = ['ViT-B/16', 'ViT-L/14', 'ViT-B/32']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
+    model_sizes = ['ViT-B/16', 'ViT-B/32', 'ViT-L/14']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     # model_sizes = ['ViT-B/32']
     desc_types = ['gpt-3']
     datasets = ['imagenet', 'cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
     # datasets = ['cub', 'eurosat', 'pets']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
     # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
-    methods = ['waffletaxs']
+    methods = ['taxclip', 'waffletaxs']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
@@ -105,7 +105,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
                 # Regenerate subcategories if needed (only for methods that use them)
                 if force_regenerate_subcategories and method in ['defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']:
                     print(f"Regenerating subcategories for {current_dataset}...")
-                    create_subcategories(hparams, force=True)
+                    create_subcategories(hparams, force=False)
                 
                 
                 # Run the experiment
