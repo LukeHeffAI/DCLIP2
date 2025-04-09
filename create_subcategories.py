@@ -164,7 +164,7 @@ def refine_subcategories_from(class_list, category_list, context_prompt, client)
 
     return subcategories_list
 
-def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_per_subcategory, context_prompt, client, max_workers=1):
+def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_per_subcategory, context_prompt, client, max_workers=10):
     """
     Identify subcategories with too many classes and further refine them into more specific subcategories.
     
@@ -394,7 +394,7 @@ if __name__ == "__main__":
     from load import set_hparams
     
     # Set the hyperparameters
-    hparams, _, _, _, _, _, _, _, _ = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='imagenet', method='defntaxs')
+    hparams, _, _, _, _, _, _, _, _ = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='eurosat', method='defntaxs')
     
     # Update the hyperparameters
     # hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
