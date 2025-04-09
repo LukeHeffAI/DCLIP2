@@ -26,9 +26,9 @@ def run_experiments():
 
     model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
     desc_types = ['gpt-3']
-    datasets = ['cub', 'eurosat', 'pets', 'dtd', 'places365', 'food101', 'imagenet', 'imagenetv2']
-    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
-    methods = ['clip', 'e-clip', 'd-clip', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    datasets = ['imagenet', 'cub', 'dtd', 'pets', 'food101', 'place365', 'eurosat']
+    methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    # methods = ['waffleclip', 'waffleclip+concepts']
 
     print(f"Running a maximum of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiments.")
     
