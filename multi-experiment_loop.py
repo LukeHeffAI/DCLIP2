@@ -263,7 +263,7 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
-    num_runs = 6  # Number of times to run each configuration
+    num_runs = 8  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
     for max_classes_per_subcategory in [5, 6, 8, 10, 12, 15, 18, 20, 25, 30, 35, 40, 50]:
