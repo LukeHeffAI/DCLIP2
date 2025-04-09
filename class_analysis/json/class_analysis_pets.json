@@ -1,35 +1,4 @@
 {
-    "small dogs": [
-        "beagle",
-        "chihuahua",
-        "havanese",
-        "japanese chin",
-        "miniature pinscher",
-        "pomeranian",
-        "pug",
-        "scottish terrier",
-        "shiba inu",
-        "yorkshire terrier"
-    ],
-    "medium dogs": [
-        "basset hound",
-        "english cocker spaniel",
-        "keeshond",
-        "staffordshire bull terrier",
-        "wheaten terrier"
-    ],
-    "large dogs": [
-        "american bulldog",
-        "american pit bull terrier",
-        "boxer",
-        "english setter",
-        "german shorthaired",
-        "great pyrenees",
-        "leonberger",
-        "newfoundland",
-        "saint bernard",
-        "samoyed"
-    ],
     "cats": [
         "Abyssinian",
         "Bengal",
@@ -43,5 +12,32 @@
         "Russian Blue",
         "Siamese",
         "Sphynx"
+    ],
+    "dogs": [
+        "american bulldog",
+        "american pit bull terrier",
+        "basset hound",
+        "beagle",
+        "boxer",
+        "chihuahua",
+        "english cocker spaniel",
+        "english setter",
+        "german shorthaired",
+        "great pyrenees",
+        "havanese",
+        "japanese chin",
+        "keeshond",
+        "leonberger",
+        "miniature pinscher",
+        "newfoundland",
+        "pomeranian",
+        "pug",
+        "saint bernard",
+        "samoyed",
+        "scottish terrier",
+        "shiba inu",
+        "staffordshire bull terrier",
+        "wheaten terrier",
+        "yorkshire terrier"
     ]
 }

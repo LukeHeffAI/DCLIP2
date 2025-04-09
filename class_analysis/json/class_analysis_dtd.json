@@ -1,56 +1,55 @@
 {
-    "banded textures": [
+    "textures": [
         "banded",
-        "flecked",
-        "marbled",
-        "veined"
-    ],
-    "bubbly textures": [
-        "bubbly",
-        "honeycombed",
-        "sprinkled"
-    ],
-    "woven textures": [
+        "blotchy",
         "braided",
+        "bubbly",
         "cobwebbed",
+        "cracked",
+        "crosshatched",
+        "crystalline",
         "fibrous",
+        "flecked",
+        "freckled",
+        "frilly",
         "gauzy",
+        "grooved",
+        "honeycombed",
         "knitted",
+        "lacelike",
+        "marbled",
+        "matted",
         "meshed",
+        "perforated",
+        "pitted",
         "pleated",
+        "potholed",
+        "scaly",
+        "smeared",
+        "sprinkled",
+        "stained",
+        "stratified",
+        "studded",
+        "swirly",
+        "veined",
         "waffled",
-        "woven"
+        "woven",
+        "wrinkled"
     ],
     "surface qualities": [
         "bumpy",
-        "grooved",
-        "matted",
-        "perforated",
-        "pitted",
-        "porous",
-        "scaly",
-        "stained",
-        "studded",
-        "wrinkled"
+        "porous"
     ],
-    "geometric patterns": [
+    "patterns": [
         "chequered",
-        "crosshatched",
         "dotted",
         "grid",
         "interlaced",
         "lined",
+        "paisley",
         "polka-dotted",
         "spiralled",
         "striped",
         "zigzagged"
-    ],
-    "organic patterns": [
-        "swirly"
-    ],
-    "decorative styles": [
-        "frilly",
-        "lacelike",
-        "paisley"
     ]
 }
