@@ -4,8 +4,6 @@ from openai import OpenAI
 import time
 import os
 from dotenv import load_dotenv
-load_dotenv(dotenv_path='/home/luke/Documents/GitHub/DCLIP2/.env')
-
 import concurrent.futures
 from tqdm import tqdm
 import tenacity
@@ -17,7 +15,7 @@ import tenacity
 )
 def allocate_classes_to(class_name, subcategories_list, context_prompt, client):
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
             "role": "user",
@@ -76,7 +74,7 @@ def generate_subcategories_from(class_list, context_prompt, client):
         min_subcategories = 1
     
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
             "role": "user",
@@ -115,7 +113,7 @@ def refine_subcategories_from(class_list, category_list, context_prompt, client)
         
     # Generate refined subcategories
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
                         {
             "role": "user",
@@ -198,7 +196,7 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
         
         # Generate refined subcategories for this specific group
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",
             messages=[
                 {
                 "role": "user",
@@ -297,6 +295,7 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
             return json.load(f)
     
     print(f"Creating new subcategories for {hparams['dataset']}")
+    load_dotenv(dotenv_path='/home/luke/Documents/GitHub/DCLIP2/.env', override=True)
     client = OpenAI()
 
     filename = f'descriptors/{hparams["desc_type"]}/descriptors_{hparams["dataset"]}.json'
