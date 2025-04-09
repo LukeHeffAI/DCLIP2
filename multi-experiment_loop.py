@@ -10,7 +10,7 @@ import clip
 import torchmetrics
 from tqdm import tqdm
 from time import time
-from create_subcategories import create_subcategories
+from create_subcategories_batch import create_subcategories
 
 def load_existing_results(file_path):
     try:

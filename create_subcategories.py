@@ -17,7 +17,7 @@ import tenacity
 )
 def allocate_classes_to(class_name, subcategories_list, context_prompt, client):
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
             "role": "user",
@@ -57,7 +57,7 @@ def allocate_classes_to(class_name, subcategories_list, context_prompt, client):
         }
     )
 
-    subcategory = str(response.choices[0].message.content).replace('\"', '').replace('\'', '')
+    subcategory = str(response.choices[0].message.content).replace('"', '').replace("'", "")
 
     return subcategory
 
@@ -76,7 +76,7 @@ def generate_subcategories_from(class_list, context_prompt, client):
         min_subcategories = 1
     
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
             "role": "user",
@@ -99,8 +99,18 @@ def generate_subcategories_from(class_list, context_prompt, client):
     )
 
     # print(response.choices[0].message.content)
-
-    subcategories_list = str(response.choices[0].message.content).replace('\"', '').replace('\'', '').split("[")[1].split(']')[0].replace('\n', '').replace('_', ' ').lower().split(',')
+    content = str(response.choices[0].message.content)
+    subcategories_list = (
+                    content
+                    .replace('\"', '')
+                    .replace('\'', '')
+                    .split("[")[1]
+                    .split(']')[0]
+                    .replace('\n', '')
+                    .replace('_', ' ')
+                    .lower()
+                    .split(',')
+                    )
     subcategories_list = [subcategory.strip() for subcategory in subcategories_list]
 
     print(f"List has {len(subcategories_list)} subcategories, including: {subcategories_list[0:5]}")
@@ -109,13 +119,11 @@ def generate_subcategories_from(class_list, context_prompt, client):
 
 def refine_subcategories_from(class_list, category_list, context_prompt, client):
     max_classes_per_subcategory = 15
-    min_subcategories = len(class_list) // max_classes_per_subcategory + 1
-    if min_subcategories < 1:
-        min_subcategories = 1
+    min_subcategories = max(1, len(class_list) // max_classes_per_subcategory)
         
     # Generate refined subcategories
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
                         {
             "role": "user",
@@ -157,7 +165,16 @@ def refine_subcategories_from(class_list, category_list, context_prompt, client)
 
     # print(response.choices[0].message.content)
 
-    subcategories_list = str(response.choices[0].message.content).replace('\"', '').replace('\'', '').split("[")[1].split(']')[0].replace('\n', '').replace('_', ' ').lower().split(',')
+    content = str(response.choices[0].message.content)
+    subcategories_list = (
+        content.replace('"', '').replace("'", '')
+        .split("[")[1]
+        .split("]")[0]
+        .replace("\n", "")
+        .replace("_", " ")
+        .lower()
+        .split(",")
+    )
     subcategories_list = [subcategory.strip() for subcategory in subcategories_list]
 
     print(f"List has {len(subcategories_list)} subcategories, including: {subcategories_list[0:5]}")
@@ -179,8 +196,10 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
         Updated dictionary with refined subcategories
     """
     refined_assignments = {}
-    large_subcategories = {subcat: classes for subcat, classes in classes_assigned_to_subcategories.items() 
-                          if len(classes) > max_classes_per_subcategory}
+    large_subcategories = {
+        subcat: classes for subcat, classes in classes_assigned_to_subcategories.items() 
+        if len(classes) > max_classes_per_subcategory
+    }
     
     if not large_subcategories:
         return classes_assigned_to_subcategories
@@ -198,14 +217,14 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
         
         # Generate refined subcategories for this specific group
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",
             messages=[
                 {
                 "role": "user",
                 "content": [
                     {
                     "type": "text",
-                    "text": f"{context_prompt}\n\nThe subcategory '{subcategory}' has too many classes ({len(classes)} total classes). Please create {num_needed_subcategories} more specific subcategories to replace it and better organize these classes. Respond with ONLY the list of subcategory names and NOTHING ELSE, including comments or other notes with the class names. Return only a Python list of the new subcategories.\n\nClasses in '{subcategory}':\n{class_list_str}\n\nOverall existing subcategories list:\n{list(classes_assigned_to_subcategories.keys())}"
+                    "text": f"{context_prompt}\n\nThe subcategory '{subcategory}' has too many classes ({len(classes)} total classes). Please create {num_needed_subcategories} than refine this subcategory further and better organize these classes. Respond with ONLY the list of subcategory names and NOTHING ELSE, including comments or other notes with the class names. Return only a Python list of the new subcategories.\n\nClasses in '{subcategory}':\n{class_list_str}\n\nOverall existing subcategories list:\n{list(classes_assigned_to_subcategories.keys())}"
                     }
                 ]
                 }
@@ -219,7 +238,15 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
         )
         
         # Parse the subcategories
-        refined_subcats = str(response.choices[0].message.content).replace('\"', '').replace('\'', '').split("[")[1].split(']')[0].replace('\n', '').replace('_', ' ').lower().split(',')
+        content = str(response.choices[0].message.content)
+        refined_subcats = (
+            content.replace('\"', '').replace('\'', '')
+            .split("[")[1].split(']')[0]
+            .replace('\n', '')
+            .replace('_', ' ')
+            .lower()
+            .split(',')
+        )
         refined_subcats = [subcat.strip() for subcat in refined_subcats]
         
         print(f"Created {len(refined_subcats)} refined subcategories: {refined_subcats[:5]}...")
@@ -311,12 +338,9 @@ def create_subcategories(hparams, force=False, max_workers=1, max_classes_per_su
     # Create a number of subcategories such that the maximum number of classes per subcategory is 20
     n_classes = len(class_list)
 
-    if n_classes < 21:
-        min_subcategories = 1
-    else:
-        min_subcategories = int(n_classes / max_classes_per_subcategory)
+    min_subcategories = 1 if n_classes < 21 else int(n_classes / max_classes_per_subcategory)
 
-    context_prompt = f"The {hparams['dataset_name']} dataset is constructed from {len(class_list)} classes. You will create at minimum {min_subcategories} subcategories to group the classes by and assign at maximum {max_classes_per_subcategory} of the {hparams['dataset_name']} classes to each subcategory. For an example of a subcategory and its classes, a subcategory \"kitchen utensil\" may have the classes \"fork\", \"knife\", \"can opener\" and \"teaspoon\" assigned to it. Every class must be assigned to a subcategory, none can be missed."
+    context_prompt = f'The {hparams['dataset_name']} dataset is constructed from {len(class_list)} classes. You will create at minimum {min_subcategories} subcategories to group the classes by and assign at maximum {max_classes_per_subcategory} of the {hparams['dataset_name']} classes to each subcategory. For an example of a subcategory and its assigned classes, a subcategory "kitchen utensil" may have the classes "fork", "knife", "can opener" and "teaspoon" assigned to it. Every class must be assigned to a subcategory, none can be missed.'
 
     # Generate initial subcategories
     subcategories_list = generate_subcategories_from(class_list, context_prompt, client)
