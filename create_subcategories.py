@@ -75,7 +75,7 @@ def generate_subcategories_from(class_list, context_prompt, client):
         min_subcategories = 1
     
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=[
             {
             "role": "user",
