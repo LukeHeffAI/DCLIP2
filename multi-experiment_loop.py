@@ -33,10 +33,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
         num_runs: Number of times to repeat each experiment configuration
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
     """
-    model_sizes = ['ViT-B/16', 'ViT-B/32', 'ViT-L/14']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
+    model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     desc_types = ['gpt-3']
-    datasets = ['imagenet', 'cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
-    methods = ['taxclip', 'waffletaxs']
+    datasets = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+    methods = ['defntaxs', 'taxclip']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
@@ -240,9 +240,9 @@ if __name__ == "__main__":
     num_runs = 5  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
-    randomize_pct_list = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    randomize_pct_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
-    for i in range(1, len(randomize_pct_list)):
+    for i in range(0, len(randomize_pct_list)):
         start_time = time()
         run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, randomize_pct=randomize_pct_list[i])
         end_time = time()
