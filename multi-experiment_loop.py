@@ -242,10 +242,11 @@ if __name__ == "__main__":
     
     randomize_pct_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
-    for i in range(0, len(randomize_pct_list)):
+    for pct in randomize_pct_list:
+        print(f"\n===== Starting experiments with randomize_pct = {pct:.1f} =====")
         start_time = time()
-        run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, randomize_pct=randomize_pct_list[i])
+        run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, randomize_pct=pct)
         end_time = time()
     
-        print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
-        print("All experiments completed.")
+        print(f"Total time taken for randomize_pct = {pct:.1f}: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+        print("All experiments completed for this randomization value.")
