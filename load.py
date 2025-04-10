@@ -16,7 +16,45 @@ import clip
 
 from loading_helpers import *
 
+# ------------------------
+# NEW HELPER FUNCTION
+# ------------------------
+def randomize_subcategories(class_subcategories, randomize_pct):
+    """
+    Randomize the subcategory assignment for a fraction (randomize_pct) of classes.
+    
+    Args:
+        class_subcategories (dict): Original mapping of subcategory -> list of classes.
+        randomize_pct (float): Fraction between 0 and 1 indicating how many classes to reassign.
+    
+    Returns:
+        dict: A new subcategory mapping (subcategory -> list of classes) with randomized assignments.
+    """
+    # Create a flat mapping: class -> original subcategory
+    class_to_subcat = {}
+    for subcat, class_list in class_subcategories.items():
+        for cls in class_list:
+            class_to_subcat[cls] = subcat
 
+    all_subcats = list(class_subcategories.keys())
+    
+    # For each class, with probability randomize_pct, choose a new subcategory (different from the original)
+    for cls, orig_subcat in class_to_subcat.items():
+        if random.random() < randomize_pct:
+            possible = [s for s in all_subcats if s != orig_subcat]
+            if possible:
+                class_to_subcat[cls] = random.choice(possible)
+    
+    # Reassemble mapping: new_subcategories: subcategory -> list of classes
+    new_subcategories = {}
+    for cls, subcat in class_to_subcat.items():
+        new_subcategories.setdefault(subcat, []).append(cls)
+    
+    return new_subcategories
+
+# ------------------------
+# Modified set_hparams: now sets a default for and optionally randomizes subcategories.
+# ------------------------
 def set_hparams(model_size, desc_type, dataset, method):
     hparams = {}
 
