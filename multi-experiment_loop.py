@@ -70,28 +70,26 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
         # Get current results list for this configuration
         current_results = all_results[desc_type][model_size][method][current_dataset]
 
-        # Find the highest run_id already completed
-        completed_run_ids = []
-        if current_results:
-            completed_run_ids = [result.get("run_id", 0) for result in current_results]
+        # Only count runs where the stored randomized subcategory percentage matches the one for this experiment.
+        completed_run_ids = [result.get("run_id", 0) for result in current_results if result.get("randomize_subcat_pct", 0) == randomize_pct]
         
         max_run_id = max(completed_run_ids) if completed_run_ids else 0
         remaining_runs = max(0, num_runs - max_run_id)
         runs_completed += min(num_runs, len(current_results))
 
-        # Skip if all runs are already completed
+        # Skip if all runs are already completed for this randomized percentage
         if remaining_runs <= 0:
-            print(f"All {num_runs} runs for {model_size}, {desc_type}, {current_dataset}, {method} are already completed.")
+            print(f"All {num_runs} runs for {model_size}, {desc_type}, {current_dataset}, {method} with randomize_pct={randomize_pct} are already completed.")
             continue
         
-        print(f"Found {max_run_id} completed runs. Running {remaining_runs} more runs to reach target of {num_runs}.")
+        print(f"Found {max_run_id} completed runs (with randomize_pct={randomize_pct}). Running {remaining_runs} more runs to reach target of {num_runs}.")
         
         # Run the remaining experiments
         for run_idx in range(max_run_id, num_runs):
-            print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}")
+            print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}, randomize_pct={randomize_pct}")
 
             try:
-                # Set hparams for the current experiment
+                # Set hparams for the current experiment (pass the randomize_pct so that the hparams will record it)
                 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method, randomize_pct=randomize_pct)
                 hparams['seed'] = hparams['seed'] + run_idx
                 seed_everything(hparams['seed'])
