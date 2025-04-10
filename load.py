@@ -5,7 +5,7 @@ from torch.nn import functional as F
 import random
 import pathlib
 
-from descriptor_strings import *  # label_to_classname, wordify, modify_descriptor
+from descriptor_strings import openai_imagenet_classes
 from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
 from torchvision.datasets import ImageNet, ImageFolder, Places365, CIFAR10, CIFAR100, FGVCAircraft, StanfordCars, Flowers102, SUN397, Caltech101
@@ -53,31 +53,278 @@ def randomize_subcategories(class_subcategories, randomize_pct):
     return new_subcategories
 
 # ------------------------
+# FUNCTIONS FROM SET_HPARAMS AND OTHERS
+# ------------------------
+def load_json(filename):
+    if not filename.endswith('.json'):
+        filename += '.json'
+    with open(filename, 'r') as fp:
+        return json.load(fp)
+    
+def load_descriptors_frequency(hparams):
+    freq_filename = hparams.get('descriptor_analysis_fname', None)
+    if freq_filename:
+        return load_json(freq_filename)
+    return None
+
+def compute_class_list(data:dict, sort_config = False):
+
+    if sort_config:
+        data = dict(sorted(data.items()))
+
+    class_list = []
+    for k in data.keys():
+        class_list.append(k)
+
+    if sort_config:
+        class_list = sorted(class_list)
+
+    return class_list
+
+def compute_descriptor_list(data:dict, sort_config = False):
+
+    if sort_config:
+        data = dict(sorted(data.items()))
+        
+    descriptor_list = []
+    for v in data.values():
+        descriptor_list.extend(v)
+
+    if sort_config:
+        descriptor_list = sorted(descriptor_list)
+    
+    return descriptor_list
+    
+
+def wordify(string):
+    word = string.replace('_', ' ')
+    return word
+
+def starts_with_vowel(word):
+    vowels = ('a', 'e', 'i', 'o', 'u')
+    return word.lower().startswith(vowels)
+
+def make_descriptor_sentence(descriptor, hparams):
+    if (hparams['category_name_inclusion'] == 'prepend'):
+        if descriptor.startswith('a ') or descriptor.startswith('an ') or descriptor.startswith('the '):
+            return f"which is {descriptor}"
+        elif starts_with_vowel(descriptor.split(' ')[0]):
+            return f"which is an {descriptor}"
+        elif descriptor.startswith('has') or descriptor.startswith('often') or descriptor.startswith('typically') or descriptor.startswith('may') or descriptor.startswith('can'):
+            return f"which {descriptor}"
+        elif descriptor.startswith('used'):
+            return f"which is {descriptor}"
+        else:
+            return f"which has {descriptor}"
+    elif hparams['category_name_inclusion'] == 'append':
+        return f"{descriptor.capitalize()}, which is a description of a "
+    
+def modify_descriptor(descriptor, apply_changes, hparams):
+    if apply_changes:
+        return make_descriptor_sentence(descriptor, hparams)
+    return descriptor
+
+def truncate_label(label, proportion, method='len'):
+    if frequency_type == None and similarity_penalty_config == None:
+        if method == 'chr':
+            cut_len = int(len(label) * proportion / len(label))
+        elif method == 'len':
+            cut_len = int(len(label) * proportion)
+        return label[:cut_len]
+    else:
+        return label
+
+def create_gibberish_descriptions(length, repeat=1):
+    import string
+    import random
+    character_array = string.ascii_letters + string.digits
+    gibberish_descriptions = ''.join(random.choices(character_array, k=length))
+    return gibberish_descriptions
+
+def append_subcategory_descriptor_to(str, hparams, subcategory):
+    return f"{str}, with {subcategory}{hparams['after_text']}"
+
+def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
+    gpt_descriptions_unordered = load_json(hparams['descriptor_fname'])
+    unmodify_dict = {}
+
+    if classes_to_load is not None: 
+        gpt_descriptions = {c: gpt_descriptions_unordered[c] for c in classes_to_load}
+    else:
+        gpt_descriptions = gpt_descriptions_unordered
+
+    # Use override subcategories if provided, otherwise load from file.
+    if hparams['class_analysis_fname'] is not None:
+        if 'class_subcategories_override' in hparams:
+            subcategory_dict = hparams['class_subcategories_override']
+        else:
+            subcategory_dict = load_json(hparams['class_analysis_fname'])
+
+    if hparams['category_name_inclusion'] is not None and (hparams['method'] == 'defntaxs+descriptors' or hparams['method'] == 'defntaxs_tax_descriptor'):
+        subcategory_desc_dict = load_json(hparams['subcategory_desc_fname'])
+
+        if classes_to_load is not None:
+            keys_to_remove = [k for k in gpt_descriptions.keys() if k not in classes_to_load]
+            for k in keys_to_remove:
+                print(f"Skipping descriptions for \"{k}\", not in classes to load")
+                gpt_descriptions.pop(k)
+
+        for i, (k, v) in enumerate(gpt_descriptions.items()):
+            if len(v) == 0:
+                v = ['']
+
+            word_to_add = wordify(k)
+
+            subcategory_to_add = None
+            for subcategory, classes in subcategory_dict.items():
+                if k in classes:
+                    subcategory_to_add = subcategory
+                    subcategory_descriptor_list = subcategory_desc_dict[subcategory]
+                    break
+            
+            if subcategory_to_add:
+                processed_descriptions = []
+                if hparams['method'] == 'defntaxs+descriptors':
+                    for subcategory_descriptor in subcategory_descriptor_list:
+                        if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(
+                                f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}", hparams, subcategory_descriptor)
+                        else:
+                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(
+                                f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f', which is described as a {subcategory_to_add} texture'}", hparams, subcategory_descriptor)
+
+                if hparams['method'] == 'defntaxs_tax_descriptor':
+                    for subcategory_descriptor in subcategory_descriptor_list:
+                        if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(
+                                f"{hparams['before_text']}{word_to_add}{hparams['before_subcategory']}{subcategory_to_add}", hparams, subcategory_descriptor)
+                        else:
+                            build_descriptor_string = lambda item: append_subcategory_descriptor_to(
+                                f"{hparams['before_text']}{word_to_add}{f', which is described as a {subcategory_to_add} texture'}", hparams, subcategory_descriptor)
+
+                processed_descriptions.extend([build_descriptor_string(item) for item in v])
+                gpt_descriptions[k] = list(set(processed_descriptions))
+                unmodify_dict[k] = {desc: item for desc, item in zip(gpt_descriptions[k], v)}
+
+            if i == 0:
+                print(f"Example description for class '{k}': \"{gpt_descriptions[k][0]}\"\n")
+
+    elif hparams['category_name_inclusion'] is not None:
+        if classes_to_load is not None:
+            keys_to_remove = [k for k in gpt_descriptions.keys() if k not in classes_to_load]
+            for k in keys_to_remove:
+                print(f"Skipping descriptions for \"{k}\", not in classes to load")
+                gpt_descriptions.pop(k)
+
+        for i, (k, v) in enumerate(gpt_descriptions.items()):
+            if len(v) == 0:
+                v = ['']
+
+            word_to_add = wordify(k)
+            subcategory_to_add = "unknown"
+            
+            if 'class_analysis_fname' in hparams and hparams['class_analysis_fname'] is not None:
+                for subcategory, classes in subcategory_dict.items():
+                    if k in classes:
+                        subcategory_to_add = subcategory
+                        break
+
+            if (hparams['category_name_inclusion'] == 'append'):
+                build_descriptor_string = lambda item: f"{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['between_text']}{word_to_add}"
+            
+            elif (hparams['category_name_inclusion'] == 'prepend'):
+
+                if hparams['method'] == 'clip':
+                    build_descriptor_string = lambda item: f"{word_to_add}"
+                elif hparams['method'] == 'e-clip':
+                    build_descriptor_string = lambda item: f"{'A photo of a '}{word_to_add}"
+                elif (hparams['method'] == 'd-clip'):
+                    build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['after_text']}"
+                elif hparams['method'] == 'waffleclip':
+                    build_descriptor_string = lambda item: f"a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)} {" "}{create_gibberish_descriptions(4)}"
+                elif hparams['method'] == 'waffleclip+concepts':
+                    if hparams['concept_phrase']:
+                        build_descriptor_string = lambda item: f"A photo of {hparams['concept_phrase']}: a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)} {" "}{create_gibberish_descriptions(4)}"
+                    else:
+                        build_descriptor_string = lambda item: f"a {word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor('', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{create_gibberish_descriptions(4)} {" "}{create_gibberish_descriptions(4)}"
+                elif (hparams['method'] == 'defntaxs'):
+                    if 'before_subcategory' not in hparams:
+                        hparams['before_subcategory'] = ', which is a type of '
+                    if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}{hparams['after_text']}"
+                    else:
+                        subcategory_to_add = f'an {subcategory_to_add}' if starts_with_vowel(subcategory_to_add) else f'a {subcategory_to_add}'
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f' which presents {subcategory_to_add} appearance when viewed'}{hparams['after_text']}"
+                elif (hparams['method'] == 'waffletaxs'):
+                    if 'before_subcategory' not in hparams:
+                        hparams['before_subcategory'] = ', which is a type of '
+                    if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{create_gibberish_descriptions(length=8)}{hparams['after_text']}"
+                    else:
+                        subcategory_to_add = f'an {subcategory_to_add}' if starts_with_vowel(subcategory_to_add) else f'a {subcategory_to_add}'
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f' which presents {create_gibberish_descriptions(length=8)} appearance when viewed'}{hparams['after_text']}"
+                elif (hparams['method'] == 'taxclip'):
+                    if 'before_subcategory' not in hparams:
+                        hparams['before_subcategory'] = ', which is a type of '
+                    if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(f'{create_gibberish_descriptions(4)} {" "}{create_gibberish_descriptions(4)}', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}{hparams['after_text']}"
+                    else:
+                        subcategory_to_add = f'an {subcategory_to_add}' if starts_with_vowel(subcategory_to_add) else f'a {subcategory_to_add}'
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(f'{create_gibberish_descriptions(4)} {" "}{create_gibberish_descriptions(4)}', hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f' which presents {subcategory_to_add} appearance when viewed'}{hparams['after_text']}"
+                elif (hparams['method'] == 'defntaxs_sans_descriptor'):
+                    if hparams['dataset_name'] == 'ImageNet' or hparams['dataset_name'] == 'ImageNetV2':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{f', which is a type of {subcategory_to_add}'}{hparams['after_text']}"
+                    elif hparams['dataset_name'] == 'Food101':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{f', which would be found on a menu under \"{subcategory_to_add}\"'}{hparams['after_text']}"
+                    elif hparams['dataset_name'] == 'EuroSAT':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{f', which is a type of {subcategory_to_add}'}{f', from the EuroSAT dataset.'}"
+                    elif hparams['dataset_name'] == 'Oxford Pets':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{f', which is a breed of {subcategory_to_add}'}{hparams['after_text']}"
+                    elif hparams['dataset_name'] == 'Describable Textures Dataset (DTD)':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{f', which is described as a {subcategory_to_add} texture'}{hparams['after_text']}"
+                    elif hparams['dataset_name'] == 'Caltech-UCSD Birds 200 (CUB-200)':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{f', which belongs to the genus of {subcategory_to_add}'}{hparams['after_text']}"
+                    elif hparams['dataset_name'] == 'Places365 Scene Recognition':
+                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{f', which is a type of place for {subcategory_to_add}'}{hparams['after_text']}"                    
+                elif (hparams['method'] == 'other'):
+                    build_descriptor_string = lambda item: f"{word_to_add}{', '}{create_gibberish_descriptions(2)}"
+
+            else:
+                build_descriptor_string = lambda item: truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)
+
+            unmodify_dict[k] = {build_descriptor_string(item): item for item in v}
+            gpt_descriptions[k] = [build_descriptor_string(item) for item in v]
+
+            if i == 0:
+                print(f"Example description for class '{k}': \"{gpt_descriptions[k][0]}\"\n")
+    return gpt_descriptions, unmodify_dict
+
+
+def seed_everything(seed: int):
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = True
+
+# ------------------------
 # Modified set_hparams: now sets a default for and optionally randomizes subcategories.
 # ------------------------
-def set_hparams(model_size, desc_type, dataset, method):
+def set_hparams(model_size, desc_type, dataset, method, randomize_pct=0.0):
     hparams = {}
 
     hparams['model_size'] = model_size
-    # Options:
-    # ['RN50', 'RN101', 'RN50x4', 'RN50x16', 'RN50x64', 'ViT-B/32', 'ViT-B/16', 'ViT-L/14', 'ViT-L/14@336px']
-
     hparams['desc_type'] = desc_type
-    # Options:
-    # ['gpt-3', 'gpt-4', 'gpt-4o', 'test']
-
     hparams['dataset'] = dataset
-    # Options:
-    # ['imagenet', 'imagenetv2', 'cub', 'cub_reassignment', 'cub_reassignment_threshold', 'cub_gpt4_{n}_desc', 'eurosat', 'places365', 'food101', 'pets', 'dtd', 'cifar10', 'cifar100', 'aircraft', 'cars', 'flowers', 'sun397', 'caltech101']
-
     hparams['method'] = method
-    # Options:
-    # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    hparams['randomize_subcat_pct'] = randomize_pct
 
     # Set additional hyperparameters
     hparams['batch_size'] = 64*10
     hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
-    hparams['category_name_inclusion'] = 'prepend' #'append' 'prepend'
+    hparams['category_name_inclusion'] = 'prepend'
     hparams['apply_descriptor_modification'] = True
     hparams['verbose'] = False
     hparams['image_size'] = 224
@@ -110,7 +357,7 @@ def set_hparams(model_size, desc_type, dataset, method):
     CIFAR10_DIR = '/home/luke/Documents/GitHub/data/CIFAR10/'
     CIFAR100_DIR = '/home/luke/Documents/GitHub/data/CIFAR100/'
     AIRCRAFT_DIR = '/home/luke/Documents/GitHub/data/FGVC-aircraft-2013b/data/'
-    CARS_DIR = '/home/luke/Documents/GitHub/data/stanford_cars/' # TODO: Add Stanford Cars
+    CARS_DIR = '/home/luke/Documents/GitHub/data/stanford_cars/'
     FLOWERS_DIR = '/home/luke/Documents/GitHub/data/Oxford_flowers/'
     SUN397_DIR = '/home/luke/Documents/GitHub/data/SUN397/'
     CALTECH101_DIR = '/home/luke/Documents/GitHub/data/Caltech101/'
@@ -123,11 +370,10 @@ def set_hparams(model_size, desc_type, dataset, method):
         dsclass = ImageNet        
         hparams['data_dir'] = pathlib.Path(IMAGENET_DIR)
         hparams['analysis_fname'] = 'analysis_imagenet'
-        # train_ds = ImageNet(hparams['data_dir'], split='val', transform=train_tfms)
         dataset_loader = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['before_subcategory'] = ' often categorized as a type of '# if hparams['model_size'] != 'ViT-L/14' else ', which is a type of ' #CHANGED AT ID 7
+        hparams['before_subcategory'] = ' often categorized as a type of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
             
     elif hparams['dataset'] == 'imagenetv2':
@@ -148,7 +394,7 @@ def set_hparams(model_size, desc_type, dataset, method):
         hparams['data_dir'] = pathlib.Path(CUB_DIR)
         hparams['analysis_fname'] = 'analysis_cub'
         dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-        classes_to_load = None #dataset.classes
+        classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_cub'
         hparams['before_subcategory'] = ', which belongs to the genus of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of bird images.'
@@ -158,7 +404,7 @@ def set_hparams(model_size, desc_type, dataset, method):
         hparams['data_dir'] = pathlib.Path(CUB_DIR)
         hparams['analysis_fname'] = 'analysis_cub'
         dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-        classes_to_load = None #dataset.classes
+        classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_cub_reassignment'
 
     elif hparams['dataset'] == 'cub_reassignment_threshold':
@@ -166,7 +412,7 @@ def set_hparams(model_size, desc_type, dataset, method):
         hparams['data_dir'] = pathlib.Path(CUB_DIR)
         hparams['analysis_fname'] = 'analysis_cub'
         dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-        classes_to_load = None #dataset.classes
+        classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_cub_reassignment_threshold'
 
     elif hparams['dataset'].startswith('cub_gpt4'):
@@ -180,11 +426,8 @@ def set_hparams(model_size, desc_type, dataset, method):
     elif hparams['dataset'] == 'eurosat':
         hparams['dataset_name'] = 'EuroSAT'
         hparams['concept_phrase'] = 'land use'
-        # from extra_datasets.patching.eurosat import EuroSATVal
         hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
         hparams['analysis_fname'] = 'analysis_eurosat'
-        # dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
-        # dataset = dataset.test_dataset
         dsclass = ImageFolder
         dataset_loader = dsclass(str(hparams['data_dir']), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_eurosat'
@@ -240,7 +483,6 @@ def set_hparams(model_size, desc_type, dataset, method):
     elif hparams['dataset'] == 'cifar10':
         hparams['dataset_name'] = 'CIFAR-10'
         hparams['data_dir'] = pathlib.Path(CIFAR10_DIR)
-        # hparams['analysis_fname'] = 'analysis_cifar10'
         dataset_loader = CIFAR10(hparams['data_dir'], train=False, transform=tfms, download=True)
         hparams['descriptor_fname'] = 'descriptors_cifar10'
         classes_to_load = None
@@ -249,7 +491,6 @@ def set_hparams(model_size, desc_type, dataset, method):
     elif hparams['dataset'] == 'cifar100':
         hparams['dataset_name'] = 'CIFAR-100'
         hparams['data_dir'] = pathlib.Path(CIFAR100_DIR)
-        # hparams['analysis_fname'] = 'analysis_cifar100'
         dataset_loader = CIFAR100(hparams['data_dir'], train=False, transform=tfms, download=True)
         hparams['descriptor_fname'] = 'descriptors_cifar100'
         classes_to_load = None
@@ -258,16 +499,14 @@ def set_hparams(model_size, desc_type, dataset, method):
     elif hparams['dataset'] == 'aircraft':
         hparams['dataset_name'] = 'FGVC Aircraft'
         hparams['data_dir'] = pathlib.Path(AIRCRAFT_DIR)
-        # hparams['analysis_fname'] = 'analysis_aircraft'
         dataset_loader = FGVCAircraft(hparams['data_dir'], split='val', transform=tfms, download=False)
         hparams['descriptor_fname'] = 'descriptors_aircraft'
         classes_to_load = None
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of aircrafts.'
 
-    elif hparams['dataset'] == 'cars': # TODO: Add Stanford Cars, download from https://github.com/pytorch/vision/issues/7545#issuecomment-1631441616
+    elif hparams['dataset'] == 'cars':
         hparams['dataset_name'] = 'Stanford Cars'
         hparams['data_dir'] = pathlib.Path(CARS_DIR)
-        # hparams['analysis_fname'] = 'analysis_cars'
         dataset_loader = StanfordCars(hparams['data_dir'], split='test', transform=tfms, download=True)
         hparams['descriptor_fname'] = 'descriptors_cars'
         classes_to_load = None
@@ -276,7 +515,6 @@ def set_hparams(model_size, desc_type, dataset, method):
     elif hparams['dataset'] == 'flowers':
         hparams['dataset_name'] = 'Oxford Flowers'
         hparams['data_dir'] = pathlib.Path(FLOWERS_DIR)
-        # hparams['analysis_fname'] = 'analysis_flowers'
         dataset_loader = Flowers102(str(hparams['data_dir'] / 'jpg'), split='test', transform=tfms, download=False)
         hparams['descriptor_fname'] = 'descriptors_flowers'
         classes_to_load = None
@@ -285,7 +523,6 @@ def set_hparams(model_size, desc_type, dataset, method):
     elif hparams['dataset'] == 'sun397':
         hparams['dataset_name'] = 'SUN397'
         hparams['data_dir'] = pathlib.Path(SUN397_DIR)
-        # hparams['analysis_fname'] = 'analysis_sun397'
         dataset_loader = SUN397(hparams['data_dir'], transform=tfms, download=True)
         hparams['descriptor_fname'] = 'descriptors_sun397'
         classes_to_load = None
@@ -294,7 +531,6 @@ def set_hparams(model_size, desc_type, dataset, method):
     elif hparams['dataset'] == 'caltech101':
         hparams['dataset_name'] = 'Caltech101'
         hparams['data_dir'] = pathlib.Path(CALTECH101_DIR)
-        # hparams['analysis_fname'] = 'analysis_caltech101'
         dataset_loader = Caltech101(hparams['data_dir'], transform=tfms, download=True)
         hparams['descriptor_fname'] = 'descriptors_caltech101'
         classes_to_load = None
@@ -305,23 +541,12 @@ def set_hparams(model_size, desc_type, dataset, method):
     else:
         dataset_classes = classes_to_load
 
-    # hparams['before_text'] = "An photo of a "
     hparams['before_text'] = ""
     hparams['label_before_text'] = ""
     hparams['between_text'] = ', '
-    # hparams['after_text'] = f', from a dataset.'
-    # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
-    # hparams['after_text'] = ''
     if hparams['dataset'] != 'eurosat': hparams['after_text'] = ''
-    # hparams['between_text'] = ' '
-    # hparams['between_text'] = ''
     hparams['unmodify'] = True
-    # hparams['after_text'] = '.'
-    # hparams['after_text'] = ', which is a type of bird.'
     hparams['label_after_text'] = ''
-    # hparams['label_after_text'] = ' which is a type of bird.'
-    # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
-    # hparams['before_text'] = f'From the {hparams["dataset_name"]} dataset, the '
 
     hparams['descriptor_fname'] = f'./descriptors/{hparams["desc_type"]}/{hparams["descriptor_fname"]}'
     hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
