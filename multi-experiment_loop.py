@@ -1,7 +1,7 @@
 import itertools
 import json
 import os
-from load import set_hparams
+from load import set_hparams, compute_description_encodings, compute_label_encodings, aggregate_similarity
 from loading_helpers import seed_everything
 from torch.utils.data import DataLoader
 import torch
@@ -25,7 +25,7 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
-def run_experiments(num_runs=3, force_regenerate_subcategories=True):
+def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_pct=0.0):
     """
     Run multiple experiments across different model configurations.
     
@@ -42,10 +42,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
     
     # Path to the results file
-    results_file_path = 'results/multiple_runs_experiment_results.json'
+    results_file_path = 'results/multiple_randomized_runs_experiment_results.json'
     
     # Load existing results
-    all_results = load_existing_results(results_file_path)
+    all_results = load_existing_results(results_file_path) if os.path.exists(results_file_path) else {}
     
     # Track failures
     failed_experiments = all_results.get("failed_experiments", {})
@@ -91,7 +91,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
 
             try:
                 # Set hparams for the current experiment
-                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
+                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method, randomize_pct=randomize_pct)
                 hparams['seed'] = hparams['seed'] + run_idx
                 seed_everything(hparams['seed'])
                 
@@ -102,7 +102,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
                 
                 # Run the experiment
                 print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx+1}")
-                results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
+                results = run_single_experiment(hparams, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
                 
                 # Add run metadata
                 results["run_id"] = run_idx + 1
@@ -152,7 +152,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     print(f"All results have been saved to {results_file_path}")
 
 
-def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
+def run_single_experiment(hparams, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
     """Run a single experiment with the given configuration."""
 
     # Prepare the data loader
@@ -222,7 +222,8 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
         f"{hparams['method'].capitalize()} Top-5 Accuracy": method_top5,
         "CLIP Top-1 Accuracy": clip_top1,
         "CLIP Top-5 Accuracy": clip_top5,
-        "seed": hparams['seed']
+        "seed": hparams['seed'],
+        "randomize_subcat_pct": hparams['randomize_subcat_pct']
     }
 
     # Print results summary with matching keys
@@ -236,12 +237,15 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
-    num_runs = 10  # Number of times to run each configuration
+    num_runs = 5  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
-    start_time = time()
-    run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate)
-    end_time = time()
+    randomize_pct_list = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+
+    for i in range(1, len(randomize_pct_list)):
+        start_time = time()
+        run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, randomize_pct=randomize_pct_list[i])
+        end_time = time()
     
-    print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
-    print("All experiments completed.")
+        print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+        print("All experiments completed.")
