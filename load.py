@@ -332,6 +332,21 @@ def set_hparams(model_size, desc_type, dataset, method):
     with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
         class_subcategories = json.load(f)
         
+    # ------------------------
+    # NEW: Optionally randomize subcategory assignments
+    # Set default randomization percentage to 0 if not provided.
+    # For example, set hparams['randomize_subcat_pct'] = 0.3 for 30% randomization.
+    # ------------------------
+    if 'randomize_subcat_pct' not in hparams:
+        hparams['randomize_subcat_pct'] = 0.0
+    if hparams['randomize_subcat_pct'] > 0:
+        randomized_subcats = randomize_subcategories(class_subcategories, hparams['randomize_subcat_pct'])
+        print(f"Randomized subcategory assignments for {hparams['randomize_subcat_pct']*100:.1f}% of classes.")
+        # Store the randomized mapping so that load_gpt_descriptions uses it.
+        hparams['class_subcategories_override'] = randomized_subcats
+    else:
+        hparams['class_subcategories_override'] = class_subcategories
+
     print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
     gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load, cut_proportion=cut_proportion)
