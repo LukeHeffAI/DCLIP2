@@ -354,13 +354,7 @@ def set_hparams(model_size, desc_type, dataset, method):
 
     n_classes = len(list(gpt_descriptions.keys()))
 
-    a = 1
-
     return hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes
-
-# hparams = set_hparams('ViT-B/32', 'gpt-3', 'cub', 'd-clip')
-# hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
-
 
 def penalty_metrics(hparams):
     if frequency_type == 'freq_exact' or frequency_type == 'freq_approx' or similarity_penalty_config == 'similarity_penalty':
@@ -478,62 +472,3 @@ def print_max_descriptor_similarity(image_description_similarity, index, label, 
     label_descriptors = gpt_descriptions[label_name]
     print(f"I saw a {label_name} because I saw {unmodify_dict[label_name][label_descriptors[argmax.item()]]} with score: {max_similarity.item()}")
     
-# def show_misclassified_images(images, labels, predictions, n=None, 
-#                               image_description_similarity=None, 
-#                               image_labels_similarity=None,
-#                               true_label_to_consider: int = None, 
-#                               predicted_label_to_consider: int = None):
-#     misclassified_indices = yield_misclassified_indices(images, labels=labels, predictions=predictions, true_label_to_consider=true_label_to_consider, predicted_label_to_consider=predicted_label_to_consider)
-#     if misclassified_indices is None: return
-#     show_from_indices(misclassified_indices, images, labels, predictions, 
-#                       n=n,
-#                       image_description_similarity=image_description_similarity, 
-#                       image_labels_similarity=image_labels_similarity)
-
-# # def yield_misclassified_indices(images, labels, predictions, true_label_to_consider=None, predicted_label_to_consider=None):
-#     misclassified_indicators = (predictions.cpu() != labels.cpu())
-#     if true_label_to_consider is not None:
-#         misclassified_indicators = misclassified_indicators & (labels.cpu() == true_label_to_consider)
-#     if predicted_label_to_consider is not None:
-#         misclassified_indicators = misclassified_indicators & (predictions.cpu() == predicted_label_to_consider)
-        
-#     if misclassified_indicators.sum() == 0:
-#         output_string = 'No misclassified images found'
-#         if true_label_to_consider is not None:
-#             output_string += f' with true label {label_to_classname[true_label_to_consider]}'
-#         if predicted_label_to_consider is not None:
-#             output_string += f' with predicted label {label_to_classname[predicted_label_to_consider]}'
-#         print(output_string + '.')
-#         return
-    
-#     misclassified_indices = torch.arange(images.shape[0])[misclassified_indicators]
-#     return misclassified_indices
-
-
-# from PIL import Image
-# def predict_and_show_explanations(images, model, tfms, labels=None, description_encodings=None, label_encodings=None, device=None):
-#     if isinstance(images, Image):
-#         images = tfms(images)
-        
-#     if images.device != device:
-#         images = images.to(device)
-#         labels = labels.to(device)
-
-#     image_encodings = model.encode_image(images)
-#     image_encodings = F.normalize(image_encodings)
-    
-#     image_labels_similarity = image_encodings @ label_encodings.T
-#     clip_predictions = image_labels_similarity.argmax(dim=1)
-    
-#     n_classes = len(description_encodings)
-#     image_description_similarity = [None]*n_classes
-#     image_description_similarity_cumulative = [None]*n_classes
-#     for i, (k, v) in enumerate(description_encodings.items()):
-#         dot_product_matrix = image_encodings @ v.T
-#         image_description_similarity[i] = dot_product_matrix
-#         image_description_similarity_cumulative[i] = aggregate_similarity(image_description_similarity[i])
-        
-#     cumulative_tensor = torch.stack(image_description_similarity_cumulative, dim=1)
-#     descr_predictions = cumulative_tensor.argmax(dim=1)
-    
-#     show_from_indices(torch.arange(images.shape[0]), images, labels, descr_predictions, clip_predictions, image_description_similarity=image_description_similarity, image_labels_similarity=image_labels_similarity)
