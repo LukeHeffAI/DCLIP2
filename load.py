@@ -2,10 +2,10 @@ import json
 import numpy as np
 import torch
 from torch.nn import functional as F
-
-from descriptor_strings import *  # label_to_classname, wordify, modify_descriptor
+import random
 import pathlib
 
+from descriptor_strings import *  # label_to_classname, wordify, modify_descriptor
 from torch.utils.data import DataLoader, Subset
 from torchvision import transforms
 from torchvision.datasets import ImageNet, ImageFolder, Places365, CIFAR10, CIFAR100, FGVCAircraft, StanfordCars, Flowers102, SUN397, Caltech101
@@ -74,15 +74,11 @@ def set_hparams(model_size, desc_type, dataset, method):
     # Options:
     # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
 
-    # return hparams
-
-# def update_hparams(hparams):
+    # Set additional hyperparameters
     hparams['batch_size'] = 64*10
     hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
     hparams['category_name_inclusion'] = 'prepend' #'append' 'prepend'
-
     hparams['apply_descriptor_modification'] = True
-
     hparams['verbose'] = False
     hparams['image_size'] = 224
     if hparams['model_size'] == 'ViT-L/14@336px' and hparams['image_size'] != 336:
@@ -92,15 +88,15 @@ def set_hparams(model_size, desc_type, dataset, method):
         print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 288.')
         hparams['image_size'] = 288
     elif hparams['model_size'] == 'RN50x16' and hparams['image_size'] != 384:
-        print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 288.')
+        print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 384.')
         hparams['image_size'] = 384
     elif hparams['model_size'] == 'RN50x64' and hparams['image_size'] != 448:
-        print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 288.')
+        print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 448.')
         hparams['image_size'] = 448
 
     hparams['seed'] = 1
 
-    # classes_to_load = openai_imagenet_classes
+    # Descriptor and analysis filenames
     hparams['descriptor_fname'] = None
 
     IMAGENET_DIR = '/home/luke/Documents/GitHub/data/ImageNet/'
