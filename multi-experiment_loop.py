@@ -30,9 +30,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
     Run multiple experiments across different model configurations.
     
     Args:
-        num_runs: Number of times to repeat each experiment configuration.
-        force_regenerate_subcategories: Whether to regenerate subcategories before each run.
-        randomize_pct: Fraction (between 0 and 1) of subcategories to randomize.
+        num_runs: Number of times to repeat each experiment configuration
+        force_regenerate_subcategories: Whether to regenerate subcategories before each run
+        randomize_pct: The fraction of class subcategory assignments to randomize (value between 0 and 1)
     """
     model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     desc_types = ['gpt-3']
@@ -45,7 +45,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
     # Path to the results file
     results_file_path = 'results/multiple_randomized_runs_experiment_results.json'
     
-    # Load existing results, if possible
+    # Load existing results (if any)
     all_results = load_existing_results(results_file_path) if os.path.exists(results_file_path) else {}
     
     # Track failures
@@ -70,27 +70,29 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
         # Get current results list for this configuration
         current_results = all_results[desc_type][model_size][method][current_dataset]
 
-        # Only count runs where the stored randomized subcategory percentage matches the one for this experiment.
-        completed_run_ids = [result.get("run_id", 0) for result in current_results if result.get("randomize_subcat_pct", 0) == randomize_pct]
+        # --- NEW: Filter existing results by the current randomize_pct ---
+        filtered_results = [result for result in current_results if result.get("randomize_subcat_pct", 0.0) == randomize_pct]
+        completed_run_ids = [result.get("run_id", 0) for result in filtered_results]
         
         max_run_id = max(completed_run_ids) if completed_run_ids else 0
-        remaining_runs = max(0, num_runs - max_run_id)
-        runs_completed += min(num_runs, len(current_results))
+        remaining_runs = max(0, num_runs - len(filtered_results))
+        runs_completed += len(filtered_results)
 
-        # Skip if all runs are already completed for this randomized percentage
+        # Skip if all runs for the current randomize_pct are already completed
         if remaining_runs <= 0:
             print(f"All {num_runs} runs for {model_size}, {desc_type}, {current_dataset}, {method} with randomize_pct={randomize_pct} are already completed.")
             continue
         
-        print(f"Found {max_run_id} completed runs (with randomize_pct={randomize_pct}). Running {remaining_runs} more runs to reach target of {num_runs}.")
+        print(f"Found {len(filtered_results)} completed runs for randomize_pct={randomize_pct}. Running {remaining_runs} more runs to reach target of {num_runs}.")
         
         # Run the remaining experiments
-        for run_idx in range(max_run_id, num_runs):
+        for run_idx in range(len(filtered_results), num_runs):
             print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}, randomize_pct={randomize_pct}")
 
             try:
-                # Set hparams for the current experiment (pass the randomize_pct so that the hparams will record it)
-                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method, randomize_pct=randomize_pct)
+                # Set hparams for the current experiment (note: randomize_pct is passed to set_hparams)
+                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = \
+                    set_hparams(model_size, desc_type, current_dataset, method, randomize_pct=randomize_pct)
                 hparams['seed'] = hparams['seed'] + run_idx
                 seed_everything(hparams['seed'])
                 
@@ -215,7 +217,7 @@ def run_single_experiment(hparams, dataset_loader, dataset_classes, gpt_descript
     clip_top1 = 100 * overall_clip_accuracy_metric.compute().item()
     clip_top5 = 100 * overall_clip_accuracy_metric_top5.compute().item()
 
-    # Prepare results dictionary with consistent keys
+    # Prepare results dictionary with consistent keys, including the randomization percentage
     experimental_results = {
         f"{hparams['method'].capitalize()} Top-1 Accuracy": method_top1,
         f"{hparams['method'].capitalize()} Top-5 Accuracy": method_top5,
@@ -242,10 +244,9 @@ if __name__ == "__main__":
     randomize_pct_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
     for pct in randomize_pct_list:
-        print(f"\n===== Starting experiments with randomize_pct = {pct:.1f} =====")
         start_time = time()
         run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, randomize_pct=pct)
         end_time = time()
     
-        print(f"Total time taken for randomize_pct = {pct:.1f}: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
-        print("All experiments completed for this randomization value.")
+        print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+        print("All experiments completed.")
