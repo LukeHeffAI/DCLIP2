@@ -45,7 +45,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
     # Path to the results file
     results_file_path = 'results/multiple_randomized_runs_experiment_results.json'
     
-    # Load existing results
+    # Load existing results, if possible
     all_results = load_existing_results(results_file_path) if os.path.exists(results_file_path) else {}
     
     # Track failures
