@@ -30,8 +30,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
     Run multiple experiments across different model configurations.
     
     Args:
-        num_runs: Number of times to repeat each experiment configuration
-        force_regenerate_subcategories: Whether to regenerate subcategories before each run
+        num_runs: Number of times to repeat each experiment configuration.
+        force_regenerate_subcategories: Whether to regenerate subcategories before each run.
+        randomize_pct: Fraction (between 0 and 1) of subcategories to randomize.
     """
     model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     desc_types = ['gpt-3']
