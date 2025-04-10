@@ -211,10 +211,10 @@ def run_single_experiment(hparams, dataset_loader, dataset_classes, gpt_descript
         overall_lang_accuracy_metric_top5(cumulative_tensor.softmax(dim=-1), labels)
 
     # Calculate accuracy values
-    method_top1 = 100*overall_lang_accuracy_metric.compute().item()
-    method_top5 = 100*overall_lang_accuracy_metric_top5.compute().item()
-    clip_top1 = 100*overall_clip_accuracy_metric.compute().item()
-    clip_top5 = 100*overall_clip_accuracy_metric_top5.compute().item()
+    method_top1 = 100 * overall_lang_accuracy_metric.compute().item()
+    method_top5 = 100 * overall_lang_accuracy_metric_top5.compute().item()
+    clip_top1 = 100 * overall_clip_accuracy_metric.compute().item()
+    clip_top5 = 100 * overall_clip_accuracy_metric_top5.compute().item()
 
     # Prepare results dictionary with consistent keys
     experimental_results = {
