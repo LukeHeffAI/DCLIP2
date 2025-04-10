@@ -115,10 +115,7 @@ def set_hparams(model_size, desc_type, dataset, method):
     SUN397_DIR = '/home/luke/Documents/GitHub/data/SUN397/'
     CALTECH101_DIR = '/home/luke/Documents/GitHub/data/Caltech101/'
 
-
-    # PyTorch datasets
     tfms = _transform(hparams['image_size'])
-
 
     if hparams['dataset'] == 'imagenet':
         hparams['dataset_name'] = 'ImageNet'
@@ -284,7 +281,7 @@ def set_hparams(model_size, desc_type, dataset, method):
         hparams['descriptor_fname'] = 'descriptors_flowers'
         classes_to_load = None
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of flowers.'
-
+        
     elif hparams['dataset'] == 'sun397':
         hparams['dataset_name'] = 'SUN397'
         hparams['data_dir'] = pathlib.Path(SUN397_DIR)
@@ -326,7 +323,7 @@ def set_hparams(model_size, desc_type, dataset, method):
     # hparams['after_text'] = f', from the {hparams["dataset_name"]} dataset.'
     # hparams['before_text'] = f'From the {hparams["dataset_name"]} dataset, the '
 
-    hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
+    hparams['descriptor_fname'] = f'./descriptors/{hparams["desc_type"]}/{hparams["descriptor_fname"]}'
     hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
     hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
     hparams['subcategory_desc_fname'] = './class_analysis/json/class_' + hparams['analysis_fname'] + '_descriptors'
