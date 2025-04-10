@@ -1,0 +1,634 @@
+{
+    "gpt-3": {
+        "ViT-B/16": {
+            "defntaxs": {
+                "cub": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.54331851005554,
+                        "Defntaxs Top-5 Accuracy": 87.53883242607117,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744250488.6738284
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.54331851005554,
+                        "Defntaxs Top-5 Accuracy": 87.53883242607117,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744250495.9448094
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.54331851005554,
+                        "Defntaxs Top-5 Accuracy": 87.53883242607117,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744250503.2385955
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.54331851005554,
+                        "Defntaxs Top-5 Accuracy": 87.53883242607117,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744250510.4897578
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.54331851005554,
+                        "Defntaxs Top-5 Accuracy": 87.53883242607117,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744250518.0537777
+                    }
+                ],
+                "eurosat": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
+                        "Defntaxs Top-5 Accuracy": 95.56666612625122,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744250575.4332063
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
+                        "Defntaxs Top-5 Accuracy": 95.56666612625122,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744250594.0488527
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
+                        "Defntaxs Top-5 Accuracy": 95.56666612625122,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744250611.4894326
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
+                        "Defntaxs Top-5 Accuracy": 95.56666612625122,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744250629.952812
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.13703727722168,
+                        "Defntaxs Top-5 Accuracy": 95.56666612625122,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744250648.2412221
+                    }
+                ],
+                "places365": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.95068573951721,
+                        "Defntaxs Top-5 Accuracy": 70.61917781829834,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744250762.608253
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.95068573951721,
+                        "Defntaxs Top-5 Accuracy": 70.61917781829834,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744250787.7971513
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.95068573951721,
+                        "Defntaxs Top-5 Accuracy": 70.61917781829834,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744250812.7345502
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.95068573951721,
+                        "Defntaxs Top-5 Accuracy": 70.61917781829834,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744250836.9915028
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.95068573951721,
+                        "Defntaxs Top-5 Accuracy": 70.61917781829834,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744250860.6831007
+                    }
+                ],
+                "food101": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.87623834609985,
+                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744251044.033024
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.87623834609985,
+                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744251105.3586624
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.87623834609985,
+                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744251174.902644
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.87623834609985,
+                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744251243.7597532
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.87623834609985,
+                        "Defntaxs Top-5 Accuracy": 97.55643606185913,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744251312.5898232
+                    }
+                ],
+                "pets": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.24221992492676,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744251630.4060962
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.24221992492676,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744251638.1592555
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.24221992492676,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744251645.9745367
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.24221992492676,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744251654.0247772
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 89.24221992492676,
+                        "Defntaxs Top-5 Accuracy": 99.6481716632843,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744251662.5463707
+                    }
+                ],
+                "dtd": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.01773118972778,
+                        "Defntaxs Top-5 Accuracy": 73.86524677276611,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744251710.0330043
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.01773118972778,
+                        "Defntaxs Top-5 Accuracy": 73.86524677276611,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744251716.9528387
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.01773118972778,
+                        "Defntaxs Top-5 Accuracy": 73.86524677276611,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744251724.0003643
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.01773118972778,
+                        "Defntaxs Top-5 Accuracy": 73.86524677276611,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744251730.8742921
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 45.01773118972778,
+                        "Defntaxs Top-5 Accuracy": 73.86524677276611,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744251737.921634
+                    }
+                ]
+            },
+            "taxclip": {
+                "cub": [
+                    {
+                        "Taxclip Top-1 Accuracy": 57.801175117492676,
+                        "Taxclip Top-5 Accuracy": 87.33172416687012,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744250525.3912482
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 57.85295367240906,
+                        "Taxclip Top-5 Accuracy": 87.34897971153259,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744250532.9925535
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 58.094578981399536,
+                        "Taxclip Top-5 Accuracy": 87.88402080535889,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744250540.4831724
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 57.66310095787048,
+                        "Taxclip Top-5 Accuracy": 86.95201873779297,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744250547.9762132
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 57.81843066215515,
+                        "Taxclip Top-5 Accuracy": 87.3835027217865,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744250555.5329356
+                    }
+                ],
+                "eurosat": [
+                    {
+                        "Taxclip Top-1 Accuracy": 47.18518555164337,
+                        "Taxclip Top-5 Accuracy": 96.04814648628235,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744250666.4254467
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 48.20370376110077,
+                        "Taxclip Top-5 Accuracy": 95.11481523513794,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744250684.4183924
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 52.23703980445862,
+                        "Taxclip Top-5 Accuracy": 95.69629430770874,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744250702.4953065
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 50.25555491447449,
+                        "Taxclip Top-5 Accuracy": 94.78889107704163,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744250719.9989765
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 48.57407510280609,
+                        "Taxclip Top-5 Accuracy": 95.27778029441833,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744250738.432041
+                    }
+                ],
+                "places365": [
+                    {
+                        "Taxclip Top-1 Accuracy": 38.11506927013397,
+                        "Taxclip Top-5 Accuracy": 66.89041256904602,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744250885.2012198
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 38.31506967544556,
+                        "Taxclip Top-5 Accuracy": 66.92876815795898,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744250910.2710936
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 38.19451928138733,
+                        "Taxclip Top-5 Accuracy": 67.04109311103821,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744250935.305667
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 38.16164433956146,
+                        "Taxclip Top-5 Accuracy": 66.6904091835022,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744250959.5070336
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 38.05753290653229,
+                        "Taxclip Top-5 Accuracy": 66.85205698013306,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744250983.7586737
+                    }
+                ],
+                "food101": [
+                    {
+                        "Taxclip Top-1 Accuracy": 85.91881394386292,
+                        "Taxclip Top-5 Accuracy": 97.61286973953247,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744251381.7307916
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 86.1079216003418,
+                        "Taxclip Top-5 Accuracy": 97.66039848327637,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744251441.7205584
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 86.0376238822937,
+                        "Taxclip Top-5 Accuracy": 97.6950466632843,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744251502.0559077
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 85.87920665740967,
+                        "Taxclip Top-5 Accuracy": 97.57920503616333,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744251561.2558818
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 85.99603772163391,
+                        "Taxclip Top-5 Accuracy": 97.60593771934509,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744251621.7294202
+                    }
+                ],
+                "pets": [
+                    {
+                        "Taxclip Top-1 Accuracy": 88.89039158821106,
+                        "Taxclip Top-5 Accuracy": 99.60757493972778,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744251670.4045646
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 88.53856325149536,
+                        "Taxclip Top-5 Accuracy": 99.59404468536377,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744251678.3920853
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 88.71448040008545,
+                        "Taxclip Top-5 Accuracy": 99.58051443099976,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744251686.5380695
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 88.4573757648468,
+                        "Taxclip Top-5 Accuracy": 99.55344796180725,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744251694.7398894
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 88.32205533981323,
+                        "Taxclip Top-5 Accuracy": 99.62111115455627,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744251702.772094
+                    }
+                ],
+                "dtd": [
+                    {
+                        "Taxclip Top-1 Accuracy": 41.27659499645233,
+                        "Taxclip Top-5 Accuracy": 66.71985983848572,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744251744.8780766
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 40.21276533603668,
+                        "Taxclip Top-5 Accuracy": 66.45389795303345,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744251751.9334319
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 40.21276533603668,
+                        "Taxclip Top-5 Accuracy": 66.80850982666016,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744251759.1714072
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 40.478724241256714,
+                        "Taxclip Top-5 Accuracy": 68.04964542388916,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744251766.587966
+                    },
+                    {
+                        "Taxclip Top-1 Accuracy": 41.02836847305298,
+                        "Taxclip Top-5 Accuracy": 66.98581576347351,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744251773.3596718
+                    }
+                ]
+            }
+        }
+    }
+}
