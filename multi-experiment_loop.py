@@ -1,7 +1,7 @@
 import itertools
 import json
 import os
-from load import set_hparams, compute_description_encodings, compute_label_encodings, aggregate_similarity
+from load import set_hparams
 from loading_helpers import seed_everything
 from torch.utils.data import DataLoader
 import torch
@@ -33,14 +33,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
         num_runs: Number of times to repeat each experiment configuration
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
     """
-    model_sizes = ['ViT-B/16', 'ViT-L/14', 'ViT-B/32']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
-    # model_sizes = ['ViT-B/32']
+    model_sizes = ['ViT-B/16', 'ViT-B/32', 'ViT-L/14']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     desc_types = ['gpt-3']
     datasets = ['imagenet', 'cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
-    # datasets = ['cub', 'eurosat', 'pets']
-    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
-    # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
-    methods = ['waffleclip', 'waffleclip+concepts', 'defntaxs']
+    methods = ['taxclip', 'waffletaxs']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
@@ -89,7 +85,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
         
         print(f"Found {max_run_id} completed runs. Running {remaining_runs} more runs to reach target of {num_runs}.")
         
-            # Run the remaining experiments
+        # Run the remaining experiments
         for run_idx in range(max_run_id, num_runs):
             print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}")
 
@@ -99,14 +95,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
                 hparams['seed'] = hparams['seed'] + run_idx
                 seed_everything(hparams['seed'])
                 
-                # # Add dataset_name to hparams to fix defntaxs method error
-                # hparams['dataset_name'] = current_dataset
-                
                 # Regenerate subcategories if needed (only for methods that use them)
                 if force_regenerate_subcategories and method in ['defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']:
                     print(f"Regenerating subcategories for {current_dataset}...")
-                    create_subcategories(hparams, force=True)
-                
+                    create_subcategories(hparams, force=False)
                 
                 # Run the experiment
                 print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx+1}")
@@ -162,7 +154,6 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
 
 def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes):
     """Run a single experiment with the given configuration."""
-
 
     # Prepare the data loader
     bs = hparams['batch_size']
