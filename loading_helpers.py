@@ -81,9 +81,6 @@ def make_descriptor_sentence(descriptor, hparams):
     elif hparams['category_name_inclusion'] == 'append':
         return f"{descriptor.capitalize()}, which is a description of a "
     
-# def make_descriptor_sentence(descriptor):
-#     return descriptor.replace('It', 'which').replace('.', ',')
-    
 def modify_descriptor(descriptor, apply_changes, hparams):
     if apply_changes:
         return make_descriptor_sentence(descriptor, hparams)
