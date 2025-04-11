@@ -32,6 +32,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     Args:
         num_runs: Number of times to repeat each experiment configuration
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
+
+    Returns:
+        experimental_results: Dictionary containing the results of all experiments, in JSON format
     """
     model_sizes = ['ViT-B/16', 'ViT-L/14', 'ViT-B/32']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     # model_sizes = ['ViT-B/32']
