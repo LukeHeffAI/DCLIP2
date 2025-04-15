@@ -25,7 +25,7 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
-def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_pct=0.0):
+def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_pct=0.0, subcategory_mode="random"):
     """
     Run multiple experiments across different model configurations.
     
@@ -33,6 +33,8 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
         num_runs: Number of times to repeat each experiment configuration
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
         randomize_pct: The fraction of class subcategory assignments to randomize (value between 0 and 1)
+        subcategory_mode: One of "normal" (LLM-generated), "randomize" (perturb LLM),
+                         or "random" (completely random subcategories)
     """
     model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     desc_types = ['gpt-3']
@@ -41,9 +43,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
+    print(f"Using subcategory mode: {subcategory_mode}")
     
-    # Path to the results file
-    results_file_path = 'results/multiple_randomized_runs_experiment_results.json'
+    # Path to the results file - adjust name to reflect subcategory mode
+    results_file_path = f'results/multiple_{subcategory_mode}_runs_experiment_results.json'
     
     # Load existing results (if any)
     all_results = load_existing_results(results_file_path) if os.path.exists(results_file_path) else {}
@@ -70,34 +73,36 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
         # Get current results list for this configuration
         current_results = all_results[desc_type][model_size][method][current_dataset]
 
-        # --- NEW: Filter existing results by the current randomize_pct ---
-        filtered_results = [result for result in current_results if result.get("randomize_subcat_pct", 0.0) == randomize_pct]
+        # Filter existing results by the current mode and randomize_pct
+        filtered_results = [result for result in current_results 
+                          if result.get("randomize_subcat_pct", 0.0) == randomize_pct
+                          and result.get("subcategory_mode", "normal") == subcategory_mode]
         completed_run_ids = [result.get("run_id", 0) for result in filtered_results]
         
         max_run_id = max(completed_run_ids) if completed_run_ids else 0
         remaining_runs = max(0, num_runs - len(filtered_results))
         runs_completed += len(filtered_results)
 
-        # Skip if all runs for the current randomize_pct are already completed
+        # Skip if all runs for the current configuration are already completed
         if remaining_runs <= 0:
-            print(f"All {num_runs} runs for {model_size}, {desc_type}, {current_dataset}, {method} with randomize_pct={randomize_pct} are already completed.")
+            print(f"All {num_runs} runs for {model_size}, {desc_type}, {current_dataset}, {method} with mode={subcategory_mode}, randomize_pct={randomize_pct} are already completed.")
             continue
         
-        print(f"Found {len(filtered_results)} completed runs for randomize_pct={randomize_pct}. Running {remaining_runs} more runs to reach target of {num_runs}.")
+        print(f"Found {len(filtered_results)} completed runs for mode={subcategory_mode}, randomize_pct={randomize_pct}. Running {remaining_runs} more runs to reach target of {num_runs}.")
         
         # Run the remaining experiments
         for run_idx in range(len(filtered_results), num_runs):
-            print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}, randomize_pct={randomize_pct}")
+            print(f"Run {run_idx+1}/{num_runs} for model_size={model_size}, desc_type={desc_type}, dataset={current_dataset}, method={method}, mode={subcategory_mode}, randomize_pct={randomize_pct}")
 
             try:
-                # Set hparams for the current experiment (note: randomize_pct is passed to set_hparams)
+                # Set hparams for the current experiment with the specified subcategory mode
                 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = \
-                    set_hparams(model_size, desc_type, current_dataset, method, randomize_pct=randomize_pct)
+                    set_hparams(model_size, desc_type, current_dataset, method, randomize_pct=randomize_pct, subcategory_mode=subcategory_mode)
                 hparams['seed'] = hparams['seed'] + run_idx
                 seed_everything(hparams['seed'])
                 
-                # Regenerate subcategories if needed (only for methods that use them)
-                if force_regenerate_subcategories and method in ['defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']:
+                # Skip subcategory regeneration for random mode, as it's handled in set_hparams
+                if subcategory_mode != "random" and force_regenerate_subcategories and method in ['defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']:
                     print(f"Regenerating subcategories for {current_dataset}...")
                     create_subcategories(hparams, force=False)
                 
@@ -105,9 +110,11 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
                 print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx+1}")
                 results = run_single_experiment(hparams, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
                 
-                # Add run metadata
+                # Add run metadata including the subcategory mode
                 results["run_id"] = run_idx + 1
                 results["timestamp"] = time()
+                results["subcategory_mode"] = subcategory_mode
+                results["randomize_subcat_pct"] = randomize_pct
                 
                 # Append results to the list
                 current_results.append(results)
@@ -237,16 +244,32 @@ def run_single_experiment(hparams, dataset_loader, dataset_classes, gpt_descript
 
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
-    # Change these parameters as needed
     num_runs = 5  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
-    randomize_pct_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-
-    for pct in randomize_pct_list:
-        start_time = time()
-        run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, randomize_pct=pct)
-        end_time = time()
+    # Run experiments with different modes
+    modes = ["normal", "randomize", "random"]
     
-        print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
-        print("All experiments completed.")
+    for mode in modes:
+        if mode == "random":
+            # For completely random mode, we don't need randomize_pct variations
+            run_experiments(num_runs=num_runs, 
+                           force_regenerate_subcategories=force_regenerate,
+                           randomize_pct=0.0,
+                           subcategory_mode=mode)
+        elif mode == "normal":
+            # For normal mode, just run with randomize_pct=0
+            run_experiments(num_runs=num_runs, 
+                           force_regenerate_subcategories=force_regenerate,
+                           randomize_pct=0.0,
+                           subcategory_mode=mode)
+        else:
+            # For randomize mode, use different randomize_pct values
+            randomize_pct_list = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+            for pct in randomize_pct_list:
+                run_experiments(num_runs=num_runs, 
+                               force_regenerate_subcategories=force_regenerate, 
+                               randomize_pct=pct,
+                               subcategory_mode=mode)
+
+    print("All experiments completed.")

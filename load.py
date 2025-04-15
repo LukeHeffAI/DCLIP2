@@ -52,6 +52,128 @@ def randomize_subcategories(class_subcategories, randomize_pct):
     
     return new_subcategories
 
+def name_random_subcategory(subcategory_classes, client):
+    """
+    Generate a descriptive name for a subcategory based on its assigned classes.
+    
+    Args:
+        subcategory_classes (list): List of class names assigned to this subcategory
+        client: OpenAI client or similar LLM API client
+    
+    Returns:
+        str: A descriptive name for the subcategory
+    """
+    import tenacity
+    from openai import OpenAI
+    
+    # If no client provided, initialize one
+    if client is None:
+        client = OpenAI()
+    
+    # Use a retry decorator to handle API failures
+    @tenacity.retry(
+        wait=tenacity.wait_exponential(multiplier=1, min=4, max=10),
+        stop=tenacity.stop_after_attempt(5),
+        retry=tenacity.retry_if_exception_type((Exception))
+    )
+    def get_subcategory_name():
+        class_list_str = ", ".join(subcategory_classes[0:-2]) + f", and {subcategory_classes[-1]}"
+        
+        # if len(subcategory_classes) > 10:
+        #     class_list_str += f", and {len(subcategory_classes) - 10} more classes"
+        
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                "role": "user",
+                "content": [
+                    {
+                    "type": "text",
+                    "text": f"I have randomly grouped these classes together out of a larger dataset: [{class_list_str}]. Please provide a short, descriptive subcategory name (1-3 words) that could reasonably encompass anything most of these items have in common. If nothing in common, still give a potential subcategory name. The name should be a noun or noun phrase that could fit into sentences like 'which is a type of ___' or 'belongs to the category of ___'. Respond ONLY with the subcategory name and nothing else, especially no comments or further notes/thoughts."
+                    }
+                ]
+                }
+            ],
+            temperature=0.4,
+            max_tokens=15,
+            response_format={"type": "text"}
+        )
+        
+        return response.choices[0].message.content.strip().lower() if response.choices[0].message.content is not None else response.choices[0].message.content
+    
+    try:
+        return get_subcategory_name()
+    except Exception as e:
+        print(f"Error generating subcategory name: {e}")
+        # Fallback to a generic name if LLM fails
+        return f"miscellaneous items"
+
+def generate_random_subcategories(classes, num_subcategories=None, name_subcategories=True, client=None):
+    """
+    Generate completely random subcategories and class assignments.
+    
+    Args:
+        classes (list): List of class names
+        num_subcategories (int): Number of subcategories to create. If None,
+                                uses sqrt of number of classes (balanced allocation)
+        name_subcategories (bool): Whether to use LLM to generate descriptive names
+        client: OpenAI client for LLM naming (optional)
+    
+    Returns:
+        dict: A dictionary mapping subcategory names to lists of classes
+    """
+    # Determine number of subcategories if not specified
+    if num_subcategories is None:
+        # Use square root of number of classes as heuristic for number of subcategories
+        num_subcategories = max(3, int(np.sqrt(len(classes))))
+    
+    # Initialize temporary subcategory dictionary with numbered names
+    temp_subcategories = {i: [] for i in range(num_subcategories)}
+    
+    # Randomly shuffle classes
+    shuffled_classes = classes.copy()
+    random.shuffle(shuffled_classes)
+    
+    # Assign classes evenly to subcategories
+    for i, class_name in enumerate(shuffled_classes):
+        subcategory_idx = i % num_subcategories
+        temp_subcategories[subcategory_idx].append(class_name)
+    
+    # If we don't need descriptive names, return with generic names
+    if not name_subcategories:
+        return {f"random_subcategory_{i+1}": classes for i, classes in temp_subcategories.items()}
+    
+    # Import necessary libraries for LLM naming
+    try:
+        from openai import OpenAI
+        if client is None:
+            client = OpenAI()
+    except ImportError:
+        print("OpenAI package not found. Using generic subcategory names.")
+        return {f"random_subcategory_{i+1}": classes for i, classes in temp_subcategories.items()}
+    
+    # Generate descriptive names for each subcategory
+    named_subcategories = {}
+    print(f"Generating descriptive names for {num_subcategories} random subcategories...")
+    
+    for i, classes in temp_subcategories.items():
+        try:
+            subcategory_name = name_random_subcategory(classes, client)
+            # Ensure the name is unique by adding a number if needed
+            base_name = subcategory_name
+            counter = 2
+            while subcategory_name in named_subcategories:
+                subcategory_name = f"{base_name} {counter}"
+                counter += 1
+            named_subcategories[subcategory_name] = classes
+            print(f"Named subcategory {i+1}/{num_subcategories}: '{subcategory_name}' with {len(classes)} classes")
+        except Exception as e:
+            print(f"Error naming subcategory {i+1}: {e}")
+            named_subcategories[f"miscellaneous items {i+1}"] = classes
+    
+    return named_subcategories
+
 # ------------------------
 # FUNCTIONS FROM SET_HPARAMS AND OTHERS
 # ------------------------
@@ -310,9 +432,21 @@ def seed_everything(seed: int):
     torch.backends.cudnn.benchmark = True
 
 # ------------------------
-# Modified set_hparams: now sets a default for and optionally randomizes subcategories.
+# Modified set_hparams: now supports random subcategory generation with descriptive naming
 # ------------------------
-def set_hparams(model_size, desc_type, dataset, method, randomize_pct=0.0):
+def set_hparams(model_size, desc_type, dataset, method, randomize_pct=0.0, subcategory_mode="normal"):
+    """
+    Set hyperparameters for the experiment.
+    
+    Args:
+        model_size: Model architecture to use
+        desc_type: Type of descriptions
+        dataset: Dataset to use
+        method: Method for text prompt construction
+        randomize_pct: Fraction of subcategories to randomize (0-1)
+        subcategory_mode: One of "normal" (LLM-generated), "randomize" (perturb LLM),
+                        or "random" (completely random subcategories)
+    """
     hparams = {}
 
     hparams['model_size'] = model_size
@@ -320,6 +454,7 @@ def set_hparams(model_size, desc_type, dataset, method, randomize_pct=0.0):
     hparams['dataset'] = dataset
     hparams['method'] = method
     hparams['randomize_subcat_pct'] = randomize_pct
+    hparams['subcategory_mode'] = subcategory_mode
 
     # Set additional hyperparameters
     hparams['batch_size'] = 64*10
@@ -554,23 +689,41 @@ def set_hparams(model_size, desc_type, dataset, method, randomize_pct=0.0):
     hparams['subcategory_desc_fname'] = './class_analysis/json/class_' + hparams['analysis_fname'] + '_descriptors'
 
     print("Loading class subcategories...")
-    with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
-        class_subcategories = json.load(f)
-        
-    # ------------------------
-    # NEW: Optionally randomize subcategory assignments
-    # Set default randomization percentage to 0 if not provided.
-    # For example, set hparams['randomize_subcat_pct'] = 0.3 for 30% randomization.
-    # ------------------------
-    if 'randomize_subcat_pct' not in hparams:
-        hparams['randomize_subcat_pct'] = 0.0
-    if hparams['randomize_subcat_pct'] > 0:
-        randomized_subcats = randomize_subcategories(class_subcategories, hparams['randomize_subcat_pct'])
-        print(f"Randomized subcategory assignments for {hparams['randomize_subcat_pct']*100:.1f}% of classes.")
-        # Store the randomized mapping so that load_gpt_descriptions uses it.
-        hparams['class_subcategories_override'] = randomized_subcats
+    
+    # Handle subcategory generation based on specified mode
+    if subcategory_mode == "random":
+        # Generate completely random subcategories with LLM-generated names
+        print("Loading descriptor data to extract class list...")
+        try:
+            with open(hparams['descriptor_fname'] + '.json', 'r') as f:
+                descriptor_data = json.load(f)
+                class_list = compute_class_list(descriptor_data, sort_config=False)
+            
+            from openai import OpenAI
+            client = OpenAI()
+            
+            print(f"Generating random subcategories with descriptive names for {len(class_list)} classes...")
+            class_subcategories = generate_random_subcategories(class_list, client=client)
+            print(f"Generated random subcategories with descriptive names")
+            hparams['class_subcategories_override'] = class_subcategories
+        except Exception as e:
+            print(f"Error generating named subcategories: {e}")
+            print("Using existing subcategories as fallback")
+            with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
+                class_subcategories = json.load(f)
+            hparams['class_subcategories_override'] = class_subcategories
     else:
-        hparams['class_subcategories_override'] = class_subcategories
+        # Load existing subcategories
+        with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
+            class_subcategories = json.load(f)
+            
+        # Apply randomization if requested
+        if subcategory_mode == "randomize" and hparams['randomize_subcat_pct'] > 0:
+            randomized_subcats = randomize_subcategories(class_subcategories, hparams['randomize_subcat_pct'])
+            print(f"Randomized subcategory assignments for {hparams['randomize_subcat_pct']*100:.1f}% of classes.")
+            hparams['class_subcategories_override'] = randomized_subcats
+        else:
+            hparams['class_subcategories_override'] = class_subcategories
 
     print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
