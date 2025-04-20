@@ -39,7 +39,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, randomize_p
     model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
     desc_types = ['gpt-3']
     datasets = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
-    methods = ['defntaxs', 'taxclip']
+    methods = ['defntaxs']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
@@ -248,7 +248,7 @@ if __name__ == "__main__":
     force_regenerate = True  # Whether to regenerate subcategories each time
     
     # Run experiments with different modes
-    modes = ["normal", "randomize", "random"]
+    modes = ["random"]
     
     for mode in modes:
         if mode == "random":
