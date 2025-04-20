@@ -147,30 +147,60 @@ def generate_random_subcategories(classes, num_subcategories=None, name_subcateg
     # Import necessary libraries for LLM naming
     try:
         from openai import OpenAI
+        import concurrent.futures
+        from tqdm import tqdm
+        
         if client is None:
             client = OpenAI()
-    except ImportError:
-        print("OpenAI package not found. Using generic subcategory names.")
+    except ImportError as e:
+        print(f"Required package not found: {e}. Using generic subcategory names.")
         return {f"random_subcategory_{i+1}": classes for i, classes in temp_subcategories.items()}
     
     # Generate descriptive names for each subcategory
     named_subcategories = {}
-    print(f"Generating descriptive names for {num_subcategories} random subcategories...")
+    print(f"Generating descriptive names for {num_subcategories} random subcategories in parallel...")
     
-    for i, classes in temp_subcategories.items():
-        try:
-            subcategory_name = name_random_subcategory(classes, client)
-            # Ensure the name is unique by adding a number if needed
-            base_name = subcategory_name
-            counter = 2
-            while subcategory_name in named_subcategories:
-                subcategory_name = f"{base_name} {counter}"
-                counter += 1
-            named_subcategories[subcategory_name] = classes
-            print(f"Named subcategory {i+1}/{num_subcategories}: '{subcategory_name}' with {len(classes)} classes")
-        except Exception as e:
-            print(f"Error naming subcategory {i+1}: {e}")
-            named_subcategories[f"miscellaneous items {i+1}"] = classes
+    # Prepare arguments for parallel execution
+    subcategory_tasks = []
+    for i, classes_list in temp_subcategories.items():
+        subcategory_tasks.append((i, classes_list))
+    
+    # Process subcategories in parallel
+    with concurrent.futures.ThreadPoolExecutor(max_workers=min(10, len(subcategory_tasks))) as executor:
+        # Create a function for the executor to run
+        def process_subcategory(task):
+            i, classes_list = task
+            try:
+                subcategory_name = name_random_subcategory(classes_list, client)
+                return i, subcategory_name, classes_list, None
+            except Exception as e:
+                return i, None, classes_list, str(e)
+        
+        # Execute tasks in parallel with a progress bar
+        results = list(tqdm(
+            executor.map(process_subcategory, subcategory_tasks),
+            total=len(subcategory_tasks),
+            desc="Naming subcategories"
+        ))
+    
+    # Process results
+    used_names = set()
+    for i, name, classes_list, error in results:
+        if error:
+            print(f"Error naming subcategory {i+1}: {error}")
+            named_subcategories[f"miscellaneous items {i+1}"] = classes_list
+            continue
+            
+        # Ensure the name is unique
+        base_name = name
+        counter = 2
+        while name in used_names:
+            name = f"{base_name} {counter}"
+            counter += 1
+        
+        used_names.add(name)
+        named_subcategories[name] = classes_list
+        print(f"Named subcategory {i+1}/{num_subcategories}: '{name}' with {len(classes_list)} classes")
     
     return named_subcategories
 
@@ -786,4 +816,4 @@ def print_max_descriptor_similarity(image_description_similarity, index, label, 
     max_similarity, argmax = image_description_similarity[label][index].max(dim=0)
     label_descriptors = gpt_descriptions[label_name]
     print(f"I saw a {label_name} because I saw {unmodify_dict[label_name][label_descriptors[argmax.item()]]} with score: {max_similarity.item()}")
-    
+
