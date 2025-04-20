@@ -1,0 +1,350 @@
+{
+    "gpt-3": {
+        "ViT-B/16": {
+            "defntaxs": {
+                "cub": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.31894874572754,
+                        "Defntaxs Top-5 Accuracy": 87.2454285621643,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744694518.9096868,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 57.85295367240906,
+                        "Defntaxs Top-5 Accuracy": 86.93475723266602,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744694527.33585,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.45702290534973,
+                        "Defntaxs Top-5 Accuracy": 86.95201873779297,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744694535.6283147,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.1981360912323,
+                        "Defntaxs Top-5 Accuracy": 87.14187145233154,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744694544.5351198,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 58.23265314102173,
+                        "Defntaxs Top-5 Accuracy": 87.19365000724792,
+                        "CLIP Top-1 Accuracy": 56.316882371902466,
+                        "CLIP Top-5 Accuracy": 84.81187224388123,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744694552.7593284,
+                        "subcategory_mode": "random"
+                    }
+                ],
+                "eurosat": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 54.82962727546692,
+                        "Defntaxs Top-5 Accuracy": 94.17036771774292,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744694572.1629415,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 48.92222285270691,
+                        "Defntaxs Top-5 Accuracy": 93.62221956253052,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744694591.21051,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 51.766663789749146,
+                        "Defntaxs Top-5 Accuracy": 93.38889122009277,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744694609.7405612,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 51.84814929962158,
+                        "Defntaxs Top-5 Accuracy": 94.3407416343689,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744694627.8008478,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 56.31851553916931,
+                        "Defntaxs Top-5 Accuracy": 94.2370355129242,
+                        "CLIP Top-1 Accuracy": 46.19629681110382,
+                        "CLIP Top-5 Accuracy": 86.7555558681488,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744694646.2140634,
+                        "subcategory_mode": "random"
+                    }
+                ],
+                "places365": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 39.704108238220215,
+                        "Defntaxs Top-5 Accuracy": 69.87123489379883,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744694672.883321,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.126028656959534,
+                        "Defntaxs Top-5 Accuracy": 69.77534294128418,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744694698.0365784,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 39.53424692153931,
+                        "Defntaxs Top-5 Accuracy": 69.62192058563232,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744694723.553669,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.098631381988525,
+                        "Defntaxs Top-5 Accuracy": 69.31780576705933,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744694749.9841604,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 40.104109048843384,
+                        "Defntaxs Top-5 Accuracy": 70.12602686882019,
+                        "CLIP Top-1 Accuracy": 38.37808072566986,
+                        "CLIP Top-5 Accuracy": 66.45753383636475,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744694775.0726628,
+                        "subcategory_mode": "random"
+                    }
+                ],
+                "food101": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.91089248657227,
+                        "Defntaxs Top-5 Accuracy": 97.55049347877502,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744694835.6569552,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.62178015708923,
+                        "Defntaxs Top-5 Accuracy": 97.53465056419373,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744694895.2091088,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.98020076751709,
+                        "Defntaxs Top-5 Accuracy": 97.53960371017456,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744694954.320454,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.66336631774902,
+                        "Defntaxs Top-5 Accuracy": 97.51980304718018,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744695016.3213117,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 85.23069024085999,
+                        "Defntaxs Top-5 Accuracy": 97.36138582229614,
+                        "CLIP Top-1 Accuracy": 84.04950499534607,
+                        "CLIP Top-5 Accuracy": 96.95742726325989,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744695075.6016712,
+                        "subcategory_mode": "random"
+                    }
+                ],
+                "pets": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.40324878692627,
+                        "Defntaxs Top-5 Accuracy": 99.45873022079468,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744695085.2713065,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.56562972068787,
+                        "Defntaxs Top-5 Accuracy": 99.55344796180725,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744695093.8163946,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 88.51150274276733,
+                        "Defntaxs Top-5 Accuracy": 99.55344796180725,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744695102.409302,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 87.49661445617676,
+                        "Defntaxs Top-5 Accuracy": 96.98240756988525,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744695110.9593234,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 90.24357199668884,
+                        "Defntaxs Top-5 Accuracy": 99.45873022079468,
+                        "CLIP Top-1 Accuracy": 80.13531565666199,
+                        "CLIP Top-5 Accuracy": 95.98105549812317,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744695119.2099886,
+                        "subcategory_mode": "random"
+                    }
+                ],
+                "dtd": [
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.18794322013855,
+                        "Defntaxs Top-5 Accuracy": 74.20212626457214,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 1,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 1,
+                        "timestamp": 1744695127.221544,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.4326251745224,
+                        "Defntaxs Top-5 Accuracy": 72.89007306098938,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 2,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 2,
+                        "timestamp": 1744695135.1497762,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.48581635951996,
+                        "Defntaxs Top-5 Accuracy": 74.62766170501709,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 3,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 3,
+                        "timestamp": 1744695143.0730155,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 44.45035457611084,
+                        "Defntaxs Top-5 Accuracy": 73.56383204460144,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 4,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 4,
+                        "timestamp": 1744695150.5806649,
+                        "subcategory_mode": "random"
+                    },
+                    {
+                        "Defntaxs Top-1 Accuracy": 46.50709331035614,
+                        "Defntaxs Top-5 Accuracy": 76.17021203041077,
+                        "CLIP Top-1 Accuracy": 44.80496346950531,
+                        "CLIP Top-5 Accuracy": 71.27659320831299,
+                        "seed": 5,
+                        "randomize_subcat_pct": 0.0,
+                        "run_id": 5,
+                        "timestamp": 1744695158.0680256,
+                        "subcategory_mode": "random"
+                    }
+                ]
+            }
+        }
+    }
+}
