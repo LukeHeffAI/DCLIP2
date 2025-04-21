@@ -40,7 +40,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True):
     # datasets = ['cub', 'eurosat', 'pets']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
     # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
-    methods = ['taxclip', 'waffletaxs']
+    methods = ['taxclip_swap', 'waffletaxs_swap']
 
     total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
     print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
@@ -166,7 +166,7 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 
     # Prepare the data loader
     bs = hparams['batch_size']
-    dataloader = DataLoader(dataset_loader, bs, shuffle=False, num_workers=16, pin_memory=True)
+    dataloader = DataLoader(dataset_loader, bs, shuffle=False, num_workers=12, pin_memory=True)
 
     # Load the model and preprocessing
     print("Loading model...")
@@ -239,6 +239,8 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
     print(f"{hparams['method'].capitalize()} Top-1 Accuracy: {method_top1:.2f}%")
     print(f"CLIP Top-1 Accuracy: {clip_top1:.2f}%")
 
+    torch.cuda.empty_cache()
+
     return experimental_results
 
 
@@ -246,7 +248,7 @@ if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
     num_runs = 10  # Number of times to run each configuration
-    force_regenerate = True  # Whether to regenerate subcategories each time
+    force_regenerate = False  # Whether to regenerate subcategories each time
     
     start_time = time()
     run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate)
