@@ -75,8 +75,8 @@ def update_hparams(hparams):
     PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
     CIFAR10_DIR = '/home/luke/Documents/GitHub/data/CIFAR10/'
     CIFAR100_DIR = '/home/luke/Documents/GitHub/data/CIFAR100/'
-    AIRCRAFT_DIR = '/home/luke/Documents/GitHub/data/FGVC-aircraft-2013b/data/'
-    CARS_DIR = '/home/luke/Documents/GitHub/data/stanford_cars/' # TODO: Add Stanford Cars
+    AIRCRAFT_DIR = '/home/luke/Documents/GitHub/data/FGVC-aircraft-2013b/'
+    CARS_DIR = '/home/luke/Documents/GitHub/data/'
     FLOWERS_DIR = '/home/luke/Documents/GitHub/data/Oxford_flowers/'
     SUN397_DIR = '/home/luke/Documents/GitHub/data/SUN397/'
     CALTECH101_DIR = '/home/luke/Documents/GitHub/data/Caltech101/'
@@ -219,7 +219,7 @@ def update_hparams(hparams):
         hparams['dataset_name'] = 'CIFAR-100'
         hparams['data_dir'] = pathlib.Path(CIFAR100_DIR)
         # hparams['analysis_fname'] = 'analysis_cifar100'
-        dataset_loader = CIFAR100(hparams['data_dir'], train=False, transform=tfms, download=True)
+        dataset_loader = CIFAR100(hparams['data_dir'], train=False, transform=tfms, download=False)
         hparams['descriptor_fname'] = 'descriptors_cifar100'
         classes_to_load = None
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of 100 different classes.'
@@ -228,16 +228,17 @@ def update_hparams(hparams):
         hparams['dataset_name'] = 'FGVC Aircraft'
         hparams['data_dir'] = pathlib.Path(AIRCRAFT_DIR)
         # hparams['analysis_fname'] = 'analysis_aircraft'
-        dataset_loader = FGVCAircraft(hparams['data_dir'], split='val', transform=tfms, download=False)
+        dataset_loader = FGVCAircraft(hparams['data_dir'], split='test', transform=tfms, download=True)
         hparams['descriptor_fname'] = 'descriptors_aircraft'
         classes_to_load = None
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of aircrafts.'
 
-    elif hparams['dataset'] == 'cars': # TODO: Add Stanford Cars, download from https://github.com/pytorch/vision/issues/7545#issuecomment-1631441616
+    elif hparams['dataset'] == 'cars':
         hparams['dataset_name'] = 'Stanford Cars'
         hparams['data_dir'] = pathlib.Path(CARS_DIR)
         # hparams['analysis_fname'] = 'analysis_cars'
-        dataset_loader = StanfordCars(hparams['data_dir'], split='test', transform=tfms, download=True)
+        dataset_loader = StanfordCars(hparams['data_dir'], split='test', transform=tfms, download=False)
+        hparams['data_dir'] = pathlib.Path(CARS_DIR+'stanford_cars/')
         hparams['descriptor_fname'] = 'descriptors_cars'
         classes_to_load = None
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of cars.'
@@ -246,7 +247,7 @@ def update_hparams(hparams):
         hparams['dataset_name'] = 'Oxford Flowers'
         hparams['data_dir'] = pathlib.Path(FLOWERS_DIR)
         # hparams['analysis_fname'] = 'analysis_flowers'
-        dataset_loader = Flowers102(str(hparams['data_dir'] / 'jpg'), split='test', transform=tfms, download=False)
+        dataset_loader = Flowers102(str(hparams['data_dir'] / 'jpg'), split='test', transform=tfms, download=True)
         hparams['descriptor_fname'] = 'descriptors_flowers'
         classes_to_load = None
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of flowers.'
@@ -269,10 +270,12 @@ def update_hparams(hparams):
         classes_to_load = None
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of objects from 101 categories.'
 
-    if hparams['dataset'] != 'imagenetv2':
+    if hasattr(dataset_loader, 'classes'):
         dataset_classes = dataset_loader.classes
-    else:
+    elif classes_to_load is not None:
         dataset_classes = classes_to_load
+    else:
+        raise ValueError(f"No class list available for dataset {hparams['dataset']}")
 
     # hparams['before_text'] = "An photo of a "
     hparams['before_text'] = ""
