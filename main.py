@@ -16,10 +16,7 @@ def save_results(results, file_path):
         json.dump(results, file, indent=4)
 
 # Set the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='eurosat', method='defntaxs')
-
-# Update the hyperparameters
-hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size='ViT-L/14', desc_type='gpt-3', dataset='eurosat', method='waffletaxs')
 
 results_file_path = 'results/experiment_results.json'
 results = load_or_initialise_results(results_file_path)
@@ -214,3 +211,5 @@ print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_me
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
 print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
 print("Class-wise Accuracies and Differences (Top 10 and Bottom 10):\n", list(sorted_class_wise_accuracies.keys())[:10], "\n", list(sorted_class_wise_accuracies.keys())[-10:])
+
+torch.cuda.empty_cache()
