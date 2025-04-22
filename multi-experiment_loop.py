@@ -34,17 +34,17 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
         max_classes_per_subcategory: Maximum classes per subcategory for this run set
     """
-    model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment, for best estimate of time for all experiments
-    # model_sizes = ['ViT-B/32']
+    model_sizes = ['ViT-B/16']  # Choosing this order for medium range length of experiment
     desc_types = ['gpt-3']
     datasets = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
     # datasets = ['cub', 'eurosat', 'pets']
     # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
     # methods = ['clip', 'e-clip', 'd-clip', 'defntaxs']
     methods = ['defntaxs']
+    context_indices = list(range(5))  # 5 context options for each dataset
 
-    total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * num_runs
-    print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiment configurations ({total_experiments} total runs).")
+    total_experiments = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * len(context_indices) * num_runs
+    print(f"Conducting {num_runs} iterations of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * len(context_indices)} experiment configurations ({total_experiments} total runs).")
     
     # Path to the results file
     results_file_path = 'results/subcat_hparam_tests.json'
@@ -60,7 +60,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
     start_time = time()
 
     # Loop through all combinations of model configurations
-    for model_size, desc_type, current_dataset, method in itertools.product(model_sizes, desc_types, datasets, methods):
+    for model_size, desc_type, current_dataset, method, context_idx in itertools.product(
+        model_sizes, desc_types, datasets, methods, context_indices
+    ):
         # Initialize result structure for this configuration if it doesn't exist
         if desc_type not in all_results:
             all_results[desc_type] = {}
@@ -69,10 +71,12 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
         if method not in all_results[desc_type][model_size]:
             all_results[desc_type][model_size][method] = {}
         if current_dataset not in all_results[desc_type][model_size][method]:
-            all_results[desc_type][model_size][method][current_dataset] = []
+            all_results[desc_type][model_size][method][current_dataset] = {}
+        if context_idx not in all_results[desc_type][model_size][method][current_dataset]:
+            all_results[desc_type][model_size][method][current_dataset][context_idx] = []
         
         # Get current results list for this configuration
-        current_results = all_results[desc_type][model_size][method][current_dataset]
+        current_results = all_results[desc_type][model_size][method][current_dataset][context_idx]
         
         # Filter results to only include those with matching max_classes_per_subcategory
         matching_results = [
@@ -89,7 +93,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
 
         # Skip if all runs with this specific max_classes_per_subcategory are already completed
         if remaining_runs <= 0:
-            print(f"Skipping {desc_type}/{model_size}/{method}/{current_dataset} - Already have {len(matching_results)} runs with max_classes_per_subcategory={max_classes_per_subcategory}")
+            print(f"Skipping {desc_type}/{model_size}/{method}/{current_dataset}/context{context_idx} - Already have {len(matching_results)} runs with max_classes_per_subcategory={max_classes_per_subcategory}")
             continue
         
         print(f"Found {len(matching_results)} completed runs for max_classes_per_subcategory={max_classes_per_subcategory}.")
@@ -103,15 +107,16 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 # Set up parameters for this specific run
                 seed = run_idx
                 seed_everything(seed)
-                hparams, _, _, _, _, _, _, _, _ = set_hparams(
+                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(
                     model_size=model_size, 
                     desc_type=desc_type, 
                     dataset=current_dataset, 
-                    method=method
+                    method=method,
+                    subcategory_context_idx=context_idx
                 )
                 
                 # Load dataset
-                print(f"\n\nRunning experiment {count} of {total_experiments - runs_completed}: {desc_type} {model_size} {method} {current_dataset} (Run {run_idx}/{num_runs})")
+                print(f"\n\nRunning experiment {count} of {total_experiments - runs_completed}: {desc_type} {model_size} {method} {current_dataset} context{context_idx} (Run {run_idx}/{num_runs})")
                 
                 # Set maximum classes per subcategory to the current loop value
                 print(f"Using max_classes_per_subcategory: {max_classes_per_subcategory}")
@@ -126,19 +131,20 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 seed_everything(hparams['seed'])
                 
                 # Run the experiment
-                print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, run: {run_idx}")
+                print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}, context: {context_idx}, run: {run_idx}")
                 results = run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_descriptions, label_to_classname, n_classes)
                 
                 # Add the parameter information to results
                 results["Est. classes per subcategory"] = max_classes_per_subcategory
                 results["run_id"] = run_idx
                 results["timestamp"] = time()
+                results["context_idx"] = context_idx
                 
                 # Append results to the current dataset
                 current_results.append(results)
                 
                 # Save after each experiment run
-                all_results[desc_type][model_size][method][current_dataset] = current_results
+                all_results[desc_type][model_size][method][current_dataset][context_idx] = current_results
                 save_results(all_results, results_file_path)
                 
                 # Track progress and estimate remaining time
@@ -153,12 +159,13 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 
             except Exception as e:
                 # Record the failed experiment
-                failure_key = f"{model_size}_{desc_type}_{current_dataset}_{method}_run{run_idx}"
+                failure_key = f"{model_size}_{desc_type}_{current_dataset}_{method}_context{context_idx}_run{run_idx}"
                 failed_experiments[failure_key] = {
                     "model_size": model_size, 
                     "desc_type": desc_type, 
                     "dataset": current_dataset,
                     "method": method,
+                    "context_idx": context_idx,
                     "run_idx": run_idx,
                     "error": str(e)
                 }
@@ -263,10 +270,10 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 if __name__ == "__main__":
     # Run experiments with specified number of runs per configuration
     # Change these parameters as needed
-    num_runs = 8  # Number of times to run each configuration
+    num_runs = 5  # Number of times to run each configuration
     force_regenerate = True  # Whether to regenerate subcategories each time
     
-    for max_classes_per_subcategory in [5, 6, 8, 10, 12, 15, 18, 20, 25, 30, 35, 40, 50]:
+    for max_classes_per_subcategory in [ 5, 8, 12, 18, 20, 25, 30, 40]:
         start_time = time()
         run_experiments(num_runs=num_runs, force_regenerate_subcategories=force_regenerate, max_classes_per_subcategory=max_classes_per_subcategory)
         end_time = time()
