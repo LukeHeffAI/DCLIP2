@@ -11,6 +11,7 @@ import torchmetrics
 from tqdm import tqdm
 from time import time
 from create_subcategories import create_subcategories
+import shutil
 
 def load_existing_results(file_path):
     try:
@@ -24,6 +25,26 @@ def save_results(results, file_path):
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
+
+def get_subcategory_version_path(desc_type, model_size, dataset, method, context_idx, run_id, max_classes_per_subcategory):
+    """Generate a unique path for subcategory version based on parameters."""
+    base_dir = 'class_analysis/versions'
+    version_name = f"v_{desc_type}_{model_size.replace('/', '_')}_{dataset}_{method}_ctx{context_idx}_run{run_id}_max{max_classes_per_subcategory}"
+    return os.path.join(base_dir, f"{version_name}.json")
+
+def save_subcategory_version(subcategories, version_path):
+    """Save a version of subcategories with all parameter information."""
+    os.makedirs(os.path.dirname(version_path), exist_ok=True)
+    with open(version_path, 'w') as f:
+        json.dump(subcategories, f, indent=4)
+
+def load_subcategory_version(version_path):
+    """Load a specific version of subcategories if it exists."""
+    try:
+        with open(version_path, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return None
 
 def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes_per_subcategory=10):
     """
@@ -122,6 +143,9 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 print(f"Using max_classes_per_subcategory: {max_classes_per_subcategory}")
                 
                 # Create subcategories if needed
+                version_path = get_subcategory_version_path(desc_type, model_size, current_dataset, method, context_idx, run_idx, max_classes_per_subcategory)
+                existing_subcategories = load_subcategory_version(version_path)
+                
                 if force_regenerate_subcategories and method in ["defntaxs"]:
                     create_subcategories(hparams, force=True, max_workers=20, max_classes_per_subcategory=max_classes_per_subcategory)
                     # Reload only the necessary components after subcategory creation
@@ -134,6 +158,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                     )
                     # Update the relevant parts of hparams without regenerating everything
                     hparams['seed'] += run_idx
+                    save_subcategory_version(class_subcategories, version_path)
+                elif existing_subcategories:
+                    print(f"Using existing subcategory version from {version_path}")
+                    class_subcategories = existing_subcategories
                 
                 seed_everything(hparams['seed'])
                 
