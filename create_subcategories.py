@@ -281,53 +281,40 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
         hparams: Hyperparameters dictionary
         force: If True, regenerate subcategories even if they already exist
         max_workers: Maximum number of concurrent workers for parallelization
-        
+        max_classes_per_subcategory: Maximum number of classes per subcategory
     Returns:
         classes_assigned_to_subcategories: Dictionary mapping subcategories to classes
     """
     time_start = time.time()
     
-    # Check if subcategories already exist and if we should use them
+    # Standard path for current subcategories
     class_filename = f'class_analysis/json/class_analysis_{hparams["dataset"]}.json'
-    if os.path.exists(class_filename) and not force:
-        print(f"Loading existing subcategories from {class_filename}")
-        with open(class_filename, 'r') as f:
-            return json.load(f)
     
-    print(f"Creating new subcategories for {hparams['dataset']}")
-    load_dotenv(dotenv_path='/home/luke/Documents/GitHub/DCLIP2/.env', override=True)
-    client = OpenAI()
-
+    # Load the descriptor file to get class list
     filename = f'descriptors/{hparams["desc_type"]}/descriptors_{hparams["dataset"]}.json'
 
     with open(filename, 'r') as f:
         data = json.load(f)
 
     class_list = compute_class_list(data, sort_config=False)
-
     classes_assigned_to_subcategories = {}
 
-    # Create a number of subcategories such that the maximum number of classes per subcategory is 20
+    # Calculate minimum number of subcategories needed
     n_classes = len(class_list)
+    min_subcategories = max(1, int(n_classes / max_classes_per_subcategory))
 
-    if n_classes < 21:
-        min_subcategories = 1
-    else:
-        min_subcategories = int(n_classes / max_classes_per_subcategory)
-
+    print(f"Creating new subcategories for {hparams['dataset']}")
+    load_dotenv(dotenv_path='/home/luke/Documents/GitHub/DCLIP2/.env', override=True)
+    client = OpenAI()
+    
     context_prompt = f"The {hparams['dataset_name']} dataset is constructed from {len(class_list)} classes. You will create at minimum {min_subcategories} subcategories to group the classes by and assign at maximum {max_classes_per_subcategory} of the {hparams['dataset_name']} classes to each subcategory. For an example of a subcategory and its classes, a subcategory \"kitchen utensil\" may have the classes \"fork\", \"knife\", \"can opener\" and \"teaspoon\" assigned to it. Every class must be assigned to a subcategory, none can be missed."
 
     # Generate initial subcategories
     subcategories_list = generate_subcategories_from(class_list, context_prompt, client)
     time_broad_subcategories = time.time()
 
-    # Refine subcategories for large datasets
-    # if len(class_list) > 300 or len(subcategories_list) < min_subcategories:
-    #     subcategories_list = refine_subcategories_from(class_list, subcategories_list, context_prompt, client)
-    # time_fine_subcategories = time.time()
-
     # Parallelize class allocation
-    # print(f"Allocating {len(class_list)} classes to subcategories in parallel (max_workers={max_workers})...")
+    print(f"Allocating {len(class_list)} classes to subcategories in parallel (max_workers={max_workers})...")
     
     # Prepare arguments for parallel execution
     args_list = [(class_name, subcategories_list, context_prompt, client) for class_name in class_list]
@@ -370,21 +357,12 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
 
     time_refined = time.time()
 
-    # Ensure directory exists
+    # Save to the standard location (will be used by subsequent code)
     os.makedirs(os.path.dirname(class_filename), exist_ok=True)
-    print(f"Saving subcategories to {class_filename}")
-
     with open(class_filename, 'w') as f:
         json.dump(classes_assigned_to_subcategories, f, indent=4)
 
     time_end = time.time()
-
-    # print(f"Time taken to generate broad subcategories: {time_broad_subcategories - time_start}")
-    # print(f"Time taken to refine subcategories: {time_fine_subcategories - time_broad_subcategories}")
-    # print(f"Time taken to assign classes: {time_assigned - time_fine_subcategories}")
-    # print(f"Time taken to refine large subcategories: {time_refined - time_assigned}")
-    # print(f"Time taken to save classes: {time_end - time_refined}")
-    # print(f"Total time: {time_end - time_start}")
     
     return classes_assigned_to_subcategories
 
