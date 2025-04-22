@@ -17,7 +17,7 @@ import clip
 from loading_helpers import *
 
 
-def set_hparams(model_size, desc_type, dataset, method):
+def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=0):
     hparams = {}
 
     hparams['model_size'] = model_size
@@ -36,9 +36,8 @@ def set_hparams(model_size, desc_type, dataset, method):
     # Options:
     # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
 
-    # return hparams
+    hparams['subcategory_context_idx'] = subcategory_context_idx
 
-# def update_hparams(hparams):
     hparams['batch_size'] = 64*10
     hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
     hparams['category_name_inclusion'] = 'prepend' #'append' 'prepend'
@@ -96,7 +95,15 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = dsclass(hparams['data_dir'], split='val', transform=tfms)
         classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['before_subcategory'] = ' often categorized as a type of '# if hparams['model_size'] != 'ViT-L/14' else ', which is a type of ' #CHANGED AT ID 7
+        # ImageNet contextualizing options
+        imagenet_contexts = [
+            ', which is a type of ',  # Original
+            ', which belongs to the category of ',
+            ', which would be classified as ',
+            ', which is an example of ',
+            ', which falls under the group of '
+        ]
+        hparams['before_subcategory'] = imagenet_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
             
     elif hparams['dataset'] == 'imagenetv2':
@@ -108,7 +115,14 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = dsclass(location=str(hparams['data_dir']), transform=tfms)
         classes_to_load = openai_imagenet_classes
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['before_subcategory'] = ', which is a type of '
+        imagenet_contexts = [
+            ', which is a type of ',  # Original
+            ', which belongs to the category of ',
+            ', which would be classified as ',
+            ', which is an example of ',
+            ', which falls under the group of '
+        ]
+        hparams['before_subcategory'] = imagenet_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
 
     elif hparams['dataset'] == 'cub':
@@ -119,46 +133,35 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
         classes_to_load = None #dataset.classes
         hparams['descriptor_fname'] = 'descriptors_cub'
-        hparams['before_subcategory'] = ', which belongs to the genus of '
+        # CUB contextualizing options
+        cub_contexts = [
+            ', which belongs to the genus of ',  # Original
+            ', which is classified under the genus ',
+            ', which is a member of the genus ',
+            ', which is taxonomically categorized as ',
+            ', which is scientifically classified in the genus '
+        ]
+        hparams['before_subcategory'] = cub_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of bird images.'
-
-    elif hparams['dataset'] == 'cub_reassignment':
-        hparams['dataset_name'] = 'CUB_reassignment'
-        hparams['data_dir'] = pathlib.Path(CUB_DIR)
-        hparams['analysis_fname'] = 'analysis_cub'
-        dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-        classes_to_load = None #dataset.classes
-        hparams['descriptor_fname'] = 'descriptors_cub_reassignment'
-
-    elif hparams['dataset'] == 'cub_reassignment_threshold':
-        hparams['dataset_name'] = 'CUB_reassignment_threshold'
-        hparams['data_dir'] = pathlib.Path(CUB_DIR)
-        hparams['analysis_fname'] = 'analysis_cub'
-        dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-        classes_to_load = None #dataset.classes
-        hparams['descriptor_fname'] = 'descriptors_cub_reassignment_threshold'
-
-    elif hparams['dataset'].startswith('cub_gpt4'):
-        hparams['dataset_name'] = 'CUB_GPT4_{}'.format(hparams['dataset'][-1].split('_')[2:-1])
-        hparams['data_dir'] = pathlib.Path(CUB_DIR)
-        hparams['analysis_fname'] = 'analysis_cub'
-        dataset_loader = CUBDataset(hparams['data_dir'], train=False, transform=tfms)
-        classes_to_load = None
-        hparams['descriptor_fname'] = f'descriptors_{hparams["dataset"]}riptors'
         
     elif hparams['dataset'] == 'eurosat':
         hparams['dataset_name'] = 'EuroSAT'
         hparams['concept_phrase'] = 'land use'
-        # from extra_datasets.patching.eurosat import EuroSATVal
         hparams['data_dir'] = pathlib.Path(EUROSAT_DIR)
         hparams['analysis_fname'] = 'analysis_eurosat'
-        # dataset = EuroSATVal(location=hparams['data_dir'], preprocess=tfms)
-        # dataset = dataset.test_dataset
         dsclass = ImageFolder
         dataset_loader = dsclass(str(hparams['data_dir']), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_eurosat'
         classes_to_load = None
-        hparams['before_subcategory'] = ', which is a type of '
+        # EuroSAT contextualizing options
+        eurosat_contexts = [
+            ', which is a type of ',  # Original
+            ', which represents a category of ',
+            ', which is classified as ',
+            ', which is characteristic of ',
+            ', which exemplifies '
+        ]
+        hparams['before_subcategory'] = eurosat_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from the EuroSAT dataset.'
         
     elif hparams['dataset'] == 'places365':
@@ -169,7 +172,15 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_places365'
         classes_to_load = None
-        hparams['before_subcategory'] = ', which is a type of place for '
+        # Places365 contextualizing options
+        places_contexts = [
+            ', which is a type of place for ',  # Original
+            ', which serves as a location for ',
+            ', which functions as a space for ',
+            ', which is an environment for ',
+            ', which is designed for '
+        ]
+        hparams['before_subcategory'] = places_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing diverse scene images for environmental classification tasks.'
         
     elif hparams['dataset'] == 'food101':
@@ -181,7 +192,15 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_food101'
         classes_to_load = None
-        hparams['before_subcategory'] = ', which would be found on a menu under '
+        # Food101 contextualizing options
+        food_contexts = [
+            ', which would be found on a menu under ',  # Original
+            ', which is typically categorized as ',
+            ', which is served as part of ',
+            ', which belongs to the category of ',
+            ', which is classified as '
+        ]
+        hparams['before_subcategory'] = food_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories.'
 
     elif hparams['dataset'] == 'pets':
@@ -193,7 +212,15 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_pets'
         classes_to_load = None
-        hparams['before_subcategory'] = ', which is a breed of '
+        # Oxford Pets contextualizing options
+        pets_contexts = [
+            ', which is a breed of ',  # Original
+            ', which belongs to the family of ',
+            ', which is classified as a type of ',
+            ', which represents a variety of ',
+            ', which is recognized as a '
+        ]
+        hparams['before_subcategory'] = pets_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of dog and cat breeds.'
         
     elif hparams['dataset'] == 'dtd':
