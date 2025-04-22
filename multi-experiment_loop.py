@@ -104,7 +104,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
             run_idx = max_run_id + i + 1
             
             try:
-                # Set up parameters for this specific run
+                # Initial setup with single set_hparams call
                 seed = run_idx
                 seed_everything(seed)
                 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(
@@ -121,13 +121,20 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 # Set maximum classes per subcategory to the current loop value
                 print(f"Using max_classes_per_subcategory: {max_classes_per_subcategory}")
                 
-                # Create subcategories
+                # Create subcategories if needed
                 if force_regenerate_subcategories and method in ["defntaxs"]:
                     create_subcategories(hparams, force=True, max_workers=20, max_classes_per_subcategory=max_classes_per_subcategory)
+                    # Reload only the necessary components after subcategory creation
+                    _, _, _, _, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, _ = set_hparams(
+                        model_size=model_size, 
+                        desc_type=desc_type, 
+                        dataset=current_dataset, 
+                        method=method,
+                        subcategory_context_idx=context_idx
+                    )
+                    # Update the relevant parts of hparams without regenerating everything
+                    hparams['seed'] += run_idx
                 
-                # Set hparams for the current experiment
-                hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
-                hparams['seed'] = hparams['seed'] + run_idx
                 seed_everything(hparams['seed'])
                 
                 # Run the experiment
