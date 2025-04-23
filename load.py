@@ -334,8 +334,11 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
     hparams['subcategory_desc_fname'] = './class_analysis/json/class_' + hparams['analysis_fname'] + '_descriptors'
 
     print("Loading class subcategories...")
-    with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
-        class_subcategories = json.load(f)
+    if hparams['class_analysis_fname'] + '.json':
+        with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
+            class_subcategories = json.load(f)
+    else:
+        class_subcategories = {}
         
     print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
