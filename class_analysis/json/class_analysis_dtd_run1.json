@@ -1,0 +1,41 @@
+{
+    "geometric patterns": [
+        "crystalline",
+        "flecked",
+        "marbled"
+    ],
+    "textured patterns": [
+        "grooved",
+        "lacelike",
+        "paisley",
+        "pleated",
+        "smeared",
+        "studded",
+        "waffled",
+        "woven"
+    ],
+    "organic textures": [
+        "blotchy",
+        "braided",
+        "bubbly",
+        "bumpy",
+        "cobwebbed",
+        "cracked",
+        "fibrous",
+        "freckled",
+        "frilly",
+        "gauzy",
+        "knitted",
+        "matted",
+        "pitted",
+        "porous",
+        "potholed",
+        "scaly",
+        "spiralled",
+        "sprinkled",
+        "stained",
+        "swirly",
+        "veined",
+        "wrinkled"
+    ]
+}
