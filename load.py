@@ -68,7 +68,7 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
     IMAGENETV2_DIR = '/home/luke/Documents/GitHub/data/ImageNetV2/'
     CUB_DIR = '/home/luke/Documents/GitHub/data/CUB/CUB_200_2011/'
     EUROSAT_DIR = '/home/luke/Documents/GitHub/data/EuroSAT/2750/'
-    FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/food-101/'
+    FOOD101_DIR = '/home/luke/Documents/GitHub/data/FOOD_101/food-101/'
     PETS_DIR = '/home/luke/Documents/GitHub/data/Oxford_Pets/'
     DTD_DIR = '/home/luke/Documents/GitHub/data/DTD/dtd/'
     PLACES_DIR = '/home/luke/Documents/GitHub/data/places_devkit/torch_download/'
@@ -231,6 +231,15 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         dataset_loader = ImageFolder(str(hparams['data_dir'] / 'images'), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_dtd'
         classes_to_load = None
+        # DTD contextualizing options
+        dtd_contexts = [
+            ', which is a type of texture for ',  # Original
+            ', which is categorized as a texture for ',
+            ', which is classified as a type of texture for ',
+            ', which represents a texture for ',
+            ', which exemplifies a texture for '
+        ]
+        hparams['before_subcategory'] = dtd_contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images categorized by visual textures.'
 
     elif hparams['dataset'] == 'cifar10':
