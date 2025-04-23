@@ -1611,6 +1611,21 @@
                 "max_classes_per_subcategory": 40,
                 "run_id": 1,
                 "timestamp": 1745382647.485591
+            },
+            {
+                "Defntaxs Top-1 Accuracy": 58.62961411476135,
+                "Defntaxs Top-5 Accuracy": 87.1591329574585,
+                "CLIP Top-1 Accuracy": 56.316882371902466,
+                "CLIP Top-5 Accuracy": 84.81187224388123,
+                "seed": 1,
+                "desc_type": "gpt-3",
+                "model_size": "ViT-B/16",
+                "method": "defntaxs",
+                "dataset": "cub",
+                "context_idx": 1,
+                "max_classes_per_subcategory": 40,
+                "run_id": 2,
+                "timestamp": 1745382654.475752
             }
         ]
     },
