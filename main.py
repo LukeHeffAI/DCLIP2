@@ -16,10 +16,7 @@ def save_results(results, file_path):
         json.dump(results, file, indent=4)
 
 # Set the hyperparameters
-hparams = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='eurosat', method='defntaxs')
-
-# Update the hyperparameters
-hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+hparams, tfms, dataset, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='food101', method='defntaxs')
 
 results_file_path = 'results/experiment_results.json'
 results = load_or_initialise_results(results_file_path)
@@ -29,7 +26,7 @@ seed_everything(hparams['seed'])
 
 # Prepare the data loader
 bs = hparams['batch_size']
-dataloader = DataLoader(dataset, bs, shuffle=False, num_workers=16, pin_memory=True)  # Shuffle should be False for class-wise evaluation
+dataloader = DataLoader(dataset, bs, shuffle=False, num_workers=8, pin_memory=True)  # Shuffle should be False for class-wise evaluation
 
 # Load the model and preprocessing
 print("Loading model...")
