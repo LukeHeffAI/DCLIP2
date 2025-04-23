@@ -39,9 +39,10 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
     """
     model_sizes     = ['ViT-B/16']  # Choosing this order for medium range length of experiment
     desc_types      = ['gpt-3']
-    datasets        = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+    # datasets        = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+    datasets        = ['eurosat', 'food101', 'pets', 'dtd', 'cub', 'places365']
     methods         = ['defntaxs']
-    context_indices = list(range(2))  # Up to 5 context options for each dataset
+    context_indices = list(range(5))  # Up to 5 context options for each dataset
     # context_indices = [1]
 
     total_configs = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * len(context_indices)
@@ -83,7 +84,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
             continue
 
         max_run_id = max((r.get('run_id', 0) for r in matching), default=0)
-        print(f"{done}/{num_runs} exist; running {to_do} more (starting at run_id={max_run_id+1})")
+        print(f"{done}/{num_runs} exist for {current_dataset}; running {to_do} more (starting at run_id={max_run_id+1})")
 
         # Regenerate subcategories if needed for this config
         if method == 'defntaxs' and force_regenerate_subcategories:
@@ -159,7 +160,7 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 
     # Prepare the data loader
     bs = hparams['batch_size']
-    dataloader = DataLoader(dataset_loader, bs, shuffle=False, num_workers=10, pin_memory=True)
+    dataloader = DataLoader(dataset_loader, bs, shuffle=False, num_workers=8, pin_memory=True)
 
     # Load the model and preprocessing
     print("Loading model...")
