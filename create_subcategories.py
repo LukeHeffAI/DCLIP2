@@ -273,7 +273,7 @@ def refine_large_subcategories(classes_assigned_to_subcategories, max_classes_pe
     
     return refined_assignments
 
-def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_subcategory=10):
+def create_subcategories(hparams, class_filename=None, force=False, max_workers=20, max_classes_per_subcategory=10):
     """
     Create subcategories for classes in the dataset.
     
@@ -288,8 +288,10 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
     time_start = time.time()
     
     # Save subcategories with run_id in filename to maintain distinct versions
-    class_filename = f'class_analysis/json/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}.json'
-    
+    if class_filename is None:
+        class_filename = f'class_analysis/json/versions/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}_ctxid{hparams["subcategory_context_idx"]}.json'
+    os.makedirs(os.path.dirname(class_filename), exist_ok=True)
+
     # Load the descriptor file to get class list
     filename = f'descriptors/{hparams["desc_type"]}/descriptors_{hparams["dataset"]}.json'
 
