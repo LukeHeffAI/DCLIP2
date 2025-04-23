@@ -40,7 +40,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
     model_sizes     = ['ViT-B/16']  # Choosing this order for medium range length of experiment
     desc_types      = ['gpt-3']
     # datasets        = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
-    datasets        = ['eurosat', 'food101', 'pets', 'dtd', 'cub', 'places365']
+    datasets        = ['food101']
     methods         = ['defntaxs']
     context_indices = list(range(5))  # Up to 5 context options for each dataset
     # context_indices = [1]
@@ -86,15 +86,19 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
         max_run_id = max((r.get('run_id', 0) for r in matching), default=0)
         print(f"{done}/{num_runs} exist for {current_dataset}; running {to_do} more (starting at run_id={max_run_id+1})")
 
-        # Regenerate subcategories if needed for this config
-        if method == 'defntaxs' and force_regenerate_subcategories:
+            # only regenerate if we’re extending an existing context_idx (max_run_id>0)
+            # and this run_id is beyond what we’ve already done for that context_idx
+        if method == 'defntaxs' and force_regenerate_subcategories \
+               and max_run_id > 0 and run_id > max_run_id:
             # only regenerate once before the next batch
-            print(f"Regenerating subcategories for ctx{context_idx}, max={max_classes_per_subcategory}")
+            print(f"[run {run_id}] regenerating subcategories (ctx={context_idx}, max={max_classes_per_subcategory})")
             # initial params
             hparams, _, _, _, _, _, _, _, _ = set_hparams(
-                model_size=model_size, desc_type=desc_type,
-                dataset=current_dataset, method=method,
-                subcategory_context_idx=context_idx
+                        model_size=model_size,
+                        desc_type=desc_type,
+                        dataset=current_dataset,
+                        method=method,
+                        subcategory_context_idx=context_idx
             )
             create_subcategories(
                 hparams, force=True, max_workers=20,
@@ -241,7 +245,8 @@ if __name__ == "__main__":
     force_regenerate = True
     
     # for max_classes_per_subcategory in [5, 8, 12, 18, 20, 25, 30, 40]:
-    for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
+    # for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
+    for max_classes_per_subcategory in [40, 30]:
         start_time = time()
         run_experiments(num_runs=num_runs,
                         force_regenerate_subcategories=force_regenerate,
