@@ -1,24 +1,27 @@
 {
     "geometric patterns": [
-        "crystalline",
-        "flecked",
-        "marbled"
+        "crystalline"
+    ],
+    "linear patterns": [
+        "lined",
+        "striped"
     ],
     "textured patterns": [
         "grooved",
         "lacelike",
+        "marbled",
+        "meshed",
         "paisley",
+        "perforated",
         "pleated",
         "smeared",
         "studded",
-        "waffled",
-        "woven"
+        "swirly"
     ],
     "organic textures": [
         "blotchy",
         "braided",
         "bubbly",
-        "bumpy",
         "cobwebbed",
         "cracked",
         "fibrous",
@@ -31,11 +34,15 @@
         "porous",
         "potholed",
         "scaly",
-        "spiralled",
         "sprinkled",
-        "stained",
-        "swirly",
         "veined",
+        "woven"
+    ],
+    "surface textures": [
+        "bumpy",
+        "flecked",
+        "stained",
+        "waffled",
         "wrinkled"
     ]
 }
