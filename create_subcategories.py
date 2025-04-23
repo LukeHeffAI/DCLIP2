@@ -287,8 +287,8 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
     """
     time_start = time.time()
     
-    # Standard path for current subcategories
-    class_filename = f'class_analysis/json/class_analysis_{hparams["dataset"]}.json'
+    # Save subcategories with run_id in filename to maintain distinct versions
+    class_filename = f'class_analysis/json/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}.json'
     
     # Load the descriptor file to get class list
     filename = f'descriptors/{hparams["desc_type"]}/descriptors_{hparams["dataset"]}.json'
