@@ -311,7 +311,6 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
 
     # Generate initial subcategories
     subcategories_list = generate_subcategories_from(class_list, context_prompt, client)
-    time_broad_subcategories = time.time()
 
     # Parallelize class allocation
     print(f"Allocating {len(class_list)} classes to subcategories in parallel (max_workers={max_workers})...")
@@ -343,8 +342,6 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
             else:
                 classes_assigned_to_subcategories[subcategory] = [class_name]
 
-    time_assigned = time.time()
-
     # After assigning classes to subcategories, check for and refine large subcategories
     print("Checking for subcategories with too many classes...")
     classes_assigned_to_subcategories = refine_large_subcategories(
@@ -354,8 +351,6 @@ def create_subcategories(hparams, force=False, max_workers=20, max_classes_per_s
         client,
         max_workers
     )
-
-    time_refined = time.time()
 
     # Save to the standard location (will be used by subsequent code)
     os.makedirs(os.path.dirname(class_filename), exist_ok=True)
