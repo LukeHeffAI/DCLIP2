@@ -239,11 +239,12 @@ def load_gpt_descriptions(hparams, classes_to_load=None, cut_proportion=1):
                     if 'before_subcategory' not in hparams:
                         hparams['before_subcategory'] = ', which is a type of '
                         
-                    if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}{hparams['after_text']}"
-                    else:
-                        subcategory_to_add = f'an {subcategory_to_add}' if starts_with_vowel(subcategory_to_add) else f'a {subcategory_to_add}'
-                        build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f' which presents {subcategory_to_add} appearance when viewed'}{hparams['after_text']}"
+                    # if hparams['dataset_name'] != 'Describable Textures Dataset (DTD)':
+                    subcategory_to_add = f'an {subcategory_to_add}' if starts_with_vowel(subcategory_to_add) else f'a {subcategory_to_add}'
+                    build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{hparams['before_subcategory']}{subcategory_to_add}{hparams['after_text']}"
+                    # else:
+                    # subcategory_to_add = f'an {subcategory_to_add}' if starts_with_vowel(subcategory_to_add) else f'a {subcategory_to_add}'
+                    # build_descriptor_string = lambda item: f"{hparams['before_text']}{word_to_add}{hparams['between_text']}{truncate_label(modify_descriptor(item, hparams['apply_descriptor_modification'], hparams), cut_proportion)}{f' which presents {subcategory_to_add} appearance when viewed'}{hparams['after_text']}"
 
                 elif (hparams['method'] == 'defntaxs_sans_descriptor'):
 
