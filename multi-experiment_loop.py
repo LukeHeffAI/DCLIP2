@@ -37,13 +37,11 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
         force_regenerate_subcategories: Whether to regenerate subcategories before each run
         max_classes_per_subcategory: Maximum classes per subcategory for this run set
     """
-    model_sizes     = ['ViT-B/16']  # Choosing this order for medium range length of experiment
+    model_sizes     = ['ViT-B/32', 'ViT-B/16']  # Choosing this order for medium range length of experiment
     desc_types      = ['gpt-3']
-    # datasets        = ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
-    datasets        = ['food101']
+    datasets        = ['cub', 'pets', 'dtd', 'food101', 'places365', 'eurosat']
     methods         = ['defntaxs']
     context_indices = list(range(5))  # Up to 5 context options for each dataset
-    # context_indices = [1]
 
     total_configs = len(model_sizes) * len(desc_types) * len(datasets) * len(methods) * len(context_indices)
     total_runs    = total_configs * num_runs
@@ -86,36 +84,41 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
         max_run_id = max((r.get('run_id', 0) for r in matching), default=0)
         print(f"{done}/{num_runs} exist for {current_dataset}; running {to_do} more (starting at run_id={max_run_id+1})")
 
-            # only regenerate if we’re extending an existing context_idx (max_run_id>0)
-            # and this run_id is beyond what we’ve already done for that context_idx
-        if method == 'defntaxs' and force_regenerate_subcategories \
-               and max_run_id > 0 and run_id > max_run_id:
-            # only regenerate once before the next batch
-            print(f"[run {run_id}] regenerating subcategories (ctx={context_idx}, max={max_classes_per_subcategory})")
-            # initial params
-            hparams, _, _, _, _, _, _, _, _ = set_hparams(
-                        model_size=model_size,
-                        desc_type=desc_type,
-                        dataset=current_dataset,
-                        method=method,
-                        subcategory_context_idx=context_idx
-            )
-            create_subcategories(
-                hparams, force=True, max_workers=20,
-                max_classes_per_subcategory=max_classes_per_subcategory
-            )
-
         # Run the required experiments
         for i in range(to_do):
             run_id = max_run_id + i + 1
             try:
+                # Generate subcategories if this is a new run and regeneration is forced
+                if method == 'defntaxs' and force_regenerate_subcategories:
+                    hparams, _, _, _, _, _, _, _, _ = set_hparams(
+                                model_size=model_size,
+                                desc_type=desc_type,
+                                dataset=current_dataset,
+                                method=method,
+                                subcategory_context_idx=context_idx,
+                                run_id=run_id,
+                                max_classes_per_subcategory=max_classes_per_subcategory
+                    )
+                    # Check if subcategories already exist
+                    if os.path.exists(f'class_analysis/json/versions/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}_mcps{hparams["max_classes_per_subcategory"]}.json') != True:
+                        # Create subcategories
+                        print(f"Creating subcategories for {current_dataset} run {run_id} (ctx={context_idx}, max={max_classes_per_subcategory})")
+                        create_subcategories(
+                            hparams, force=True, max_workers=20,
+                            max_classes_per_subcategory=max_classes_per_subcategory
+                        )
+                    else:
+                        print(f"Subcategory data already exists for: {current_dataset}, run {run_id}, mcps={max_classes_per_subcategory}")
+
                 seed_everything(run_id)
                 hparams, tfms, ds_loader, ds_classes, class_subcats, gpt_descs, unmod, label_to_classname, n_classes = set_hparams(
                     model_size=model_size,
                     desc_type=desc_type,
                     dataset=current_dataset,
                     method=method,
-                    subcategory_context_idx=context_idx
+                    subcategory_context_idx=context_idx,
+                    run_id=run_id,
+                    max_classes_per_subcategory=max_classes_per_subcategory
                 )
 
                 print(f"Starting run #{run_id}")
@@ -142,7 +145,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                 completed += 1
 
             except Exception as e:
-                key = f"{method}_{model_size}_{desc_type}_{current_dataset}_ctx{context_idx}_run{run_id}"
+                key = f"{method}_{model_size}_{desc_type}_{current_dataset}_ctx{context_idx}_run{run_id}_mcps{max_classes_per_subcategory}"
                 failures[key] = {
                     'desc_type': desc_type,
                     'model_size': model_size,
@@ -240,18 +243,32 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
     return experimental_results
 
 
-if __name__ == "__main__":
-    num_runs = 5
-    force_regenerate = True
+# if __name__ == "__main__":
+#     num_runs = 5
+#     force_regenerate = True
     
-    # for max_classes_per_subcategory in [5, 8, 12, 18, 20, 25, 30, 40]:
-    # for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
-    for max_classes_per_subcategory in [40, 30]:
-        start_time = time()
-        run_experiments(num_runs=num_runs,
-                        force_regenerate_subcategories=force_regenerate,
-                        max_classes_per_subcategory=max_classes_per_subcategory)
-        end_time = time()
-        print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+#     # for max_classes_per_subcategory in [5, 8, 12, 18, 20, 25, 30, 40]:
+#     # for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
+#     for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
+#         start_time = time()
+#         run_experiments(num_runs=num_runs,
+#                         force_regenerate_subcategories=force_regenerate,
+#                         max_classes_per_subcategory=max_classes_per_subcategory)
+#         end_time = time()
+#         print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
 
-    print("All experiments completed.")
+#     print("All experiments completed.")
+
+# The following code opens the existing results file, loads the results into a dictionary, deletes all entries containing the parameter 'dtd', and then saves the updated dictionary back to the file.
+# This is due to an error in the dataset loading process that caused all results to be duplicates.
+#
+# For context, the results file is in the form: { "defntaxs": { "ViT-B/32": [ { "desc_type": "gpt-3", "dataset": "cub", "context_idx": 0, "max_classes_per_subcategory": 10, "run_id": 1, "seed": 42, "timestamp": 1234567890 } ] } }
+if __name__ == "__main__":
+    results_file = 'results/subcat_hparam_tests_new.json'
+    all_results = load_existing_results(results_file)
+    # Remove all entries with 'dtd' in the dataset name
+    for method, method_results in all_results.items():
+        for model_size, model_results in method_results.items():
+            all_results[method][model_size] = [result for result in model_results if 'dtd' not in result['dataset']]
+    # Save the updated results back to the file
+    save_results(all_results, results_file)
