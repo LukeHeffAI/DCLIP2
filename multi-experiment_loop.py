@@ -243,32 +243,18 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
     return experimental_results
 
 
-# if __name__ == "__main__":
-#     num_runs = 5
-#     force_regenerate = True
-    
-#     # for max_classes_per_subcategory in [5, 8, 12, 18, 20, 25, 30, 40]:
-#     # for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
-#     for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
-#         start_time = time()
-#         run_experiments(num_runs=num_runs,
-#                         force_regenerate_subcategories=force_regenerate,
-#                         max_classes_per_subcategory=max_classes_per_subcategory)
-#         end_time = time()
-#         print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
-
-#     print("All experiments completed.")
-
-# The following code opens the existing results file, loads the results into a dictionary, deletes all entries containing the parameter 'dtd', and then saves the updated dictionary back to the file.
-# This is due to an error in the dataset loading process that caused all results to be duplicates.
-#
-# For context, the results file is in the form: { "defntaxs": { "ViT-B/32": [ { "desc_type": "gpt-3", "dataset": "cub", "context_idx": 0, "max_classes_per_subcategory": 10, "run_id": 1, "seed": 42, "timestamp": 1234567890 } ] } }
 if __name__ == "__main__":
-    results_file = 'results/subcat_hparam_tests_new.json'
-    all_results = load_existing_results(results_file)
-    # Remove all entries with 'dtd' in the dataset name
-    for method, method_results in all_results.items():
-        for model_size, model_results in method_results.items():
-            all_results[method][model_size] = [result for result in model_results if 'dtd' not in result['dataset']]
-    # Save the updated results back to the file
-    save_results(all_results, results_file)
+    num_runs = 5
+    force_regenerate = True
+    
+    # for max_classes_per_subcategory in [5, 8, 12, 18, 20, 25, 30, 40]:
+    # for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
+    for max_classes_per_subcategory in [40, 30, 25, 20, 18, 12, 8, 5]:
+        start_time = time()
+        run_experiments(num_runs=num_runs,
+                        force_regenerate_subcategories=force_regenerate,
+                        max_classes_per_subcategory=max_classes_per_subcategory)
+        end_time = time()
+        print(f"Total time taken: {end_time - start_time:.2f} seconds / {(end_time - start_time)/3600:.2f} hours")
+
+    print("All experiments completed.")
