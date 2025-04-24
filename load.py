@@ -17,7 +17,7 @@ import clip
 from loading_helpers import *
 
 
-def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=0, run_id=0, max_classes_per_subcategory=5):
+def set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='imagenet', method='defntaxs', subcategory_context_idx=0, run_id=0, max_classes_per_subcategory=5):
     hparams = {}
 
     hparams['model_size'] = model_size
@@ -336,6 +336,7 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
 
 
     try:
+        print("Loading class analysis from {}...".format(hparams['class_analysis_fname'].split("/")[-1]))
         with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
             class_subcategories = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
@@ -357,7 +358,7 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
 
     a = 1
 
-    return hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes
+    return hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes, contexts
 
 # hparams = set_hparams('ViT-B/32', 'gpt-3', 'cub', 'd-clip')
 # hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
