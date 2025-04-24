@@ -17,7 +17,7 @@ import clip
 from loading_helpers import *
 
 
-def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=0):
+def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=0, run_id=0, max_classes_per_subcategory=5):
     hparams = {}
 
     hparams['model_size'] = model_size
@@ -37,6 +37,7 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
     # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
 
     hparams['subcategory_context_idx'] = subcategory_context_idx
+    hparams['max_classes_per_subcategory'] = max_classes_per_subcategory
 
     hparams['batch_size'] = 64*10
     hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
@@ -59,7 +60,7 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         print(f'Model size is {hparams["model_size"]} but image size is {hparams["image_size"]}. Setting image size to 288.')
         hparams['image_size'] = 448
 
-    hparams['seed'] = 1
+    hparams['seed'] = run_id
 
     # classes_to_load = openai_imagenet_classes
     hparams['descriptor_fname'] = None
@@ -96,14 +97,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         classes_to_load = None
         hparams['descriptor_fname'] = 'descriptors_imagenet'
         # ImageNet contextualizing options
-        imagenet_contexts = [
+        contexts = [
             ', which is a type of ',  # Original
             ', which belongs to the category of ',
             ', which would be classified as ',
             ', which is an example of ',
             ', which falls under the group of '
         ]
-        hparams['before_subcategory'] = imagenet_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
             
     elif hparams['dataset'] == 'imagenetv2':
@@ -115,14 +116,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         dataset_loader = dsclass(location=str(hparams['data_dir']), transform=tfms)
         classes_to_load = openai_imagenet_classes
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        imagenet_contexts = [
+        contexts = [
             ', which is a type of ',  # Original
             ', which belongs to the category of ',
             ', which would be classified as ',
             ', which is an example of ',
             ', which falls under the group of '
         ]
-        hparams['before_subcategory'] = imagenet_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
 
     elif hparams['dataset'] == 'cub':
@@ -134,14 +135,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         classes_to_load = None #dataset.classes
         hparams['descriptor_fname'] = 'descriptors_cub'
         # CUB contextualizing options
-        cub_contexts = [
+        contexts = [
             ', which belongs to the genus of ',  # Original
             ', which is classified under the genus ',
             ', which is a member of the genus ',
             ', which is taxonomically categorized as ',
             ', which is scientifically classified in the genus '
         ]
-        hparams['before_subcategory'] = cub_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset of bird images.'
         
     elif hparams['dataset'] == 'eurosat':
@@ -154,14 +155,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         hparams['descriptor_fname'] = 'descriptors_eurosat'
         classes_to_load = None
         # EuroSAT contextualizing options
-        eurosat_contexts = [
+        contexts = [
             ', which is a type of ',  # Original
             ', which represents a category of ',
             ', which is classified as ',
             ', which is characteristic of ',
             ', which exemplifies '
         ]
-        hparams['before_subcategory'] = eurosat_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from the EuroSAT dataset.'
         
     elif hparams['dataset'] == 'places365':
@@ -173,14 +174,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         hparams['descriptor_fname'] = 'descriptors_places365'
         classes_to_load = None
         # Places365 contextualizing options
-        places_contexts = [
+        contexts = [
             ', which is a type of place for ',  # Original
             ', which serves as a location for ',
             ', which functions as a space for ',
             ', which is an environment for ',
             ', which is designed for '
         ]
-        hparams['before_subcategory'] = places_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing diverse scene images for environmental classification tasks.'
         
     elif hparams['dataset'] == 'food101':
@@ -193,14 +194,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         hparams['descriptor_fname'] = 'descriptors_food101'
         classes_to_load = None
         # Food101 contextualizing options
-        food_contexts = [
+        contexts = [
             ', which would be found on a menu under ',  # Original
             ', which is typically categorized as ',
             ', which is served as part of ',
             ', which belongs to the category of ',
             ', which is classified as '
         ]
-        hparams['before_subcategory'] = food_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories.'
 
     elif hparams['dataset'] == 'pets':
@@ -213,14 +214,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         hparams['descriptor_fname'] = 'descriptors_pets'
         classes_to_load = None
         # Oxford Pets contextualizing options
-        pets_contexts = [
+        contexts = [
             ', which is a breed of ',  # Original
             ', which belongs to the family of ',
             ', which is classified as a type of ',
             ', which represents a variety of ',
             ', which is recognized as a '
         ]
-        hparams['before_subcategory'] = pets_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images of dog and cat breeds.'
         
     elif hparams['dataset'] == 'dtd':
@@ -232,14 +233,14 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
         hparams['descriptor_fname'] = 'descriptors_dtd'
         classes_to_load = None
         # DTD contextualizing options
-        dtd_contexts = [
+        contexts = [
             ', which is a type of texture for ',  # Original
             ', which is categorized as a texture for ',
             ', which is classified as a type of texture for ',
             ', which represents a texture for ',
             ', which exemplifies a texture for '
         ]
-        hparams['before_subcategory'] = dtd_contexts[hparams['subcategory_context_idx']]
+        hparams['before_subcategory'] = contexts[hparams['subcategory_context_idx']]
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing images categorized by visual textures.'
 
     elif hparams['dataset'] == 'cifar10':
@@ -330,15 +331,22 @@ def set_hparams(model_size, desc_type, dataset, method, subcategory_context_idx=
 
     hparams['descriptor_fname'] = f'./descriptors/{hparams['desc_type']}/{hparams['descriptor_fname']}'
     hparams['descriptor_analysis_fname'] = './descriptor_analysis/descriptors_' + hparams['analysis_fname']
-    hparams['class_analysis_fname'] = f'class_analysis/json/versions/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}_ctxid{hparams["subcategory_context_idx"]}'
+    hparams['class_analysis_fname'] = f'class_analysis/json/versions/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}_mcps{hparams["max_classes_per_subcategory"]}'
     hparams['subcategory_desc_fname'] = './class_analysis/json/class_' + hparams['analysis_fname'] + '_descriptors'
 
-    print("Loading class subcategories...")
-    if hparams['class_analysis_fname'] + '.json':
+
+    try:
         with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
             class_subcategories = json.load(f)
-    else:
-        class_subcategories = {}
+    except (FileNotFoundError, json.JSONDecodeError):
+        try:
+            with open('./class_analysis/json/class_' + hparams['analysis_fname'] + '.json', 'r') as f2:
+                class_subcategories = json.load(f2)
+                hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
+        except (FileNotFoundError, json.JSONDecodeError):
+            class_subcategories = {}
+    print("Class subcategories loaded from {}.".format(hparams['class_analysis_fname'].split("/")[-1]))
+   
         
     print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
 
