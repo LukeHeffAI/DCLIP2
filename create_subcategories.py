@@ -289,7 +289,8 @@ def create_subcategories(hparams, class_filename=None, force=False, max_workers=
     
     # Save subcategories with run_id in filename to maintain distinct versions
     if class_filename is None:
-        class_filename = f'class_analysis/json/versions/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}_ctxid{hparams["subcategory_context_idx"]}.json'
+        class_filename = f'class_analysis/json/versions/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}_mcps{hparams["max_classes_per_subcategory"]}.json'
+        print(f"Saving subcategories to {class_filename}")
     os.makedirs(os.path.dirname(class_filename), exist_ok=True)
 
     # Load the descriptor file to get class list
@@ -367,11 +368,10 @@ if __name__ == "__main__":
     # If this script is run directly, use these settings
     from load import set_hparams
     
-    # Set the hyperparameters
-    hparams, _, _, _, _, _, _, _, _ = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='dtd', method='defntaxs')
-    
-    # Update the hyperparameters
-    # hparams, _, _, _, _, _, _, _, _ = update_hparams(hparams)
-    
-    # Force regeneration of subcategories with parallel processing
-    create_subcategories(hparams, force=True, max_workers=10, max_classes_per_subcategory=5)
+    for dataset in ['cub', 'pets', 'dtd', 'food101', 'places365', 'eurosat']:
+        for max_classes_per_subcategory in [20, 18, 12, 8, 5]:
+            for run_id in list(range(1,6)):
+                hparams, _, _, _, _, _, _, _, _ = set_hparams(model_size='ViT/B-32', desc_type='gpt-3', dataset=dataset, method='defntaxs', subcategory_context_idx=0, run_id=run_id, max_classes_per_subcategory=max_classes_per_subcategory)
+                if os.path.exists(f'class_analysis/json/versions/class_analysis_{hparams["dataset"]}_run{hparams["seed"]}_mcps{hparams["max_classes_per_subcategory"]}.json') != True:
+
+                    create_subcategories(hparams, force=True, max_workers=10, max_classes_per_subcategory=max_classes_per_subcategory)
