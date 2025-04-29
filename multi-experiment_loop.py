@@ -90,7 +90,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
             try:
                 # Generate subcategories if this is a new run and regeneration is forced
                 if method == 'defntaxs' and force_regenerate_subcategories:
-                    hparams, _, _, _, _, _, _, _, _ = set_hparams(
+                    hparams, _, _, _, _, _, _, _, _, _ = set_hparams(
                                 model_size=model_size,
                                 desc_type=desc_type,
                                 dataset=current_dataset,
@@ -111,7 +111,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                         print(f"Subcategory data already exists for: {current_dataset}, run {run_id}, mcps={max_classes_per_subcategory}")
 
                 seed_everything(run_id)
-                hparams, tfms, ds_loader, ds_classes, class_subcats, gpt_descs, unmod, label_to_classname, n_classes = set_hparams(
+                hparams, tfms, ds_loader, ds_classes, class_subcats, gpt_descs, unmod, label_to_classname, n_classes, contexts = set_hparams(
                     model_size=model_size,
                     desc_type=desc_type,
                     dataset=current_dataset,
@@ -121,7 +121,7 @@ def run_experiments(num_runs=3, force_regenerate_subcategories=True, max_classes
                     max_classes_per_subcategory=max_classes_per_subcategory
                 )
 
-                print(f"Starting run #{run_id}")
+                print(f"Starting run #{run_id} for {method}/{model_size}/{desc_type}/{current_dataset}/ctx{context_idx}/mcps={max_classes_per_subcategory}")
                 results = run_single_experiment(
                     hparams, tfms, ds_loader, ds_classes,
                     gpt_descs, label_to_classname, n_classes
