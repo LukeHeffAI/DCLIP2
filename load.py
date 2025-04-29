@@ -336,7 +336,6 @@ def set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='imagenet', me
 
 
     try:
-        print("Loading class analysis from {}...".format(hparams['class_analysis_fname'].split("/")[-1]))
         with open(hparams['class_analysis_fname'] + '.json', 'r') as f:
             class_subcategories = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
@@ -346,7 +345,6 @@ def set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='imagenet', me
                 hparams['class_analysis_fname'] = './class_analysis/json/class_' + hparams['analysis_fname']
         except (FileNotFoundError, json.JSONDecodeError):
             class_subcategories = {}
-    print("Class subcategories loaded from {}.".format(hparams['class_analysis_fname'].split("/")[-1]))
    
         
     print("Creating descriptors from {}...".format(hparams['descriptor_fname'].split("/")[-1]))
