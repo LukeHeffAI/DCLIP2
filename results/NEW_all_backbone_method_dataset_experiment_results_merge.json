@@ -306,6 +306,72 @@
                     "Defntaxs_tax_descriptor Accuracy: ": 52.75999903678894,
                     "CLIP Accuracy: ": 51.74000263214111
                 }
+            },
+            "chils_superclass": {
+                "cub": {
+                    "Chils_superclass Accuracy: ": 0.5253647777400746,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils_superclass Accuracy: ": 0.4377659574468085,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils_superclass Accuracy: ": 0.4607777777777778,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils_superclass Accuracy: ": 0.8394059405940594,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils_superclass Accuracy: ": 0.1078804347826087,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "chils_no_rw": {
+                "cub": {
+                    "Chils_no_rw Accuracy: ": 0.5197658635900916,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils_no_rw Accuracy: ": 0.43670212765957445,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils_no_rw Accuracy: ": 0.4282592592592593,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils_no_rw Accuracy: ": 0.8352871287128713,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils_no_rw Accuracy: ": 0.10815217391304348,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "chils": {
+                "cub": {
+                    "Chils Accuracy: ": 0.5251951136749237,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils Accuracy: ": 0.4430851063829787,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils Accuracy: ": 0.4508888888888889,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils Accuracy: ": 0.84,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils Accuracy: ": 0.10842391304347826,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
             }
         },
         "ViT-B/16": {
@@ -614,6 +680,72 @@
                     "Defntaxs_tax_descriptor Accuracy: ": 58.56999754905701,
                     "CLIP Accuracy: ": 57.819998264312744
                 }
+            },
+            "chils_superclass": {
+                "cub": {
+                    "Chils_superclass Accuracy: ": 0.5521717000339328,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils_superclass Accuracy: ": 0.45053191489361705,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils_superclass Accuracy: ": 0.5463333333333333,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils_superclass Accuracy: ": 0.8883168316831683,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils_superclass Accuracy: ": 0.11385869565217391,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "chils_no_rw": {
+                "cub": {
+                    "Chils_no_rw Accuracy: ": 0.5546318289786223,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils_no_rw Accuracy: ": 0.4542553191489362,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils_no_rw Accuracy: ": 0.4715925925925926,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils_no_rw Accuracy: ": 0.8902178217821782,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils_no_rw Accuracy: ": 0.10842391304347826,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "chils": {
+                "cub": {
+                    "Chils Accuracy: ": 0.5578554462164913,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils Accuracy: ": 0.45585106382978724,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils Accuracy: ": 0.5371111111111111,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils Accuracy: ": 0.8913267326732673,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils Accuracy: ": 0.11114130434782608,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
             }
         },
         "ViT-L/14": {
@@ -913,6 +1045,72 @@
                 "imagenetv2": {
                     "Defntaxs_tax_descriptor Accuracy: ": 66.50000214576721,
                     "CLIP Accuracy: ": 65.32999873161316
+                }
+            },
+            "chils_superclass": {
+                "cub": {
+                    "Chils_superclass Accuracy: ": 0.6215643026806922,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils_superclass Accuracy: ": 0.5537234042553192,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils_superclass Accuracy: ": 0.6001481481481481,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils_superclass Accuracy: ": 0.9306930693069307,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils_superclass Accuracy: ": 0.10869565217391304,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "chils_no_rw": {
+                "cub": {
+                    "Chils_no_rw Accuracy: ": 0.6205463182897862,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils_no_rw Accuracy: ": 0.5553191489361702,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils_no_rw Accuracy: ": 0.6053703703703703,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils_no_rw Accuracy: ": 0.9295841584158416,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils_no_rw Accuracy: ": 0.10815217391304348,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "chils": {
+                "cub": {
+                    "Chils Accuracy: ": 0.6229216152019003,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Chils Accuracy: ": 0.5654255319148936,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Chils Accuracy: ": 0.6082592592592593,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food-101": {
+                    "Chils Accuracy: ": 0.930970297029703,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Chils Accuracy: ": 0.10842391304347826,
+                    "CLIP Accuracy: ": "clip_baseline"
                 }
             }
         }
