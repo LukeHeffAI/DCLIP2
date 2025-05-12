@@ -201,3 +201,4 @@ cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,jupyternotebooks
 n
+class_analysis/json/versions/class_analysis_*_mcps*.json
