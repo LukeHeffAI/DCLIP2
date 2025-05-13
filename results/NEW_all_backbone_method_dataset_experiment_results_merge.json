@@ -384,6 +384,66 @@
                     "Chils Accuracy: ": 84.0,
                     "CLIP Accuracy: ": "clip_baseline"
                 }
+            },
+            "cgptp": {
+                "imagenet": {
+                    "Cgptp Accuracy: ": 63.32,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "cub": {
+                    "Cgptp Accuracy: ": 53.72,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Cgptp Accuracy: ": 82.9,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Cgptp Accuracy: ": 45.81,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food101": {
+                    "Cgptp Accuracy: ": 80.98,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "places365": {
+                    "Cgptp Accuracy: ": 39.91,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Cgptp Accuracy: ": 43.11,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "cupl": {
+                "imagenet": {
+                    "Cupl Accuracy: ": 62.12,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "cub": {
+                    "Cupl Accuracy: ": 52.34,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Cupl Accuracy: ": 81.78,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Cupl Accuracy: ": 40.95,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food101": {
+                    "Cupl Accuracy: ": 79.84,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "places365": {
+                    "Cupl Accuracy: ": 38.87,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Cupl Accuracy: ": 41.5,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
             }
         },
         "ViT-B/16": {
@@ -717,6 +777,10 @@
                 "food101": {
                     "Chils_superclass Accuracy: ": 88.83168316831683,
                     "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils_superclass Accuracy: ": 65.108,
+                    "CLIP Accuracy: ": "clip_baseline"
                 }
             },
             "chils_no_rw": {
@@ -743,6 +807,10 @@
                 "food101": {
                     "Chils_no_rw Accuracy: ": 89.02178217821782,
                     "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils_no_rw Accuracy: ": 65.732,
+                    "CLIP Accuracy: ": "clip_baseline"
                 }
             },
             "chils": {
@@ -768,6 +836,70 @@
                 },
                 "food101": {
                     "Chils Accuracy: ": 89.13267326732674,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils Accuracy: ": 65.712,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "cgptp": {
+                "imagenet": {
+                    "Cgptp Accuracy: ": 68.03,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "cub": {
+                    "Cgptp Accuracy: ": 57.81,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Cgptp Accuracy: ": 86.16,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Cgptp Accuracy: ": 47.18,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food101": {
+                    "Cgptp Accuracy: ": 85.39,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "places365": {
+                    "Cgptp Accuracy: ": 41.02,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Cgptp Accuracy: ": 47.6,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "cupl": {
+                "imagenet": {
+                    "Cupl Accuracy: ": 66.01,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "cub": {
+                    "Cupl Accuracy: ": 56.84,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Cupl Accuracy: ": 84.03,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Cupl Accuracy: ": 42.61,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food101": {
+                    "Cupl Accuracy: ": 83.89,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "places365": {
+                    "Cupl Accuracy: ": 39.01,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Cupl Accuracy: ": 38.57,
                     "CLIP Accuracy: ": "clip_baseline"
                 }
             }
@@ -941,7 +1073,7 @@
                     "CLIP Accuracy: ": 63.03071975708008
                 },
                 "eurosat": {
-                    "Defntaxs Accuracy: ": 59.68148112297058,
+                    "Defntaxs Accuracy: ": 60.54148112297058,
                     "CLIP Accuracy: ": 36.803704500198364
                 },
                 "pets": {
@@ -1107,7 +1239,7 @@
                     "CLIP Accuracy: ": "clip_baseline"
                 },
                 "eurosat": {
-                    "Chils_no_rw Accuracy: ": 60.53703703703703,
+                    "Chils_no_rw Accuracy: ": 59.68703703703703,
                     "CLIP Accuracy: ": "clip_baseline"
                 },
                 "food-101": {
@@ -1146,6 +1278,66 @@
                 },
                 "food101": {
                     "Chils Accuracy: ": 93.0970297029703,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "cgptp": {
+                "imagenet": {
+                    "Cgptp Accuracy: ": 74.55,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "cub": {
+                    "Cgptp Accuracy: ": 63.89,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Cgptp Accuracy: ": 91.77,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Cgptp Accuracy: ": 56.05,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food101": {
+                    "Cgptp Accuracy: ": 90.49,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "places365": {
+                    "Cgptp Accuracy: ": 41.61,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Cgptp Accuracy: ": 46.01,
+                    "CLIP Accuracy: ": "clip_baseline"
+                }
+            },
+            "cupl": {
+                "imagenet": {
+                    "Cupl Accuracy: ": 73.68,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "cub": {
+                    "Cupl Accuracy: ": 63.03,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "pets": {
+                    "Cupl Accuracy: ": 84.6,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "dtd": {
+                    "Cupl Accuracy: ": 43.87,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "food101": {
+                    "Cupl Accuracy: ": 88.97,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "places365": {
+                    "Cupl Accuracy: ": 38.57,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "eurosat": {
+                    "Cupl Accuracy: ": 48.25,
                     "CLIP Accuracy: ": "clip_baseline"
                 }
             }
