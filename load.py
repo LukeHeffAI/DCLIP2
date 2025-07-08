@@ -36,9 +36,7 @@ def set_hparams(model_size, desc_type, dataset, method):
     # Options:
     # ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
 
-    return hparams
 
-def update_hparams(hparams):
     hparams['batch_size'] = 64*10
     hparams['device'] = "cuda" if torch.cuda.is_available() else "cpu"
     hparams['category_name_inclusion'] = 'prepend' #'append' 'prepend'
