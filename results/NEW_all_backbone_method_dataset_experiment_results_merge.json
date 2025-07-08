@@ -331,6 +331,10 @@
                 "food101": {
                     "Chils_superclass Accuracy: ": 83.94059405940594,
                     "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils_superclass Accuracy: ": 60.309999999999995,
+                    "CLIP Accuracy: ": "clip_baseline"
                 }
             },
             "chils_no_rw": {
@@ -357,6 +361,10 @@
                 "food101": {
                     "Chils_no_rw Accuracy: ": 83.52871287128713,
                     "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils_no_rw Accuracy: ": 60.940000000000005,
+                    "CLIP Accuracy: ": "clip_baseline"
                 }
             },
             "chils": {
@@ -382,6 +390,10 @@
                 },
                 "food101": {
                     "Chils Accuracy: ": 84.0,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils Accuracy: ": 61.086,
                     "CLIP Accuracy: ": "clip_baseline"
                 }
             },
@@ -1227,6 +1239,10 @@
                 "food101": {
                     "Chils_superclass Accuracy: ": 93.06930693069307,
                     "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils_superclass Accuracy: ": 72.57000000000001,
+                    "CLIP Accuracy: ": "clip_baseline"
                 }
             },
             "chils_no_rw": {
@@ -1253,6 +1269,10 @@
                 "food101": {
                     "Chils_no_rw Accuracy: ": 92.95841584158417,
                     "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils_no_rw Accuracy: ": 72.198,
+                    "CLIP Accuracy: ": "clip_baseline"
                 }
             },
             "chils": {
@@ -1278,6 +1298,10 @@
                 },
                 "food101": {
                     "Chils Accuracy: ": 93.0970297029703,
+                    "CLIP Accuracy: ": "clip_baseline"
+                },
+                "imagenet": {
+                    "Chils Accuracy: ": 72.642,
                     "CLIP Accuracy: ": "clip_baseline"
                 }
             },
