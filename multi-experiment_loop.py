@@ -1,7 +1,7 @@
 import itertools
 import copy
 import json
-from load import set_hparams, update_hparams, compute_description_encodings, compute_label_encodings, aggregate_similarity
+from load import set_hparams, compute_description_encodings, compute_label_encodings, aggregate_similarity
 from loading_helpers import seed_everything
 from torch.utils.data import DataLoader
 import torch
@@ -65,10 +65,7 @@ def run_experiments():
         # current_hparams = copy.deepcopy(hparams)
         
         # Set hparams for the current experiment
-        hparams = set_hparams(model_size, desc_type, current_dataset, method)
-
-        # Update hparams and other variables based on the current experiment using update_hparams
-        hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = update_hparams(hparams)
+        hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size, desc_type, current_dataset, method)
         
         
         print(f"Running experiment with model_size: {model_size}, desc_type: {desc_type}, dataset: {current_dataset}, method: {method}")
