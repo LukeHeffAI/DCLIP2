@@ -1,7 +1,8 @@
-import json
 import os
+import json
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 import torch
@@ -10,125 +11,139 @@ from pytorch_lightning import seed_everything
 import clip
 from load import set_hparams, compute_description_encodings, compute_label_encodings
 
-def load_or_initialise_results(file_path):
-    try:
-        with open(file_path, 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {}
-
-def save_results(results, file_path):
-    with open(file_path, 'w') as f:
-        json.dump(results, f, indent=4)
-
 # ─── Config ──────────────────────────────────────────────────────────────────────
-dataset = 'eurosat'
-method = 'd-clip'       # Options: ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs']
-results_file = 'results/experiment_results.json'
-output_dir   = 'figs/tsne_vis'
-os.makedirs(output_dir, exist_ok=True)
+dataset           = 'eurosat'
+METHODS           = ['d-clip', 'waffleclip', 'defntaxs']  # ← add as many as you like
+MODEL_SIZE        = 'ViT-B/32'
+DESC_TYPE         = 'gpt-3'
+RESULTS_FILE      = 'results/experiment_results.json'
+OUTPUT_DIR        = 'figs/tsne_vis'
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# TSNE / plotting params
-PCA_DIMS     = 50
-TSNE_PERP    = 10
-TSNE_SEED    = 0
-MARKER_SIZE  = 80
-DESC_MARKER  = 'x'
-CLIP_MARKER  = 'o'
-DESC_COLOR   = 'tab:orange'
-CLIP_COLOR   = 'tab:blue'
-FONT_SIZE_DESC = 5
-FONT_SIZE_CLIP = 6
+# TSNE / plotting parameters
+PCA_DIMS               = 50
+TSNE_PERP              = 10
+TSNE_SEED              = 0
+MARKER_SIZE            = 80
+BASELINE_MARKER        = 'o'
+METHOD_MARKERS         = ['x','s','^','D','v','<','>','P','*']  # will cycle if you have >9 methods
+ANNOTATE_BASELINE_EVERY= 5
+FONT_BASELINE          = 6
+FONT_METHOD            = 5
 
-# ─── Setup ───────────────────────────────────────────────────────────────────────
-# Hyperparameters, data, model
-hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(
-    model_size='ViT-B/32',
-    desc_type='gpt-3',
+# ─── Setup model, data ───────────────────────────────────────────────────────────
+# 1) get baseline hyperparams + class names
+hparams_base, _, dataset_loader, _, _, _, _, label_to_classname, _ = set_hparams(
+    model_size=MODEL_SIZE,
+    desc_type=DESC_TYPE,
     dataset=dataset,
-    method=method
+    method='clip'   # baseline
 )
+seed_everything(hparams_base['seed'])
 
-seed_everything(hparams['seed'])
+device = torch.device(hparams_base['device'])
+model, _ = clip.load(MODEL_SIZE, device=device, jit=False)
+model.eval()
+model.requires_grad_(False)
 
 dataloader = DataLoader(dataset_loader,
-                        batch_size=hparams['batch_size'],
+                        batch_size=hparams_base['batch_size'],
                         shuffle=False,
                         num_workers=16,
                         pin_memory=True)
 
-device = torch.device(hparams['device'])
-model, preprocess = clip.load(hparams['model_size'],
-                              device=device,
-                              jit=False)
-model.eval()
-model.requires_grad_(False)
+# ─── Build embeddings for each group ───────────────────────────────────────────────
+all_embeddings   = []
+all_group_names  = []
+all_class_names  = []
+marker_list      = []
 
+# 1) Baseline CLIP labels
+label_pts = compute_label_encodings(model, hparams_base, label_to_classname).cpu().numpy()
+all_embeddings.append(label_pts)
+all_group_names.append('CLIP-Standard')
+all_class_names.append(list(label_to_classname))
+marker_list.append(BASELINE_MARKER)
 
-# ─── Encode ──────────────────────────────────────────────────────────────────────
-print("Encoding descriptions and labels…")
-desc_encs  = compute_description_encodings(model, gpt_descriptions, hparams)
-label_encs = compute_label_encodings(model, hparams, label_to_classname)
+# 2) Each method’s description embeddings
+for idx, method in enumerate(METHODS):
+    # get method-specific descriptors
+    hparams_m, _, _, _, _, gpt_descs_m, _, _, _ = set_hparams(
+        model_size=MODEL_SIZE,
+        desc_type=DESC_TYPE,
+        dataset=dataset,
+        method=method
+    )
+    desc_encs = compute_description_encodings(model, gpt_descs_m, hparams_m)
+    emb = np.vstack([v.cpu().numpy() for v in desc_encs.values()])
+    names = [cls for cls, v in desc_encs.items() for _ in range(v.shape[0])]
 
-# Build data matrix + labels
-desc_points = torch.cat(list(desc_encs.values()), dim=0).cpu().numpy()
-label_points = label_encs.cpu().numpy()
+    all_embeddings.append(emb)
+    all_group_names.append(method)
+    all_class_names.append(names)
+    marker_list.append(METHOD_MARKERS[idx % len(METHOD_MARKERS)])
 
-X = np.vstack([label_points, desc_points])
-labels_type = (["CLIP-Standard"] * len(label_points) +
-               ["Description-based"] * len(desc_points))
-class_names = list(label_to_classname) + \
-              [cls for cls, pts in desc_encs.items() for _ in range(pts.shape[0])]
+# flatten into one array for TSNE
+X           = np.vstack(all_embeddings)
+flat_names  = sum(all_class_names, [])
 
-# ─── Dimensionality reduction ───────────────────────────────────────────────────
-print("Running PCA → tSNE…")
-pca = PCA(n_components=PCA_DIMS, random_state=TSNE_SEED)
+# ─── PCA → tSNE ──────────────────────────────────────────────────────────────────
+pca  = PCA(n_components=PCA_DIMS, random_state=TSNE_SEED)
 X_pca = pca.fit_transform(X)
-
 tsne = TSNE(n_components=2,
             perplexity=TSNE_PERP,
             random_state=TSNE_SEED,
             init='pca')
 X_2d = tsne.fit_transform(X_pca)
 
+# compute index ranges for each group
+ranges = []
+start = 0
+for emb in all_embeddings:
+    n = emb.shape[0]
+    ranges.append(range(start, start+n))
+    start += n
 
 # ─── Plot ────────────────────────────────────────────────────────────────────────
 fig, ax = plt.subplots(figsize=(12, 9))
-num_labels = len(label_points)
+cmap = cm.get_cmap('tab10')
 
-# Description-based
-desc_idx = range(num_labels, len(X_2d))
-ax.scatter(X_2d[desc_idx,0], X_2d[desc_idx,1],
-           marker=DESC_MARKER,
-           s=MARKER_SIZE * 0.5,
-           alpha=0.6,
-           label='Description-based',
-           color=DESC_COLOR)
-for i in desc_idx:
-    ax.text(X_2d[i,0], X_2d[i,1], class_names[i],
-            fontsize=FONT_SIZE_DESC, color=DESC_COLOR)
+for i, (grp, rng) in enumerate(zip(all_group_names, ranges)):
+    xs = X_2d[list(rng), 0]
+    ys = X_2d[list(rng), 1]
+    color = cmap(i % 10)
 
-# CLIP-Standard
-clip_idx = range(0, num_labels)
-ax.scatter(X_2d[clip_idx,0], X_2d[clip_idx,1],
-           marker=CLIP_MARKER,
-           s=MARKER_SIZE,
-           alpha=0.7,
-           label='CLIP-Standard',
-           color=CLIP_COLOR)
-for i in clip_idx:
-    if i % 5 == 0:  # annotate a subset to reduce clutter
-        ax.text(X_2d[i,0], X_2d[i,1], class_names[i],
-                fontsize=FONT_SIZE_CLIP, color='black')
+    ax.scatter(xs, ys,
+               marker=marker_list[i],
+               s=MARKER_SIZE,
+               alpha=0.7,
+               label=grp,
+               color=color)
 
-ax.set_title(f"tSNE of CLIP vs Description-based Embeddings ({dataset}, {method})")
+    # annotations
+    if i == 0:
+        # baseline: annotate every Nth point
+        for j in rng:
+            if j % ANNOTATE_BASELINE_EVERY == 0:
+                ax.text(X_2d[j,0], X_2d[j,1],
+                        flat_names[j],
+                        fontsize=FONT_BASELINE,
+                        color='black')
+    else:
+        # methods: annotate all
+        for j in rng:
+            ax.text(X_2d[j,0], X_2d[j,1],
+                    flat_names[j],
+                    fontsize=FONT_METHOD,
+                    color=color)
+
+ax.set_title(f"tSNE of CLIP + {', '.join(METHODS)} ({dataset})")
 ax.set_xlabel("tSNE Component 1")
 ax.set_ylabel("tSNE Component 2")
 ax.grid(True)
 ax.legend(loc='best')
 
-# Save then show
-out_path = os.path.join(output_dir, f"tsne_{method}_{dataset}.png")
+out_path = os.path.join(OUTPUT_DIR, f"tsne_multi_{dataset}.png")
 plt.savefig(out_path, dpi=200, bbox_inches='tight')
-print("Saved plot to", out_path)
 plt.show()
+print("Saved to", out_path)
