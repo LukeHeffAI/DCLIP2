@@ -12,9 +12,10 @@ import clip
 from load import set_hparams, compute_description_encodings, compute_label_encodings
 
 # ─── Config ──────────────────────────────────────────────────────────────────────
-dataset           = 'eurosat'
-METHODS           = ['d-clip', 'waffleclip', 'defntaxs']  # ← add as many as you like
+dataset           = 'cub' # Options: ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+METHODS           = ['d-clip', 'defntaxs']
 MODEL_SIZE        = 'ViT-B/32'
+# MODEL_SIZE        = 'ViT-L/14'
 DESC_TYPE         = 'gpt-3'
 RESULTS_FILE      = 'results/experiment_results.json'
 OUTPUT_DIR        = 'figs/tsne_vis'
@@ -24,12 +25,15 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 PCA_DIMS               = 50
 TSNE_PERP              = 10
 TSNE_SEED              = 0
-MARKER_SIZE            = 80
+MARKER_SIZE            = 50
 BASELINE_MARKER        = 'o'
 METHOD_MARKERS         = ['x','*','s','^','D','v','<','>','P']  # will cycle if you have >9 methods
-ANNOTATE_BASELINE_EVERY= 5
-FONT_BASELINE          = 6
+ANNOTATE_BASELINE_EVERY= 1
+FONT_BASELINE          = 4
 FONT_METHOD            = 5
+FIG_SCALE              = 2
+FIG_X                  = 24 * FIG_SCALE
+FIG_Y                  = 16 * FIG_SCALE
 
 # ─── Setup model, data ───────────────────────────────────────────────────────────
 # 1) get baseline hyperparams + class names
@@ -105,7 +109,7 @@ for emb in all_embeddings:
     start += n
 
 # ─── Plot ────────────────────────────────────────────────────────────────────────
-fig, ax = plt.subplots(figsize=(12, 9))
+fig, ax = plt.subplots(figsize=(FIG_X, FIG_Y))
 cmap = cm.get_cmap('tab10')
 
 for i, (grp, rng) in enumerate(zip(all_group_names, ranges)):
