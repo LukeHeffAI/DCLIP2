@@ -15,11 +15,14 @@ def save_results(results, file_path):
     with open(file_path, 'w') as file:
         json.dump(results, file, indent=4)
 
+dataset = 'food101'
+method = 'd-clip'
+
 # Set the hyperparameters
 hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(  model_size='ViT-B/32',
                                                                                                                                                     desc_type='gpt-3',
-                                                                                                                                                    dataset='eurosat',
-                                                                                                                                                    method='dclip'  )
+                                                                                                                                                    dataset=dataset,
+                                                                                                                                                    method=method)
 
 results_file_path = 'results/experiment_results.json'
 results = load_or_initialise_results(results_file_path)
@@ -29,7 +32,7 @@ seed_everything(hparams['seed'])
 
 # Prepare the data loader
 bs = hparams['batch_size']
-dataloader = DataLoader(dataset, bs, shuffle=False, num_workers=16, pin_memory=True)  # Shuffle should be False for class-wise evaluation
+dataloader = DataLoader(dataset_loader, bs, shuffle=False, num_workers=16, pin_memory=True)  # Shuffle should be False for class-wise evaluation
 
 # Load the model and preprocessing
 print("Loading model...")
@@ -214,51 +217,3 @@ print("Total Description-based Top-5 Accuracy: ", 100 * overall_lang_accuracy_me
 print("Total CLIP-Standard Top-1 Accuracy: ", 100 * overall_clip_accuracy_metric.compute().item(), "%")
 print("Total CLIP-Standard Top-5 Accuracy: ", 100 * overall_clip_accuracy_metric_top5.compute().item(), "%")
 print("Class-wise Accuracies and Differences (Top 10 and Bottom 10):\n", list(sorted_class_wise_accuracies.keys())[:10], "\n", list(sorted_class_wise_accuracies.keys())[-10:])
-
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.manifold import TSNE
-
-# 1. Prepare label embeddings (CLIP-Standard)
-label_embs = label_encodings.cpu().numpy()  # shape: [num_classes, d]
-label_names = [label_to_classname[i] for i in range(num_classes)]
-
-# 2. Prepare description embeddings (Description-based)
-desc_embs = []
-desc_labels = []
-desc_names = []
-for i, classname in enumerate(dataset_classes):
-    descs = gpt_descriptions[classname]
-    for d_ix, desc in enumerate(descs):
-        vec = description_encodings[classname][d_ix].cpu().numpy()
-        desc_embs.append(vec)
-        desc_labels.append(i)  # class index
-        desc_names.append(f"{classname}: {desc[:30]}...")  # preview
-
-desc_embs = np.stack(desc_embs)
-
-# 3. Run t-SNE (on both label and descriptor embeddings, together or separately)
-tsne = TSNE(n_components=2, random_state=42)
-label_embs_2d = tsne.fit_transform(label_embs)
-desc_embs_2d = tsne.fit_transform(desc_embs)
-
-plt.figure(figsize=(12,5))
-
-# CLIP-Standard Label Embedding Space
-plt.subplot(1,2,1)
-scatter1 = plt.scatter(label_embs_2d[:,0], label_embs_2d[:,1], c=range(num_classes), cmap='tab20', s=50)
-plt.title("t-SNE: CLIP-Standard Class Embeddings")
-plt.axis('off')
-plt.colorbar(scatter1, fraction=0.03, pad=0.04, label='Class index')
-
-# Description-based Embedding Space
-plt.subplot(1,2,2)
-scatter2 = plt.scatter(desc_embs_2d[:,0], desc_embs_2d[:,1], c=desc_labels, cmap='tab20', s=20, alpha=0.8)
-plt.title("t-SNE: Description-based Embeddings")
-plt.axis('off')
-plt.colorbar(scatter2, fraction=0.03, pad=0.04, label='Class index')
-
-plt.tight_layout()
-plt.show()
