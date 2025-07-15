@@ -143,7 +143,7 @@ ax.set_ylabel("tSNE Component 2")
 ax.grid(True)
 ax.legend(loc='best')
 
-out_path = os.path.join(OUTPUT_DIR, f"tsne_multi_{dataset}.png")
+out_path = os.path.join(OUTPUT_DIR, f"TEST_tsne_multi_{dataset}.png")
 plt.savefig(out_path, dpi=200, bbox_inches='tight')
 plt.show()
 print("Saved to", out_path)
