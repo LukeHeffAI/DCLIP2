@@ -11,10 +11,10 @@ import clip
 from load import set_hparams, compute_description_encodings, compute_label_encodings
 
 # ─── Config ──────────────────────────────────────────────────────────────────────
-dataset           = 'cub' # Options: ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
+dataset           = 'places365' # Options: ['cub', 'eurosat', 'places365', 'food101', 'pets', 'dtd']
 METHODS           = ['d-clip', 'defntaxs']
-MODEL_SIZE        = 'ViT-B/32'
-# MODEL_SIZE        = 'ViT-L/14'
+# MODEL_SIZE        = 'ViT-B/32'
+MODEL_SIZE        = 'ViT-L/14'
 DESC_TYPE         = 'gpt-3'
 RESULTS_FILE      = 'results/experiment_results.json'
 OUTPUT_DIR        = 'figs/tsne_vis'
@@ -27,13 +27,13 @@ TSNE_SEED              = 0
 MARKER_SIZE            = 50
 BASELINE_MARKER        = 'o'
 METHOD_MARKERS         = ['x','*','s','^','D','v','<','>','P']
-ANNOTATE_BASELINE_EVERY = 5   # annotate every Nth baseline point
+ANNOTATE_BASELINE_EVERY = 1   # annotate every Nth baseline point
 ANNOTATE_METHOD_EVERY   = 3   # annotate every Mth point in each method
 FONT_BASELINE          = 6
 FONT_METHOD            = 5
-FIG_SCALE              = 2
-FIG_X                  = 24 * FIG_SCALE
-FIG_Y                  = 16 * FIG_SCALE
+FIG_SCALE              = 2.2
+FIG_X                  = 20 * FIG_SCALE
+FIG_Y                  = 20 * FIG_SCALE
 
 # ─── Setup model & data ──────────────────────────────────────────────────────────
 hparams_base, _, dataset_loader, _, _, _, _, label_to_classname, _ = set_hparams(
@@ -146,7 +146,9 @@ ax.set_ylabel("tSNE Component 2")
 ax.grid(True)
 ax.legend(loc='best')
 
-out_path = os.path.join(OUTPUT_DIR, f"tsne_multi_{dataset}.png")
+model_size = MODEL_SIZE.replace('/', '').replace('ViT-', '')
+
+out_path = os.path.join(OUTPUT_DIR, f"tsne_multi_{dataset}_{model_size}.png")
 plt.savefig(out_path, dpi=200, bbox_inches='tight')
 plt.show()
 print("Saved to", out_path)
