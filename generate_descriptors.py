@@ -12,7 +12,7 @@ import pathlib
 from torchvision.datasets import ImageFolder
 
 # Set and update the hyperparameters
-hparams, tfms, dataset_loader, dataset_classes, class_subcategories, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size='ViT-B/32', desc_type='gpt4o', dataset='places365', method='clip')
+hparams, _, _, _, _, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='food101', method='clip')
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -22,7 +22,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_api_content(model, category_name: str):
     # you can replace the examples with whatever you want; these were random and worked, could be improved
-    if model.startswith("gpt3.5"):
+    if model.startswith("gpt-3"):
         messages = f"""Q: What are useful visual features for distinguishing a lemur in a photo?
         A: There are several useful visual features to tell there is a lemur in a photo:
         - four-limbed primate
@@ -80,7 +80,7 @@ def partition(lst, size):
     for i in range(0, len(lst), size):
         yield list(itertools.islice(lst, i, i + size))
 
-def obtain_descriptors_and_save(filename, model="gpt-4o"): 
+def obtain_descriptors_and_save(filename, model="gpt-3"): 
     try:
         with open(filename, 'r') as fp:
             descriptors = json.load(fp)  # Load existing data
@@ -88,9 +88,9 @@ def obtain_descriptors_and_save(filename, model="gpt-4o"):
         print(f"File not found: {filename}, creating new file")
         descriptors = {}
 
-    output_filename = filename.replace('.json', '_descriptors.json')
+    output_filename = filename.replace('.json', '_descriptors_test.json')
     
-    dataset = load_json(hparams['class_analysis_fname'])
+    dataset = load_json(hparams['descriptor_fname'].replace('davinci-002', 'gpt-3'))
     class_list = compute_class_list(dataset)
 
     # Generate prompts along with corresponding class names
@@ -103,7 +103,7 @@ def obtain_descriptors_and_save(filename, model="gpt-4o"):
                 try:
                     # Send API request
                     response = client.chat.completions.create(
-                        model=model,
+                        model='davinci-002' if model.startswith("gpt-3") else 'gpt-4',
                         messages=prompt,
                         temperature=0.0,
                         max_tokens=220,
@@ -175,4 +175,4 @@ def check_for_descriptors_at(filename):
     return descriptors
 
 filename = hparams['class_analysis_fname'] + '.json'
-obtain_descriptors_and_save(filename=filename, model="gpt-4o-mini")
+obtain_descriptors_and_save(filename=filename, model="gpt-3")
