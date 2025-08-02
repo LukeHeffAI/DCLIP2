@@ -203,4 +203,3 @@ cython_debug/
 n
 class_analysis/json/versions/class_analysis_*_mcps*.json
 figs/tsne_vis/*
-JUNK_FILE.py
