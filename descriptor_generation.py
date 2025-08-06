@@ -14,7 +14,7 @@ load_dotenv(dotenv_path)
 # # Initialize the OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-hparams, _, _, _, _, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='food101', method='clip')
+hparams, _, _, _, _, gpt_descriptions, unmodify_dict, label_to_classname, n_classes = set_hparams(model_size='ViT-B/32', desc_type='gpt-3', dataset='places365', method='clip')
 filename = hparams['descriptor_fname'] + '.json'
 
 def generate_prompt(class_name: str):
@@ -53,7 +53,7 @@ A: There are several useful visual features to tell there is a {class_name} in a
                 "content": [
                     {
                     "type": "text",
-                    "text": "You will respond in the style of a completion model, completing the prompt by continuing in the style given."
+                    "text": "You will respond in the style of a completion model, completing the prompt by continuing in the style given. Aim to provide only 3 to five words per bullet point, and do not use any punctuation at the end of the bullet points."
                     }
                 ]
                 },
@@ -76,7 +76,7 @@ def partition(lst, size):
         yield list(itertools.islice(lst, i, i + size))
 
 def obtain_descriptors_and_save(filename):
-    responses = {}
+    responses = []
     descriptors = {}
 
     with open(filename, 'r') as f:
@@ -86,29 +86,39 @@ def obtain_descriptors_and_save(filename):
     class_list = compute_class_list(descriptor_data, sort_config=True)
 
     prompts = [generate_prompt(class_name) for class_name in class_list]
+    
+    # Process prompts in batches
+    all_responses = []
+    for prompt_batch in partition(prompts, 20):
+        batch_responses = []
+        for prompt in prompt_batch:
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo-16k",
+                messages=prompt,
+                response_format={"type": "text"},
+                temperature=0,
+                max_tokens=100
+            )
+            batch_responses.append(response)
+        all_responses.extend(batch_responses)
+    
+    # Extract text content from responses correctly
+    response_texts = [response.choices[0].message.content for response in all_responses]
 
-    responses = [ client.chat.completions.create(
-        model="gpt-3.5-turbo-16k",
-        messages=prompt_partition,
-        response_format={
-            "type": "text"
-        },
-        temperature=0,
-        max_tokens=100
-        ) for prompt_partition in partition(prompts, 20) ]
-
-    response_texts = [r["choices"][0]["message"]["content"] for resp in responses for r in resp['choices']]
-    descriptors_list = [stringtolist(response_text) for response_text in response_texts]
-
+    descriptors_list = [stringtolist(response_text.lower()) for response_text in response_texts]
     descriptors = {cat: descr for cat, descr in zip(class_list, descriptors_list)}
 
-    output_filename = f"{filename}_test.json"
+    if len(descriptors.keys()) != len(class_list):
+        print("Warning: The number of descriptors does not match the number of classes.")
+        print(f"Descriptors found: {len(descriptors.keys())}, Classes expected: {len(class_list)}")
+
+    output_filename = f"{filename}".replace(".json", "_test.json")
 
     # save descriptors to json file
     if not output_filename.endswith('.json'):
         output_filename += '.json'
     with open(output_filename, 'w') as fp:
-        json.dump(descriptors, fp)
+        json.dump(descriptors, fp, indent=4)
 
     print(f"Descriptors saved to {output_filename}")
 
