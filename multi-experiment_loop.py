@@ -13,9 +13,19 @@ from time import time
 
 def load_existing_results(file_path):
     try:
-        with open(file_path, 'r') as file:
-            return json.load(file)
-    except FileNotFoundError:
+        # First check if the directory exists, create if not
+        import os
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        
+        # Try to open and load the file
+        try:
+            with open(file_path, 'r') as file:
+                return json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"Warning: Could not load results file ({e}). Creating a new one.")
+            return {}
+    except Exception as e:
+        print(f"Unexpected error loading results: {e}")
         return {}
 
 def save_results(results, file_path):
@@ -24,10 +34,12 @@ def save_results(results, file_path):
 
 def run_experiments():
 
-    model_sizes = ['ViT-B/32', 'ViT-B/16', 'ViT-L/14']
+    model_sizes = ['ViT-B/32', 'ViT-L/14']
     desc_types = ['gpt-3']
-    datasets = ['imagenet', 'cub', 'dtd', 'pets', 'food101', 'place365', 'eurosat']
-    methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    # datasets = ['imagenet', 'cub', 'dtd', 'pets', 'food101', 'place365', 'eurosat']
+    datasets = ['imagenetv2']
+    # methods = ['clip', 'e-clip', 'd-clip', 'waffleclip', 'waffleclip+concepts', 'defntaxs', 'defntaxs+descriptors', 'defntaxs_tax_descriptor', 'defntaxs_sans_descriptor']
+    methods = ['defntaxs']
     # methods = ['waffleclip', 'waffleclip+concepts']
 
     print(f"Running a maximum of {len(model_sizes) * len(desc_types) * len(datasets) * len(methods)} experiments.")
@@ -39,7 +51,7 @@ def run_experiments():
     # methods = ['d-clip']
     
     # Path to the results file
-    results_file_path = 'results/NEW_all_backbone_method_dataset_experiment_results.json'
+    results_file_path = 'results/NEW_all_backbone_method_dataset_experiment_results_test.json'
     
     # Load existing results
     all_results = load_existing_results(results_file_path)
@@ -108,7 +120,7 @@ def run_single_experiment(hparams, tfms, dataset_loader, dataset_classes, gpt_de
 
     # Prepare the data loader
     bs = hparams['batch_size']
-    dataloader = DataLoader(dataset_loader, bs, shuffle=False, num_workers=16, pin_memory=True)
+    dataloader = DataLoader(dataset_loader, bs, shuffle=False, num_workers=5, pin_memory=True)
 
     # Load the model and preprocessing
     print("Loading model...")

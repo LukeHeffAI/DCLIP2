@@ -16,9 +16,9 @@ hparams, _, _, _, _, gpt_descriptions, unmodify_dict, label_to_classname, n_clas
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# openai.api_key = os.getenv("OPENAI_API_KEY")
 # # Initialize the OpenAI client
-# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_api_content(model, category_name: str):
     # you can replace the examples with whatever you want; these were random and worked, could be improved

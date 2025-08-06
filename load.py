@@ -106,7 +106,8 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = dsclass(location=str(hparams['data_dir']), transform=tfms)
         classes_to_load = openai_imagenet_classes
         hparams['descriptor_fname'] = 'descriptors_imagenet'
-        hparams['before_subcategory'] = ', which is a type of '
+        # hparams['before_subcategory'] = ', often categorized as a type of '
+        hparams['before_subcategory'] = '; a class of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a large-scale image dataset with diverse categories for visual object recognition.'
 
     elif hparams['dataset'] == 'cub':
@@ -167,7 +168,7 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = Places365(hparams['data_dir'], split='val', small=True, download=False, transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_places365'
         classes_to_load = None
-        hparams['before_subcategory'] = ', which is a type of place for '
+        hparams['before_subcategory'] = '; in the category of '
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing diverse scene images for environmental classification tasks.'
         
     elif hparams['dataset'] == 'food101':
@@ -179,7 +180,7 @@ def set_hparams(model_size, desc_type, dataset, method):
         dataset_loader = dsclass(str(hparams['data_dir'] / 'images'), transform=tfms)
         hparams['descriptor_fname'] = 'descriptors_food101'
         classes_to_load = None
-        hparams['before_subcategory'] = ', which would be found on a menu under '
+        hparams['before_subcategory'] = ', found on a menu under '
         hparams['after_text'] = hparams['label_after_text'] = f', from a dataset containing 101 food categories.'
 
     elif hparams['dataset'] == 'pets':
